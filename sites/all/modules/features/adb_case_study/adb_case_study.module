@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ADB Case Study feature.
+ */
+
+include_once 'adb_case_study.features.inc';
