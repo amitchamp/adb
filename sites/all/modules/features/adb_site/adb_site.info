@@ -3,6 +3,7 @@ description = Contains settings, dependencies of modules used in this site
 core = 7.x
 package = ADB
 version = 7.x-1.0
+dependencies[] = adb_case_study
 dependencies[] = admin_menu
 dependencies[] = admin_menu_toolbar
 dependencies[] = block
