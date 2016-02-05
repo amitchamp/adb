@@ -152,29 +152,29 @@ function adb_case_study_field_default_field_instances() {
         'rows' => 2,
       ),
       'type' => 'text_textarea',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_cost-field_primary_cost_'.
-  $field_instances['field_collection_item-field_cost-field_primary_cost_'] = array(
+  // 'field_collection_item-field_cost-field_primary_cost'.
+  $field_instances['field_collection_item-field_cost-field_primary_cost'] = array(
     'bundle' => 'field_cost',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Main cost',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_primary_cost_',
-    'label' => 'Primary cost ',
+    'field_name' => 'field_primary_cost',
+    'label' => 'Primary cost',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -187,7 +187,7 @@ function adb_case_study_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 0,
     ),
   );
 
@@ -222,7 +222,7 @@ function adb_case_study_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -1301,9 +1301,8 @@ function adb_case_study_field_default_field_instances() {
   t('Institution and stakeholders');
   t('Institution category');
   t('Lessons');
-  t('Main cost');
   t('Meet our knowledge contributor');
-  t('Primary cost ');
+  t('Primary cost');
   t('Project snapshot');
   t('Secondary cost');
   t('Solutions');

@@ -381,13 +381,13 @@ function adb_case_study_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_primary_cost_'.
-  $field_bases['field_primary_cost_'] = array(
+  // Exported field_base: 'field_primary_cost'.
+  $field_bases['field_primary_cost'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_primary_cost_',
+    'field_name' => 'field_primary_cost',
     'indexes' => array(
       'format' => array(
         0 => 'format',
