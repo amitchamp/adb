@@ -20,6 +20,7 @@ dependencies[] = date_repeat
 dependencies[] = date_repeat_field
 dependencies[] = date_tools
 dependencies[] = date_views
+dependencies[] = ds
 dependencies[] = entity
 dependencies[] = entity_token
 dependencies[] = entityreference
