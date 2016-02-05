@@ -49,7 +49,7 @@ function adb_case_study_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_case_study';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['comment_preview_case_study'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -68,7 +68,7 @@ function adb_case_study_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
       ),
       'display' => array(),
