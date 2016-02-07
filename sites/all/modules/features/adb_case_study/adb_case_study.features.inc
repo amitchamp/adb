@@ -29,6 +29,14 @@ function adb_case_study_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'knowledge_contributor' => array(
+      'name' => t('Knowledge contributor'),
+      'base' => 'node_content',
+      'description' => t('Content relate to contributor'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
   );
   drupal_alter('node_info', $items);
   return $items;
