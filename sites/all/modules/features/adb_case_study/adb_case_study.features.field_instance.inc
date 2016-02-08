@@ -994,8 +994,8 @@ function adb_case_study_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-case_study-field_impact_summury'.
-  $field_instances['node-case_study-field_impact_summury'] = array(
+  // Exported field_instance: 'node-case_study-field_impact_summary'.
+  $field_instances['node-case_study-field_impact_summary'] = array(
     'bundle' => 'case_study',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1016,11 +1016,11 @@ function adb_case_study_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_impact_summury',
-    'label' => 'Impact summury',
+    'field_name' => 'field_impact_summary',
+    'label' => 'Impact summary',
     'required' => 0,
     'settings' => array(
-      'display_summary' => 0,
+      'display_summary' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -1439,7 +1439,7 @@ function adb_case_study_field_default_field_instances() {
   t('Description');
   t('Download file');
   t('Impact');
-  t('Impact summury');
+  t('Impact summary');
   t('Institution and stakeholders');
   t('Institution category');
   t('Lessons');

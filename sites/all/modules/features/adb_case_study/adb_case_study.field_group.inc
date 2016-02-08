@@ -116,7 +116,7 @@ function adb_case_study_field_group_info() {
     'weight' => '15',
     'children' => array(
       0 => 'field_impact',
-      1 => 'field_impact_summury',
+      1 => 'field_impact_summary',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

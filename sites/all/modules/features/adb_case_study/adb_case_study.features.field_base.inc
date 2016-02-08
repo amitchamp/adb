@@ -297,13 +297,13 @@ function adb_case_study_field_default_field_bases() {
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_impact_summury'.
-  $field_bases['field_impact_summury'] = array(
+  // Exported field_base: 'field_impact_summary'.
+  $field_bases['field_impact_summary'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_impact_summury',
+    'field_name' => 'field_impact_summary',
     'indexes' => array(
       'format' => array(
         0 => 'format',
