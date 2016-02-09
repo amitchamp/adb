@@ -31,7 +31,7 @@ function adb_case_study_block_info() {
  */
 function adb_case_study_block_view($delta = '') {
   $block = array();
-  switch($delta) {
+  switch ($delta) {
     case 'subsection_menu':
       $block['subject'] = '';
       $block['content'] = _adb_case_study_block_sub_sction_menu_content();
@@ -53,31 +53,31 @@ function _adb_case_study_block_sub_sction_menu_content() {
     // Create link for sub section menu and combine for continue reading.
     $linklist = array(
       'overview' => array(
-        'title' => 'Overview',
+        'title' => t('Overview'),
         'href' => 'node/' . $current_node
       ),
       'context' => array(
-        'title' => 'Challenges',
+        'title' => t('Challenges'),
         'href' => 'challenges/' . $current_node
       ),
       'challenges' => array(
-        'title' => 'Lessons',
+        'title' => t('Lessons'),
         'href' => 'lessons/' . $current_node
       ),
       'solutions' => array(
-        'title' => 'Solutions',
+        'title' => t('Solutions'),
         'href' => 'solutions/' . $current_node
       ),
       'impact' => array(
-        'title' => 'Impact',
+        'title' => t('Impact'),
         'href' => 'impact/' . $current_node
       ),
       'lessions' => array(
-        'title' => 'Lessions',
+        'title' => t('Lessions'),
         'href' => 'lessions' . $current_node
       ),
       'lessions' => array(
-        'title' => 'Additional resources',
+        'title' => t('Additional resources'),
         'href' => 'resources/' . $current_node
       )
     );
