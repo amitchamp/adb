@@ -20,3 +20,59 @@ function adb_global_functions_preprocess_views_view(&$variables) {
       break;
   }
 }
+
+/**
+ * Implements hook_block_info().
+ */
+function adb_global_functions_block_info() {
+  $blocks['adb_profile_access'] = array(
+    'info' => t('Profile access'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function adb_global_functions_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'adb_profile_access':
+      module_load_include('inc', 'adb_global_functions', 'includes/adb_global_functions.blocks');
+      $block['content'] = array(
+        '#markup' => adb_global_functions_profile_access_markup(),
+        '#attached' => array(
+          'js' => array(
+            drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js',
+          ),
+          'css' => array(
+            drupal_get_path('module', 'adb_global_functions') . '/css/adb_global_functions.css',
+          ),
+        ),
+      );
+
+      break;
+
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function adb_global_functions_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+  $form['#submit'][] = 'adb_global_functions_search_form_redirect';
+}
+
+/**
+ * Submit handler for search block form.
+ */
+function adb_global_functions_search_form_redirect($form, &$form_state) {
+  // Stay where you are if you perform empty search.
+  if (empty($form_state['values']['search_block_form'])) {
+    $form_state['redirect'] = current_path();
+  }
+}
