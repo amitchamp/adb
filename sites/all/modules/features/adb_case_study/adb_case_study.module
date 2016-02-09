@@ -84,17 +84,78 @@ function _adb_case_study_block_sub_sction_menu_content() {
     );
   }
 
-// Can add more classes.
+  return _get_theme_list_content($linklist);
+}
+
+//taxonomy/term/tid
+function adb_case_study_preprocess_node(&$variables) {
+  global $baseUrl;
+  if ($variables['type'] == 'case_study') {
+    $unix_time_stamp = explode(' ', $variables['field_date'][0]['value']);
+
+    // Case study date field value.
+    $variables['node_field_date'] = gmdate('j F Y', strtotime($unix_time_stamp[0]));
+    $node_vocab_field = array(
+      'field_tags',
+      'field_topic',
+      'field_countries'
+    );
+    // Case Study Tagging in landing page.
+    $variables['node_field_tagging'] = make_term_tagging($node_vocab_field, $variables);
+    // Banner image content.
+    $variables['banner_image'] = theme('image_style', array(
+      'style_name' => 'node_banner_image',
+      'path' => $variables['field_banner_image'][0]['uri']
+      )
+    );
+    // Download Link for node page
+    $variables['download_link'] = l(t('Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array('attributes' => array('target' => '_blank')));
+    // Print Node page.
+    $variables['print_node'] = l(t('Print'), $baseUrl . 'print/node/' . $variables['nid']);
+
+    // Social share icon list.
+    $variables['social_share'] = l(t('Social Share'), $baseUrl . 'print/node/' . $variables['nid']);
+    // Body content.
+    $variables['body'] = $variables['body'][0]['value'];
+  }
+}
+
+/**
+ * 
+ *  @param type $field_name machine name of field
+ *  @param type $taxonomy_refernce_term variable array
+ *  @return string
+ */
+function make_term_tagging($field_name, $taxonomy_refernce_term) {
+  foreach ($field_name as $name) {
+    $term_name = $taxonomy_refernce_term[$name];
+    foreach ($term_name as $value) {
+      $linklist[$value['taxonomy_term']->name] = array(
+        'title' => t($value['taxonomy_term']->name),
+        'href' => 'search/' . $value['taxonomy_term']->name
+      );
+    }
+  }
+
+  return _get_theme_list_content($linklist);
+}
+
+/**
+ * 
+ * @param type $itemlist list of $key and $value of link
+ * @return string
+ */
+function _get_theme_list_content($itemlist) {
+  $heading = array(
+    'text' => t('List'),
+    'level' => 'h4',
+    'class' => 'menu-categories-title'
+  );
   $attributes = array(
     'class' => 'menu-categories'
   );
-  $heading = array(
-    'text' => t('Sections'),
-    'level' => 'h2',
-    'class' => 'menu-categories-title'
-  );
   return theme_links(array(
-    'links' => $linklist,
+    'links' => $itemlist,
     'attributes' => $attributes,
     'heading' => $heading
     )
