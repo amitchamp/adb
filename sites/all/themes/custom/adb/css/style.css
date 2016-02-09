@@ -1,0 +1,128 @@
+/*
+** base.
+*/
+/*
+** site using fonts 
+*/
+@font-face {
+  font-family: "FontAwesome";
+  src: url('../fonts/FontAwesome.otf');
+  src: url('../fonts/fontawesome-webfont.eot');
+  src: url('../fonts/fontawesome-webfont.woff');
+  src: url('../fonts/fontawesome-webfont.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Light";
+  font-weight: 300;
+  font-style: normal;
+  src: url('../fonts/Roboto-Light.otf');
+  src: url('../fonts/Roboto-Light.eot');
+  src: url('../fonts/Roboto-Light.woff');
+  src: url('../fonts/Roboto-Light.ttf');
+}
+@font-face {
+  font-family: "Roboto Bold";
+  src: url('../fonts/Roboto-Bold.otf');
+  src: url('../fonts/Roboto-Bold.eot');
+  src: url('../fonts/Roboto-Bold.woff');
+  src: url('../fonts/Roboto-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto BoldItalic";
+  src: url('../fonts/Roboto-BoldItalic.woff');
+  src: url('../fonts/Roboto-BoldItalic.ttf');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Roboto Black";
+  src: url('../fonts/Roboto-Black.otf');
+  src: url('../fonts/Roboto-Black.eot');
+  src: url('../fonts/Roboto-Black.woff');
+  src: url('../fonts/Roboto-Black.ttf');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Regular";
+  src: url('../fonts/Roboto-Regular.otf');
+  src: url('../fonts/Roboto-Regular.eot');
+  src: url('../fonts/Roboto-Regular.woff');
+  src: url('../fonts/Roboto-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Medium";
+  src: url('../fonts/Roboto-Medium.otf');
+  src: url('../fonts/Roboto-Medium.eot');
+  src: url('../fonts/Roboto-Medium.woff');
+  src: url('../fonts/Roboto-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PTserif Regular";
+  src: url('../fonts/PT_Serif-Web-Regular.otf');
+  src: url('../fonts/PT_Serif-Web-Regular.eot');
+  src: url('../fonts/PT_Serif-Web-Regular.woff');
+  src: url('../fonts/PT_Serif-Web-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Italic";
+  src: url('../fonts/Roboto-Italic.otf');
+  src: url('../fonts/Roboto-Italic.eot');
+  src: url('../fonts/Roboto-Italic.woff');
+  src: url('../fonts/Roboto-Italic.ttf');
+  src: url('../fonts/Roboto-Italic.svg');
+  font-weight: 400;
+  font-style: italic;
+}
+/*
+** Utilities.
+*/
+/*
+** Helpers (Placeholders)
+*/
+/**
+ * Variables for all patial files.
+**/
+/*
+**  Layout Specific.
+*/
+/*
+ ** Base layout of site.
+ ** Generally, It will inclue the width of the regions and their placement.
+ */
+/*
+** Component.
+*/
+/*
+** Style for Header Components
+*/
+/*
+** style for Footer.
+*/
+/*
+** style for Content
+*/
+/*
+** Pages.
+*/
+/*
+ ** style for case study page only.
+ */
+/*
+ ** Style for Homepage only.
+ */
+/*
+ ** style for Q&A page only.
+ */
+
+/*# sourceMappingURL=style.css.map */

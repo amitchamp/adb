@@ -1,0 +1,94 @@
+/*
+** site using fonts 
+*/
+
+@font-face {
+  font-family: "FontAwesome";
+  src: font-url("FontAwesome.otf");
+  src: font-url("fontawesome-webfont.eot");
+  src: font-url("fontawesome-webfont.woff");
+  src: font-url("fontawesome-webfont.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto Light";
+  font-weight: 300;
+  font-style: normal; 
+  src: font-url("Roboto-Light.otf");
+  src: font-url("Roboto-Light.eot");
+  src: font-url("Roboto-Light.woff");
+  src: font-url("Roboto-Light.ttf");
+}
+
+@font-face {
+  font-family: "Roboto Bold";
+  src: font-url("Roboto-Bold.otf");
+  src: font-url("Roboto-Bold.eot");
+  src: font-url("Roboto-Bold.woff");
+  src: font-url("Roboto-Bold.ttf");
+  font-weight: 700;
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: "Roboto BoldItalic";
+  //src: font-url("Roboto-BoldItalic.otf");
+  //src: font-url("Roboto-BoldItalic.eot");
+  src: font-url("Roboto-BoldItalic.woff");
+  src: font-url("Roboto-BoldItalic.ttf");
+  font-weight: 700;
+  font-style: italic; 
+}
+
+@font-face {
+  font-family: "Roboto Black";
+  src: font-url("Roboto-Black.otf");
+  src: font-url("Roboto-Black.eot");
+  src: font-url("Roboto-Black.woff");
+  src: font-url("Roboto-Black.ttf");
+  font-weight: 900;
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: "Roboto Regular";
+  src: font-url("Roboto-Regular.otf");
+  src: font-url("Roboto-Regular.eot");
+  src: font-url("Roboto-Regular.woff");
+  src: font-url("Roboto-Regular.ttf");
+  font-weight: 400;
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: "Roboto Medium";
+  src: font-url("Roboto-Medium.otf");
+  src: font-url("Roboto-Medium.eot");
+  src: font-url("Roboto-Medium.woff");
+  src: font-url("Roboto-Medium.ttf");
+  font-weight: 500;
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: "PTserif Regular";
+  src: font-url("PT_Serif-Web-Regular.otf")/*A*/;
+  src: font-url("PT_Serif-Web-Regular.eot")/*B*/;
+  src: font-url("PT_Serif-Web-Regular.woff")/*C*/;
+  src: font-url("PT_Serif-Web-Regular.ttf")/*D*/;
+  font-weight: 400;
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: "Roboto Italic";
+  src: font-url("Roboto-Italic.otf");
+  src: font-url("Roboto-Italic.eot");
+  src: font-url("Roboto-Italic.woff");
+  src: font-url("Roboto-Italic.ttf");
+  src: font-url("Roboto-Italic.svg");
+  font-weight: 400;
+  font-style: italic; 
+}

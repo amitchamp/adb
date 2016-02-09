@@ -1,0 +1,51 @@
+/*
+** Helpers (Placeholders)
+*/
+
+%responsive-images {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+%hide {
+  display: none;
+}
+
+%flex-row {
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+%nowrap {
+  -webkit-flex-wrap: nowrap;
+  -moz-box-wrap: nowrap;
+  -ms-flexbox-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+
+%wrap {
+  -webkit-flex-wrap: wrap;
+  -moz-box-wrap: wrap;
+  -ms-flexbox-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+%wrap-reverse {
+  -webkit-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+  -moz-box-wrap: wrap-reverse;
+  -ms-flexbox-wrap: wrap-reverse;
+}
+
+%inline-flex {
+  display: inline-flex;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flex;
+}
