@@ -1,7 +1,22 @@
 <?php
+
 /**
  * @file
  * Code for the Global functions feature.
  */
 
 include_once 'adb_global_functions.features.inc';
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function adb_global_functions_preprocess_views_view(&$variables) {
+  switch ($variables['view']->name) {
+    case 'views_topics_menu':
+    case 'views_countries_menu':
+      $variables['theme_hook_suggestions'][] = 'views_view_adb_menu';
+      drupal_add_js(drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js');
+
+      break;
+  }
+}
