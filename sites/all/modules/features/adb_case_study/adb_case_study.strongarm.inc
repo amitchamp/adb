@@ -142,7 +142,7 @@ function adb_case_study_strongarm() {
       'display' => array(
         'sharethis' => array(
           'default' => array(
-            'weight' => '12',
+            'weight' => '13',
             'visible' => TRUE,
           ),
         ),

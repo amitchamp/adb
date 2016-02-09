@@ -21,7 +21,7 @@ function adb_case_study_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Case study sub-sections',
-    'weight' => '8',
+    'weight' => '9',
     'children' => array(
       0 => 'field_context',
       1 => 'field_challenges',
@@ -170,7 +170,7 @@ function adb_case_study_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Project snapshot',
-    'weight' => '7',
+    'weight' => '8',
     'children' => array(
       0 => 'field_project_snapshot',
       1 => 'group_cost',

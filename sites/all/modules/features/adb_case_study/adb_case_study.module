@@ -1,7 +1,102 @@
 <?php
+
 /**
  * @file
  * Code for the ADB Case Study feature.
  */
-
 include_once 'adb_case_study.features.inc';
+
+
+/**
+ * Custom module responsible for various specific customizations on
+ * menu showing on node case study for subsections.
+ *
+ * @author Shamsher alam <alam.shamsher@srijan.in>
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function adb_case_study_block_info() {
+  $blocks = array();
+  $blocks['subsection_menu'] = array(
+    'info' => t('Sub Section Menu'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function adb_case_study_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'subsection_menu':
+      $block['subject'] = '';
+      $block['content'] = _adb_case_study_block_sub_sction_menu_content();
+      break;
+  }
+  return $block;
+}
+
+/**
+ *  Define menu link for custom section on case study.
+ * 
+ *  @return string
+ */
+function _adb_case_study_block_sub_sction_menu_content() {
+  // Get current path and get node ID.
+  $current_path = explode('/', current_path());
+  $current_node = $current_path[1];
+  if (isset($current_node) && is_numeric($current_node)) {
+
+    // Create link for sub section menu and combine for continue reading.
+    $linklist = array(
+      'overview' => array(
+        'title' => t('Overview'),
+        'href' => 'node/' . $current_node
+      ),
+      'context' => array(
+        'title' => t('Challenges'),
+        'href' => 'challenges/' . $current_node
+      ),
+      'challenges' => array(
+        'title' => t('Lessons'),
+        'href' => 'lessons/' . $current_node
+      ),
+      'solutions' => array(
+        'title' => t('Solutions'),
+        'href' => 'solutions/' . $current_node
+      ),
+      'impact' => array(
+        'title' => t('Impact'),
+        'href' => 'impact/' . $current_node
+      ),
+      'lessions' => array(
+        'title' => t('Lessions'),
+        'href' => 'lessions' . $current_node
+      ),
+      'lessions' => array(
+        'title' => t('Additional resources'),
+        'href' => 'resources/' . $current_node
+      )
+    );
+  }
+
+// Can add more classes.
+  $attributes = array(
+    'class' => 'menu-categories'
+  );
+  $heading = array(
+    'text' => t('Sections'),
+    'level' => 'h2',
+    'class' => 'menu-categories-title'
+  );
+  return theme_links(array(
+    'links' => $linklist,
+    'attributes' => $attributes,
+    'heading' => $heading
+    )
+  );
+}
