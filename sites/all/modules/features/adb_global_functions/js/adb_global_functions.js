@@ -5,6 +5,7 @@
 
       closeMenu();
       closeOtherMenus();
+      toggleProfileAccess();
 
       // Closes menu when clicked on 'Close' inside menu.
       function closeMenu() {
@@ -28,6 +29,15 @@
               }
             });
           }
+        });
+      }
+
+      /**
+       * Toggle profile access options.
+       */
+      function toggleProfileAccess() {
+        $('.profile-access-toggle').click(function() {
+          $('.profile-access-toggle-wrapper').slideToggle('fast');
         });
       }
     }
