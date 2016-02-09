@@ -43,7 +43,7 @@ function adb_case_study_block_view($delta = '') {
 /**
  *  Define menu link for custom section on case study.
  * 
- *  @return sting
+ *  @return string
  */
 function _adb_case_study_block_sub_sction_menu_content() {
   // Get current path and get node ID.
