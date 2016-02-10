@@ -1,0 +1,29 @@
+/**
+ ** Base layout of site.
+ */
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: rgba(252, 252, 252, 1);
+	width: 100%;
+	font-size: 16px;
+	color: $text;
+	font-family: $opensans-regular;
+}
+a {
+	color: $link;
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+}
+p {
+	color: $text;
+}

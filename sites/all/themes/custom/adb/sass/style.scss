@@ -4,12 +4,6 @@
 @import 'compass/utilities/sprites';           // See http://compass-style.org/help/tutorials/spriting/
 @import 'compass/css3';
 @import "compass";
-/*
-** base.
-*/
-
-@import "base/base";
-@import "base/font";
 
 
 /*
@@ -19,6 +13,14 @@
 @import "utilities/placeholder";
 @import "utilities/mixins";
 @import "utilities/var";
+
+
+/*
+** base.
+*/
+
+@import "base/base";
+@import "base/font";
 
 /*
 **  Layout Specific.
@@ -30,6 +32,7 @@
 ** Component.
 */
 
+@import "component/commonClass.scss";
 @import "component/header";
 @import "component/footer";
 @import "component/sidebar";
