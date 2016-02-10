@@ -91,17 +91,17 @@ function _adb_case_study_block_sub_sction_menu_content() {
 function adb_case_study_preprocess_node(&$variables) {
   global $baseUrl;
   if ($variables['type'] == 'case_study') {
-    $unix_time_stamp = explode(' ', $variables['field_date'][0]['value']);
+
 
     // Case study date field value.
-    $variables['node_field_date'] = gmdate('j F Y', strtotime($unix_time_stamp[0]));
+    $variables['node_field_date'] = _get_date_formatted_value('j F Y', $variables['field_date'][0]['value']);
     $node_vocab_field = array(
       'field_tags',
       'field_topic',
       'field_countries'
     );
     // Case Study Tagging in landing page.
-    $variables['node_field_tagging'] = make_term_tagging($node_vocab_field, $variables);
+    $variables['node_field_tagging'] = _make_term_tagging($node_vocab_field, $variables);
     // Banner image content.
     $variables['banner_image'] = theme('image_style', array(
       'style_name' => 'node_banner_image',
@@ -112,11 +112,24 @@ function adb_case_study_preprocess_node(&$variables) {
     $variables['download_link'] = l(t('Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array('attributes' => array('target' => '_blank')));
     // Print Node page.
     $variables['print_node'] = l(t('Print'), $baseUrl . 'print/node/' . $variables['nid']);
-
     // Social share icon list.
-    $variables['social_share'] = l(t('Social Share'), $baseUrl . 'print/node/' . $variables['nid']);
+    $variables['social_share'] = sharethis_block_contents();
     // Body content.
     $variables['body'] = $variables['body'][0]['value'];
+
+    // Project Snapshot content.
+    foreach ($variables['field_project_snapshot'] as $value) {
+      $entity_ids[] = $value;
+    }
+    $project_snapshot = entity_load('field_collection_item', $entity_ids);
+    $output = '';
+    $output.='<div class="project-snapshot"><span class="label-dates">Dates</span>';
+    foreach ($project_snapshot as $value) {
+      $output.='<div class="project-year">' . _get_date_formatted_value('Y', $value->field_date[LANGUAGE_NONE][0]['value']);
+      $output.='<div class="description">' . $value->field_description[LANGUAGE_NONE][0]['value'] . '</div></div>';
+    }
+    $output.='</div>';
+    $variables['project_snapshot'] = $output;
   }
 }
 
@@ -126,7 +139,7 @@ function adb_case_study_preprocess_node(&$variables) {
  *  @param type $taxonomy_refernce_term variable array
  *  @return string
  */
-function make_term_tagging($field_name, $taxonomy_refernce_term) {
+function _make_term_tagging($field_name, $taxonomy_refernce_term) {
   foreach ($field_name as $name) {
     $term_name = $taxonomy_refernce_term[$name];
     foreach ($term_name as $value) {
@@ -160,4 +173,15 @@ function _get_theme_list_content($itemlist) {
     'heading' => $heading
     )
   );
+}
+
+/**
+ * 
+ * @param type $format is format of date
+ * @param type $date_time give string value of date and time
+ * @return string
+ */
+function _get_date_formatted_value($format, $date_time) {
+  $unix_time_stamp = explode(' ', $date_time);
+  return gmdate($format, strtotime($unix_time_stamp[0]));
 }
