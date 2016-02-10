@@ -21,6 +21,12 @@ function adb_global_functions_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
+      'adb' => array(
+        'region' => 'header',
+        'status' => 1,
+        'theme' => 'adb',
+        'weight' => 0,
+      ),
       'bartik' => array(
         'region' => 'header',
         'status' => 1,
