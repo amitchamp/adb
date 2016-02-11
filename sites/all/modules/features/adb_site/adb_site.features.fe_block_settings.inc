@@ -21,6 +21,12 @@ function adb_site_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
+      'adb' => array(
+        'region' => 'header',
+        'status' => 1,
+        'theme' => 'adb',
+        'weight' => -1,
+      ),
       'bartik' => array(
         'region' => 'header',
         'status' => 1,
@@ -47,6 +53,12 @@ function adb_site_default_fe_block_settings() {
     'pages' => '',
     'roles' => array(),
     'themes' => array(
+      'adb' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'adb',
+        'weight' => 0,
+      ),
       'bartik' => array(
         'region' => 'sidebar_first',
         'status' => 1,

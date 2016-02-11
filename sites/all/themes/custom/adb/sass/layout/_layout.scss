@@ -3,3 +3,10 @@
  ** Generally, It will inclue the width of the regions and their placement.
  */
 
+.page-wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+header {
+	@extend .full-width;
+}

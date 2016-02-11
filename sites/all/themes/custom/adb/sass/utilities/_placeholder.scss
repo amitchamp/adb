@@ -2,6 +2,19 @@
 ** Helpers (Placeholders)
 */
 
+%inline-menu {
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      float: left;
+      &:first-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
 %responsive-images {
   width: 100%;
   max-width: 100%;
