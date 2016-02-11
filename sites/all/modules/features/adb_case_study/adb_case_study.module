@@ -257,8 +257,8 @@ function adb_case_study_preprocess_node(&$variables) {
 }
 
 /**
- *  Get all taxonomy type fild and make one single tagging list in content like country,topic 
- *  and countries
+ *  Get all taxonomy type field and make one single tagging list in content like country,topic 
+ *  and countries.
  *  @param array $field_name machine name of field
  *  @param array of taxonomy $taxonomy_refernce_term variable array
  *  @return string
@@ -299,13 +299,13 @@ function adb_case_study_get_theme_list_content($itemlist) {
         'links' => $itemlist,
         'attributes' => $attributes,
         'heading' => $heading,
-      )
-  );
+        )
+      );
   return $theme_link_list;
 }
 
 /**
- *  Get value of date and format and it will return exact format of date with given format 
+ *  Get value of date with format and it will return exact format of date with given format 
  *  option.
  * @param string $format is format of date
  * @param sting $date_time give string value of date and time
