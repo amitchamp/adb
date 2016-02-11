@@ -107,7 +107,7 @@ function adb_case_study_preprocess_node(&$variables) {
   // Type of node check.
   if ($variables['type'] == 'case_study') {
 
-    // Get undefience language code from variable.
+    // Get undefined language code from variable.
     $und = $variables['language'];
 
     // Get field_institution_category list value lable name.
