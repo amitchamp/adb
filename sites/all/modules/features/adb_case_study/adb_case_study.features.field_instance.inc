@@ -174,7 +174,7 @@ function adb_case_study_field_default_field_instances() {
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_cost_data_description',
-    'label' => 'Cost  data description',
+    'label' => 'Cost data description',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -710,13 +710,14 @@ function adb_case_study_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'body',
     'label' => 'Body',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
+      'display_summary' => 0,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
@@ -1604,8 +1605,8 @@ function adb_case_study_field_default_field_instances() {
   t('Context');
   t('Contributor image');
   t('Cost');
-  t('Cost  data description');
   t('Cost breakup');
+  t('Cost data description');
   t('Cost description');
   t('Countries');
   t('Date');
