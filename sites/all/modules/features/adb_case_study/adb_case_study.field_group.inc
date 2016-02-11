@@ -189,6 +189,35 @@ function adb_case_study_field_group_info() {
   );
   $field_groups['group_project_snapshot|node|case_study|form'] = $field_group;
 
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_stakeholder|field_collection_item|field_institution_stakeholder|form';
+  $field_group->group_name = 'group_stakeholder';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_institution_stakeholder';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Institution and stakeholders',
+    'weight' => '0',
+    'children' => array(
+      0 => 'field_institution_category',
+      1 => 'field_institution_detail',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-stakeholder field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_stakeholder|field_collection_item|field_institution_stakeholder|form'] = $field_group;
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Case study sub-sections');

@@ -128,8 +128,8 @@ function adb_case_study_preprocess_node(&$variables) {
     // Banner image content.
     $variables['banner_image'] = theme('image_style', array(
       'style_name' => 'node_banner_image',
-      'path' => $variables['field_banner_image'][0]['uri'],
-        )
+      'path' => $variables['field_banner_image'][0]['uri']
+      )
     );
 
     // Download Link for node page.
@@ -191,7 +191,7 @@ function adb_case_study_preprocess_node(&$variables) {
     foreach ($institute_stake as $stake_value) {
       // Get Institute Category name label.
       $institue_output.='<div class="institue-stakeholder-cateogry"><h4>' .
-          $institute_category_value[$stake_value->field_institution_category[$und][0]['value']] . '</h4>';
+        $institute_category_value[$stake_value->field_institution_category[$und][0]['value']] . '</h4>';
       foreach ($stake_value->field_institution_detail as $detail_id) {
         foreach ($detail_id as $key => $data) {
           // In Institutions and stakeholder section we have field collection under field 
@@ -203,19 +203,19 @@ function adb_case_study_preprocess_node(&$variables) {
             // Getting link and url and make its anchor content.
             if (isset($field_value->field_value['und'][0]['value']) && isset($field_value->field_link['und'][0]['url'])) {
               $institue_output.='<div class="detail-title">' .
-                  l($field_value->field_value['und'][0]['value'], $field_value->field_link['und'][0]['url'], array(
-                    'attributes' =>
-                    array(
-                      'target' => 'blank',
-                      'class' => 'cateogry-link'
-                    ))
-                  ) . '</div>';
+                l($field_value->field_value['und'][0]['value'], $field_value->field_link['und'][0]['url'], array(
+                  'attributes' =>
+                  array(
+                    'target' => 'blank',
+                    'class' => 'cateogry-link'
+                  ))
+                ) . '</div>';
             }
             // If not url is put in field so field content visible simple label field.
             else {
               $institue_output.='<div class="detail-title">' .
-                  $field_value->field_value['und'][0]['value'] .
-                  '</div>';
+                $field_value->field_value['und'][0]['value'] .
+                '</div>';
             }
             $institue_output.='</div>';
           }
@@ -236,10 +236,10 @@ function adb_case_study_preprocess_node(&$variables) {
     foreach ($variables['field_meet_contributor'] as $contributor) {
       if (isset($contributor['entity']->field_contributor_image[$und][0]['uri'])) {
         $contributor_output.='<div class="contributor-image">' . theme('image_style', array(
-              'style_name' => 'contributor_profile',
-              'path' => $contributor['entity']->field_contributor_image[$und][0]['uri']
-                )
-            ) . '</div>';
+            'style_name' => 'contributor_profile',
+            'path' => $contributor['entity']->field_contributor_image[$und][0]['uri']
+            )
+          ) . '</div>';
       }
       $contributor_output.='<div class="about-contributor">';
       if (isset($contributor['entity']->title)) {
@@ -292,15 +292,11 @@ function adb_case_study_get_theme_list_content($itemlist) {
     'class' => 'menu-categories'
   );
 
-  $theme_link_list = theme_links
-      (
-      array
-        (
-        'links' => $itemlist,
-        'attributes' => $attributes,
-        'heading' => $heading,
-        )
-      );
+  $theme_link_list = theme_links(array(
+    'links' => $itemlist,
+    'attributes' => $attributes,
+    'heading' => $heading,
+  ));
   return $theme_link_list;
 }
 
