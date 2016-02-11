@@ -20,27 +20,27 @@ include_once 'adb_case_study.features.inc';
  * Implements hook_block_info().
  */
 function adb_case_study_block_info() {
-	$blocks = array();
-	$blocks['subsection_menu'] = array(
-		'info' => t('Sub Section Menu'),
-	);
+  $blocks = array();
+  $blocks['subsection_menu'] = array(
+    'info' => t('Sub Section Menu'),
+  );
 
-	return $blocks;
+  return $blocks;
 }
 
 /**
  * Implements hook_block_view().
  */
 function adb_case_study_block_view($delta = '') {
-	$block = array();
-	switch ($delta) {
-		case 'subsection_menu':
-			$block['subject'] = '';
-			// Function call for getting render content of list. 
-			$block['content'] = _adb_case_study_block_sub_sction_menu_content();
-			break;
-	}
-	return $block;
+  $block = array();
+  switch ($delta) {
+    case 'subsection_menu':
+      $block['subject'] = '';
+      // Function call for getting render content of list. 
+      $block['content'] = _adb_case_study_block_sub_sction_menu_content();
+      break;
+  }
+  return $block;
 }
 
 /**
@@ -49,46 +49,46 @@ function adb_case_study_block_view($delta = '') {
  *  @return string
  */
 function _adb_case_study_block_sub_sction_menu_content() {
-	// Get current path and get node ID.
-	$current_path = explode('/', current_path());
-	$current_node = $current_path[1];
-	if (isset($current_node) && is_numeric($current_node)) {
+  // Get current path and get node ID.
+  $current_path = explode('/', current_path());
+  $current_node = $current_path[1];
+  if (isset($current_node) && is_numeric($current_node)) {
 
-		// Create link for sub section menu and combine for continue reading.
-		$linklist = array(
-			'overview' => array(
-				'title' => t('Overview'),
-				'href' => 'node/' . $current_node
-			),
-			'context' => array(
-				'title' => t('Challenges'),
-				'href' => 'challenges/' . $current_node
-			),
-			'challenges' => array(
-				'title' => t('Lessons'),
-				'href' => 'lessons/' . $current_node
-			),
-			'solutions' => array(
-				'title' => t('Solutions'),
-				'href' => 'solutions/' . $current_node
-			),
-			'impact' => array(
-				'title' => t('Impact'),
-				'href' => 'impact/' . $current_node
-			),
-			'lessions' => array(
-				'title' => t('Lessions'),
-				'href' => 'lessions' . $current_node
-			),
-			'lessions' => array(
-				'title' => t('Additional resources'),
-				'href' => 'resources/' . $current_node
-			)
-		);
-	}
+    // Create link for sub section menu and combine for continue reading.
+    $linklist = array(
+      'overview' => array(
+        'title' => t('Overview'),
+        'href' => 'node/' . $current_node
+      ),
+      'context' => array(
+        'title' => t('Challenges'),
+        'href' => 'challenges/' . $current_node
+      ),
+      'challenges' => array(
+        'title' => t('Lessons'),
+        'href' => 'lessons/' . $current_node
+      ),
+      'solutions' => array(
+        'title' => t('Solutions'),
+        'href' => 'solutions/' . $current_node
+      ),
+      'impact' => array(
+        'title' => t('Impact'),
+        'href' => 'impact/' . $current_node
+      ),
+      'lessions' => array(
+        'title' => t('Lessions'),
+        'href' => 'lessions' . $current_node
+      ),
+      'lessions' => array(
+        'title' => t('Additional resources'),
+        'href' => 'resources/' . $current_node
+      )
+    );
+  }
 
-	// Call render list items.
-	return adb_case_study_get_theme_list_content($linklist);
+  // Call render list items.
+  return adb_case_study_get_theme_list_content($linklist);
 }
 
 /**
@@ -101,159 +101,159 @@ function _adb_case_study_block_sub_sction_menu_content() {
  */
 function adb_case_study_preprocess_node(&$variables) {
 
-	// Need in creating link with base_url.
-	global $baseUrl;
+  // Need in creating link with base_url.
+  global $baseUrl;
 
-	// Type of node check.
-	if ($variables['type'] == 'case_study') {
+  // Type of node check.
+  if ($variables['type'] == 'case_study') {
 
-		// Get undefience language code from variable.
-		$und = $variables['language'];
+    // Get undefience language code from variable.
+    $und = $variables['language'];
 
-		// Get field_institution_category list value lable name.
-		$institute_category = field_info_field('field_institution_category');
-		$institute_category_value = list_allowed_values($institute_category);
+    // Get field_institution_category list value lable name.
+    $institute_category = field_info_field('field_institution_category');
+    $institute_category_value = list_allowed_values($institute_category);
 
-		// Case study date field value.
-		$variables['node_field_date'] = adb_case_study_get_date_formatted_value('j F Y', $variables['field_date'][0]['value']);
-		$node_vocab_field = array(
-			'field_tags',
-			'field_topic',
-			'field_countries'
-		);
+    // Case study date field value.
+    $variables['node_field_date'] = adb_case_study_get_date_formatted_value('j F Y', $variables['field_date'][0]['value']);
+    $node_vocab_field = array(
+      'field_tags',
+      'field_topic',
+      'field_countries'
+    );
 
-		// Case Study Tagging in landing page.
-		$variables['node_field_tagging'] = adb_case_study_make_term_tagging($node_vocab_field, $variables);
+    // Case Study Tagging in landing page.
+    $variables['node_field_tagging'] = adb_case_study_make_term_tagging($node_vocab_field, $variables);
 
-		// Banner image content.
-		$variables['banner_image'] = theme('image_style', array(
-			'style_name' => 'node_banner_image',
-			'path' => $variables['field_banner_image'][0]['uri']
-			)
-		);
+    // Banner image content.
+    $variables['banner_image'] = theme('image_style', array(
+      'style_name' => 'node_banner_image',
+      'path' => $variables['field_banner_image'][0]['uri']
+        )
+    );
 
-		// Download Link for node page.
-		$variables['download_link'] = l(t('Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array('attributes' => array('target' => '_blank')));
+    // Download Link for node page.
+    $variables['download_link'] = l(t('Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array('attributes' => array('target' => '_blank')));
 
-		// Print Node page.
-		$variables['print_node'] = l(t('Print'), $baseUrl . 'print/node/' . $variables['nid']);
+    // Print Node page.
+    $variables['print_node'] = l(t('Print'), $baseUrl . 'print/node/' . $variables['nid']);
 
-		// Social share icon list.
-		$variables['social_share'] = sharethis_block_contents();
+    // Social share icon list.
+    $variables['social_share'] = sharethis_block_contents();
 
-		// Body content.
-		$variables['body'] = $variables['body'][0]['value'];
+    // Body content.
+    $variables['body'] = $variables['body'][0]['value'];
 
-		// Project Snapshot content.
-		foreach ($variables['field_project_snapshot'] as $value) {
-			$entity_ids[] = (int)$value['value'];
-		}
+    // Project Snapshot content.
+    foreach ($variables['field_project_snapshot'] as $value) {
+      $entity_ids[] = (int)$value['value'];
+    }
 
-		// Load all entities of field_collection.
-		$project_snapshot = entity_load('field_collection_item', $entity_ids);
-		$snapshot_output = '';
-		$snapshot_output.='<div class="project-snapshot"><span class="label">' . t("Dates") . '</span>';
-		foreach ($project_snapshot as $value) {
-			$snapshot_output.='<div class="project-year">' . adb_case_study_get_date_formatted_value('Y', $value->field_date[$und][0]['value']);
-			$snapshot_output.='<div class="description">' . $value->field_description[$und][0]['value'] . '</div></div>';
-		}
-		$snapshot_output.='</div>';
-		$variables['project_snapshot'] = $snapshot_output;
+    // Load all entities of field_collection.
+    $project_snapshot = entity_load('field_collection_item', $entity_ids);
+    $snapshot_output = '';
+    $snapshot_output.='<div class="project-snapshot"><span class="label">' . t("Dates") . '</span>';
+    foreach ($project_snapshot as $value) {
+      $snapshot_output.='<div class="project-year">' . adb_case_study_get_date_formatted_value('Y', $value->field_date[$und][0]['value']);
+      $snapshot_output.='<div class="description">' . $value->field_description[$und][0]['value'] . '</div></div>';
+    }
+    $snapshot_output.='</div>';
+    $variables['project_snapshot'] = $snapshot_output;
 
-		// Project Cost data.
-		foreach ($variables['field_cost'] as $entity_id) {
-			$cost_entity_ids[] = (int)$entity_id['value'];
-		}
-		// Load all entities of field_collection.
-		$project_cost = entity_load('field_collection_item', $cost_entity_ids);
-		$cost_output = '';
-		$cost_output.='<div class="project-cost"><span class="label">' . t("Cost") . '</span>';
-		$cost_output.='<div class="description">' . $variables['field_cost_description'][0]['value'] . '</div>';
-		foreach ($project_cost as $cost_value) {
-			$cost_output.='<div class="detail">';
-			$cost_output.='<div class="primary-cost">' . $cost_value->field_primary_cost[$und][0]['value'] . '</div>';
-			$cost_output.='<div class="secondary-cost">' . $cost_value->field_secondary_cost[$und][0]['value'] . '</div>';
-			$cost_output.='<div class="cost-data_description">' . $cost_value->field_cost_data_description[$und][0]['value'] . '</div>';
-			$cost_output.='<div class="cost-breakup">' . $cost_value->field_cost_breakup[$und][0]['value'] . '</div>';
-			$cost_output.='</div>';
-		}
-		$cost_output.='</div>';
-		$variables['project_cost'] = $cost_output;
+    // Project Cost data.
+    foreach ($variables['field_cost'] as $entity_id) {
+      $cost_entity_ids[] = (int)$entity_id['value'];
+    }
+    // Load all entities of field_collection.
+    $project_cost = entity_load('field_collection_item', $cost_entity_ids);
+    $cost_output = '';
+    $cost_output.='<div class="project-cost"><span class="label">' . t("Cost") . '</span>';
+    $cost_output.='<div class="description">' . $variables['field_cost_description'][0]['value'] . '</div>';
+    foreach ($project_cost as $cost_value) {
+      $cost_output.='<div class="detail">';
+      $cost_output.='<div class="primary-cost">' . $cost_value->field_primary_cost[$und][0]['value'] . '</div>';
+      $cost_output.='<div class="secondary-cost">' . $cost_value->field_secondary_cost[$und][0]['value'] . '</div>';
+      $cost_output.='<div class="cost-data_description">' . $cost_value->field_cost_data_description[$und][0]['value'] . '</div>';
+      $cost_output.='<div class="cost-breakup">' . $cost_value->field_cost_breakup[$und][0]['value'] . '</div>';
+      $cost_output.='</div>';
+    }
+    $cost_output.='</div>';
+    $variables['project_cost'] = $cost_output;
 
 
-		// Institution and stakeholders.
-		foreach ($variables['field_institution_stakeholder'] as $entity_id) {
-			$insti_entity_ids[] = (int)$entity_id['value'];
-		}
-		$institute_stake = entity_load('field_collection_item', $insti_entity_ids);
-		$institue_output = '';
-		$institue_output.='<div class="institue-stakeholder"><span class="label">' . t("Institution and stakeholders") . '</span>';
-		foreach ($institute_stake as $stake_value) {
-			// Get Institute Category name label.
-			$institue_output.='<div class="institue-stakeholder-cateogry"><h4>' .
-				$institute_category_value[$stake_value->field_institution_category[$und][0]['value']] . '</h4>';
-			foreach ($stake_value->field_institution_detail as $detail_id) {
-				foreach ($detail_id as $key => $data) {
-					// In Institutions and stakeholder section we have field collection under field 
-					// collection so we have to relooping aging for inner ettity_id's.
-					$sub_section_detail = entity_load('field_collection_item', array($data['value']));
-					$institue_output.='<div class="detail">';
-					foreach ($sub_section_detail as $key => $field_value) {
-						$institue_output.='<div class="cateogry-detail">';
-						// Getting link and url and make its anchor content.
-						if (isset($field_value->field_value['und'][0]['value']) && isset($field_value->field_link['und'][0]['url'])) {
-							$institue_output.='<div class="detail-title">' .
-								l(t($field_value->field_value['und'][0]['value']), $field_value->field_link['und'][0]['url'], array(
-									'attributes' =>
-									array(
-										'target' => 'blank',
-										'class' => 'cateogry-link'
-									))
-								) . '</div>';
-						}
-						// If not url is put in field so field content visible simple label field.
-						else {
-							$institue_output.='<div class="detail-title">' .
-								$field_value->field_value['und'][0]['value'] .
-								'</div>';
-						}
-						$institue_output.='</div>';
-					}
-					$institue_output.='</div></div></div>';
-				}
-			}
-		}
-		$institue_output.='</div>';
-		$variables['institution_stakeholder'] = $institue_output;
+    // Institution and stakeholders.
+    foreach ($variables['field_institution_stakeholder'] as $entity_id) {
+      $insti_entity_ids[] = (int)$entity_id['value'];
+    }
+    $institute_stake = entity_load('field_collection_item', $insti_entity_ids);
+    $institue_output = '';
+    $institue_output.='<div class="institue-stakeholder"><span class="label">' . t("Institution and stakeholders") . '</span>';
+    foreach ($institute_stake as $stake_value) {
+      // Get Institute Category name label.
+      $institue_output.='<div class="institue-stakeholder-cateogry"><h4>' .
+          $institute_category_value[$stake_value->field_institution_category[$und][0]['value']] . '</h4>';
+      foreach ($stake_value->field_institution_detail as $detail_id) {
+        foreach ($detail_id as $key => $data) {
+          // In Institutions and stakeholder section we have field collection under field 
+          // collection so we have to relooping aging for inner ettity_id's.
+          $sub_section_detail = entity_load('field_collection_item', array($data['value']));
+          $institue_output.='<div class="detail">';
+          foreach ($sub_section_detail as $key => $field_value) {
+            $institue_output.='<div class="cateogry-detail">';
+            // Getting link and url and make its anchor content.
+            if (isset($field_value->field_value['und'][0]['value']) && isset($field_value->field_link['und'][0]['url'])) {
+              $institue_output.='<div class="detail-title">' .
+                  l(t($field_value->field_value['und'][0]['value']), $field_value->field_link['und'][0]['url'], array(
+                    'attributes' =>
+                    array(
+                      'target' => 'blank',
+                      'class' => 'cateogry-link'
+                    ))
+                  ) . '</div>';
+            }
+            // If not url is put in field so field content visible simple label field.
+            else {
+              $institue_output.='<div class="detail-title">' .
+                  $field_value->field_value['und'][0]['value'] .
+                  '</div>';
+            }
+            $institue_output.='</div>';
+          }
+          $institue_output.='</div></div></div>';
+        }
+      }
+    }
+    $institue_output.='</div>';
+    $variables['institution_stakeholder'] = $institue_output;
 
-		// Continue reading section.
-		// We are calling allready crating link_section content url for continue reading.
-		$variables['continue_reading'] = _adb_case_study_block_sub_sction_menu_content();
+    // Continue reading section.
+    // We are calling allready crating link_section content url for continue reading.
+    $variables['continue_reading'] = _adb_case_study_block_sub_sction_menu_content();
 
-		// Meet our knowledge contributor.
-		$contributor_output = '';
-		$contributor_output.='<div class="contributor-detail">';
-		foreach ($variables['field_meet_contributor'] as $contributor) {
-			if (isset($contributor['entity']->field_contributor_image[$und][0]['uri'])) {
-				$contributor_output.='<div class="contributor-image">' . theme('image_style', array(
-						'style_name' => 'contributor_profile',
-						'path' => $contributor['entity']->field_contributor_image[$und][0]['uri']
-						)
-					) . '</div>';
-			}
-			$contributor_output.='<div class="about-contributor">';
-			if (isset($contributor['entity']->title)) {
-				// Getting name of knowledge
-				$contributor_output.='<div class="contributor-name"><b>' . $contributor['entity']->title . '</b></div>';
-			}
-			if (isset($contributor['entity']->body[$und][0]['value'])) {
-				$contributor_output.='<div class="contributor-about">' . $contributor['entity']->body[$und][0]['value'] . '</div>';
-			}
-			$contributor_output.='</div>';
-		}
-		$contributor_output.='</div>';
-		$variables['contributor'] = $contributor_output;
-	}
+    // Meet our knowledge contributor.
+    $contributor_output = '';
+    $contributor_output.='<div class="contributor-detail">';
+    foreach ($variables['field_meet_contributor'] as $contributor) {
+      if (isset($contributor['entity']->field_contributor_image[$und][0]['uri'])) {
+        $contributor_output.='<div class="contributor-image">' . theme('image_style', array(
+              'style_name' => 'contributor_profile',
+              'path' => $contributor['entity']->field_contributor_image[$und][0]['uri']
+                )
+            ) . '</div>';
+      }
+      $contributor_output.='<div class="about-contributor">';
+      if (isset($contributor['entity']->title)) {
+        // Getting name of knowledge
+        $contributor_output.='<div class="contributor-name"><b>' . $contributor['entity']->title . '</b></div>';
+      }
+      if (isset($contributor['entity']->body[$und][0]['value'])) {
+        $contributor_output.='<div class="contributor-about">' . $contributor['entity']->body[$und][0]['value'] . '</div>';
+      }
+      $contributor_output.='</div>';
+    }
+    $contributor_output.='</div>';
+    $variables['contributor'] = $contributor_output;
+  }
 }
 
 /**
@@ -263,17 +263,17 @@ function adb_case_study_preprocess_node(&$variables) {
  *  @return string
  */
 function adb_case_study_make_term_tagging($field_name, $taxonomy_refernce_term) {
-	foreach ($field_name as $name) {
-		$term_name = $taxonomy_refernce_term[$name];
-		foreach ($term_name as $value) {
-			$linklist[$value['taxonomy_term']->name] = array(
-				'title' => t($value['taxonomy_term']->name),
-				'href' => 'search/' . $value['taxonomy_term']->name
-			);
-		}
-	}
+  foreach ($field_name as $name) {
+    $term_name = $taxonomy_refernce_term[$name];
+    foreach ($term_name as $value) {
+      $linklist[$value['taxonomy_term']->name] = array(
+        'title' => t($value['taxonomy_term']->name),
+        'href' => 'search/' . $value['taxonomy_term']->name
+      );
+    }
+  }
 
-	return adb_case_study_get_theme_list_content($linklist);
+  return adb_case_study_get_theme_list_content($linklist);
 }
 
 /**
@@ -282,20 +282,20 @@ function adb_case_study_make_term_tagging($field_name, $taxonomy_refernce_term) 
  * @return string
  */
 function adb_case_study_get_theme_list_content($itemlist) {
-	$heading = array(
-		'text' => t('List'),
-		'level' => 'h4',
-		'class' => 'menu-categories-title'
-	);
-	$attributes = array(
-		'class' => 'menu-categories'
-	);
-	return theme_links(array(
-		'links' => $itemlist,
-		'attributes' => $attributes,
-		'heading' => $heading
-		)
-	);
+  $heading = array(
+    'text' => t('List'),
+    'level' => 'h4',
+    'class' => 'menu-categories-title'
+  );
+  $attributes = array(
+    'class' => 'menu-categories'
+  );
+  return theme_links(array(
+    'links' => $itemlist,
+    'attributes' => $attributes,
+    'heading' => $heading
+      )
+  );
 }
 
 /**
@@ -305,6 +305,6 @@ function adb_case_study_get_theme_list_content($itemlist) {
  * @return string
  */
 function adb_case_study_get_date_formatted_value($format, $date_time) {
-	$unix_time_stamp = explode(' ', $date_time);
-	return gmdate($format, strtotime($unix_time_stamp[0]));
+  $unix_time_stamp = explode(' ', $date_time);
+  return gmdate($format, strtotime($unix_time_stamp[0]));
 }
