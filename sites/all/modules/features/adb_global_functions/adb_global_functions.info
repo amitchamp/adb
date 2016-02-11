@@ -13,6 +13,7 @@ dependencies[] = views
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[fe_block_settings][] = adb_global_functions-adb_profile_access
+features[fe_block_settings][] = system-powered-by
 features[features_api][] = api:2
 features[taxonomy][] = vocabulary_footer_slider_text
 features[variable][] = rate_widgets
