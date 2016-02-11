@@ -7,6 +7,7 @@
       closeOtherMenus();
       toggleProfileAccess();
       showFeedbackMessageAfterRate();
+      footerEnableSlider();
 
       // Closes menu when clicked on 'Close' inside menu.
       function closeMenu() {
@@ -55,6 +56,18 @@
           // in DOM.
           widgetWrapper.hide();
           widgetWrapper.after('<div class="rate-feedback-wrapper">' + Drupal.t('Thank you for your feedback.') + '</div>');
+        });
+      }
+
+      /**
+       * Enable slider for footer.
+       */
+      function footerEnableSlider() {
+        $('.item-list-slider-wrapper').flexslider({
+          animation: 'slide',
+          slideshow: true,
+          slideshowSpeed: 5000,
+          controlNav: false
         });
       }
     }

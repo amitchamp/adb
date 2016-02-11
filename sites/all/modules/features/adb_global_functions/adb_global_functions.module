@@ -28,6 +28,9 @@ function adb_global_functions_block_info() {
   $blocks['adb_profile_access'] = array(
     'info' => t('Profile access'),
   );
+  $blocks['adb_footer'] = array(
+    'info' => t('ADB footer'),
+  );
 
   return $blocks;
 }
@@ -49,6 +52,98 @@ function adb_global_functions_block_view($delta = '') {
           ),
           'css' => array(
             drupal_get_path('module', 'adb_global_functions') . '/css/adb_global_functions.css',
+          ),
+        ),
+      );
+
+      break;
+
+    case 'adb_footer':
+      // Footer logo.
+      $footer_logo_image = theme('image', array(
+        'path' => drupal_get_path('theme', 'adb') . '/images/adb-footer.png',
+        'alt' => 'ADB',
+      ));
+      $logo_text = '<span class="logo-primary-text">' . t('An initiative by:') . '</span>' . $footer_logo_image . '<span class="logo-secondary-text">www.adb.org</span>';
+      $logo_markup = l($logo_text, 'http://www.adb.org', array(
+        'attributes' => array(
+          'target' => '_blank',
+        ),
+        'external' => TRUE,
+        'html' => TRUE,
+      ));
+
+      // Footer slider.
+      $slider_texts = array();
+      $slider_text_vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_footer_slider_text');
+      $slider_texts_terms = taxonomy_get_tree($slider_text_vocabulary->vid);
+      foreach ($slider_texts_terms as $value) {
+        $slider_texts[] = array(
+          'data' => $value->name,
+        );
+      }
+      $slider_markup = theme('item_list', array(
+        'items' => $slider_texts,
+        'attributes' => array(
+          'class' => array(
+            'slider-wrapper',
+            'slides',
+          ),
+        ),
+      ));
+
+      // Social links.
+      $links = array(
+        array(
+          'title' => t('Facebook'),
+          'href' => 'https://www.facebook.com/AsianDevBank',
+          'attributes' => array(
+            'class' => array(
+              'facebook',
+            ),
+            'target' => '_blank',
+          ),
+        ),
+        array(
+          'title' => t('Twitter'),
+          'href' => 'https://twitter.com/ADB_HQ',
+          'attributes' => array(
+            'class' => array(
+              'twitter',
+            ),
+            'target' => '_blank',
+          ),
+        ),
+        array(
+          'title' => t('LinkedIn'),
+          'href' => 'https://www.linkedin.com/company/asian-development-bank',
+          'attributes' => array(
+            'class' => array(
+              'linkedin',
+            ),
+            'target' => '_blank',
+          ),
+        ),
+      );
+
+      $block['content'] = array(
+        '#markup' => theme('adb_footer', array(
+          'logo_markup' => $logo_markup,
+          'slider_markup' => $slider_markup,
+          'site_name' => variable_get('site_name'),
+          'copyright_text' => t('@year Asian Development Bank', array(
+            '@year' => date('Y'),
+          )),
+          'social_links' => theme('links', array(
+            'links' => $links,
+          )),
+        )),
+        '#attached' => array(
+          'js' => array(
+            drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js',
+          ),
+          'library' => array(
+            array('flexslider', 'flexslider'),
           ),
         ),
       );
@@ -130,4 +225,22 @@ function adb_global_functions_rate_widget_alter(&$widget, $context) {
   else {
     $widget->title = t('Was this article useful?');
   }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function adb_global_functions_theme($existing, $type, $theme, $path) {
+  return array(
+    'adb_footer' => array(
+      'variables' => array(
+        'logo_markup' => NULL,
+        'slider_markup' => NULL,
+        'site_name' => NULL,
+        'copyright_text' => NULL,
+        'social_links' => NULL,
+      ),
+      'template' => 'templates/adb-footer',
+    ),
+  );
 }
