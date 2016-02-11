@@ -74,20 +74,14 @@ function adb_global_functions_block_view($delta = '') {
       ));
 
       // Footer slider.
-      $slider_texts = array(
-        array(
-          'data' => t('Creating'),
-        ),
-        array(
-          'data' => t('Transport'),
-        ),
-        array(
-          'data' => t('Solutions'),
-        ),
-        array(
-          'data' => t('Together'),
-        ),
-      );
+      $slider_texts = array();
+      $slider_text_vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_footer_slider_text');
+      $slider_texts_terms = taxonomy_get_tree($slider_text_vocabulary->vid);
+      foreach ($slider_texts_terms as $value) {
+        $slider_texts[] = array(
+          'data' => $value->name,
+        );
+      }
       $slider_markup = theme('item_list', array(
         'items' => $slider_texts,
         'attributes' => array(
