@@ -36,7 +36,6 @@ function adb_case_study_block_view($delta = '') {
 	switch ($delta) {
 		case 'subsection_menu':
 			$block['subject'] = '';
-
 			// Function call for getting render content of list. 
 			$block['content'] = _adb_case_study_block_sub_sction_menu_content();
 			break;
