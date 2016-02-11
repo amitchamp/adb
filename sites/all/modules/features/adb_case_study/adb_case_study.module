@@ -128,7 +128,7 @@ function adb_case_study_preprocess_node(&$variables) {
     // Banner image content.
     $variables['banner_image'] = theme('image_style', array(
       'style_name' => 'node_banner_image',
-      'path' => $variables['field_banner_image'][0]['uri']
+      'path' => $variables['field_banner_image'][0]['uri'],
         )
     );
 
@@ -146,7 +146,7 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Project Snapshot content.
     foreach ($variables['field_project_snapshot'] as $value) {
-      $entity_ids[] = (int)$value['value'];
+      $entity_ids[] = (int) $value['value'];
     }
 
     // Load all entities of field_collection.
@@ -162,7 +162,7 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Project Cost data.
     foreach ($variables['field_cost'] as $entity_id) {
-      $cost_entity_ids[] = (int)$entity_id['value'];
+      $cost_entity_ids[] = (int) $entity_id['value'];
     }
     // Load all entities of field_collection.
     $project_cost = entity_load('field_collection_item', $cost_entity_ids);
@@ -174,7 +174,7 @@ function adb_case_study_preprocess_node(&$variables) {
       $cost_output.='<div class="primary-cost">' . $cost_value->field_primary_cost[$und][0]['value'] . '</div>';
       $cost_output.='<div class="secondary-cost">' . $cost_value->field_secondary_cost[$und][0]['value'] . '</div>';
       $cost_output.='<div class="cost-data_description">' . $cost_value->field_cost_data_description[$und][0]['value'] . '</div>';
-      $cost_output.='<div class="cost-breakup">' . $cost_value->field_cost_breakup[$und][0]['value'] . '</div>';
+      $cost_output.= '<div class="cost-breakup">' . $cost_value->field_cost_breakup[$und][0]['value'] . '</div>';
       $cost_output.='</div>';
     }
     $cost_output.='</div>';
@@ -183,7 +183,7 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Institution and stakeholders.
     foreach ($variables['field_institution_stakeholder'] as $entity_id) {
-      $insti_entity_ids[] = (int)$entity_id['value'];
+      $insti_entity_ids[] = (int) $entity_id['value'];
     }
     $institute_stake = entity_load('field_collection_item', $insti_entity_ids);
     $institue_output = '';
@@ -203,7 +203,7 @@ function adb_case_study_preprocess_node(&$variables) {
             // Getting link and url and make its anchor content.
             if (isset($field_value->field_value['und'][0]['value']) && isset($field_value->field_link['und'][0]['url'])) {
               $institue_output.='<div class="detail-title">' .
-                  l(t($field_value->field_value['und'][0]['value']), $field_value->field_link['und'][0]['url'], array(
+                  l($field_value->field_value['und'][0]['value'], $field_value->field_link['und'][0]['url'], array(
                     'attributes' =>
                     array(
                       'target' => 'blank',
@@ -257,9 +257,10 @@ function adb_case_study_preprocess_node(&$variables) {
 }
 
 /**
- * 
- *  @param type $field_name machine name of field
- *  @param type $taxonomy_refernce_term variable array
+ *  Get all taxonomy type fild and make one single tagging list in content like country,topic 
+ *  and countries
+ *  @param array $field_name machine name of field
+ *  @param array of taxonomy $taxonomy_refernce_term variable array
  *  @return string
  */
 function adb_case_study_make_term_tagging($field_name, $taxonomy_refernce_term) {
@@ -277,8 +278,8 @@ function adb_case_study_make_term_tagging($field_name, $taxonomy_refernce_term) 
 }
 
 /**
- * 
- * @param type $itemlist list of $key and $value of link
+ *  List given content as formatted html list content.
+ * @param array of items with url $itemlist list of $key and $value of link
  * @return string
  */
 function adb_case_study_get_theme_list_content($itemlist) {
@@ -290,18 +291,24 @@ function adb_case_study_get_theme_list_content($itemlist) {
   $attributes = array(
     'class' => 'menu-categories'
   );
-  return theme_links(array(
-    'links' => $itemlist,
-    'attributes' => $attributes,
-    'heading' => $heading
+
+  $theme_link_list = theme_links
+      (
+      array
+        (
+        'links' => $itemlist,
+        'attributes' => $attributes,
+        'heading' => $heading,
       )
   );
+  return $theme_link_list;
 }
 
 /**
- * 
- * @param type $format is format of date
- * @param type $date_time give string value of date and time
+ *  Get value of date and format and it will return exact format of date with given format 
+ *  option.
+ * @param string $format is format of date
+ * @param sting $date_time give string value of date and time
  * @return string
  */
 function adb_case_study_get_date_formatted_value($format, $date_time) {
