@@ -174,7 +174,7 @@ function adb_case_study_preprocess_node(&$variables) {
       $cost_output.='<div class="primary-cost">' . $cost_value->field_primary_cost[$und][0]['value'] . '</div>';
       $cost_output.='<div class="secondary-cost">' . $cost_value->field_secondary_cost[$und][0]['value'] . '</div>';
       $cost_output.='<div class="cost-data_description">' . $cost_value->field_cost_data_description[$und][0]['value'] . '</div>';
-      $cost_output.= '<div class="cost-breakup">' . $cost_value->field_cost_breakup[$und][0]['value'] . '</div>';
+      $cost_output.='<div class="cost-breakup">' . $cost_value->field_cost_breakup[$und][0]['value'] . '</div>';
       $cost_output.='</div>';
     }
     $cost_output.='</div>';
