@@ -1,0 +1,200 @@
+/*
+** Utilities.
+*/
+/*
+** Helpers (Placeholders)
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/utilities\/_placeholder\.scss}line{font-family:\000036}}
+.nav ul {
+  margin: 0;
+  padding: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/utilities\/_placeholder\.scss}line{font-family:\000039}}
+.nav ul li {
+  float: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/utilities\/_placeholder\.scss}line{font-family:\0000311}}
+.nav ul li:first-child {
+  margin: 0;
+}
+
+/**
+ * Variables for all patial files.
+**/
+/**
+ ** Variables for all the fonts.
+ */
+/*
+** base.
+*/
+/**
+ ** Base layout of site.
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/base\/_base\.scss}line{font-family:\000035}}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/base\/_base\.scss}line{font-family:\0000311}}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fcfcfc;
+  width: 100%;
+  font-size: 16px;
+  color: #333333;
+  font-family: "OpenSans-Regular";
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/base\/_base\.scss}line{font-family:\0000320}}
+a {
+  color: #2A5DB0;
+  text-decoration: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/base\/_base\.scss}line{font-family:\0000323}}
+a:hover {
+  text-decoration: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/base\/_base\.scss}line{font-family:\0000327}}
+p {
+  color: #333333;
+}
+
+/*
+** site using fonts
+*/
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: url("../fonts/OpenSans-Regular.otf");
+  src: url("../fonts/OpenSans-Regular.ttf"), url("../fonts/OpenSans-Regular.woff"), url("../fonts/OpenSans-Regular.eot");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OpenSans-Light";
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/OpenSans-Light.otf");
+  src: url("../fonts/OpenSans-Light.ttf"), url("../fonts/OpenSans-Light.woff"), url("../fonts/OpenSans-Light.eot");
+}
+@font-face {
+  font-family: "OpenSans-Bold";
+  src: url("../fonts/OpenSans-Bold.otf");
+  src: url("../fonts/OpenSans-Bold.ttf"), url("../fonts/OpenSans-Bold.woff"), url("../fonts/OpenSans-Bold.eot");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OpenSans-Semibold";
+  src: url("../fonts/OpenSans-Semibold.otf");
+  src: url("../fonts/OpenSans-Semibold.ttf"), url("../fonts/OpenSans-Semibold.woff"), url("../fonts/OpenSans-Semibold.eot");
+  font-weight: 700;
+  font-style: normal;
+}
+/*
+**  Layout Specific.
+*/
+/*
+ ** Base layout of site.
+ ** Generally, It will inclue the width of the regions and their placement.
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/layout\/_layout\.scss}line{font-family:\000036}}
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*
+** Component.
+*/
+/**
+ ** @file
+ ** Classes that would be used site wide.
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_commonClass\.scss}line{font-family:\000036}}
+.pull-left {
+  float: left;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_commonClass\.scss}line{font-family:\000039}}
+.pull-right {
+  float: right;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_commonClass\.scss}line{font-family:\0000312}}
+.full-width, header {
+  width: 100%;
+}
+
+/*
+** Style for Header Components
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\000035}}
+#site-name {
+  margin: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\000037}}
+#site-name a {
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000313}}
+header[role="banner"] {
+  background-color: #000;
+  padding: 15px 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000316}}
+header[role="banner"] a {
+  color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000324}}
+[role="navigation"] {
+  padding: 0 20px;
+  background: #363636;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000327}}
+[role="navigation"] a {
+  color: #fff;
+  padding: 5px 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000332}}
+[role="navigation"] li:first-child a {
+  padding-left: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000337}}
+.region-header .region-inner {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+/*
+** style for Footer.
+*/
+/**
+ ** Layout design for sidebar.
+ */
+/*
+** style for Content
+*/
+/*
+** Pages.
+*/
+/*
+ ** style for case study page only.
+ */
+/*
+ ** Style for Homepage only.
+ */
+/*
+ ** style for Q&A page only.
+ */
+
+/*# sourceMappingURL=style.css.map */

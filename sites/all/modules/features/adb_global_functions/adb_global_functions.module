@@ -76,3 +76,58 @@ function adb_global_functions_search_form_redirect($form, &$form_state) {
     $form_state['redirect'] = current_path();
   }
 }
+
+/**
+ * Implements hook_preprocess_rate_template_yesno().
+ */
+function adb_global_functions_preprocess_rate_template_yesno(&$variables) {
+  global $user;
+  $node = menu_get_object();
+  $widgets = rate_get_active_widgets('node', $node->type);
+
+  // Get value for 'Yes' and 'No'.
+  // @todo We consider that only widget is embedded for a node.
+  $widget = array_shift($widgets);
+  $yes_value = $widget->options[0][0];
+  $no_value = $widget->options[1][0];
+
+  // Alter rate widget based on user's vote.
+  $result = votingapi_select_votes(array(
+    'uid' => $user->uid,
+    'entity_id' => $node->nid,
+  ));
+  if (!empty($result) && ($result[0]['value'] == $yes_value || $result[0]['value'] == $no_value)) {
+    $variables['user_voted'] = TRUE;
+    $variables['user_voted_message'] = t('Thank you for your feedback.');
+  }
+  else {
+    $variables['user_voted'] = FALSE;
+  }
+
+  // Do not show votes.
+  $variables['links'][0]['votes'] = '';
+  $variables['links'][1]['votes'] = '';
+}
+
+/**
+ * Implements hook_rate_widget_alter().
+ */
+function adb_global_functions_rate_widget_alter(&$widget, $context) {
+  global $user;
+
+  // Get value for 'Yes' and 'No'.
+  $yes_value = $widget->options[0][0];
+  $no_value = $widget->options[1][0];
+
+  // Alter widget title based on user's vote.
+  $result = votingapi_select_votes(array(
+    'uid' => $user->uid,
+    'entity_id' => $context['content_id'],
+  ));
+  if (!empty($result) && ($result[0]['value'] == $yes_value || $result[0]['value'] == $no_value)) {
+    $widget->title = '';
+  }
+  else {
+    $widget->title = t('Was this article useful?');
+  }
+}

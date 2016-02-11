@@ -1,0 +1,47 @@
+
+@import 'compass/support';                     // Add Compass and IE vendor prefix support variables.
+@import 'compass/utilities/general/clearfix';  // Better than Drupal's clearfix.
+@import 'compass/utilities/sprites';           // See http://compass-style.org/help/tutorials/spriting/
+@import 'compass/css3';
+@import "compass";
+
+
+/*
+** Utilities.
+*/
+
+@import "utilities/placeholder";
+@import "utilities/mixins";
+@import "utilities/var";
+
+
+/*
+** base.
+*/
+
+@import "base/base";
+@import "base/font";
+
+/*
+**  Layout Specific.
+*/
+
+@import "layout/layout";
+
+/*
+** Component.
+*/
+
+@import "component/commonClass.scss";
+@import "component/header";
+@import "component/footer";
+@import "component/sidebar";
+@import "component/content";
+
+/*
+** Pages.
+*/
+
+@import "pages/caseStudy";
+@import "pages/home";
+@import "pages/qa";

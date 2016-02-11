@@ -6,6 +6,7 @@
       closeMenu();
       closeOtherMenus();
       toggleProfileAccess();
+      showFeedbackMessageAfterRate();
 
       // Closes menu when clicked on 'Close' inside menu.
       function closeMenu() {
@@ -38,6 +39,22 @@
       function toggleProfileAccess() {
         $('.profile-access-toggle').click(function() {
           $('.profile-access-toggle-wrapper').slideToggle('fast');
+        });
+      }
+
+      /**
+       * Show feedback message after user has rated.
+       */
+      function showFeedbackMessageAfterRate() {
+        var widget = $('.rate-widget', context);
+
+        widget.on('eventAfterRate', function() {
+          var widgetWrapper = $(this).parents('.form-item');
+
+          // We hide the main widget and add a new node just after the widget
+          // in DOM.
+          widgetWrapper.hide();
+          widgetWrapper.after('<div class="rate-feedback-wrapper">' + Drupal.t('Thank you for your feedback.') + '</div>');
         });
       }
     }
