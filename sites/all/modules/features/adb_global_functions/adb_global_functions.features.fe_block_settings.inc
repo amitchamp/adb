@@ -12,6 +12,38 @@ function adb_global_functions_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
+  $export['adb_global_functions-adb_footer'] = array(
+    'cache' => 1,
+    'custom' => 0,
+    'delta' => 'adb_footer',
+    'module' => 'adb_global_functions',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'adb' => array(
+        'region' => 'footer',
+        'status' => 1,
+        'theme' => 'adb',
+        'weight' => 0,
+      ),
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['adb_global_functions-adb_profile_access'] = array(
     'cache' => 1,
     'custom' => 0,
