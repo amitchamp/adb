@@ -126,7 +126,9 @@ global $baseUrl;
       <!--Download and Print section-->
       <div class="download-print">
         <div class="print"><?php print $print_node; ?></div>
-        <div class="download"><?php print $download_link; ?></div>
+        <?php if ($download_link): ?>
+          <div class="download"><?php print $download_link; ?></div>
+        <?php endif; ?>
       </div>
     </div>
   </div>
