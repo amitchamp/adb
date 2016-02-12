@@ -142,7 +142,7 @@ function adb_case_study_field_default_field_instances() {
     'label' => 'Cost breakup',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -667,7 +667,7 @@ function adb_case_study_field_default_field_instances() {
     'label' => 'Description',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1011,7 +1011,7 @@ function adb_case_study_field_default_field_instances() {
     'label' => 'Cost description',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(

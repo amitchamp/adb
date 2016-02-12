@@ -99,7 +99,7 @@ function adb_site_ckeditor_profile_defaults() {
     [\'Source\'],
     [\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'PasteFromWord\',\'-\'],
     [\'Undo\',\'Redo\',\'Find\',\'Replace\',\'-\'],
-    [\'Image\',\'Table\',\'HorizontalRule\',\'OCUpload\'],
+    [\'Image\',\'Table\',\'HorizontalRule\',\'OCUpload\',\'MediaEmbed\'],
     \'/\',
     [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'-\',\'RemoveFormat\'],
     [\'NumberedList\',\'BulletedList\',\'-\',\'Outdent\',\'Indent\',\'Blockquote\'],
@@ -150,6 +150,18 @@ function adb_site_ckeditor_profile_defaults() {
         'theme_config_js' => 'f',
         'js_conf' => '',
         'loadPlugins' => array(
+          'mediaembed' => array(
+            'name' => 'mediaembed',
+            'desc' => 'Plugin for embedding HTML snippets',
+            'path' => '%plugin_dir%mediaembed/',
+            'buttons' => array(
+              'MediaEmbed' => array(
+                'label' => 'MediaEmbed',
+                'icon' => 'images/icon.png',
+              ),
+            ),
+            'default' => 'f',
+          ),
           'ocupload' => array(
             'name' => 'OCUpload',
             'desc' => 'One Click Upload',
