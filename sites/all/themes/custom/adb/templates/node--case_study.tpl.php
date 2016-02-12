@@ -121,12 +121,12 @@ global $baseUrl;
     <!--Social Share Area-->
     <div class="social-share-download">
       <div class="social-share">
-        <?php echo $social_share; ?>
+        <?php print $social_share; ?>
       </div>
       <!--Download and Print section-->
       <div class="download-print">
-        <div class="print"><?php echo $print_node; ?></div>
-        <div class="download"><?php echo $download_link; ?></div>
+        <div class="print"><?php print $print_node; ?></div>
+        <div class="download"><?php print $download_link; ?></div>
       </div>
     </div>
   </div>
@@ -137,44 +137,44 @@ global $baseUrl;
       <div class="heading"><h2 class="section-heading">Overview</h2>
         <div class="overview-content">
           <?php if ($summary): ?>
-            <div class="summary"><?php echo $summary; ?></div>
+            <div class="summary"><?php print $summary; ?></div>
           <?php endif; ?>
-          <?php echo $body; ?></div>
+          <?php print $body; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Project snapshot-->
     <?php if ($project_snapshot): ?>
       <div class="heading"><h2 class="section-heading">Project snapshot</h2>
-        <div class="project-snapshot-content"><?php echo $project_snapshot; ?></div>
+        <div class="project-snapshot-content"><?php print $project_snapshot; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Cost content-->
     <?php if ($project_cost): ?>
       <div class="heading"><h2 class="section-heading">Cost</h2>
-        <div class="project-cost-content"><?php echo $project_cost; ?></div>
+        <div class="project-cost-content"><?php print $project_cost; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Institution and stakeholders-->
     <?php if ($institution_stakeholder): ?>
       <div class="heading"><h2 class="section-heading">Institution and stakeholders</h2>
-        <div class="institution-stakeholder"><?php echo $institution_stakeholder; ?></div>
+        <div class="institution-stakeholder"><?php print $institution_stakeholder; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Continue reading...-->
     <?php if ($continue_reading): ?>
       <div class="heading"><h2 class="section-heading">Continue reading...</h2>
-        <div class="continue-reading"><?php echo $continue_reading; ?></div>
+        <div class="continue-reading"><?php print $continue_reading; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Meet our knowledge contributor...-->
     <?php if ($have_contributor): ?>
       <div class="heading"><h2 class="section-heading">Meet our knowledge contributor</h2>
-        <div class="knowledge-contributor"><?php echo $contributor; ?></div>
+        <div class="knowledge-contributor"><?php print $contributor; ?></div>
       </div>
     <?php endif; ?>
   </div>
