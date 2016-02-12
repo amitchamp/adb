@@ -54,8 +54,8 @@ function adb_site_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'adb' => array(
-        'region' => 'sidebar_first',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'adb',
         'weight' => 0,
       ),
