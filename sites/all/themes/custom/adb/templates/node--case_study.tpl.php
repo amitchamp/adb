@@ -172,14 +172,17 @@ global $baseUrl;
     <?php endif; ?>
 
     <!--Meet our knowledge contributor...-->
-    <?php if ($contributor): ?>
+    <?php if ($have_contributor): ?>
       <div class="heading"><h2 class="section-heading">Meet our knowledge contributor</h2>
         <div class="knowledge-contributor"><?php echo $contributor; ?></div>
       </div>
     <?php endif; ?>
-    <!--End Of Main Content -->
-
   </div>
+  <!--End Of Main Content -->
+
+  <?php if ($links = render($content['links'])): ?>
+    <nav<?php print $links_attributes; ?>><?php print $links; ?></nav>
+  <?php endif; ?>
   <?php print render($content['comments']); ?>
 
   <?php print render($title_suffix); ?>
