@@ -36,7 +36,7 @@ function adb_case_study_block_view($delta = '') {
   switch ($delta) {
     case 'subsection_menu':
       $block['subject'] = '';
-      // Function call for getting render content of list. 
+      // Function call for getting render content of list.
       $block['content'] = _adb_case_study_block_sub_sction_menu_content();
       break;
   }
@@ -95,8 +95,8 @@ function _adb_case_study_block_sub_sction_menu_content() {
  *  For creating content type template file called node.tpl.we are creating
  * 	 variable for rendering different section of content in landing page.
  *  HOOK_preprocess_node we are using for one type of node content.
- * 	 
- *  @global type $baseUrl 
+ *
+ *  @global type $baseUrl
  *  @param  &$variables
  */
 function adb_case_study_preprocess_node(&$variables) {
@@ -141,7 +141,13 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Download Link for node page.
     if (isset($variables['field_download_file'][0]['uri'])) {
-      $variables['download_link'] = l(t('Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array('attributes' => array('target' => '_blank')));
+      $variables['download_link'] = l(t('Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array(
+        'attributes' => array(
+          'target' => '_blank'
+      )));
+    }
+    else {
+      $variables['download_link'] = '';
     }
 
     // Print Node page.
@@ -232,7 +238,7 @@ function adb_case_study_preprocess_node(&$variables) {
       }
       foreach ($stake_value->field_institution_detail as $detail_id) {
         foreach ($detail_id as $key => $data) {
-          // In Institutions and stakeholder section we have field collection under field 
+          // In Institutions and stakeholder section we have field collection under field
           // collection so we have to relooping aging for inner ettity_id's.
           $sub_section_detail = entity_load('field_collection_item', array((int) $data['value']));
           $institue_output .= '<div class="detail">';
@@ -297,11 +303,15 @@ function adb_case_study_preprocess_node(&$variables) {
     $contributor_output .= '</div>';
     $variables['have_contributor'] = $contributor_exist;
     $variables['contributor'] = $contributor_output;
+
+    // Add wrapper for rate widget.
+    $variables['content']['rate_rate_useful_content']['#prefix'] = '<div class="rate-widget-wrapper">';
+    $variables['content']['rate_rate_useful_content']['#suffix'] = '</div>';
   }
 }
 
 /**
- *  Get all taxonomy type field and make one single tagging list in content like country,topic 
+ *  Get all taxonomy type field and make one single tagging list in content like country,topic
  *  and countries.
  *  @param array $field_name machine name of field
  *  @param array of taxonomy $taxonomy_refernce_term variable array
@@ -346,7 +356,7 @@ function adb_case_study_get_theme_list_content($itemlist) {
 }
 
 /**
- *  Get value of date with format and it will return exact format of date with given format 
+ *  Get value of date with format and it will return exact format of date with given format
  *  option.
  * @param string $format is format of date
  * @param sting $date_time give string value of date and time
