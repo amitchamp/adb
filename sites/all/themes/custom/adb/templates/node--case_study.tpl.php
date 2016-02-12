@@ -108,55 +108,82 @@ hide($content['links']);
 global $baseUrl;
 ?>
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-	<?php if ($title && !$page): ?>
-		<header<?php print $header_attributes; ?>>
-			<?php if ($title): ?>
-				<a href="<?php print $node_url; ?>" rel="bookmark"></a>
-				</h1>
-			<?php endif; ?>
-		</header>
-	<?php endif; ?>
-<!--Banner Section-->
-	<div class='banner-node'><div class="inner-banner-node-info"><div class="banner-image"><?php print $banner_image; ?><div class="content-type-name"><span>Case study</span><div class="node-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging"><?php print $node_field_tagging; ?></div></div></div></div>
-		<!--Social Share Area-->
-		<div class="social-share-download">
-			<div class="social-share">
-				<?php echo $social_share; ?>
-			</div>
-			<!--Download and Print section-->
-			<div class="download-print">
-				<div class="print"><?php echo $print_node; ?></div>
-				<div class="download"><?php echo $download_link; ?></div>
-			</div>
-		</div>
-	</div>
-	<div class="main-content">
-		<!--Overview-->
-		<div class="heading"><h2 class="section-heading">Overview</h2>
-			<div class="overview-content"><?php echo $body; ?></div>
-		</div>
-		<!--Project snapshot-->
-		<div class="heading"><h2 class="section-heading">Project snapshot</h2>
-			<div class="project-snapshot-content"><?php echo $project_snapshot; ?></div>
-		</div>
-		<!--Cost content-->
-		<div class="heading"><h2 class="section-heading">Cost</h2>
-			<div class="project-cost-content"><?php echo $project_cost; ?></div>
-		</div>
-		<!--Institution and stakeholders-->
-		<div class="heading"><h2 class="section-heading">Institution and stakeholders</h2>
-			<div class="institution-stakeholder"><?php echo $institution_stakeholder; ?></div>
-		</div>
-		<!--Continue reading...-->
-		<div class="heading"><h2 class="section-heading">Continue reading...</h2>
-			<div class="continue-reading"><?php echo $continue_reading; ?></div>
-		</div>
-		<!--Meet our knowledge contributor...-->
-		<div class="heading"><h2 class="section-heading">Meet our knowledge contributor</h2>
-			<div class="knowledge-contributor"><?php echo $contributor; ?></div>
-		</div>
-	</div>
-	<?php print render($content['comments']); ?>
+  <?php if ($title && !$page): ?>
+    <header<?php print $header_attributes; ?>>
+      <?php if ($title): ?>
+        <a href="<?php print $node_url; ?>" rel="bookmark"></a>
+        </h1>
+      <?php endif; ?>
+    </header>
+  <?php endif; ?>
+  <!--Banner Section-->
+  <div class='banner-node'><div class="inner-banner-node-info"><div class="banner-image"><?php print $banner_image; ?><div class="content-type-name"><span>Case study</span><div class="node-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging"><?php print $node_field_tagging; ?></div></div></div></div>
+    <!--Social Share Area-->
+    <div class="social-share-download">
+      <div class="social-share">
+        <?php print $social_share; ?>
+      </div>
+      <!--Download and Print section-->
+      <div class="download-print">
+        <div class="print"><?php print $print_node; ?></div>
+        <div class="download"><?php print $download_link; ?></div>
+      </div>
+    </div>
+  </div>
+  <div class="main-content">
 
-	<?php print render($title_suffix); ?>
+    <!--Overview-->
+    <?php if ($body): ?>
+      <div class="heading"><h2 class="section-heading">Overview</h2>
+        <div class="overview-content">
+          <?php if ($summary): ?>
+            <div class="summary"><?php print $summary; ?></div>
+          <?php endif; ?>
+          <?php print $body; ?></div>
+      </div>
+    <?php endif; ?>
+
+    <!--Project snapshot-->
+    <?php if ($project_snapshot): ?>
+      <div class="heading"><h2 class="section-heading">Project snapshot</h2>
+        <div class="project-snapshot-content"><?php print $project_snapshot; ?></div>
+      </div>
+    <?php endif; ?>
+
+    <!--Cost content-->
+    <?php if ($project_cost): ?>
+      <div class="heading"><h2 class="section-heading">Cost</h2>
+        <div class="project-cost-content"><?php print $project_cost; ?></div>
+      </div>
+    <?php endif; ?>
+
+    <!--Institution and stakeholders-->
+    <?php if ($institution_stakeholder): ?>
+      <div class="heading"><h2 class="section-heading">Institution and stakeholders</h2>
+        <div class="institution-stakeholder"><?php print $institution_stakeholder; ?></div>
+      </div>
+    <?php endif; ?>
+
+    <!--Continue reading...-->
+    <?php if ($continue_reading): ?>
+      <div class="heading"><h2 class="section-heading">Continue reading...</h2>
+        <div class="continue-reading"><?php print $continue_reading; ?></div>
+      </div>
+    <?php endif; ?>
+
+    <!--Meet our knowledge contributor...-->
+    <?php if ($have_contributor): ?>
+      <div class="heading"><h2 class="section-heading">Meet our knowledge contributor</h2>
+        <div class="knowledge-contributor"><?php print $contributor; ?></div>
+      </div>
+    <?php endif; ?>
+  </div>
+  <!--End Of Main Content -->
+
+  <?php if ($links = render($content['links'])): ?>
+    <nav<?php print $links_attributes; ?>><?php print $links; ?></nav>
+  <?php endif; ?>
+  <?php print render($content['comments']); ?>
+
+  <?php print render($title_suffix); ?>
 </article>
