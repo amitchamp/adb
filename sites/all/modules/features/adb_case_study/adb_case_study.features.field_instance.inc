@@ -296,43 +296,6 @@ function adb_case_study_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'field_collection_item-field_impact-field_description_body'.
-  $field_instances['field_collection_item-field_impact-field_description_body'] = array(
-    'bundle' => 'field_impact',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 3,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_description_body',
-    'label' => 'Body',
-    'required' => 0,
-    'settings' => array(
-      'display_summary' => 1,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => 5,
-    ),
-  );
-
   // Exported field_instance: 'field_collection_item-field_impact-field_unit'.
   $field_instances['field_collection_item-field_impact-field_unit'] = array(
     'bundle' => 'field_impact',

@@ -72,7 +72,6 @@ features[field_instance][] = field_collection_item-field_cost-field_cost_data_de
 features[field_instance][] = field_collection_item-field_cost-field_primary_cost
 features[field_instance][] = field_collection_item-field_cost-field_secondary_cost
 features[field_instance][] = field_collection_item-field_impact-field_description
-features[field_instance][] = field_collection_item-field_impact-field_description_body
 features[field_instance][] = field_collection_item-field_impact-field_unit
 features[field_instance][] = field_collection_item-field_impact-field_value
 features[field_instance][] = field_collection_item-field_institution_detail-field_link
