@@ -85,9 +85,9 @@ function adb_case_study_field_group_info() {
     'label' => 'Impact data',
     'weight' => '0',
     'children' => array(
-      0 => 'field_value',
+      0 => 'field_description',
       1 => 'field_unit',
-      2 => 'field_description',
+      2 => 'field_value',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
