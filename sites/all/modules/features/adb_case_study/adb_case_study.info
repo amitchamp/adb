@@ -74,6 +74,7 @@ features[field_instance][] = field_collection_item-field_impact-field_unit
 features[field_instance][] = field_collection_item-field_impact-field_value
 features[field_instance][] = field_collection_item-field_institution_detail-field_link
 features[field_instance][] = field_collection_item-field_institution_detail-field_value
+features[field_instance][] = field_collection_item-field_institution_stakeholder-field_description
 features[field_instance][] = field_collection_item-field_institution_stakeholder-field_institution_category
 features[field_instance][] = field_collection_item-field_institution_stakeholder-field_institution_detail
 features[field_instance][] = field_collection_item-field_lessons-field_description_body

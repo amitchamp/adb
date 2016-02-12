@@ -105,7 +105,6 @@
  */
 hide($content['comments']);
 hide($content['links']);
-global $baseUrl;
 ?>
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php if ($title && !$page): ?>
@@ -185,6 +184,7 @@ global $baseUrl;
   <?php if ($links = render($content['links'])): ?>
     <nav<?php print $links_attributes; ?>><?php print $links; ?></nav>
   <?php endif; ?>
+  <?php print render($content['rate_rate_useful_content']); ?>
   <?php print render($content['comments']); ?>
 
   <?php print render($title_suffix); ?>
