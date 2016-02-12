@@ -268,9 +268,15 @@ function adb_case_study_preprocess_node(&$variables) {
     $variables['continue_reading'] = _adb_case_study_block_sub_sction_menu_content();
 
     // Meet our knowledge contributor.
+    $contributor_exist = FALSE;
     $contributor_output = '';
     $contributor_output.='<div class="contributor-detail">';
     foreach ($variables['field_meet_contributor'] as $contributor) {
+      if (isset($contributor['entity']->title) ||
+        isset($contributor['entity']->body[$und][0]['value']) ||
+        isset($contributor['entity']->body[$und][0]['value'])) {
+        $contributor_exist = TRUE;
+      }
       if (isset($contributor['entity']->field_contributor_image[$und][0]['uri'])) {
         $contributor_output.='<div class="contributor-image">' . theme('image_style', array(
             'style_name' => 'contributor_profile',
@@ -289,6 +295,7 @@ function adb_case_study_preprocess_node(&$variables) {
       $contributor_output.='</div>';
     }
     $contributor_output.='</div>';
+    $variables['have_contributor'] = $contributor_exist;
     $variables['contributor'] = $contributor_output;
   }
 }
