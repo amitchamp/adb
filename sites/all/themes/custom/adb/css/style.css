@@ -140,39 +140,125 @@ p {
 #site-name a {
   text-transform: uppercase;
   font-size: 16px;
+  float: left;
+  margin-top: 7px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000315}}
 header[role="banner"] {
   background-color: #000;
-  padding: 15px 20px;
+  padding: 20px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000318}}
 header[role="banner"] a {
   color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000326}}
 [role="navigation"] {
   padding: 0 20px;
   background: #363636;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000329}}
 [role="navigation"] a {
   color: #fff;
   padding: 5px 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000332}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000334}}
 [role="navigation"] li:first-child a {
   padding-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000337}}
-.region-header .region-inner {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000339}}
+.branding {
+  max-width: 160px;
+  width: 100%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000343}}
+.region-header {
+  float: right;
+  width: 75%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000346}}
+.region-header .block-search {
+  float: left;
+  width: 68%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000350}}
+.region-header .block-adb-global-functions {
+  float: right;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000356}}
+.block-search .form-text {
+  outline: none;
+  height: 40px;
+  background-color: #fff;
+  border: 2px solid #c9c9c9;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 16px;
+  float: left;
+  color: #999;
+  width: 92%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000369}}
+.block-search .form-submit {
+  width: 40px;
+  height: 40px;
+  background: inherit;
+  background-color: #c9c9c9;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #666;
+  border-left: 0px;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  color: #000;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000385}}
+.not-logged-in .block-adb-global-functions {
+  margin-top: 7px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000388}}
+.not-logged-in .block-adb-global-functions a:first-child {
+  margin-right: 20px;
+  position: relative;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000391}}
+.not-logged-in .block-adb-global-functions a:first-child:after {
+  content: "/";
+  position: absolute;
+  right: -8px;
+  width: 1px;
+  color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\00003103}}
+.block-adb-global-functions .profile-access-toggle {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  text-indent: -9999px;
+  display: block;
+  float: left;
+  margin: 0 0.3em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\00003114}}
+.block-adb-global-functions .username {
+  float: left;
+  display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\00003119}}
+.profile-access-toggle-wrapper {
+  clear: both;
 }
 
 /*
