@@ -91,7 +91,7 @@ function adaptivetheme_subtheme_preprocess_block(&$vars) {
 }
 function adaptivetheme_subtheme_process_block(&$vars) {
 }
-// */
+
 
 
 /**
@@ -119,3 +119,18 @@ function adb_preprocess_views_view(&$vars) {
 	}
 
 }
+
+/**
+ * Implements template_preprocess_form_required_marker().
+ */
+function adb_form_required_marker($variables) {
+  // This is also used in the installer, pre-database setup.
+  // Do not show the asterisk sign for required field.
+  $t = get_t();
+  $attributes = array(
+    'class' => 'form-required',
+    'title' => $t('This field is required.'),
+  );
+  return '<span' . drupal_attributes($attributes) . '></span>';
+}
+
