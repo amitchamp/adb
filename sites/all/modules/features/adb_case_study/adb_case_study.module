@@ -179,7 +179,7 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Case study date field value.
     if (isset($variables['field_date'])) {
-      $variables['node_field_date'] = adb_case_study_get_date_formatted_value('j F Y', $variables['field_date'][0]['value']);
+      $variables['node_field_date'] = adb_case_study_get_date_formatted_value('j M Y', $variables['field_date'][0]['value']);
     }
 
     // Case Study Tagging in landing page.
