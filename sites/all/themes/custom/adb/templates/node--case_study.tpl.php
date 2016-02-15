@@ -179,13 +179,19 @@ hide($content['links']);
       </div>
     <?php endif; ?>
   </div>
-  <!--End Of Main Content -->
 
-  <?php if ($links = render($content['links'])): ?>
-    <nav<?php print $links_attributes; ?>><?php print $links; ?></nav>
-  <?php endif; ?>
-  <?php print render($content['rate_rate_useful_content']); ?>
-  <?php print render($content['comments']); ?>
+  <!--Navigation.-->
+  <?php if ($section_navigation): ?>
+    <div class="section-navigate"><?php print $section_navigation; ?></div>
+  </div>
+<?php endif; ?>
+<!--End Of Main Content -->
 
-  <?php print render($title_suffix); ?>
+<?php if ($links = render($content['links'])): ?>
+  <nav<?php print $links_attributes; ?>><?php print $links; ?></nav>
+<?php endif; ?>
+<?php print render($content['rate_rate_useful_content']); ?>
+<?php print render($content['comments']); ?>
+
+<?php print render($title_suffix); ?>
 </article>
