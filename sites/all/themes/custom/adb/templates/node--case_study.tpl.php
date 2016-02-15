@@ -179,6 +179,12 @@ hide($content['links']);
       </div>
     <?php endif; ?>
   </div>
+
+  <!--Navigation.-->
+  <?php if ($section_navigation): ?>
+    <div class="section-navigate"><?php print $section_navigation; ?></div>
+  <?php endif; ?>
+
   <!--End Of Main Content -->
 
   <?php if ($links = render($content['links'])): ?>

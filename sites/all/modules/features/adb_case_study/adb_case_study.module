@@ -24,7 +24,9 @@ function adb_case_study_block_info() {
   $blocks['subsection_menu'] = array(
     'info' => t('Sub Section Menu'),
   );
-
+  $blocks['section_navigation'] = array(
+    'info' => t('Sub section navigation in landing page'),
+  );
   return $blocks;
 }
 
@@ -39,8 +41,68 @@ function adb_case_study_block_view($delta = '') {
       // Function call for getting render content of list.
       $block['content'] = _adb_case_study_block_sub_sction_menu_content();
       break;
+    case 'section_navigation':
+      $block['subject'] = '';
+      // Function call for getting render content of list.
+      $block['content'] = _adb_case_study_block_subsection_navigation();
+      break;
   }
   return $block;
+}
+
+/**
+ *  Custom function for creating field navigation of seb section in case study.
+ *  List of section is defined and make navigation based on that.
+ *  @return string
+ */
+function _adb_case_study_block_subsection_navigation() {
+  // List of views where we have to redirect after navigation.
+  $key_array_indexing = array(
+    '1' => 'node',
+    '2' => 'context',
+    '3' => 'challenges',
+    '4' => 'solutions',
+    '5' => 'impact',
+    '6' => 'lessons',
+    '7' => 'resources',
+  );
+
+  // Name key pair for getting human readable name in navigation.
+  $name_key_pair = array(
+    'node' => t('Overview'),
+    'context' => t('Context'),
+    'challenges' => t('Challenges'),
+    'solutions' => t('Solutions'),
+    'impact' => t('Impact'),
+    'lessons' => t('Lessons'),
+    'resources' => t('Additional resources'));
+  $current_path = explode('/', current_path());
+  $current_url = $current_path[0];
+  $current_index = array_search($current_url, $key_array_indexing);
+
+  // Find the index of the next/prev items.
+  $next = $current_index + 1;
+  $prev = $current_index - 1;
+  if (isset($current_path[1]) && is_numeric($current_path[1])) {
+    $navigation = '<div class="navigation-content">';
+    if ($prev > 0) {
+      $navigation .= l(t('<span>Previous</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$prev]])), $key_array_indexing[$prev] . '/' . $current_path[1], array('html' => TRUE), array(
+        'attributes' => array(
+          'class' => 'navigation-section',
+          'id' => 'nav-section'
+      )));
+    }
+    if ($next < count($key_array_indexing) + 1) {
+      $navigation .= l(t('<span>Next</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$next]]
+        )), $key_array_indexing[$next] . '/' . $current_path[1], array('html' => TRUE), array(
+        'attributes' => array(
+          'class' => 'navigation-section',
+          'id' => 'nav-section'
+      )));
+    }
+    $navigation .= '</div>';
+  }
+  return $navigation;
 }
 
 /**
@@ -49,6 +111,7 @@ function adb_case_study_block_view($delta = '') {
  *  @return string
  */
 function _adb_case_study_block_sub_sction_menu_content() {
+
   // Get current path and get node ID.
   $current_path = explode('/', current_path());
   $current_node = $current_path[1];
@@ -61,12 +124,12 @@ function _adb_case_study_block_sub_sction_menu_content() {
         'href' => 'node/' . $current_node
       ),
       'context' => array(
-        'title' => t('Challenges'),
-        'href' => 'challenges/' . $current_node
+        'title' => t('Context'),
+        'href' => 'context/' . $current_node
       ),
       'challenges' => array(
-        'title' => t('Lessons'),
-        'href' => 'lessons/' . $current_node
+        'title' => t('Challenges'),
+        'href' => 'challenges/' . $current_node
       ),
       'solutions' => array(
         'title' => t('Solutions'),
@@ -76,11 +139,11 @@ function _adb_case_study_block_sub_sction_menu_content() {
         'title' => t('Impact'),
         'href' => 'impact/' . $current_node
       ),
-      'lessions' => array(
-        'title' => t('Lessions'),
-        'href' => 'lessions' . $current_node
+      'lessons' => array(
+        'title' => t('Lessons'),
+        'href' => 'lessons/' . $current_node
       ),
-      'lessions' => array(
+      'resources' => array(
         'title' => t('Additional resources'),
         'href' => 'resources/' . $current_node
       )
@@ -307,6 +370,10 @@ function adb_case_study_preprocess_node(&$variables) {
     // Add wrapper for rate widget.
     $variables['content']['rate_rate_useful_content']['#prefix'] = '<div class="rate-widget-wrapper">';
     $variables['content']['rate_rate_useful_content']['#suffix'] = '</div>';
+
+
+    // Navigation for section.
+    $variables['section_navigation'] = _adb_case_study_block_subsection_navigation();
   }
 }
 
