@@ -14,7 +14,7 @@ function adb_global_functions_preprocess_views_view(&$variables) {
   switch ($variables['view']->name) {
     case 'views_topics_menu':
     case 'views_countries_menu':
-      $variables['theme_hook_suggestions'][] = 'views_view_adb_menu';
+      $variables['theme_hook_suggestions'][] = 'views_view__adb_menu';
       drupal_add_js(drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js');
 
       break;
@@ -243,4 +243,77 @@ function adb_global_functions_theme($existing, $type, $theme, $path) {
       'template' => 'templates/adb-footer',
     ),
   );
+}
+
+/**
+ * Implements HOOK_preprocess_comment_wrapper().
+ */
+function adb_global_functions_preprocess_comment_wrapper(&$variables) {
+  $variables['comment_count_text'] = format_plural($variables['node']->comment_count, '1 comment', '@count comments');
+  // We are showing comments rendered from views.
+  $variables['views_comments'] = views_embed_view('views_recent_comments', 'block_recent_comments', $variables['node']->nid);
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function adb_global_functions_form_comment_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+
+  // Comment form customizations.
+  $form['subject']['#access'] = FALSE;
+  $form['author']['#access'] = FALSE;
+  $form['comment_body'][$form['comment_body']['#language']][0]['value']['#title'] = '';
+  $form['author_picture'] = array(
+    '#weight' => $form['comment_body']['#weight'] - 1,
+    '#markup' => theme('user_picture', array(
+      'account' => $user,
+    )),
+    '#prefix' => '<div class="comment-form-user-picture-wrapper">',
+  );
+  $form['comment_body']['#suffix'] = '</div>';
+}
+
+/**
+ * Implements HOOK_preprocess_node().
+ */
+function adb_global_functions_preprocess_node(&$variables) {
+  if (!empty($widgets)) {
+    // Add wrapper for rate widget.
+    $variables['content']['rate_rate_useful_content']['#prefix'] = '<div class="rate-widget-wrapper">';
+    $variables['content']['rate_rate_useful_content']['#suffix'] = '</div>';
+  }
+
+  // If user is logged in disable "Add new comment" link.
+  if (user_is_logged_in()) {
+    unset($variables['content']['links']['comment']);
+  }
+}
+
+/**
+ * Implements HOOK_preprocess_comment().
+ */
+function adb_global_functions_preprocess_comment(&$variables) {
+  $variables['comment_duration'] = format_interval(REQUEST_TIME - $variables['comment']->created);
+  $variables['comment_submitted'] = t('Submitted this comment from the section');
+}
+
+/**
+ * Implements HOOK_preprocess_views_view_list().
+ */
+function adb_global_functions_preprocess_views_view_list(&$variables) {
+  $variables['rows_count'] = count($variables['rows']);
+
+  // Add comment toggle markup.
+  $variables['comment_more_toggle_markup'] = '<div class="comment-more-toggle">' . t('Join the conversations') . '</div>';
+
+  // Comment toggle wrapper prefix.
+  // This will be prepended in second comment.
+  $variables['comment_more_toggle_wrapper_prefix'] = '<div class="comment-more-toggle-wrapper" style="display: none;">';
+
+  // Comment toggle wrapper suffix.
+  // This will be appended after last comment.
+  $variables['comment_more_toggle_wrapper_suffix'] = '</div>';
+
+  drupal_add_js(drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js');
 }

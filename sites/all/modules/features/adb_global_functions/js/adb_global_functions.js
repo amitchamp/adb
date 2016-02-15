@@ -1,13 +1,14 @@
 (function ($) {
   Drupal.behaviors.adbGlobalFunctions = {
     attach: function(context, settings) {
-      var mainMenuLinks = $('#main-menu-links').children();
+      var mainMenuLinks = $('.primary-menu').children();
 
       closeMenu();
       closeOtherMenus();
       toggleProfileAccess();
       showFeedbackMessageAfterRate();
       footerEnableSlider();
+      toggleMoreCommentDisplay();
 
       // Closes menu when clicked on 'Close' inside menu.
       function closeMenu() {
@@ -19,11 +20,11 @@
 
       // Make sure only one menu is opened at a time.
       function closeOtherMenus() {
-        $('.menu-attach-block-drop-link').click(function (event) {
+        $('.menu-attach-block-drop-link').click(function() {
           var self = $(this);
 
           // Close all menus except itself.
-          if (!self.hasClass('dropped')) {
+          if (self.hasClass('dropped')) {
             mainMenuLinks.each(function() {
               if (!$(this).is(self.parent())) {
                 $(this).find('.menu-attach-block-wrapper').slideUp('fast');
@@ -68,6 +69,15 @@
           slideshow: true,
           slideshowSpeed: 5000,
           controlNav: false
+        });
+      }
+
+      /**
+       * Enable display more comment toggle.
+       */
+      function toggleMoreCommentDisplay() {
+        $('.comment-more-toggle').click(function() {
+          $('.comment-more-toggle-wrapper').slideToggle();
         });
       }
     }

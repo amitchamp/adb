@@ -19,5 +19,6 @@ features[features_api][] = api:2
 features[taxonomy][] = vocabulary_footer_slider_text
 features[variable][] = rate_widgets
 features[views_view][] = views_countries_menu
+features[views_view][] = views_recent_comments
 features[views_view][] = views_topics_menu
 features_exclude[dependencies][ctools] = ctools

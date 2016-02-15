@@ -367,11 +367,6 @@ function adb_case_study_preprocess_node(&$variables) {
     $variables['have_contributor'] = $contributor_exist;
     $variables['contributor'] = $contributor_output;
 
-    // Add wrapper for rate widget.
-    $variables['content']['rate_rate_useful_content']['#prefix'] = '<div class="rate-widget-wrapper">';
-    $variables['content']['rate_rate_useful_content']['#suffix'] = '</div>';
-
-
     // Navigation for section.
     $variables['section_navigation'] = _adb_case_study_block_subsection_navigation();
   }
