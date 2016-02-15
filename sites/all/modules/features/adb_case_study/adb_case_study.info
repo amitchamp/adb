@@ -107,6 +107,7 @@ features[field_instance][] = node-case_study-field_tags
 features[field_instance][] = node-case_study-field_topic
 features[field_instance][] = node-knowledge_contributor-body
 features[field_instance][] = node-knowledge_contributor-field_contributor_image
+features[flexslider_optionset][] = more_case_studies
 features[image][] = contributor_profile
 features[image][] = more_case_studies_340x168
 features[image][] = node_banner_image
