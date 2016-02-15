@@ -186,11 +186,11 @@ hide($content['links']);
   <?php endif; ?>
 
   <!--End Of Main Content -->
+  <?php print render($content['rate_rate_useful_content']); ?>
 
   <?php if ($links = render($content['links'])): ?>
     <nav<?php print $links_attributes; ?>><?php print $links; ?></nav>
   <?php endif; ?>
-  <?php print render($content['rate_rate_useful_content']); ?>
   <?php print render($content['comments']); ?>
 
   <?php print render($title_suffix); ?>
