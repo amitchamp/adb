@@ -36,17 +36,21 @@
   <?php print render($title_suffix); ?>
   <?php if ($header): ?>
     <div class="view-header">
-      <?php //print $header; ?>
+      
+      <!-- check condition weather 'term_name' variable is defined or not-->
       <?php if ($term_name) : ?>
         <div class="case-studies-title">
           <p><?php print t('More case studies from @term_name', array('@term_name' => isset($term_name) ? $term_name : '')); ?></p>
         </div>
-      <?php endif; ?>
+      <?php endif; ?> <!-- 'term_name' variable condtion end -->
+
+      <!-- check condition weather 'node_count' variable is defined or not -->
       <?php if ($node_count) : ?>
         <div class="case-studies-count">
           <p><?php print t('@node_count more articles', array('@node_count' => $node_count)); ?></p>
         </div>
-      <?php endif; ?>
+      <?php endif; ?> <!-- 'node_count' variable condition end -->
+
     </div>
   <?php endif; ?>
 
