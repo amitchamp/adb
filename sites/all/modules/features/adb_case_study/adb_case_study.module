@@ -38,12 +38,12 @@ function adb_case_study_block_view($delta = '') {
   switch ($delta) {
     case 'subsection_menu':
       $block['subject'] = '';
-// Function call for getting render content of list.
+      // Function call for getting render content of list.
       $block['content'] = _adb_case_study_block_sub_sction_menu_content();
       break;
     case 'section_navigation':
       $block['subject'] = '';
-// Function call for getting render content of list.
+      // Function call for getting render content of list.
       $block['content'] = _adb_case_study_block_subsection_navigation();
       break;
   }
@@ -56,7 +56,6 @@ function adb_case_study_block_view($delta = '') {
  *  @return string
  */
 function _adb_case_study_block_subsection_navigation() {
-  
   // List of views where we have to redirect after navigation.
   $key_array_indexing = array(
     '1' => 'node',
@@ -67,10 +66,16 @@ function _adb_case_study_block_subsection_navigation() {
     '6' => 'lessons',
     '7' => 'resources',
   );
-  
+
   // Name key pair for getting human readable name in navigation.
-  $name_key_pair = array('node' => 'Overview', 'context' => 'Context', 'challenges' => 'Challenges', 'solutions' => 'Solutions', 'impact' => 'Impact',
-    'lessons' => 'Lessons', 'resources' => 'Additional resources');
+  $name_key_pair = array(
+    'node' => t('Overview'),
+    'context' => t('Context'),
+    'challenges' => t('Challenges'),
+    'solutions' => t('Solutions'),
+    'impact' => t('Impact'),
+    'lessons' => t('Lessons'),
+    'resources' => t('Additional resources'));
   $current_path = explode('/', current_path());
   $current_url = $current_path[0];
   $current_index = array_search($current_url, $key_array_indexing);
@@ -80,20 +85,21 @@ function _adb_case_study_block_subsection_navigation() {
   $prev = $current_index - 1;
   if (isset($current_path[1]) && is_numeric($current_path[1])) {
     $navigation = '<div class="navigation-content">';
-    if ($prev > 0):
-      $navigation .= l(t('<span><u>Previous</u></span><span class="link-name">' . $name_key_pair[$key_array_indexing[$prev]] . '</span>'), $key_array_indexing[$prev] . '/' . $current_path[1], array('html' => TRUE), array('attributes' => array(
+    if ($prev > 0) {
+      $navigation .= l(t('<span>Previous</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$prev]])), $key_array_indexing[$prev] . '/' . $current_path[1], array('html' => TRUE), array(
+        'attributes' => array(
           'class' => 'navigation-section',
-          'id' => 'nav-section',
-          'html' => TRUE)));
-    endif;
-    if ($next < count($key_array_indexing) + 1):
-      $navigation .= l(
-        t('<span><u>Next</u></span><span class="link-name">' . $name_key_pair[$key_array_indexing[$next]] .
-          '</span>'), $key_array_indexing[$next] . '/' . $current_path[1], array('html' => TRUE), array('attributes' => array(
+          'id' => 'nav-section'
+      )));
+    }
+    if ($next < count($key_array_indexing) + 1) {
+      $navigation .= l(t('<span>Next</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$next]]
+        )), $key_array_indexing[$next] . '/' . $current_path[1], array('html' => TRUE), array(
+        'attributes' => array(
           'class' => 'navigation-section',
-          'id' => 'nav-section',
-          'html' => TRUE)));
-    endif;
+          'id' => 'nav-section'
+      )));
+    }
     $navigation .= '</div>';
   }
   return $navigation;
