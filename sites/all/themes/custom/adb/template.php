@@ -110,7 +110,7 @@ function adb_preprocess_views_view(&$vars) {
 		$termDeatail = taxonomy_term_load($termId);
 		// get total number of node associated with given term id
 		$totalNodes = taxonomy_select_nodes($termId, FALSE);
-	  $nodeCount = count($totalNodes);
+	  $nodeCount = count($totalNodes) -1;
 
 	  // create variable named 'term_name' of term name for display
 	  $vars['term_name'] = $termDeatail->name;
