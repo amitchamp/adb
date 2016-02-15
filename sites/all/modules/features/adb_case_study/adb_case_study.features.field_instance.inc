@@ -296,6 +296,43 @@ function adb_case_study_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'field_collection_item-field_impact-field_description_body'.
+  $field_instances['field_collection_item-field_impact-field_description_body'] = array(
+    'bundle' => 'field_impact',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_description_body',
+    'label' => 'Body',
+    'required' => 0,
+    'settings' => array(
+      'display_summary' => 1,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'field_collection_item-field_impact-field_unit'.
   $field_instances['field_collection_item-field_impact-field_unit'] = array(
     'bundle' => 'field_impact',
@@ -1120,48 +1157,6 @@ function adb_case_study_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-case_study-field_download_file'.
-  $field_instances['node-case_study-field_download_file'] = array(
-    'bundle' => 'case_study',
-    'deleted' => 0,
-    'description' => 'Upload file for download pdf',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_download_file',
-    'label' => 'Download file',
-    'required' => 0,
-    'settings' => array(
-      'description_field' => 0,
-      'file_directory' => '',
-      'file_extensions' => 'txt pdf doc docx xls',
-      'max_filesize' => '10 MB',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'file',
-      'settings' => array(
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'file_generic',
-      'weight' => 7,
-    ),
-  );
-
   // Exported field_instance: 'node-case_study-field_impact'.
   $field_instances['node-case_study-field_impact'] = array(
     'bundle' => 'case_study',
@@ -1650,7 +1645,6 @@ function adb_case_study_field_default_field_instances() {
   t('Define dates');
   t('Define project estimation');
   t('Description');
-  t('Download file');
   t('Impact');
   t('Impact summary');
   t('Institution and stakeholders');
@@ -1667,7 +1661,6 @@ function adb_case_study_field_default_field_instances() {
   t('Title');
   t('Topic');
   t('Unit');
-  t('Upload file for download pdf');
   t('Value');
 
   return $field_instances;

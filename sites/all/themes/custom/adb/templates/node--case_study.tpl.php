@@ -116,7 +116,13 @@ hide($content['links']);
     </header>
   <?php endif; ?>
   <!--Banner Section-->
-  <div class='banner-node'><div class="inner-banner-node-info"><div class="banner-image"><?php print $banner_image; ?><div class="content-type-name"><span>Case study</span><div class="node-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging"><?php print $node_field_tagging; ?></div></div></div></div>
+  <div class='banner-node'><div class="inner-banner-node-info">
+      <div class="banner-image">
+        <?php if ($banner_image): ?>
+          <?php
+          print $banner_image;
+        endif;
+        ?><div class="content-type-name"><span>Case study</span><div class="node-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging"><?php print $node_field_tagging; ?></div></div></div></div>
     <!--Social Share Area-->
     <div class="social-share-download">
       <div class="social-share">
