@@ -31,7 +31,6 @@ function adb_case_study_views_api($module = NULL, $api = NULL) {
  */
 function adb_case_study_fe_date_custom_date_formats() {
   $custom_date_formats = array();
-  $custom_date_formats['j F Y'] = 'j F Y';
   return $custom_date_formats;
 }
 
