@@ -244,3 +244,54 @@ function adb_global_functions_theme($existing, $type, $theme, $path) {
     ),
   );
 }
+
+/**
+ * Implements HOOK_preprocess_comment_wrapper().
+ */
+function adb_global_functions_preprocess_comment_wrapper(&$variables) {
+  $variables['comment_count_text'] = format_plural($variables['node']->comment_count, '1 comment', '@count comments');
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function adb_global_functions_form_comment_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+
+  // Comment form customizations.
+  $form['subject']['#access'] = FALSE;
+  $form['author']['#access'] = FALSE;
+  $form['comment_body'][$form['comment_body']['#language']][0]['value']['#title'] = '';
+  $form['author_picture'] = array(
+    '#weight' => $form['comment_body']['#weight'] - 1,
+    '#markup' => theme('user_picture', array(
+      'account' => $user,
+    )),
+    '#prefix' => '<div class="comment-form-user-picture-wrapper">',
+  );
+  $form['comment_body']['#suffix'] = '</div>';
+}
+
+/**
+ * Implements HOOK_preprocess_node().
+ */
+function adb_global_functions_preprocess_node(&$variables) {
+  if (!empty($widgets)) {
+    // Add wrapper for rate widget.
+    $variables['content']['rate_rate_useful_content']['#prefix'] = '<div class="rate-widget-wrapper">';
+    $variables['content']['rate_rate_useful_content']['#suffix'] = '</div>';
+  }
+
+  // If user is logged in disable "Add new comment" link.
+  if (user_is_logged_in()) {
+    unset($variables['content']['links']['comment']);
+  }
+}
+
+/**
+ * Implements HOOK_preprocess_comment().
+ */
+function adb_global_functions_preprocess_comment(&$variables) {
+  $variables['comment_duration'] = format_interval(REQUEST_TIME - $variables['comment']->created);
+  $variables['comment_submitted'] = t('Submitted this comment from the section');
+}
