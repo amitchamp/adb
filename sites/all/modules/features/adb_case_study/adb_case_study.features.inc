@@ -11,6 +11,9 @@ function adb_case_study_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
+  if ($module == "flexslider" && $api == "flexslider_default_preset") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -57,6 +60,21 @@ function adb_case_study_image_default_styles() {
         'data' => array(
           'width' => 102,
           'height' => 102,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: more_case_studies_340x168.
+  $styles['more_case_studies_340x168'] = array(
+    'label' => 'More Case Studies 340x168',
+    'effects' => array(
+      1 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 340,
+          'height' => 168,
         ),
         'weight' => 1,
       ),
