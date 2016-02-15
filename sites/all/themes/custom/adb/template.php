@@ -92,3 +92,24 @@ function adaptivetheme_subtheme_preprocess_block(&$vars) {
 function adaptivetheme_subtheme_process_block(&$vars) {
 }
 // */
+
+
+/**
+ * Implements theme_preprocess_views_data()
+ * Override or insert variables into views
+ */
+function adb_preprocess_views_view(&$vars) {
+	$viewsName = $vars['view']->name;
+
+	if ($viewsName == 'more_case_studies') {
+		$termId = intval(strip_tags($vars['header']));
+
+		$termDeatail = taxonomy_term_load($termId);
+		$totalNodes = taxonomy_select_nodes($termId, FALSE);
+	  $nodeCount = count($totalNodes);
+
+	  $vars['term_name'] = $termDeatail->name;
+	  $vars['node_count'] = $nodeCount;
+	}
+
+}
