@@ -116,7 +116,13 @@ hide($content['links']);
     </header>
   <?php endif; ?>
   <!--Banner Section-->
-  <div class='banner-node'><div class="inner-banner-node-info"><div class="banner-image"><?php print $banner_image; ?><div class="content-type-name"><span class="case-study-label">Case study</span><div class="node-title case-study-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging case-study-tags"><?php print $node_field_tagging; ?></div><small class="arrow-icon"><i class="fa fa-angle-down"></i></small></div><span class="black-border"></span></div></div>
+  <div class='banner-node'><div class="inner-banner-node-info">
+      <div class="banner-image">
+        <?php if ($banner_image): ?>
+          <?php
+          print $banner_image;
+        endif;
+        ?><div class="content-type-name"><span class="case-study-label">Case study</span><div class="node-title case-study-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging case-study-tags"><?php print $node_field_tagging; ?></div><small class="arrow-icon"><i class="fa fa-angle-down"></i></small></div><span class="black-border"></span></div></div>
     <!--Social Share Area-->
     <div class="social-share-download">
       <div class="social-share">
@@ -179,12 +185,18 @@ hide($content['links']);
       </div>
     <?php endif; ?>
   </div>
+
+  <!--Navigation.-->
+  <?php if ($section_navigation): ?>
+    <div class="section-navigate"><?php print $section_navigation; ?></div>
+  <?php endif; ?>
+
   <!--End Of Main Content -->
+  <?php print render($content['rate_rate_useful_content']); ?>
 
   <?php if ($links = render($content['links'])): ?>
     <nav<?php print $links_attributes; ?>><?php print $links; ?></nav>
   <?php endif; ?>
-  <?php print render($content['rate_rate_useful_content']); ?>
   <?php print render($content['comments']); ?>
 
   <?php print render($title_suffix); ?>

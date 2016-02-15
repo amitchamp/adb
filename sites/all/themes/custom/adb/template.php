@@ -91,4 +91,46 @@ function adaptivetheme_subtheme_preprocess_block(&$vars) {
 }
 function adaptivetheme_subtheme_process_block(&$vars) {
 }
-// */
+
+
+
+/**
+ * Implements theme_preprocess_views_data()
+ * Override or insert variables into views
+ */
+function adb_preprocess_views_view(&$vars) {
+	$viewsName = $vars['view']->name; // store value of views name of check condition
+
+	// check condition for 'more_case_studies' views only
+	if ($viewsName == 'more_case_studies') {
+		// get term id from header and convert into integer
+		$termId = intval(strip_tags($vars['header']));
+
+		// get term detail using drupal function for display term name
+		$termDeatail = taxonomy_term_load($termId);
+		// get total number of node associated with given term id
+		$totalNodes = taxonomy_select_nodes($termId, FALSE);
+	  $nodeCount = count($totalNodes);
+
+	  // create variable named 'term_name' of term name for display
+	  $vars['term_name'] = $termDeatail->name;
+	  // create variable named 'node_count' for display total number of node in views
+	  $vars['node_count'] = $nodeCount;
+	}
+
+}
+
+/**
+ * Implements template_preprocess_form_required_marker().
+ */
+function adb_form_required_marker($variables) {
+  // This is also used in the installer, pre-database setup.
+  // Do not show the asterisk sign for required field.
+  $t = get_t();
+  $attributes = array(
+    'class' => 'form-required',
+    'title' => $t('This field is required.'),
+  );
+  return '<span' . drupal_attributes($attributes) . '></span>';
+}
+
