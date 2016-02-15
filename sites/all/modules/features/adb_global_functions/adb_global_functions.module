@@ -297,3 +297,23 @@ function adb_global_functions_preprocess_comment(&$variables) {
   $variables['comment_duration'] = format_interval(REQUEST_TIME - $variables['comment']->created);
   $variables['comment_submitted'] = t('Submitted this comment from the section');
 }
+
+/**
+ * Implements HOOK_preprocess_views_view_list().
+ */
+function adb_global_functions_preprocess_views_view_list(&$variables) {
+  $variables['rows_count'] = count($variables['rows']);
+
+  // Add comment toggle markup.
+  $variables['comment_more_toggle_markup'] = '<div class="comment-more-toggle">' . t('Join the conversations') . '</div>';
+
+  // Comment toggle wrapper prefix.
+  // This will be prepended in second comment.
+  $variables['comment_more_toggle_wrapper_prefix'] = '<div class="comment-more-toggle-wrapper" style="display: none;">';
+
+  // Comment toggle wrapper suffix.
+  // This will be appended after last comment.
+  $variables['comment_more_toggle_wrapper_suffix'] = '</div>';
+
+  drupal_add_js(drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js');
+}

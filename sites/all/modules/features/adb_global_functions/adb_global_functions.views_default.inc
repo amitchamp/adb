@@ -152,14 +152,14 @@ function adb_global_functions_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['ui_name'] = 'Display comment';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '  <div class="comment-left-wrapper">[picture]</div>
-  <div class="comment-right-wrapper">
-    <div class="comment-author-duration-wrapper">
-      <div class="comment-author">[name]</div>
-      <div class="comment-duration">[created]</div>
-    </div>
-   <div class="comment-body">[comment_body]</div>
-  </div>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="comment-left-wrapper">[picture]</div>
+<div class="comment-right-wrapper">
+  <div class="comment-author-duration-wrapper">
+    <div class="comment-author">[name]</div>
+    <div class="comment-duration">[created]</div>
+  </div>
+  <div class="comment-body">[comment_body]</div>
+</div>';
   $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['element_wrapper_type'] = 'div';

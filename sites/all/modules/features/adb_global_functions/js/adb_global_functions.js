@@ -8,6 +8,7 @@
       toggleProfileAccess();
       showFeedbackMessageAfterRate();
       footerEnableSlider();
+      toggleMoreCommentDisplay();
 
       // Closes menu when clicked on 'Close' inside menu.
       function closeMenu() {
@@ -68,6 +69,15 @@
           slideshow: true,
           slideshowSpeed: 5000,
           controlNav: false
+        });
+      }
+
+      /**
+       * Enable display more comment toggle.
+       */
+      function toggleMoreCommentDisplay() {
+        $('.comment-more-toggle').click(function() {
+          $('.comment-more-toggle-wrapper').slideToggle();
         });
       }
     }
