@@ -47,5 +47,5 @@
     <?php print render($content['comment_form']); ?>
   <?php endif; ?>
   <div class="comment-count"><?php print $comment_count_text; ?></div>
-  <?php print render($content['comments']); ?>
+  <?php print $views_comments; ?>
 </section>

@@ -250,6 +250,8 @@ function adb_global_functions_theme($existing, $type, $theme, $path) {
  */
 function adb_global_functions_preprocess_comment_wrapper(&$variables) {
   $variables['comment_count_text'] = format_plural($variables['node']->comment_count, '1 comment', '@count comments');
+  // We are showing comments rendered from views.
+  $variables['views_comments'] = views_embed_view('views_recent_comments', 'block_recent_comments', $variables['node']->nid);
 }
 
 /**
