@@ -7,12 +7,14 @@
 	a {
 		text-transform: uppercase;
     	font-size: 16px;
+    	float: left;
+    	margin-top: 9px;
 	}
 }
 header {
 	&[role="banner"] {
 		background-color: $header-color;
-		padding: 15px 20px;
+		padding: 20px;
 		a {
 			color: $white;
 		}
@@ -34,9 +36,127 @@ header {
 		}
 	}
 }
-.region-header .region-inner {
-	display: -webkit-flex;
-   display: flex;
-   -webkit-flex-direction: row;
-   flex-direction: row;
+.branding {
+	max-width: 160px;
+	width: 100%;
 }
+.region-header {
+	float: right;
+	width: 75%;
+	.block-search {
+		float: left;
+		width: 68%;
+	}
+	.block-adb-global-functions {
+		float: right;
+		font-size: 14px;
+		text-align: right;
+	}
+}
+
+.block-search {
+	.form-text {
+	    outline: none;
+	    height: 40px;
+	    background-color: $white;
+	    border: 2px solid #c9c9c9;
+	    border-right: none;
+	    border-top-left-radius: 5px;
+	    border-bottom-left-radius: 5px;
+	    font-size: 16px;
+	    float: left;
+	    color: $grey;
+	    width: 92%;
+	}
+	.form-submit {
+	    width: 40px;
+	    height: 40px;
+	    background: inherit;
+	    background-color: #c9c9c9;
+	    border-width: 2px;
+	    border-style: solid;
+	    border-color: $dark-grey;
+	    border-left: 0px;
+	    border-radius: 5px;
+	    border-top-left-radius: 0px;
+	    border-bottom-left-radius: 0px;
+	    color: $black;
+	}
+}
+.not-logged-in {
+	.block-adb-global-functions {
+		margin-top: 9px;
+		a {
+			&:first-child {
+				margin-right: 20px;
+				position: relative;
+				&:after {
+					content: "/";
+					position: absolute;
+					right: -8px;
+					width: 1px;
+					color: $white;
+				}
+			}
+		}
+	}
+}
+.logged-in {
+	.block-adb-global-functions {
+		margin-top: 9px;
+	}
+}
+.block-adb-global-functions {
+	.profile-access-toggle {
+		width: 0;
+		height: 10px;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top: 5px solid $white;
+		text-indent: 9999px;
+	    margin: 0 0.3em;
+		position: absolute;
+		right: 0;
+		top: 40%;
+		color: transparent;
+	}
+	.username {
+		float: left;
+		display: block;
+	}
+}
+.profile-access-toggle-wrapper {
+	clear: both;
+	padding-right: 1.3em;
+}
+.expand-profile-wrapper {
+	position: relative;
+	display: inline-block;
+	padding-right: 1.4em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
