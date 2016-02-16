@@ -76,6 +76,8 @@
        * Enable display more comment toggle.
        */
       function toggleMoreCommentDisplay() {
+        // Initially hide all comments except the first one.
+        $('.comment-more-toggle-wrapper').hide();
         $('.comment-more-toggle').click(function() {
           $('.comment-more-toggle-wrapper').slideToggle();
         });

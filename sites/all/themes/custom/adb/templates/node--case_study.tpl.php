@@ -122,7 +122,7 @@ hide($content['links']);
           <?php
           print $banner_image;
         endif;
-        ?><div class="content-type-name"><span>Case study</span><div class="node-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging"><?php print $node_field_tagging; ?></div></div></div></div>
+        ?><div class="content-type-name"><span class="case-study-label">Case study</span><div class="node-title case-study-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging case-study-tags"><?php print $node_field_tagging; ?></div><small class="arrow-icon"><i class="fa fa-angle-down"></i></small></div><span class="black-border"></span></div></div>
     <!--Social Share Area-->
     <div class="social-share-download">
       <div class="social-share">

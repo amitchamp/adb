@@ -1,23 +1,6 @@
 /*
 ** Utilities.
 */
-/*
-** Helpers (Placeholders)
-*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/utilities\/_placeholder\.scss}line{font-family:\000036}}
-.nav ul {
-  margin: 0;
-  padding: 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/utilities\/_placeholder\.scss}line{font-family:\000039}}
-.nav ul li {
-  float: left;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/utilities\/_placeholder\.scss}line{font-family:\0000311}}
-.nav ul li:first-child {
-  margin: 0;
-}
-
 /**
  * Variables for all patial files.
 **/
@@ -25,19 +8,61 @@
  ** Variables for all the fonts.
  */
 /*
+** Helpers (Placeholders)
+*/
+/* line 6, ../sass/utilities/_placeholder.scss */
+.nav ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 9, ../sass/utilities/_placeholder.scss */
+.nav ul li {
+  float: left;
+}
+/* line 11, ../sass/utilities/_placeholder.scss */
+.nav ul li:first-child {
+  margin: 0;
+}
+
+/*
+** For the Heading on the images
+*/
+/* line 70, ../sass/utilities/_placeholder.scss */
+.case-study-title {
+  font-size: 48px;
+  line-height: 54px;
+  color: #fff;
+  margin: 6px 0 13px;
+  text-transform: capitalize;
+}
+
+/*
+** Font awesome
+*/
+/* line 81, ../sass/utilities/_placeholder.scss */
+.case-study-tags li:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
 ** base.
 */
 /**
  ** Base layout of site.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/base\/_base\.scss}line{font-family:\000035}}
+/* line 5, ../sass/base/_base.scss */
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/base\/_base\.scss}line{font-family:\0000311}}
+/* line 11, ../sass/base/_base.scss */
 body {
   margin: 0;
   padding: 0;
@@ -48,17 +73,17 @@ body {
   font-family: "OpenSans-Regular";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/base\/_base\.scss}line{font-family:\0000320}}
+/* line 20, ../sass/base/_base.scss */
 a {
   color: #2A5DB0;
   text-decoration: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/base\/_base\.scss}line{font-family:\0000323}}
+/* line 23, ../sass/base/_base.scss */
 a:hover {
   text-decoration: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/base\/_base\.scss}line{font-family:\0000327}}
+/* line 27, ../sass/base/_base.scss */
 p {
   color: #333333;
 }
@@ -101,7 +126,7 @@ p {
  ** Base layout of site.
  ** Generally, It will inclue the width of the regions and their placement.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/layout\/_layout\.scss}line{font-family:\000036}}
+/* line 6, ../sass/layout/_layout.scss */
 .page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -114,17 +139,17 @@ p {
  ** @file
  ** Classes that would be used site wide.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_commonClass\.scss}line{font-family:\000036}}
+/* line 6, ../sass/component/_commonClass.scss */
 .pull-left {
   float: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_commonClass\.scss}line{font-family:\000039}}
+/* line 9, ../sass/component/_commonClass.scss */
 .pull-right {
   float: right;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_commonClass\.scss}line{font-family:\0000312}}
+/* line 12, ../sass/component/_commonClass.scss */
 .full-width, header {
   width: 100%;
 }
@@ -132,11 +157,11 @@ p {
 /*
 ** Style for Header Components
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\000035}}
+/* line 5, ../sass/component/_header.scss */
 #site-name {
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\000037}}
+/* line 7, ../sass/component/_header.scss */
 #site-name a {
   text-transform: uppercase;
   font-size: 16px;
@@ -144,55 +169,55 @@ p {
   margin-top: 9px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000315}}
+/* line 15, ../sass/component/_header.scss */
 header[role="banner"] {
   background-color: #000;
   padding: 20px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000318}}
+/* line 18, ../sass/component/_header.scss */
 header[role="banner"] a {
   color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000326}}
+/* line 26, ../sass/component/_header.scss */
 [role="navigation"] {
   padding: 0 20px;
   background: #363636;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000329}}
+/* line 29, ../sass/component/_header.scss */
 [role="navigation"] a {
   color: #fff;
   padding: 5px 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000334}}
+/* line 34, ../sass/component/_header.scss */
 [role="navigation"] li:first-child a {
   padding-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000339}}
+/* line 39, ../sass/component/_header.scss */
 .branding {
   max-width: 160px;
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000343}}
+/* line 43, ../sass/component/_header.scss */
 .region-header {
   float: right;
   width: 75%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000346}}
+/* line 46, ../sass/component/_header.scss */
 .region-header .block-search {
   float: left;
   width: 68%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000350}}
+/* line 50, ../sass/component/_header.scss */
 .region-header .block-adb-global-functions {
   float: right;
   font-size: 14px;
   text-align: right;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000358}}
+/* line 58, ../sass/component/_header.scss */
 .block-search .form-text {
   outline: none;
   height: 40px;
@@ -206,7 +231,7 @@ header[role="banner"] a {
   color: #999;
   width: 92%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000371}}
+/* line 71, ../sass/component/_header.scss */
 .block-search .form-submit {
   width: 40px;
   height: 40px;
@@ -222,16 +247,16 @@ header[role="banner"] a {
   color: #000;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000387}}
+/* line 87, ../sass/component/_header.scss */
 .not-logged-in .block-adb-global-functions {
   margin-top: 9px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000390}}
+/* line 90, ../sass/component/_header.scss */
 .not-logged-in .block-adb-global-functions a:first-child {
   margin-right: 20px;
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\0000393}}
+/* line 93, ../sass/component/_header.scss */
 .not-logged-in .block-adb-global-functions a:first-child:after {
   content: "/";
   position: absolute;
@@ -240,12 +265,12 @@ header[role="banner"] a {
   color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\00003105}}
+/* line 105, ../sass/component/_header.scss */
 .logged-in .block-adb-global-functions {
   margin-top: 9px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\00003110}}
+/* line 110, ../sass/component/_header.scss */
 .block-adb-global-functions .profile-access-toggle {
   width: 0;
   height: 10px;
@@ -259,19 +284,19 @@ header[role="banner"] a {
   top: 40%;
   color: transparent;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\00003123}}
+/* line 123, ../sass/component/_header.scss */
 .block-adb-global-functions .username {
   float: left;
   display: block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\00003128}}
+/* line 128, ../sass/component/_header.scss */
 .profile-access-toggle-wrapper {
   clear: both;
   padding-right: 1.3em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/adb\/sites\/all\/themes\/custom\/adb\/sass\/component\/_header\.scss}line{font-family:\00003132}}
+/* line 132, ../sass/component/_header.scss */
 .expand-profile-wrapper {
   position: relative;
   display: inline-block;
@@ -293,6 +318,108 @@ header[role="banner"] a {
 /*
  ** style for case study page only.
  */
+/*
+**Featured Section
+*/
+/* line 8, ../sass/pages/_caseStudy.scss */
+.banner-image {
+  position: relative;
+}
+
+/* line 11, ../sass/pages/_caseStudy.scss */
+.content-type-name {
+  width: 100%;
+  padding-left: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* line 18, ../sass/pages/_caseStudy.scss */
+.case-study-label {
+  padding: 5px 10px;
+  background-color: #000;
+  color: #fff;
+  font-size: 13px;
+  display: inline-block;
+}
+
+/* line 28, ../sass/pages/_caseStudy.scss */
+.project-date {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+/* line 34, ../sass/pages/_caseStudy.scss */
+.case-study-tags {
+  margin-bottom: 64px;
+}
+/* line 36, ../sass/pages/_caseStudy.scss */
+.case-study-tags .menu-categories-title {
+  display: none;
+}
+/* line 39, ../sass/pages/_caseStudy.scss */
+.case-study-tags .menu-categories {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* line 44, ../sass/pages/_caseStudy.scss */
+.case-study-tags li {
+  background-color: #fff;
+  border: solid 1px #000;
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 5px;
+  margin: 0 16px 8px 0;
+}
+/* line 51, ../sass/pages/_caseStudy.scss */
+.case-study-tags li.first {
+  margin-left: 0;
+}
+/* line 54, ../sass/pages/_caseStudy.scss */
+.case-study-tags li:before {
+  content: "\f02b";
+  color: #000;
+  margin-right: 4px;
+}
+/* line 61, ../sass/pages/_caseStudy.scss */
+.case-study-tags a {
+  color: #000;
+}
+
+/* line 66, ../sass/pages/_caseStudy.scss */
+.black-border {
+  height: 20px;
+  background-color: #000;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* line 74, ../sass/pages/_caseStudy.scss */
+.arrow-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -2px;
+  text-align: center;
+}
+/* line 85, ../sass/pages/_caseStudy.scss */
+.arrow-icon .fa {
+  font-size: 22px;
+  line-height: 24px;
+  color: #333333;
+}
+
 /*
  ** Style for Homepage only.
  */

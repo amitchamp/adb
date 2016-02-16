@@ -14,6 +14,8 @@ function adb_global_functions_preprocess_views_view(&$variables) {
   switch ($variables['view']->name) {
     case 'views_topics_menu':
     case 'views_countries_menu':
+      // We need close option for the menu.
+      // Therefore, we are using the same template for every menu contents.
       $variables['theme_hook_suggestions'][] = 'views_view__adb_menu';
       drupal_add_js(drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js');
 
@@ -178,30 +180,33 @@ function adb_global_functions_search_form_redirect($form, &$form_state) {
 function adb_global_functions_preprocess_rate_template_yesno(&$variables) {
   global $user;
   $node = menu_get_object();
-  $widgets = rate_get_active_widgets('node', $node->type);
 
-  // Get value for 'Yes' and 'No'.
-  // @todo We consider that only widget is embedded for a node.
-  $widget = array_shift($widgets);
-  $yes_value = $widget->options[0][0];
-  $no_value = $widget->options[1][0];
+  if ($node) {
+    $widgets = rate_get_active_widgets('node', $node->type);
 
-  // Alter rate widget based on user's vote.
-  $result = votingapi_select_votes(array(
-    'uid' => $user->uid,
-    'entity_id' => $node->nid,
-  ));
-  if (!empty($result) && ($result[0]['value'] == $yes_value || $result[0]['value'] == $no_value)) {
-    $variables['user_voted'] = TRUE;
-    $variables['user_voted_message'] = t('Thank you for your feedback.');
+    // Get value for 'Yes' and 'No'.
+    // @todo We consider that only widget is embedded for a node.
+    $widget = array_shift($widgets);
+    $yes_value = $widget->options[0][0];
+    $no_value = $widget->options[1][0];
+
+    // Alter rate widget based on user's vote.
+    $result = votingapi_select_votes(array(
+      'uid' => $user->uid,
+      'entity_id' => $node->nid,
+    ));
+    if (!empty($result) && ($result[0]['value'] == $yes_value || $result[0]['value'] == $no_value)) {
+      $variables['user_voted'] = TRUE;
+      $variables['user_voted_message'] = t('Thank you for your feedback.');
+    }
+    else {
+      $variables['user_voted'] = FALSE;
+    }
+
+    // Do not show votes.
+    $variables['links'][0]['votes'] = '';
+    $variables['links'][1]['votes'] = '';
   }
-  else {
-    $variables['user_voted'] = FALSE;
-  }
-
-  // Do not show votes.
-  $variables['links'][0]['votes'] = '';
-  $variables['links'][1]['votes'] = '';
 }
 
 /**
@@ -309,7 +314,7 @@ function adb_global_functions_preprocess_views_view_list(&$variables) {
 
   // Comment toggle wrapper prefix.
   // This will be prepended in second comment.
-  $variables['comment_more_toggle_wrapper_prefix'] = '<div class="comment-more-toggle-wrapper" style="display: none;">';
+  $variables['comment_more_toggle_wrapper_prefix'] = '<div class="comment-more-toggle-wrapper">';
 
   // Comment toggle wrapper suffix.
   // This will be appended after last comment.
