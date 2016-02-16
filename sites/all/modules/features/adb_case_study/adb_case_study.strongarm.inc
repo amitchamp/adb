@@ -139,9 +139,6 @@ function adb_case_study_strongarm() {
       'print' => array(
         'custom_settings' => FALSE,
       ),
-      'token' => array(
-        'custom_settings' => FALSE,
-      ),
     ),
     'extra_fields' => array(
       'form' => array(
