@@ -457,8 +457,8 @@ function adb_case_study_views_pre_view(&$view, &$display_id, &$args) {
       }
 
       // Condition check of footer value is empty or not.
-      if (count($footer) && $footer['area']['content'] != '' && is_numeric(arg(1))) {
-        $node = node_load(arg(1));
+      if (count($footer) && $footer['area']['content'] != '' && is_numeric($args[0])) {
+        $node = node_load($args[0]);
         if ($node->type == 'case_study') {
           // Show widget on views page for current node.
           $vote_widget = rate_embed($node, 'rate_useful_content');
