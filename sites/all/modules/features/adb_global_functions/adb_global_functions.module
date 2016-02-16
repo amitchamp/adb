@@ -182,10 +182,8 @@ function adb_global_functions_preprocess_rate_template_yesno(&$variables) {
   if (menu_get_object()) {
     $node = menu_get_object();
   }
-  else {
-    if (arg(0) != 'node' && is_numeric(arg(1))) {
-      $node = node_load(arg(1));
-    }
+  else if (is_numeric($variables['content_id'])) {
+    $node = node_load($variables['content_id']);
   }
 
   if ($node) {
