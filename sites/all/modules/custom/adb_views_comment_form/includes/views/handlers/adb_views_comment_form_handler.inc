@@ -23,11 +23,10 @@ class AdbViewsCommentFormHandler  extends views_handler_area {
    * {@inheritdoc}
    */
   public function render($empty = FALSE) {
-    $return = '';
-    if (!$empty || !empty($this->options['empty'])) {
-      $return = theme('status_messages');
-    }
-    return $return;
+    $comment = new stdClass;
+    $comment->nid = 2;
+    $form = drupal_get_form('comment_form', $comment);
+    return drupal_render($form);
   }
 
 }
