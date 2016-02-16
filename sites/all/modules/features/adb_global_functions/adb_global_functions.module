@@ -77,8 +77,9 @@ function adb_global_functions_block_view($delta = '') {
 
       // Footer slider.
       $slider_texts = array();
-      $slider_text_vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_footer_slider_text');
-      $slider_texts_terms = taxonomy_get_tree($slider_text_vocabulary->vid);
+      $vocabulary = taxonomy_vocabulary_machine_name_load('topics');
+      // Make sure you show only the parent terms.
+      $slider_texts_terms = taxonomy_get_tree($vocabulary->vid, $parent = 0, $depth = 1);
       foreach ($slider_texts_terms as $value) {
         $slider_texts[] = array(
           'data' => $value->name,
