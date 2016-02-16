@@ -14,6 +14,7 @@
 
   ; See each stylesheet for extensive documentation and help.
   stylesheets[screen][] = css/style.css
+  stylesheets[screen][] = css/font-awesome.min.css
 
   ; Print - uncomment to load basic print styles.
   ; stylesheets[print][] = css/print.css

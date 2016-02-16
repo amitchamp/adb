@@ -62,3 +62,27 @@
   display: -moz-inline-flex;
   display: -ms-inline-flex;
 }
+
+/*
+** For the Heading on the images
+*/
+
+%main-heading {
+  font-size: $heading-title-48;
+  line-height: ($heading-title-48)+6;
+  color: $white;
+  margin: 6px 0 13px;
+  text-transform: capitalize;
+}
+
+/*
+** Font awesome
+*/
+%fa {
+  display:inline-block;
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
