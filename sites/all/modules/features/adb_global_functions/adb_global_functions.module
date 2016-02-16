@@ -251,19 +251,11 @@ function adb_global_functions_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Implements HOOK_preprocess_comment_wrapper().
- */
-function adb_global_functions_preprocess_comment_wrapper(&$variables) {
-  $variables['comment_count_text'] = format_plural($variables['node']->comment_count, '1 comment', '@count comments');
-  // We are showing comments rendered from views.
-  $variables['views_comments'] = views_embed_view('views_recent_comments', 'block_recent_comments', $variables['node']->nid);
-}
-
-/**
  * Implements hook_form_BASE_FORM_ID_alter().
  */
 function adb_global_functions_form_comment_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+  $node = $form['#node'];
 
   // Comment form customizations.
   $form['subject']['#access'] = FALSE;
@@ -277,6 +269,20 @@ function adb_global_functions_form_comment_form_alter(&$form, &$form_state, $for
     '#prefix' => '<div class="comment-form-user-picture-wrapper">',
   );
   $form['comment_body']['#suffix'] = '</div>';
+
+  // Make sure submit button is shown just below the textarea.
+  // Weight here is arbitrary.
+  $form['actions']['#weight'] = 2;
+
+  $form['comment_count_text'] = array(
+    '#markup' => '<div class="comment-count">' . format_plural($node->comment_count, '1 comment', '@count comments') . '</div>',
+    '#weight' => 10,
+  );
+  // We are showing comments rendered from views.
+  $form['views_comments'] = array(
+    '#markup' => views_embed_view('views_recent_comments', 'block_recent_comments', $node->nid),
+    '#weight' => 11,
+  );
 }
 
 /**
