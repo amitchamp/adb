@@ -438,8 +438,8 @@ function adb_case_study_get_date_formatted_value($format, $date_time) {
  */
 function adb_case_study_views_pre_view(&$view, &$display_id, &$args) {
   // store view name for coditional in switch case.
-  $viewName = $view->name;
-  switch ($viewName) {
+  $viewname = $view->name;
+  switch ($viewname) {
     case 'impact':
       // create link for print current view page.
       $printPath = t('<div class="print"><a href="@url">Print</a></div>', array('@url' => url('print/' . current_path())));
@@ -467,10 +467,6 @@ function adb_case_study_views_pre_view(&$view, &$display_id, &$args) {
           $view->display_handler->set_option('footer', array('area' => $content));
         }
       }
-      break;
-
-    default:
-      # code...
       break;
   }
 }
