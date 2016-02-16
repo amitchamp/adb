@@ -233,14 +233,7 @@ function expanding_formatter_field_formatter_view($entity_type, $entity, $field,
     $settings = $display['settings'];
     $settings += expanding_formatter_default_settings();
 
-    // Attach the necessary resources.
     $module_path = drupal_get_path('module', 'expanding_formatter');
-    $element = array(
-      '#attached' => array(
-        'css' => array($module_path . '/css/expanding_formatter.css'),
-        'js' => array($module_path . '/js/expanding_formatter.js'),
-      ),
-    );
 
     // Create a link for the toggle.
     $trigger_classes = array();
@@ -292,6 +285,10 @@ function expanding_formatter_field_formatter_view($entity_type, $entity, $field,
         '#theme_wrappers' => array('container'),
         '#expanding_formatter' => TRUE,
         '#attributes' => $attributes,
+          '#attached' => array(
+            'css' => array($module_path . '/css/expanding_formatter.css'),
+            'js' => array($module_path . '/js/expanding_formatter.js'),
+          ),
       );
       $original = _text_sanitize($instance, $langcode, $item, 'value');
       if ($display['type'] === 'expanding_formatter_text_summary_or_trimmed' && !empty($item['summary'])) {
