@@ -24,6 +24,7 @@ dependencies[] = date_views
 dependencies[] = entity
 dependencies[] = entity_token
 dependencies[] = entityreference
+dependencies[] = expanding_formatter
 dependencies[] = fe_block
 dependencies[] = fe_date
 dependencies[] = features
