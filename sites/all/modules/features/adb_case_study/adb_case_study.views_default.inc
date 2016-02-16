@@ -314,6 +314,8 @@ function adb_case_study_views_default_views() {
 
   /* Display: Case study-Context */
   $handler = $view->new_display('page', 'Case study-Context', 'context');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Context';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Global: Fieldset */
@@ -947,7 +949,7 @@ function adb_case_study_views_default_views() {
   /* Display: Case study-Resources */
   $handler = $view->new_display('page', 'Case study-Resources', 'resources');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Resources';
+  $handler->display->display_options['title'] = 'Additional resources';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Global: Fieldset */
