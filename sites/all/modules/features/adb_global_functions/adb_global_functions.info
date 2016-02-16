@@ -3,6 +3,7 @@ description = Site header, footer related components
 core = 7.x
 package = ADB
 version = 7.x-1.0
+dependencies[] = expanding_formatter
 dependencies[] = fe_block
 dependencies[] = features
 dependencies[] = flexslider

@@ -145,7 +145,22 @@ function adb_global_functions_views_default_views() {
   $handler->display->display_options['fields']['comment_body']['field'] = 'comment_body';
   $handler->display->display_options['fields']['comment_body']['label'] = '';
   $handler->display->display_options['fields']['comment_body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['comment_body']['alter']['more_link'] = TRUE;
+  $handler->display->display_options['fields']['comment_body']['alter']['more_link_text'] = 'Read more';
+  $handler->display->display_options['fields']['comment_body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['comment_body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['comment_body']['type'] = 'expanding_formatter_text_trimmed';
+  $handler->display->display_options['fields']['comment_body']['settings'] = array(
+    'trim_length' => '200',
+    'trim_ellipsis' => 1,
+    'effect' => 'slide',
+    'css3' => 1,
+    'trigger_expanded_label' => 'Read more',
+    'trigger_collapsed_label' => '',
+    'trigger_classes' => 'button',
+    'inline' => 1,
+    'js_duration' => '500',
+  );
   /* Field: Display comment */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
