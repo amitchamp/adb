@@ -1,4 +1,4 @@
-<?php if ($user_voted): ?>
+<?php if (!empty($user_voted) && $user_voted): ?>
   <?php print $user_voted_message; ?>
 <?php else: ?>
   <?php print theme('item_list', array('items' => $buttons)); ?>
