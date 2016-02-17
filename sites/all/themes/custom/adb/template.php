@@ -106,7 +106,7 @@ function adb_preprocess_views_view(&$vars) {
     // Get term detail using drupal function for display term name.
     $term_deatail = taxonomy_term_load($term_id);
     // Get total number of node associated with given term id.
-    $total_nodes = taxonomy_select_nodes($termId, FALSE);
+    $total_nodes = taxonomy_select_nodes($term_id, FALSE);
     $node_count = count($total_nodes) - 1;
 
     // Create variable named 'term_name' of term name for display.
