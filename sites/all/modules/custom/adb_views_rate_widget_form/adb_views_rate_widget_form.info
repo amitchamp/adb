@@ -1,0 +1,5 @@
+name = ADB views rate widget form
+description = rate widget form in views as field
+dependencies[] = views
+core = 7.x
+files[] = includes/views/handlers/adb_views_rate_widget_form_handler.inc
