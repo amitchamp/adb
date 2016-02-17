@@ -20,13 +20,11 @@
  *    on "adaptivetheme_subtheme".
  * 2. Uncomment the required function to use.
  */
-
-
 /**
  * Preprocess variables for the html template.
  */
 /* -- Delete this line to enable.
-function adaptivetheme_subtheme_preprocess_html(&$vars) {
+  function adaptivetheme_subtheme_preprocess_html(&$vars) {
   global $theme_key;
 
   // Two examples of adding custom classes to the body.
@@ -37,87 +35,85 @@ function adaptivetheme_subtheme_preprocess_html(&$vars) {
   // Browser/platform sniff - adds body classes such as ipad, webkit, chrome etc.
   // $vars['classes_array'][] = css_browser_selector();
 
-}
-// */
+  }
+  // */
 
 
 /**
  * Process variables for the html template.
  */
 /* -- Delete this line if you want to use this function
-function adaptivetheme_subtheme_process_html(&$vars) {
-}
-// */
+  function adaptivetheme_subtheme_process_html(&$vars) {
+  }
+  // */
 
 
 /**
  * Override or insert variables for the page templates.
  */
 /* -- Delete this line if you want to use these functions
-function adaptivetheme_subtheme_preprocess_page(&$vars) {
-}
-function adaptivetheme_subtheme_process_page(&$vars) {
-}
-// */
+  function adaptivetheme_subtheme_preprocess_page(&$vars) {
+  }
+  function adaptivetheme_subtheme_process_page(&$vars) {
+  }
+  // */
 
 
 /**
  * Override or insert variables into the node templates.
  */
 /* -- Delete this line if you want to use these functions
-function adaptivetheme_subtheme_preprocess_node(&$vars) {
-}
-function adaptivetheme_subtheme_process_node(&$vars) {
-}
-// */
+  function adaptivetheme_subtheme_preprocess_node(&$vars) {
+  }
+  function adaptivetheme_subtheme_process_node(&$vars) {
+  }
+  // */
 
 
 /**
  * Override or insert variables into the comment templates.
  */
 /* -- Delete this line if you want to use these functions
-function adaptivetheme_subtheme_preprocess_comment(&$vars) {
-}
-function adaptivetheme_subtheme_process_comment(&$vars) {
-}
-// */
-
+  function adaptivetheme_subtheme_preprocess_comment(&$vars) {
+  }
+  function adaptivetheme_subtheme_process_comment(&$vars) {
+  }
+  // */
 
 /**
  * Override or insert variables into the block templates.
  */
 /* -- Delete this line if you want to use these functions
-function adaptivetheme_subtheme_preprocess_block(&$vars) {
-}
-function adaptivetheme_subtheme_process_block(&$vars) {
-}
+  function adaptivetheme_subtheme_preprocess_block(&$vars) {
+  }
+  function adaptivetheme_subtheme_process_block(&$vars) {
+  }
 
 
 
-/**
- * Implements theme_preprocess_views_data()
- * Override or insert variables into views
+  /**
+ *  Implements theme_preprocess_views_view().
  */
 function adb_preprocess_views_view(&$vars) {
-	$viewsName = $vars['view']->name; // store value of views name of check condition
+  // Store value of views name of check condition.
+  $views_name = $vars['view']->name;
 
-	// check condition for 'more_case_studies' views only
-	if ($viewsName == 'more_case_studies') {
-		// get term id from header and convert into integer
-		$termId = intval(strip_tags($vars['header']));
+  // Check condition for 'more_case_studies' views only.
+  if ($views_name == 'more_case_studies') {
+    // Get term id from header and convert into integer.
+    $term_id = intval(strip_tags($vars['header']));
 
-		// get term detail using drupal function for display term name
-		$termDeatail = taxonomy_term_load($termId);
-		// get total number of node associated with given term id
-		$totalNodes = taxonomy_select_nodes($termId, FALSE);
-	  $nodeCount = count($totalNodes) -1;
+    // Get term detail using drupal function for display term name.
+    $term_deatail = taxonomy_term_load($term_id);
+    // Get total number of node associated with given term id.
+    $total_nodes = taxonomy_select_nodes($termId, FALSE);
+    $node_count = count($total_nodes) - 1;
 
-	  // create variable named 'term_name' of term name for display
-	  $vars['term_name'] = $termDeatail->name;
-	  // create variable named 'node_count' for display total number of node in views
-	  $vars['node_count'] = $nodeCount;
-	}
-
+    // Create variable named 'term_name' of term name for display.
+    $vars['term_name'] = $term_deatail->name;
+    // Create variable named 'node_count' for display total number of node in views.
+    $vars['node_count'] = $node_count;
+  }
 }
 
 /**
@@ -133,4 +129,3 @@ function adb_form_required_marker($variables) {
   );
   return '<span' . drupal_attributes($attributes) . '></span>';
 }
-
