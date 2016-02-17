@@ -38,30 +38,12 @@ function adb_case_study_views_default_views() {
     'title' => 'title',
   );
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
-<<<<<<< HEAD
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = 'print';
-  $handler->display->display_options['header']['area']['format'] = 'full_html';
-  /* Footer: Global: Text area */
-  $handler->display->display_options['footer']['area']['id'] = 'area';
-  $handler->display->display_options['footer']['area']['table'] = 'views';
-  $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['label'] = 'was this usefull?';
-  $handler->display->display_options['footer']['area']['empty'] = TRUE;
-  $handler->display->display_options['footer']['area']['content'] = 'usefull?';
-  $handler->display->display_options['footer']['area']['format'] = 'full_html';
-=======
   /* Footer: Global: Comment form */
   $handler->display->display_options['footer']['comment_form']['id'] = 'comment_form';
   $handler->display->display_options['footer']['comment_form']['table'] = 'views';
   $handler->display->display_options['footer']['comment_form']['field'] = 'comment_form';
   $handler->display->display_options['footer']['comment_form']['content'] = '!1';
   $handler->display->display_options['footer']['comment_form']['tokenize'] = TRUE;
->>>>>>> bd8483fb574eca61e9177b444157ede11421bf27
   /* Relationship: Content: Impact (field_impact) */
   $handler->display->display_options['relationships']['field_impact_value']['id'] = 'field_impact_value';
   $handler->display->display_options['relationships']['field_impact_value']['table'] = 'field_data_field_impact';
