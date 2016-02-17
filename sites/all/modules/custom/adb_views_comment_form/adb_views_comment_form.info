@@ -1,0 +1,5 @@
+name = ADB views comment form
+description = Add comment form in views as field
+dependencies[] = views
+core = 7.x
+files[] = includes/views/handlers/adb_views_comment_form_handler.inc

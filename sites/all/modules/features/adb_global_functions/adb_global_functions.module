@@ -14,6 +14,8 @@ function adb_global_functions_preprocess_views_view(&$variables) {
   switch ($variables['view']->name) {
     case 'views_topics_menu':
     case 'views_countries_menu':
+      // We need close option for the menu.
+      // Therefore, we are using the same template for every menu contents.
       $variables['theme_hook_suggestions'][] = 'views_view__adb_menu';
       drupal_add_js(drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js');
 
@@ -75,8 +77,9 @@ function adb_global_functions_block_view($delta = '') {
 
       // Footer slider.
       $slider_texts = array();
-      $slider_text_vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_footer_slider_text');
-      $slider_texts_terms = taxonomy_get_tree($slider_text_vocabulary->vid);
+      $vocabulary = taxonomy_vocabulary_machine_name_load('topics');
+      // Make sure you show only the parent terms.
+      $slider_texts_terms = taxonomy_get_tree($vocabulary->vid, $parent = 0, $depth = 1);
       foreach ($slider_texts_terms as $value) {
         $slider_texts[] = array(
           'data' => $value->name,
@@ -178,30 +181,33 @@ function adb_global_functions_search_form_redirect($form, &$form_state) {
 function adb_global_functions_preprocess_rate_template_yesno(&$variables) {
   global $user;
   $node = menu_get_object();
-  $widgets = rate_get_active_widgets('node', $node->type);
 
-  // Get value for 'Yes' and 'No'.
-  // @todo We consider that only widget is embedded for a node.
-  $widget = array_shift($widgets);
-  $yes_value = $widget->options[0][0];
-  $no_value = $widget->options[1][0];
+  if ($node) {
+    $widgets = rate_get_active_widgets('node', $node->type);
 
-  // Alter rate widget based on user's vote.
-  $result = votingapi_select_votes(array(
-    'uid' => $user->uid,
-    'entity_id' => $node->nid,
-  ));
-  if (!empty($result) && ($result[0]['value'] == $yes_value || $result[0]['value'] == $no_value)) {
-    $variables['user_voted'] = TRUE;
-    $variables['user_voted_message'] = t('Thank you for your feedback.');
+    // Get value for 'Yes' and 'No'.
+    // @todo We consider that only widget is embedded for a node.
+    $widget = array_shift($widgets);
+    $yes_value = $widget->options[0][0];
+    $no_value = $widget->options[1][0];
+
+    // Alter rate widget based on user's vote.
+    $result = votingapi_select_votes(array(
+      'uid' => $user->uid,
+      'entity_id' => $node->nid,
+    ));
+    if (!empty($result) && ($result[0]['value'] == $yes_value || $result[0]['value'] == $no_value)) {
+      $variables['user_voted'] = TRUE;
+      $variables['user_voted_message'] = t('Thank you for your feedback.');
+    }
+    else {
+      $variables['user_voted'] = FALSE;
+    }
+
+    // Do not show votes.
+    $variables['links'][0]['votes'] = '';
+    $variables['links'][1]['votes'] = '';
   }
-  else {
-    $variables['user_voted'] = FALSE;
-  }
-
-  // Do not show votes.
-  $variables['links'][0]['votes'] = '';
-  $variables['links'][1]['votes'] = '';
 }
 
 /**
@@ -246,19 +252,11 @@ function adb_global_functions_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Implements HOOK_preprocess_comment_wrapper().
- */
-function adb_global_functions_preprocess_comment_wrapper(&$variables) {
-  $variables['comment_count_text'] = format_plural($variables['node']->comment_count, '1 comment', '@count comments');
-  // We are showing comments rendered from views.
-  $variables['views_comments'] = views_embed_view('views_recent_comments', 'block_recent_comments', $variables['node']->nid);
-}
-
-/**
  * Implements hook_form_BASE_FORM_ID_alter().
  */
 function adb_global_functions_form_comment_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+  $node = $form['#node'];
 
   // Comment form customizations.
   $form['subject']['#access'] = FALSE;
@@ -272,6 +270,20 @@ function adb_global_functions_form_comment_form_alter(&$form, &$form_state, $for
     '#prefix' => '<div class="comment-form-user-picture-wrapper">',
   );
   $form['comment_body']['#suffix'] = '</div>';
+
+  // Make sure submit button is shown just below the textarea.
+  // Weight here is arbitrary.
+  $form['actions']['#weight'] = 2;
+
+  $form['comment_count_text'] = array(
+    '#markup' => '<div class="comment-count">' . format_plural($node->comment_count, '1 comment', '@count comments') . '</div>',
+    '#weight' => 10,
+  );
+  // We are showing comments rendered from views.
+  $form['views_comments'] = array(
+    '#markup' => views_embed_view('views_recent_comments', 'block_recent_comments', $node->nid),
+    '#weight' => 11,
+  );
 }
 
 /**
@@ -302,18 +314,23 @@ function adb_global_functions_preprocess_comment(&$variables) {
  * Implements HOOK_preprocess_views_view_list().
  */
 function adb_global_functions_preprocess_views_view_list(&$variables) {
-  $variables['rows_count'] = count($variables['rows']);
+  switch ($variables['view']->name) {
+    case 'views_recent_comments':
+      $variables['rows_count'] = count($variables['rows']);
 
-  // Add comment toggle markup.
-  $variables['comment_more_toggle_markup'] = '<div class="comment-more-toggle">' . t('Join the conversations') . '</div>';
+      // Add comment toggle markup.
+      $variables['comment_more_toggle_markup'] = '<div class="comment-more-toggle">' . t('Join the conversations') . '</div>';
 
-  // Comment toggle wrapper prefix.
-  // This will be prepended in second comment.
-  $variables['comment_more_toggle_wrapper_prefix'] = '<div class="comment-more-toggle-wrapper" style="display: none;">';
+      // Comment toggle wrapper prefix.
+      // This will be prepended in second comment.
+      $variables['comment_more_toggle_wrapper_prefix'] = '<div class="comment-more-toggle-wrapper">';
 
-  // Comment toggle wrapper suffix.
-  // This will be appended after last comment.
-  $variables['comment_more_toggle_wrapper_suffix'] = '</div>';
+      // Comment toggle wrapper suffix.
+      // This will be appended after last comment.
+      $variables['comment_more_toggle_wrapper_suffix'] = '</div>';
 
-  drupal_add_js(drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js');
+      drupal_add_js(drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js');
+
+      break;
+  }
 }
