@@ -126,7 +126,7 @@
       <?php print render($page['header']); ?>
 
     </header>
-    
+
     <!-- !Navigation -->
     <?php print render($page['menu_bar']); ?>
     <?php if ($primary_navigation): print $primary_navigation; endif; ?>
@@ -166,7 +166,7 @@
                   </h1>
                 <?php endif; ?>
 
-                <?php if ($primary_local_tasks || $secondary_local_tasks || $action_links): ?>
+                <?php if (($primary_local_tasks || $secondary_local_tasks || $action_links) && $is_admin): ?>
                   <div id="tasks">
 
                     <?php if ($primary_local_tasks): ?>
