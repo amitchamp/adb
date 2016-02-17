@@ -428,37 +428,3 @@ function adb_case_study_get_date_formatted_value($format, $date_time) {
   $unix_time_stamp = explode(' ', $date_time);
   return gmdate($format, strtotime($unix_time_stamp[0]));
 }
-
-/**
- * Implements hook_views_pre_view
- * Altering views before display
- * @param view_object $view
- * @param string $display_id
- * @param array $args
- */
-function adb_case_study_views_pre_view(&$view, &$display_id, &$args) {
-  // store view name for coditional in switch case
-  $viewName = $view->name;
-
-  switch ($viewName) {
-    case 'impact':
-      // create link for print current view page
-      $printPath = t('<a href="@url">Print</a>', array('@url' => url('print/' . current_path())));
-      
-      // store views header value for checking header is empty or not
-      $headerValue = $view->display_handler->get_option('header');
-      // condtion check of header value is empty or not
-      if(count($headerValue) && $headerValue['area']['content'] != '' ) {
-        $options = $headerValue['area'];
-        $options['content'] = $printPath;
-        // set header value
-        $view->display_handler->set_option('header', array('area' => $options));  
-      }
-      break;
-    
-    default:
-      # code...
-      break;
-  }
-
-}

@@ -114,13 +114,6 @@ function adb_case_study_views_default_views() {
     1 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-<<<<<<< HEAD
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['service_links']['id'] = 'service_links';
-  $handler->display->display_options['fields']['service_links']['table'] = 'node';
-  $handler->display->display_options['fields']['service_links']['field'] = 'service_links';
-=======
->>>>>>> bd8483fb574eca61e9177b444157ede11421bf27
   /* Field: Content: Download file */
   $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
@@ -419,13 +412,6 @@ function adb_case_study_views_default_views() {
     1 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-<<<<<<< HEAD
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['service_links']['id'] = 'service_links';
-  $handler->display->display_options['fields']['service_links']['table'] = 'node';
-  $handler->display->display_options['fields']['service_links']['field'] = 'service_links';
-=======
->>>>>>> bd8483fb574eca61e9177b444157ede11421bf27
   /* Field: Content: Download file */
   $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
@@ -581,13 +567,6 @@ function adb_case_study_views_default_views() {
     1 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-<<<<<<< HEAD
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['service_links']['id'] = 'service_links';
-  $handler->display->display_options['fields']['service_links']['table'] = 'node';
-  $handler->display->display_options['fields']['service_links']['field'] = 'service_links';
-=======
->>>>>>> bd8483fb574eca61e9177b444157ede11421bf27
   /* Field: Content: Download file */
   $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
@@ -742,13 +721,6 @@ function adb_case_study_views_default_views() {
     1 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-<<<<<<< HEAD
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['service_links']['id'] = 'service_links';
-  $handler->display->display_options['fields']['service_links']['table'] = 'node';
-  $handler->display->display_options['fields']['service_links']['field'] = 'service_links';
-=======
->>>>>>> bd8483fb574eca61e9177b444157ede11421bf27
   /* Field: Content: Download file */
   $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
@@ -903,13 +875,6 @@ function adb_case_study_views_default_views() {
     1 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-<<<<<<< HEAD
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['service_links']['id'] = 'service_links';
-  $handler->display->display_options['fields']['service_links']['table'] = 'node';
-  $handler->display->display_options['fields']['service_links']['field'] = 'service_links';
-=======
->>>>>>> bd8483fb574eca61e9177b444157ede11421bf27
   /* Field: Content: Download file */
   $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
@@ -1064,13 +1029,6 @@ function adb_case_study_views_default_views() {
     1 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-<<<<<<< HEAD
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['service_links']['id'] = 'service_links';
-  $handler->display->display_options['fields']['service_links']['table'] = 'node';
-  $handler->display->display_options['fields']['service_links']['field'] = 'service_links';
-=======
->>>>>>> bd8483fb574eca61e9177b444157ede11421bf27
   /* Field: Content: Download file */
   $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
