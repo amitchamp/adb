@@ -428,3 +428,50 @@ function adb_case_study_get_date_formatted_value($format, $date_time) {
   $unix_time_stamp = explode(' ', $date_time);
   return gmdate($format, strtotime($unix_time_stamp[0]));
 }
+
+/**
+ *  Implements hook_views_pre_view
+ *  Altering views before display
+ *  @param view_object $view
+ *  @param string $display_id
+ *  @param array $args
+ */
+function adb_case_study_views_pre_view(&$view, &$display_id, &$args) {
+  // Store view name for coditional in switch case.
+  $viewname = $view->name;
+  switch ($viewname) {
+    case 'impact':
+      // Create link for print current view page.
+      $printPath = t('<div class="print"><a href="@url">Print</a></div>', array('@url' => url('print/' . current_path())));
+      // Store views header value for checking header is empty or not.
+      $headervalue = $view->display_handler->get_option('header');
+      // Store views header value for checking footer is empty or not.
+      $footer = $view->display_handler->get_option('footer');
+
+      // Condition check of header value is empty or not.
+      if (count($headervalue) && $headervalue['area']['content'] != '') {
+        $options = $headervalue['area'];
+        $options['content'] = $printPath;
+        // Showing Print option for views pages on particular views header.
+        $view->display_handler->set_option('header', array('area' => $options));
+      }
+
+      // Condition check of footer value is empty or not.
+      if (count($footer) && $footer['area']['content'] != '' && is_numeric($args[0])) {
+        $node = node_load($args[0]);
+        if ($node->type == 'case_study') {
+          // Show widget on views page for current node.
+          $vote_widget = rate_embed($node, 'rate_useful_content');
+          $content = $footer['area'];
+          if (!strpos($vote_widget, "Thank you for your feedback.")) {
+            $content['content'] = '<label>Was this article useful?</label>' . $vote_widget;
+          }
+          else {
+            $content['content'] = $vote_widget;
+          }
+          $view->display_handler->set_option('footer', array('area' => $content));
+        }
+      }
+      break;
+  }
+}
