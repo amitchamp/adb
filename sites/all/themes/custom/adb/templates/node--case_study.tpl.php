@@ -141,7 +141,7 @@ hide($content['links']);
 
     <!--Overview-->
     <?php if ($body): ?>
-      <div class="casestudy-section"><h2 class="section-heading">Overview</h2>
+      <div class="casestudy-section"><h2 class="section-heading"><?php print t('Overview'); ?></h2>
         <div class="overview-content">
           <?php if ($summary): ?>
             <div class="summary"><?php print $summary; ?></div>
@@ -152,7 +152,7 @@ hide($content['links']);
 
     <!--Project snapshot-->
     <?php if ($project_snapshot): ?>
-      <div class="casestudy-section"><h2 class="section-heading">Project snapshot</h2>
+      <div class="casestudy-section"><h2 class="section-heading"><?php print t('Project snapshot'); ?></h2>
         <div class="project-snapshot-content dates-content"><?php print $project_snapshot; ?></div>
       </div>
     <?php endif; ?>
@@ -180,7 +180,7 @@ hide($content['links']);
 
     <!--Meet our knowledge contributor...-->
     <?php if ($have_contributor): ?>
-      <div class="casestudy-section"><h2 class="section-heading">Meet our knowledge contributor</h2>
+      <div class="casestudy-section"><h2 class="section-heading"><?php print t('Meet our knowledge contributor'); ?></h2>
         <div class="knowledge-contributor"><?php print $contributor; ?></div>
       </div>
     <?php endif; ?>
