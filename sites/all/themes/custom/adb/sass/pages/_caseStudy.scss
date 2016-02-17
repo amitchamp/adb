@@ -114,6 +114,7 @@
   li{
 	width: 47%;
 	display: inline-block;
+	vertical-align: top;
 	margin: 15px 1%;
   }
   a {
@@ -137,7 +138,7 @@
 **Project Snapshots Section
 */
 .project-snapshot-content {
-  background-color: $project-snapshot-section;
+  background-color: $light-grey-background;
   padding: 30px;
   text-align: center;
   margin-bottom: 25px;
@@ -150,6 +151,26 @@
   color: $text;
   font-family: $opensans-regular;
   margin: 0 0 15px;
+}
+
+/*
+**Project Snapshot Date Section
+*/
+.project-year {
+  display: inline-block;
+  &:after {
+  	content: '';
+  	background: url(#{$img-path}/timeline-image.png) no-repeat center center;
+  	width: 115px;
+  	height: 9px;
+  	display: inline-block;
+  	padding: 0 12px;
+  }
+  &:last-of-type {
+  	&:after {
+  	  content: initial;
+  	}
+  }
 }
 
 /*
@@ -179,4 +200,41 @@
 */
 .institution-stakeholder {
   padding-bottom: 40px;
+}
+
+/*
+**Knowledge Contributor Section
+*/
+.contributor-image {
+  max-width: 102px;
+  display: inline-block;
+}
+.about-contributor {
+  width: 84%;
+  display: inline-block;
+  margin-left: 2%;
+  vertical-align: top;
+}
+.contributor-name {
+  font-size: ($base-font)+6;
+  margin: 0 0 5px;
+  color: $text;
+  font-family: $opensans-regular;
+}
+.contributor-about p {
+  font-size: ($base-font)+2;
+  line-height: ($base-font)+10;
+  color: $text;
+  font-family: $opensans-regular;
+  margin: 0 0 6px;
+}
+.follow-button {
+  @include border-radius(5px, 5px);
+  background-color: $dark-grey;
+  color: $white;
+  padding: 6px 12px 6px 8px;
+  font-size: $base-font;
+  .fa {
+    font-weight: bold;
+  }
 }
