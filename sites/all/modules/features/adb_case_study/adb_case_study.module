@@ -238,7 +238,7 @@ function adb_case_study_preprocess_node(&$variables) {
     // Load all entities of field_collection.
     $project_snapshot = entity_load('field_collection_item', $entity_ids);
     $snapshot_output = '';
-    $snapshot_output .= '<div class="project-snapshot"><span class="label">' . t("Dates") . '</span>';
+    $snapshot_output .= '<i class="fa fa-clock-o"></i><h3 class="project-heading">' . t("Dates") . '</h3>';
     foreach ($project_snapshot as $value) {
       if (isset($value->field_date[$und][0]['value'])) {
         $snapshot_output .= '<div class="project-year">' .
@@ -247,9 +247,8 @@ function adb_case_study_preprocess_node(&$variables) {
       elseif (isset($value->field_description[$und][0]['value'])) {
         $snapshot_output .= '<div class="description">' . $value->field_description[$und][0]['value'] . '</div>';
       }
-      $snapshot_output .= '</div>';
+      // $snapshot_output .= '</div>';
     }
-    $snapshot_output .= '</div>';
     $variables['project_snapshot'] = $snapshot_output;
 
     // Project Cost data.
@@ -261,17 +260,16 @@ function adb_case_study_preprocess_node(&$variables) {
     // Load all entities of field_collection.
     $project_cost = entity_load('field_collection_item', $cost_entity_ids);
     $cost_output = '';
-    $cost_output .= '<div class="project-cost"><span class="label">' . t("Cost") . '</span>';
+    $cost_output .= '<div class="project-cost"><i class="fa fa-money"></i><h3 class="project-heading">' . t("Cost") . '</h3>';
     if (isset($variables['field_cost_description'][$und][0]['value'])) {
       $cost_output .= '<div class="description">' . $variables['field_cost_description'][$und][0]['value'] . '</div>';
     }
     foreach ($project_cost as $cost_value) {
-      $cost_output .= '<div class="detail">';
       if (isset($cost_value->field_primary_cost[$und][0]['value'])) {
-        $cost_output .= '<div class="primary-cost">' . $cost_value->field_primary_cost[$und][0]['value'] . '</div>';
+        $cost_output .= '<div class="cost-value">' . $cost_value->field_primary_cost[$und][0]['value'] . '</div>';
       }
       if (isset($cost_value->field_secondary_cost[$und][0]['value'])) {
-        $cost_output .= '<div class="secondary-cost">' . $cost_value->field_secondary_cost[$und][0]['value'] . '</div>';
+        $cost_output .= '<div class="cost-value">(' . $cost_value->field_secondary_cost[$und][0]['value'] . ')</div>';
       }
       if (isset($cost_value->field_cost_data_description[$und][0]['value'])) {
         $cost_output .= '<div class="cost-data_description">' . $cost_value->field_cost_data_description[$und][0]['value'] . '</div>';
@@ -279,7 +277,6 @@ function adb_case_study_preprocess_node(&$variables) {
       if (isset($cost_value->field_cost_breakup[$und][0]['value'])) {
         $cost_output .= '<div class="cost-breakup">' . $cost_value->field_cost_breakup[$und][0]['value'] . '</div>';
       }
-      $cost_output .= '</div>';
     }
     $cost_output .= '</div>';
     $variables['project_cost'] = $cost_output;
@@ -292,7 +289,7 @@ function adb_case_study_preprocess_node(&$variables) {
     }
     $institute_stake = entity_load('field_collection_item', $insti_entity_ids);
     $institue_output = '';
-    $institue_output .= '<div class="institue-stakeholder"><span class="label">' . t("Institution and stakeholders") . '</span>';
+    $institue_output .= '<div class="institue-stakeholder"><i class="fa fa-bank"></i><h3 class="project-heading">' . t("Institution and stakeholders") . '</h3>';
     foreach ($institute_stake as $stake_value) {
       // Get Institute Category name label.
       if (isset($stake_value->field_institution_category[$und][0]['value'])) {
