@@ -4,7 +4,6 @@
  * @file
  * Code for the Global functions feature.
  */
-
 include_once 'adb_global_functions.features.inc';
 
 /**
@@ -152,7 +151,6 @@ function adb_global_functions_block_view($delta = '') {
       );
 
       break;
-
   }
 
   return $block;
@@ -180,9 +178,9 @@ function adb_global_functions_search_form_redirect($form, &$form_state) {
  */
 function adb_global_functions_preprocess_rate_template_yesno(&$variables) {
   global $user;
-  $node = menu_get_object();
 
-  if ($node) {
+  $node = node_load($variables['content_id']);
+  if (isset($variables['content_id'])) {
     $widgets = rate_get_active_widgets('node', $node->type);
 
     // Get value for 'Yes' and 'No'.
@@ -215,7 +213,6 @@ function adb_global_functions_preprocess_rate_template_yesno(&$variables) {
  */
 function adb_global_functions_rate_widget_alter(&$widget, $context) {
   global $user;
-
   // Get value for 'Yes' and 'No'.
   $yes_value = $widget->options[0][0];
   $no_value = $widget->options[1][0];
@@ -231,6 +228,9 @@ function adb_global_functions_rate_widget_alter(&$widget, $context) {
   else {
     $widget->title = t('Was this article useful?');
   }
+  
+  //echo '<pre>';print_r($widget);die;
+  
 }
 
 /**
