@@ -56,3 +56,52 @@ function adb_qna_topic_validate($form, &$form_state) {
     form_set_error('field_topic', t('Only one parent is allowed for topics'));
   }
 }
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function adb_qna_views_pre_render(&$view) {
+  switch ($view->name) {
+    case 'views_qna_term':
+      if (!empty($view->result)) {
+        // Obtain metadata that we are going to show in header.
+        $content_types = node_type_get_types();
+        $current_term = $view->result[0]->field_field_topic[0]['raw']['taxonomy_term'];
+
+        $parents = taxonomy_get_parents($current_term->tid);
+        if (empty($parents)) {
+          $vocabulary = taxonomy_vocabulary_machine_name_load('topics');
+          // Make sure you show only the parent terms.
+          $siblings = taxonomy_get_tree($vocabulary->vid, $parent = 0, $depth = 1);
+        }
+        else {
+          $term = array_shift($parents);
+          $siblings = taxonomy_get_children($term->tid);
+        }
+
+        $view->header['area_text_custom']->options['content'] = theme('adb_qna_header', array(
+          'type_name' => $content_types['question_answer']->name,
+          'current_term' => $current_term,
+          'siblings' => $siblings,
+        ));
+      }
+
+      break;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function adb_qna_theme($existing, $type, $theme, $path) {
+  return array(
+    'adb_qna_header' => array(
+      'variables' => array(
+        'type_name' => NULL,
+        'current_term' => NULL,
+        'siblings' => NULL,
+      ),
+      'template' => 'templates/adb-qna-header',
+    ),
+  );
+}
