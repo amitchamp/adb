@@ -46,6 +46,4 @@
     <h2 class="comment-title title comment-form"><?php print t('Conversations'); ?></h2>
     <?php print render($content['comment_form']); ?>
   <?php endif; ?>
-  <div class="comment-count"><?php print $comment_count_text; ?></div>
-  <?php print $views_comments; ?>
 </section>

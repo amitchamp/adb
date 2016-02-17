@@ -76,8 +76,9 @@ function adb_global_functions_block_view($delta = '') {
 
       // Footer slider.
       $slider_texts = array();
-      $slider_text_vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_footer_slider_text');
-      $slider_texts_terms = taxonomy_get_tree($slider_text_vocabulary->vid);
+      $vocabulary = taxonomy_vocabulary_machine_name_load('topics');
+      // Make sure you show only the parent terms.
+      $slider_texts_terms = taxonomy_get_tree($vocabulary->vid, $parent = 0, $depth = 1);
       foreach ($slider_texts_terms as $value) {
         $slider_texts[] = array(
           'data' => $value->name,
@@ -256,19 +257,11 @@ function adb_global_functions_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Implements HOOK_preprocess_comment_wrapper().
- */
-function adb_global_functions_preprocess_comment_wrapper(&$variables) {
-  $variables['comment_count_text'] = format_plural($variables['node']->comment_count, '1 comment', '@count comments');
-  // We are showing comments rendered from views.
-  $variables['views_comments'] = views_embed_view('views_recent_comments', 'block_recent_comments', $variables['node']->nid);
-}
-
-/**
  * Implements hook_form_BASE_FORM_ID_alter().
  */
 function adb_global_functions_form_comment_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+  $node = $form['#node'];
 
   // Comment form customizations.
   $form['subject']['#access'] = FALSE;
@@ -282,6 +275,20 @@ function adb_global_functions_form_comment_form_alter(&$form, &$form_state, $for
     '#prefix' => '<div class="comment-form-user-picture-wrapper">',
   );
   $form['comment_body']['#suffix'] = '</div>';
+
+  // Make sure submit button is shown just below the textarea.
+  // Weight here is arbitrary.
+  $form['actions']['#weight'] = 2;
+
+  $form['comment_count_text'] = array(
+    '#markup' => '<div class="comment-count">' . format_plural($node->comment_count, '1 comment', '@count comments') . '</div>',
+    '#weight' => 10,
+  );
+  // We are showing comments rendered from views.
+  $form['views_comments'] = array(
+    '#markup' => views_embed_view('views_recent_comments', 'block_recent_comments', $node->nid),
+    '#weight' => 11,
+  );
 }
 
 /**
@@ -312,18 +319,23 @@ function adb_global_functions_preprocess_comment(&$variables) {
  * Implements HOOK_preprocess_views_view_list().
  */
 function adb_global_functions_preprocess_views_view_list(&$variables) {
-  $variables['rows_count'] = count($variables['rows']);
+  switch ($variables['view']->name) {
+    case 'views_recent_comments':
+      $variables['rows_count'] = count($variables['rows']);
 
-  // Add comment toggle markup.
-  $variables['comment_more_toggle_markup'] = '<div class="comment-more-toggle">' . t('Join the conversations') . '</div>';
+      // Add comment toggle markup.
+      $variables['comment_more_toggle_markup'] = '<div class="comment-more-toggle">' . t('Join the conversations') . '</div>';
 
-  // Comment toggle wrapper prefix.
-  // This will be prepended in second comment.
-  $variables['comment_more_toggle_wrapper_prefix'] = '<div class="comment-more-toggle-wrapper">';
+      // Comment toggle wrapper prefix.
+      // This will be prepended in second comment.
+      $variables['comment_more_toggle_wrapper_prefix'] = '<div class="comment-more-toggle-wrapper">';
 
-  // Comment toggle wrapper suffix.
-  // This will be appended after last comment.
-  $variables['comment_more_toggle_wrapper_suffix'] = '</div>';
+      // Comment toggle wrapper suffix.
+      // This will be appended after last comment.
+      $variables['comment_more_toggle_wrapper_suffix'] = '</div>';
 
-  drupal_add_js(drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js');
+      drupal_add_js(drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js');
+
+      break;
+  }
 }
