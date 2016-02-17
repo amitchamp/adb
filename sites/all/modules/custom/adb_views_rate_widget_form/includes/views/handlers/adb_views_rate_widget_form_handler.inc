@@ -39,18 +39,13 @@ class AdbViewsRateWidgetFormHandler extends views_handler_area_text {
       $value = $this->view->style_plugin->tokenize_value($this->options['content'], 0);
       $nid = $this->sanitize_value($value, 'xss_admin');
 
-      $query = db_select('node', 'n')
-        ->fields('n', array('type'))
-        ->condition('nid', $nid)
-        ->execute();
-      $node_type = $query->fetchField();
-
+      // Get current node object.
       $rate_widget = new stdClass;
       $rate_widget->nid = $nid;
       $node = node_load($nid);
-      
-      // Get rate widget and render its on views page.
-      $rate_widget = '<label id="useful">Was this article usefull</label>';
+
+      // Get rate widget and render its on views page.  
+      $rate_widget = '<label id="useful">' . t('Was this article useful?') . '</label>';
       $rate_widget .= rate_embed($node, 'rate_useful_content');
 
       return $rate_widget;
