@@ -6,12 +6,13 @@
   ul {
     margin: 0;
     padding: 0;
-    li {
+    list-style: none;
+  }
+  li {
       float: left;
       &:first-child {
         margin: 0;
       }
-    }
   }
 }
 
@@ -64,7 +65,7 @@
 }
 
 /*
-** For the Heading on the images
+** For the Heading on the images in the details pages (like case study)
 */
 
 %main-heading {
@@ -73,6 +74,17 @@
   color: $white;
   margin: 6px 0 13px;
   text-transform: capitalize;
+}
+
+/*
+** For the Section heading of the each sction on the pages (lke case study)
+*/
+
+%seconday-heading {
+  font-size: ($base-font)+6;
+  color: $text;
+  font-family: $opensans-regular;
+  margin: 16px 0;
 }
 
 /*
