@@ -1,8 +1,6 @@
-(function($) {
+(function ($) {
   Drupal.behaviors.adbGlobalFunctions = {
     attach: function(context, settings) {
-
-
       var mainMenuLinks = $('.primary-menu').children();
 
       closeMenu();
