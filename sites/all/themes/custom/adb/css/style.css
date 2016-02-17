@@ -593,55 +593,6 @@ header[role="banner"] a {
 }
 
 /*
-**Knowledge Contributor Section
-*/
-/* line 208, ../sass/pages/_caseStudy.scss */
-.contributor-image {
-  max-width: 102px;
-  display: inline-block;
-}
-
-/* line 212, ../sass/pages/_caseStudy.scss */
-.about-contributor {
-  width: 84%;
-  display: inline-block;
-  margin-left: 2%;
-  vertical-align: top;
-}
-
-/* line 218, ../sass/pages/_caseStudy.scss */
-.contributor-name {
-  font-size: 20px;
-  margin: 0 0 5px;
-  color: #333333;
-  font-family: "OpenSans-Regular";
-}
-
-/* line 224, ../sass/pages/_caseStudy.scss */
-.contributor-about p {
-  font-size: 16px;
-  line-height: 24px;
-  color: #333333;
-  font-family: "OpenSans-Regular";
-  margin: 0 0 6px;
-}
-
-/* line 231, ../sass/pages/_caseStudy.scss */
-.follow-button {
-  -moz-border-radius: 5px / 5px;
-  -webkit-border-radius: 5px 5px;
-  border-radius: 5px / 5px;
-  background-color: #666;
-  color: #fff;
-  padding: 6px 12px 6px 8px;
-  font-size: 14px;
-}
-/* line 237, ../sass/pages/_caseStudy.scss */
-.follow-button .fa {
-  font-weight: bold;
-}
-
-/*
  ** Style for Homepage only.
  */
 /*
