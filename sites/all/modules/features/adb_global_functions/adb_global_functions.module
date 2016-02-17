@@ -4,7 +4,6 @@
  * @file
  * Code for the Global functions feature.
  */
-
 include_once 'adb_global_functions.features.inc';
 
 /**
@@ -42,6 +41,7 @@ function adb_global_functions_block_info() {
  */
 function adb_global_functions_block_view($delta = '') {
   $block = array();
+
   switch ($delta) {
     case 'adb_profile_access':
       module_load_include('inc', 'adb_global_functions', 'includes/adb_global_functions.blocks');
@@ -178,9 +178,17 @@ function adb_global_functions_search_form_redirect($form, &$form_state) {
  */
 function adb_global_functions_preprocess_rate_template_yesno(&$variables) {
   global $user;
-  if (isset($variables['content_id']) && is_numeric($variables['content_id'])) {
-    $node = node_load($variables['content_id']);
-    $widgets = rate_get_active_widgets('node', $node->type);
+
+  if (isset($variables['content_id'])) {
+    // Get node type.
+    $query = db_select('node', 'n')
+      ->fields('n', array('type'))
+      ->condition('nid', $variables['content_id'])
+      ->execute();
+    $node_type = $query->fetchField();
+
+    // Get active widget.
+    $widgets = rate_get_active_widgets('node', $node_type);
 
     // Get value for 'Yes' and 'No'.
     // @todo We consider that only widget is embedded for a node.
@@ -191,7 +199,7 @@ function adb_global_functions_preprocess_rate_template_yesno(&$variables) {
     // Alter rate widget based on user's vote.
     $result = votingapi_select_votes(array(
       'uid' => $user->uid,
-      'entity_id' => $node->nid,
+      'entity_id' => $variables['content_id'],
     ));
     if (!empty($result) && ($result[0]['value'] == $yes_value || $result[0]['value'] == $no_value)) {
       $variables['user_voted'] = TRUE;
@@ -212,6 +220,7 @@ function adb_global_functions_preprocess_rate_template_yesno(&$variables) {
  */
 function adb_global_functions_rate_widget_alter(&$widget, $context) {
   global $user;
+
   // Get value for 'Yes' and 'No'.
   $yes_value = $widget->options[0][0];
   $no_value = $widget->options[1][0];
