@@ -56,6 +56,7 @@
           // We hide the main widget and add a new node just after the widget
           // in DOM.
           widgetWrapper.hide();
+          $('#useful').hide();
           widgetWrapper.after('<div class="rate-feedback-wrapper">' + Drupal.t('Thank you for your feedback.') + '</div>');
         });
       }

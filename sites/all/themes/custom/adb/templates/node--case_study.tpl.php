@@ -118,7 +118,7 @@ hide($content['links']);
   <!--Banner Section-->
   <div class='banner-node'><div class="inner-banner-node-info">
       <div class="banner-image">
-        <?php if ($banner_image): ?>
+        <?php if (isset($banner_image)): ?>
           <?php
           print $banner_image;
         endif;
