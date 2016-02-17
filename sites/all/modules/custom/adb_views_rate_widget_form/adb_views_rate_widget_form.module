@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * A global views field that allows you to add rate widget form of a node.
+ */
+
+/**
+ * Implements hook_views_api().
+ */
+function adb_views_rate_widget_form_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'adb_views_rate_widget_form') . '/includes/views',
+  );
+}
+
+
