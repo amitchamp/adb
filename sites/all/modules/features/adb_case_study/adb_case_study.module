@@ -335,7 +335,6 @@ function adb_case_study_preprocess_node(&$variables) {
     // Meet our knowledge contributor.
     $contributor_exist = FALSE;
     $contributor_output = '';
-    $contributor_output .= '<div class="contributor-detail">';
     foreach ($variables['field_meet_contributor'] as $contributor) {
       if (isset($contributor['entity']->title) ||
         isset($contributor['entity']->body[$und][0]['value']) ||
@@ -352,14 +351,13 @@ function adb_case_study_preprocess_node(&$variables) {
       $contributor_output .= '<div class="about-contributor">';
       if (isset($contributor['entity']->title)) {
         // Getting name of knowledge
-        $contributor_output .= '<div class="contributor-name"><b>' . $contributor['entity']->title . '</b></div>';
+        $contributor_output .= '<h4 class="contributor-name">' . $contributor['entity']->title . '</h4>';
       }
       if (isset($contributor['entity']->body[$und][0]['value'])) {
         $contributor_output .= '<div class="contributor-about">' . $contributor['entity']->body[$und][0]['value'] . '</div>';
       }
       $contributor_output .= '</div>';
     }
-    $contributor_output .= '</div>';
     $variables['have_contributor'] = $contributor_exist;
     $variables['contributor'] = $contributor_output;
 
