@@ -14,5 +14,3 @@ function adb_views_rate_widget_form_views_api() {
     'path' => drupal_get_path('module', 'adb_views_rate_widget_form') . '/includes/views',
   );
 }
-
-
