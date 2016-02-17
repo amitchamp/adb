@@ -247,7 +247,6 @@ function adb_case_study_preprocess_node(&$variables) {
       elseif (isset($value->field_description[$und][0]['value'])) {
         $snapshot_output .= '<div class="description">' . $value->field_description[$und][0]['value'] . '</div>';
       }
-      // $snapshot_output .= '</div>';
     }
     $variables['project_snapshot'] = $snapshot_output;
 

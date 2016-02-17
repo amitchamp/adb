@@ -37,11 +37,6 @@
 				@extend %hide;
 		}
 		@extend %inline-menu;
-		/*.menu-categories {
-				list-style: none;
-				padding: 0;
-				margin: 0;
-		}*/
 		li {
 				background-color: $white;
 				border: solid 1px $black;
@@ -49,10 +44,7 @@
 				float: none;
 				font-size: ($base-font)-2;
 				padding: 4px 5px;
-				margin: 0 16px 8px 0;
-				/*&.first {
-						margin-left: 0;
-				}*/
+				margin: 0 16px 8px 0;	
 				&:before {
 						@extend %fa;
 						content: "\f02b";
@@ -78,7 +70,6 @@
 		height: 40px;
 		display:inline-block;
 		background-color: $white;
-		/*border-radius:50%;*/
 		@include border-radius(50%, 50%);
 		position: absolute;
 		left: 50%;
