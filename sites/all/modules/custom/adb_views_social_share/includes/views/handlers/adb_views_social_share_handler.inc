@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file
- * A handler to output print command of a current page.
+ *  @file
+ *  A handler to output print command of a current page.
  *
- * @ingroup views_field_handlers
+ *  @ingroup views_field_handlers
  */
 
 class AdbViewsSharetHandler extends views_handler_area_text {
 
   /**
-   * {@inheritdoc}
+   *  {@inheritdoc}
    */
   public function option_definition() {
     $options = parent::option_definition();
@@ -26,7 +26,9 @@ class AdbViewsSharetHandler extends views_handler_area_text {
   }
 
   // Empty, so we don't inherit options_submit from the parent.
-  function options_submit(&$form, &$form_state) {}
+  function options_submit(&$form, &$form_state) {
+    
+  }
 
   /**
    * {@inheritdoc}
