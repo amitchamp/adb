@@ -8,60 +8,16 @@
 include_once 'adb_qna.features.inc';
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORM_ID_alter().
  */
-function adb_qna_form_alter(&$form, &$form_state, $form_id) {
-  switch ($form_id) {
-    case 'question_answer_node_form':
-      $form['#validate'][] = 'adb_qna_topic_validate';
-      $form['#validate'][] = 'adb_qna_qna_topic_validate';
-
-      break;
-  }
-}
-
-/**
- * Custom submit handler to check every topic belongs to same parent.
- */
-function adb_qna_topic_validate($form, &$form_state) {
-  $last_parent_tid = 0;
-  $langcode = $form_state['values']['language'];
-  $validate = TRUE;
-
-  // Iterate through every topics and check whether they belong to same parent.
-  foreach ($form_state['values']['field_topic'][$langcode] as $value) {
-    $parents = taxonomy_get_parents($value['tid']);
-
-    if (empty($parents)) {
-      $current_parent_tid = $value['tid'];
-    }
-    else {
-      // We consider that the taxonomy has only two levels.
-      // Pop out the first parent.
-      $term = array_shift($parents);
-      $current_parent_tid = $term->tid;
-    }
-
-    // Make sure `$last_parent_tid` is different from the `$current_parent_tid`.
-    // If different then invalidate the submission.
-    if ($last_parent_tid != 0 && ($last_parent_tid != $current_parent_tid)) {
-      $validate = FALSE;
-      break;
-    }
-    else {
-      $last_parent_tid = $current_parent_tid;
-    }
-  }
-
-  if (!$validate) {
-    form_set_error('field_topic', t('Only one parent is allowed for topics'));
-  }
+function adb_qna_form_question_answer_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['#validate'][] = 'adb_qna_topic_validate';
 }
 
 /**
  * Custom submit handler to check only one topic is selected for QnA.
  */
-function adb_qna_qna_topic_validate($form, &$form_state) {
+function adb_qna_topic_validate($form, &$form_state) {
   $langcode = $form_state['values']['language'];
   if (count($form_state['values']['field_topic'][$langcode]) > 1) {
     form_set_error('field_topic', t('Only one topic is allowed'));
