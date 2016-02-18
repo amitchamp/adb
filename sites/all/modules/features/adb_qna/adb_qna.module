@@ -14,6 +14,7 @@ function adb_qna_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'question_answer_node_form':
       $form['#validate'][] = 'adb_qna_topic_validate';
+      $form['#validate'][] = 'adb_qna_qna_topic_validate';
 
       break;
   }
@@ -54,6 +55,16 @@ function adb_qna_topic_validate($form, &$form_state) {
 
   if (!$validate) {
     form_set_error('field_topic', t('Only one parent is allowed for topics'));
+  }
+}
+
+/**
+ * Custom submit handler to check only one topic is selected for QnA.
+ */
+function adb_qna_qna_topic_validate($form, &$form_state) {
+  $langcode = $form_state['values']['language'];
+  if (count($form_state['values']['field_topic'][$langcode]) > 1) {
+    form_set_error('field_topic', t('Only one topic is allowed'));
   }
 }
 
