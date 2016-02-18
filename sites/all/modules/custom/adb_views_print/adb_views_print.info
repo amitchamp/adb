@@ -1,5 +1,5 @@
 name = ADB views print
-description = Add comment print link views as field
+description = Add print link views as field
 dependencies[] = views
 dependencies[] = print
 core = 7.x
