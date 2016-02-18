@@ -4,11 +4,11 @@
  */
 
 .page-wrapper {
-	max-width: 1200px;
-	margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 header {
-	@extend .full-width;
+  @extend .full-width;
 }
 
 /*
@@ -33,5 +33,5 @@ header {
 */
 
 .main-heading {
-	font-size: ($base-font)+14;
+  font-size: ($base-font)+14;
 }
