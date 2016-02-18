@@ -1,6 +1,0 @@
-name = ADB PDF
-description = Add PDF download link views as field
-dependencies[] = views
-dependencies[] = print
-core = 7.x
-files[] = includes/views/handlers/adb_views_pdf_handler.inc
