@@ -402,10 +402,12 @@ function adb_case_study_make_term_tagging($field_name, $taxonomy_refernce_term) 
   foreach ($field_name as $name) {
     $term_name = $taxonomy_refernce_term[$name];
     foreach ($term_name as $value) {
-      $linklist[$value['taxonomy_term']->name] = array(
-        'title' => t($value['taxonomy_term']->name),
-        'href' => 'search/' . $value['taxonomy_term']->name
-      );
+      if (!empty($value)) {
+        $linklist[$value['taxonomy_term']->name] = array(
+          'title' => t($value['taxonomy_term']->name),
+          'href' => 'search/' . $value['taxonomy_term']->name
+        );
+      }
     }
   }
 
