@@ -16,12 +16,4 @@ function adb_views_print_views_data_alter(&$data) {
       'handler' => 'AdbViewsPrintHandler',
     ),
   );
-
-  $data['views']['printpdf'] = array(
-    'title' => t('PDF Link'),
-    'help' => t('Show pdf link of a current page'),
-    'area' => array(
-      'handler' => 'AdbViewsPdfHandler',
-    ),
-  );
 }

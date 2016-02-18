@@ -2,12 +2,12 @@
 
 /**
  * @file
- * A handler to output print command of a current page.
+ * A handler to output pdf command of a current page.
  *
  * @ingroup views_field_handlers
  */
 
-class AdbViewsPrintHandler extends views_handler_area_text {
+class AdbViewsPdfHandler extends views_handler_area_text {
 
   /**
    * {@inheritdoc}
@@ -33,15 +33,15 @@ class AdbViewsPrintHandler extends views_handler_area_text {
    */
   public function render($empty = FALSE) {
     if ($this->options['tokenize']) {
-      // Get the print text.
+      // Get the download pdf text.
       // But also make sure output is sanitized.
       $value = $this->view->style_plugin->tokenize_value($this->options['content'], 0);
-      $print_text = $this->sanitize_value($value, 'xss_admin');
+      $pdf_text = $this->sanitize_value($value, 'xss_admin');
 
-      $output = t('<a href="@url">@printtext</a>', array('@url' => url('print/' . current_path()), '@printtext' => $print_text));
+      $output = t('<a href="@url">@downloadtext</a>', array('@url' => url('printpdf/' . current_path()), '@downloadtext' => $pdf_text));
     }
     else {
-      $output = t('<a href="@url">Print</a>', array('@url' => url('print/' . current_path())));
+      $output = t('<a href="@url">Download</a>', array('@url' => url('printpdf/' . current_path())));
     }
 
     return $output;
