@@ -122,7 +122,7 @@ hide($content['links']);
           <?php
           print $banner_image;
         endif;
-        ?><div class="content-type-name"><span class="case-study-label">Case study</span><div class="node-title case-study-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging case-study-tags"><?php print $node_field_tagging; ?></div><small class="arrow-icon"><i class="fa fa-angle-down"></i></small></div><span class="black-border"></span></div></div>
+        ?><div class="content-type-name"><span class="case-study-label"><?php print t('Case study'); ?></span><div class="node-title case-study-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging case-study-tags"><?php print $node_field_tagging; ?></div><small class="arrow-icon"><i class="fa fa-angle-down"></i></small></div><span class="black-border"></span></div></div>
     <!--Social Share Area-->
     <div class="social-share-download">
       <div class="social-share">
@@ -141,7 +141,7 @@ hide($content['links']);
 
     <!--Overview-->
     <?php if ($body): ?>
-      <div class="heading"><h2 class="section-heading">Overview</h2>
+      <div class="casestudy-section"><h2 class="section-heading"><?php print t('Overview'); ?></h2>
         <div class="overview-content">
           <?php if ($summary): ?>
             <div class="summary"><?php print $summary; ?></div>
@@ -152,35 +152,35 @@ hide($content['links']);
 
     <!--Project snapshot-->
     <?php if ($project_snapshot): ?>
-      <div class="heading"><h2 class="section-heading">Project snapshot</h2>
-        <div class="project-snapshot-content"><?php print $project_snapshot; ?></div>
+      <div class="casestudy-section"><h2 class="section-heading"><?php print t('Project snapshot'); ?></h2>
+        <div class="project-snapshot-content dates-content"><?php print $project_snapshot; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Cost content-->
     <?php if ($project_cost): ?>
-      <div class="heading"><h2 class="section-heading">Cost</h2>
-        <div class="project-cost-content"><?php print $project_cost; ?></div>
+      <div class="casestudy-section">
+        <div class="project-snapshot-content cost-content"><?php print $project_cost; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Institution and stakeholders-->
     <?php if ($institution_stakeholder): ?>
-      <div class="heading"><h2 class="section-heading">Institution and stakeholders</h2>
-        <div class="institution-stakeholder"><?php print $institution_stakeholder; ?></div>
+      <div class="casestudy-section">
+        <div class="project-snapshot-content institution-stakeholder"><?php print $institution_stakeholder; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Continue reading...-->
     <?php if ($continue_reading): ?>
-      <div class="heading"><h2 class="section-heading">Continue reading...</h2>
-        <div class="continue-reading"><?php print $continue_reading; ?></div>
+      <div class="casestudy-section continue-block"><h2 class="section-heading">Continue reading...</h2>
+        <div class="continue-reading"><i class="fa fa-caret-down"></i><?php print $continue_reading; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Meet our knowledge contributor...-->
     <?php if ($have_contributor): ?>
-      <div class="heading"><h2 class="section-heading">Meet our knowledge contributor</h2>
+      <div class="casestudy-section"><h2 class="section-heading"><?php print t('Meet our knowledge contributor'); ?></h2>
         <div class="knowledge-contributor"><?php print $contributor; ?></div>
       </div>
     <?php endif; ?>
