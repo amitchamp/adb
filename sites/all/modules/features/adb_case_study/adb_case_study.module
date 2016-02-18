@@ -317,7 +317,7 @@ function adb_case_study_preprocess_node(&$variables) {
           // In Institutions and stakeholder section we have field collection under field
           // collection so we have to relooping aging for inner ettity_id's.
           $sub_section_detail = entity_load('field_collection_item', array((int) $data['value']));
-          
+
           foreach ($sub_section_detail as $key => $field_value) {
             // Getting link and url and make its anchor content.
             if (isset($field_value->field_value['und'][0]['value']) && isset($field_value->field_link['und'][0]['url'])) {
@@ -393,10 +393,12 @@ function adb_case_study_make_term_tagging($field_name, $taxonomy_refernce_term) 
   foreach ($field_name as $name) {
     $term_name = $taxonomy_refernce_term[$name];
     foreach ($term_name as $value) {
-      $linklist[$value['taxonomy_term']->name] = array(
-        'title' => t($value['taxonomy_term']->name),
-        'href' => 'search/' . $value['taxonomy_term']->name
-      );
+      if (!empty($value)) {
+        $linklist[$value['taxonomy_term']->name] = array(
+          'title' => t($value['taxonomy_term']->name),
+          'href' => 'search/' . $value['taxonomy_term']->name
+        );
+      }
     }
   }
 
