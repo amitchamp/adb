@@ -50,6 +50,14 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['header']['socialshare']['id'] = 'socialshare';
   $handler->display->display_options['header']['socialshare']['table'] = 'views';
   $handler->display->display_options['header']['socialshare']['field'] = 'socialshare';
+  /* Footer: Global: Rate Widget */
+  $handler->display->display_options['footer']['rate_widget_form']['id'] = 'rate_widget_form';
+  $handler->display->display_options['footer']['rate_widget_form']['table'] = 'views';
+  $handler->display->display_options['footer']['rate_widget_form']['field'] = 'rate_widget_form';
+  $handler->display->display_options['footer']['rate_widget_form']['label'] = 'was this usefull?';
+  $handler->display->display_options['footer']['rate_widget_form']['empty'] = TRUE;
+  $handler->display->display_options['footer']['rate_widget_form']['content'] = '!1';
+  $handler->display->display_options['footer']['rate_widget_form']['tokenize'] = TRUE;
   /* Footer: Global: Comment form */
   $handler->display->display_options['footer']['comment_form']['id'] = 'comment_form';
   $handler->display->display_options['footer']['comment_form']['table'] = 'views';
@@ -131,6 +139,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
+  $handler->display->display_options['fields']['field_download_file']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_download_file']['click_sort_column'] = 'fid';
   /* Field: Global: Fieldset */
   $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
@@ -169,7 +178,8 @@ function adb_case_study_views_default_views() {
     0 => 'type',
     1 => 'title',
     2 => 'field_date',
-    3 => 'fieldset_3',
+    3 => 'field_topic',
+    4 => 'field_tags',
   );
   $handler->display->display_options['fields']['fieldset']['fieldset']['type'] = 'div';
   /* Field: Content: Type */
@@ -200,47 +210,16 @@ function adb_case_study_views_default_views() {
     'show_remaining_days' => 0,
     'show_repeat_rule' => 'show',
   );
-  /* Field: Global: Fieldset */
-  $handler->display->display_options['fields']['fieldset_3']['id'] = 'fieldset_3';
-  $handler->display->display_options['fields']['fieldset_3']['table'] = 'views';
-  $handler->display->display_options['fields']['fieldset_3']['field'] = 'fieldset';
-  $handler->display->display_options['fields']['fieldset_3']['label'] = 'tagging';
-  $handler->display->display_options['fields']['fieldset_3']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['fieldset_3']['children'] = array(
-    0 => 'field_topic',
-    1 => 'field_tags',
-    2 => 'field_countries',
-    3 => 'nothing',
-  );
-  $handler->display->display_options['fields']['fieldset_3']['fieldset']['type'] = 'div';
   /* Field: Content: Topic */
   $handler->display->display_options['fields']['field_topic']['id'] = 'field_topic';
   $handler->display->display_options['fields']['field_topic']['table'] = 'field_data_field_topic';
   $handler->display->display_options['fields']['field_topic']['field'] = 'field_topic';
-  $handler->display->display_options['fields']['field_topic']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_topic']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_topic']['separator'] = '#';
   /* Field: Content: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
-  $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_tags']['separator'] = '#';
-  /* Field: Content: Countries */
-  $handler->display->display_options['fields']['field_countries']['id'] = 'field_countries';
-  $handler->display->display_options['fields']['field_countries']['table'] = 'field_data_field_countries';
-  $handler->display->display_options['fields']['field_countries']['field'] = 'field_countries';
-  $handler->display->display_options['fields']['field_countries']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_countries']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_countries']['separator'] = '#';
-  /* Field: Global: Custom text */
-  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="tagging">[field_topic] [field_tags] [field_countries]</div>';
-  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Global: Fieldset */
   $handler->display->display_options['fields']['fieldset_1']['id'] = 'fieldset_1';
   $handler->display->display_options['fields']['fieldset_1']['table'] = 'views';
@@ -248,7 +227,8 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['fieldset_1']['label'] = 'service-link';
   $handler->display->display_options['fields']['fieldset_1']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['fieldset_1']['children'] = array(
-    0 => 'field_download_file',
+    0 => 'service_links',
+    1 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
   /* Field: Content: Download file */
@@ -256,6 +236,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
+  $handler->display->display_options['fields']['field_download_file']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_download_file']['click_sort_column'] = 'fid';
   /* Field: Global: Fieldset */
   $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
@@ -272,19 +253,13 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_impact']['id'] = 'field_impact';
   $handler->display->display_options['fields']['field_impact']['table'] = 'field_data_field_impact';
   $handler->display->display_options['fields']['field_impact']['field'] = 'field_impact';
+  $handler->display->display_options['fields']['field_impact']['label'] = '';
   $handler->display->display_options['fields']['field_impact']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_impact']['type'] = 'field_collection_fields';
   $handler->display->display_options['fields']['field_impact']['settings'] = array(
     'view_mode' => 'full',
   );
   $handler->display->display_options['fields']['field_impact']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_impact']['separator'] = '';
-  /* Field: Content: Impact summary */
-  $handler->display->display_options['fields']['field_impact_summary']['id'] = 'field_impact_summary';
-  $handler->display->display_options['fields']['field_impact_summary']['table'] = 'field_data_field_impact_summary';
-  $handler->display->display_options['fields']['field_impact_summary']['field'] = 'field_impact_summary';
-  $handler->display->display_options['fields']['field_impact_summary']['label'] = '';
-  $handler->display->display_options['fields']['field_impact_summary']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -429,7 +404,9 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
+  $handler->display->display_options['fields']['field_download_file']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_download_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_download_file']['type'] = 'file_force_file_default';
   /* Field: Global: Fieldset */
   $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
   $handler->display->display_options['fields']['fieldset_2']['table'] = 'views';
@@ -585,6 +562,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
   $handler->display->display_options['fields']['field_download_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_download_file']['type'] = 'file_force_file_default';
   /* Field: Global: Fieldset */
   $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
   $handler->display->display_options['fields']['fieldset_2']['table'] = 'views';
@@ -738,7 +716,9 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
+  $handler->display->display_options['fields']['field_download_file']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_download_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_download_file']['type'] = 'file_force_file_default';
   /* Field: Global: Fieldset */
   $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
   $handler->display->display_options['fields']['fieldset_2']['table'] = 'views';
@@ -892,7 +872,9 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
+  $handler->display->display_options['fields']['field_download_file']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_download_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_download_file']['type'] = 'file_force_file_default';
   /* Field: Global: Fieldset */
   $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
   $handler->display->display_options['fields']['fieldset_2']['table'] = 'views';
@@ -1046,7 +1028,9 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
+  $handler->display->display_options['fields']['field_download_file']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_download_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_download_file']['type'] = 'file_force_file_default';
   /* Field: Global: Fieldset */
   $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
   $handler->display->display_options['fields']['fieldset_2']['table'] = 'views';
