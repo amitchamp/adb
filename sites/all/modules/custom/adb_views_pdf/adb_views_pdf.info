@@ -1,5 +1,5 @@
-name = ADB views pdf
-description = Add pdf link views as field
+name = ADB PDF
+description = Add PDF download link views as field
 dependencies[] = views
 dependencies[] = print
 core = 7.x

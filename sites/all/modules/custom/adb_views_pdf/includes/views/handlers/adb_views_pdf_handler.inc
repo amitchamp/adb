@@ -2,7 +2,7 @@
 
 /**
  * @file
- * A handler to output pdf command of a current page.
+ * A handler to output print command of a current page.
  *
  * @ingroup views_field_handlers
  */
@@ -33,12 +33,12 @@ class AdbViewsPdfHandler extends views_handler_area_text {
    */
   public function render($empty = FALSE) {
     if ($this->options['tokenize']) {
-      // Get the download pdf text.
+      // Get the print text.
       // But also make sure output is sanitized.
       $value = $this->view->style_plugin->tokenize_value($this->options['content'], 0);
-      $pdf_text = $this->sanitize_value($value, 'xss_admin');
+      $print_text = $this->sanitize_value($value, 'xss_admin');
 
-      $output = t('<a href="@url">@downloadtext</a>', array('@url' => url('printpdf/' . current_path()), '@downloadtext' => $pdf_text));
+      $output = t('<a href="@url">' . $print_text . '</a>', array('@url' => url('printpdf/' . current_path())));
     }
     else {
       $output = t('<a href="@url">Download</a>', array('@url' => url('printpdf/' . current_path())));

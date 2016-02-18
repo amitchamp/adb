@@ -2,7 +2,7 @@
 
 /**
  * @file
- * A global views field that allows you to add pdf download link of a current page.
+ * A global views field that allows you to add print link of a current page.
  */
 
 /**

@@ -38,6 +38,18 @@ function adb_case_study_views_default_views() {
     'title' => 'title',
   );
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  /* Header: Global: Print Link */
+  $handler->display->display_options['header']['print']['id'] = 'print';
+  $handler->display->display_options['header']['print']['table'] = 'views';
+  $handler->display->display_options['header']['print']['field'] = 'print';
+  /* Header: Global: Download */
+  $handler->display->display_options['header']['printpdf']['id'] = 'printpdf';
+  $handler->display->display_options['header']['printpdf']['table'] = 'views';
+  $handler->display->display_options['header']['printpdf']['field'] = 'printpdf';
+  /* Header: Global: Social Simplified Share */
+  $handler->display->display_options['header']['socialshare']['id'] = 'socialshare';
+  $handler->display->display_options['header']['socialshare']['table'] = 'views';
+  $handler->display->display_options['header']['socialshare']['field'] = 'socialshare';
   /* Footer: Global: Comment form */
   $handler->display->display_options['footer']['comment_form']['id'] = 'comment_form';
   $handler->display->display_options['footer']['comment_form']['table'] = 'views';
