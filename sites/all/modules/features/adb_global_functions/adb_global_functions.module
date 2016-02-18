@@ -339,3 +339,17 @@ function adb_global_functions_preprocess_views_view_list(&$variables) {
       break;
   }
 }
+
+/**
+ * Implements hook_node_view().
+ */
+function adb_global_functions_node_view($node, $view_mode, $langcode) {
+  $widgets = rate_get_active_widgets('node', $node->type);
+
+  // Rate widget is enabled for this content type.
+  // So, we add markup around rate widget.
+  if (!empty($widgets)) {
+    $node->content['rate_rate_useful_content']['#prefix'] = '<div class="useful-content"><div class="wrapper-section">';
+    $node->content['rate_rate_useful_content']['#suffix'] = '</div></div>';
+  }
+}
