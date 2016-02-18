@@ -221,7 +221,7 @@ function adb_case_study_preprocess_node(&$variables) {
     // Social share icon list.
     $variables['social_share'] = sharethis_block_contents();
 
-    // Body conten
+    // Body content.
     $variables['body'] = $variables['body'][0]['value'];
 
 
