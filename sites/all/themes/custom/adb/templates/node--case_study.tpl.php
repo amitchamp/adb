@@ -125,15 +125,17 @@ hide($content['links']);
         ?><div class="content-type-name"><span class="case-study-label"><?php print t('Case study'); ?></span><div class="node-title case-study-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging case-study-tags"><?php print $node_field_tagging; ?></div><small class="arrow-icon"><i class="fa fa-angle-down"></i></small></div><span class="black-border"></span></div></div>
     <!--Social Share Area-->
     <div class="social-share-download">
-      <div class="social-share">
-        <?php print $social_share; ?>
-      </div>
-      <!--Download and Print section-->
-      <div class="download-print">
-        <div class="print"><?php print $print_node; ?></div>
-        <?php if ($download_link): ?>
-          <div class="download"><?php print $download_link; ?></div>
-        <?php endif; ?>
+      <div class="wrapper-section">
+        <div class="social-share">
+          <?php print $social_share; ?>
+        </div>
+        <!--Download and Print section-->
+        <div class="download-print">
+          <?php print $print_node; ?>
+          <?php if ($download_link): ?>
+            <?php print $download_link; ?>
+          <?php endif; ?>
+        </div>
       </div>
     </div>
   </div>

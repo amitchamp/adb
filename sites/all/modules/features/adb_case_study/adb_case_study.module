@@ -208,10 +208,13 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Download Link for node page.
     if (isset($variables['field_download_file'][0]['uri'])) {
-      $variables['download_link'] = l(t('Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array(
+      $variables['download_link'] = l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array(
         'attributes' => array(
-          'target' => '_blank'
-      )));
+          'target' => '_blank',
+          'class' => 'download-link',
+        ),
+        'html' => TRUE,
+      ));
     }
     else {
       $variables['download_link'] = '';
@@ -219,8 +222,14 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Print Node page.
     if (isset($variables['nid'])) {
-      $variables['print_node'] = l(t('Print'), $baseUrl . 'print/node/' . $variables['nid']);
-    }
+      $variables['print_node'] = l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $variables['nid'], 
+        array(
+        'attributes' => array(
+          'class' => 'print-link',
+        ),
+        'html' => TRUE,
+      ));
+    } 
 
     // Social share icon list.
     $share_output = '';
