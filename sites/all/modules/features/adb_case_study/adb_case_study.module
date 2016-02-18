@@ -244,7 +244,7 @@ function adb_case_study_preprocess_node(&$variables) {
     $snapshot_output = '';
     $snapshot_output .= '<i class="fa fa-clock-o"></i><h3 class="project-heading">' . t("Dates") . '</h3>';
     foreach ($project_snapshot as $value) {
-      $snapshot_output .= '<div class="project-date">';
+      $snapshot_output .= '<div class="casestudy-project-date">';
       if (isset($value->field_date[$und][0]['value'])) {
         $snapshot_output .= '<div class="project-year">' .
           adb_case_study_get_date_formatted_value('Y', $value->field_date[$und][0]['value']) . '</div>';

@@ -11,17 +11,17 @@
 ** Helpers (Placeholders)
 */
 /* line 6, ../sass/utilities/_placeholder.scss */
-.nav ul, .case-study-tags ul {
+.nav ul, .case-study-tags ul, .casestudy-left-nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 /* line 11, ../sass/utilities/_placeholder.scss */
-.nav li, .case-study-tags li {
+.nav li, .case-study-tags li, .casestudy-left-nav li {
   float: left;
 }
 /* line 13, ../sass/utilities/_placeholder.scss */
-.nav li:first-child, .case-study-tags li:first-child {
+.nav li:first-child, .case-study-tags li:first-child, .casestudy-left-nav li:first-child {
   margin: 0;
 }
 
@@ -631,26 +631,31 @@ header[role="banner"] a {
 **Project Snapshot Date Section
 */
 /* line 213, ../sass/pages/_caseStudy.scss */
-.project-date {
+.casestudy-project-date {
   display: inline-block;
+  vertical-align: top;
   width: 28%;
   color: #333333;
 }
-/* line 218, ../sass/pages/_caseStudy.scss */
-.project-date:last-of-type .project-year:after {
+/* line 219, ../sass/pages/_caseStudy.scss */
+.casestudy-project-date:last-of-type .project-year:after {
   content: initial;
 }
-/* line 222, ../sass/pages/_caseStudy.scss */
-.project-date .description {
+/* line 223, ../sass/pages/_caseStudy.scss */
+.casestudy-project-date .description {
   font-size: 16px;
 }
+/* line 225, ../sass/pages/_caseStudy.scss */
+.casestudy-project-date .description p {
+  margin: 2px 0 0;
+}
 
-/* line 226, ../sass/pages/_caseStudy.scss */
+/* line 230, ../sass/pages/_caseStudy.scss */
 .project-year {
   font-size: 28px;
   position: relative;
 }
-/* line 229, ../sass/pages/_caseStudy.scss */
+/* line 233, ../sass/pages/_caseStudy.scss */
 .project-year:after {
   position: absolute;
   content: '';
@@ -669,12 +674,12 @@ header[role="banner"] a {
 /*
 **Project Snapshot Cost Section
 */
-/* line 249, ../sass/pages/_caseStudy.scss */
+/* line 253, ../sass/pages/_caseStudy.scss */
 .dates-content {
   padding-bottom: 20px;
 }
 
-/* line 252, ../sass/pages/_caseStudy.scss */
+/* line 256, ../sass/pages/_caseStudy.scss */
 .cost-value {
   font-size: 28px;
   color: #333333;
@@ -682,14 +687,14 @@ header[role="banner"] a {
   font-family: "OpenSans-Regular";
 }
 
-/* line 258, ../sass/pages/_caseStudy.scss */
+/* line 262, ../sass/pages/_caseStudy.scss */
 .cost-breakup {
   font-size: 16px;
   line-height: 24px;
   color: #333333;
   font-family: "OpenSans-Regular";
 }
-/* line 263, ../sass/pages/_caseStudy.scss */
+/* line 267, ../sass/pages/_caseStudy.scss */
 .cost-breakup p {
   margin: 0;
 }
@@ -697,23 +702,23 @@ header[role="banner"] a {
 /*
 **Project Snapshot Institute Section
 */
-/* line 271, ../sass/pages/_caseStudy.scss */
+/* line 275, ../sass/pages/_caseStudy.scss */
 .institution-stakeholder {
   padding-left: 125px;
   padding-right: 95px;
   padding-bottom: 40px;
 }
-/* line 275, ../sass/pages/_caseStudy.scss */
+/* line 279, ../sass/pages/_caseStudy.scss */
 .institution-stakeholder .fa {
   margin-bottom: 7px;
 }
 
-/* line 279, ../sass/pages/_caseStudy.scss */
+/* line 283, ../sass/pages/_caseStudy.scss */
 .detail-wrapper {
   text-align: left;
 }
 
-/* line 282, ../sass/pages/_caseStudy.scss */
+/* line 286, ../sass/pages/_caseStudy.scss */
 .institute-detail {
   width: 46%;
   display: inline-block;
@@ -721,11 +726,11 @@ header[role="banner"] a {
   margin-right: 8%;
   word-wrap: break-word;
 }
-/* line 288, ../sass/pages/_caseStudy.scss */
+/* line 292, ../sass/pages/_caseStudy.scss */
 .institute-detail h4 {
   margin: 16px 0 12px;
 }
-/* line 291, ../sass/pages/_caseStudy.scss */
+/* line 295, ../sass/pages/_caseStudy.scss */
 .institute-detail:nth-child(2n) {
   margin-right: 0;
 }
@@ -733,13 +738,13 @@ header[role="banner"] a {
 /*
 **Knowledge Contributor Section
 */
-/* line 299, ../sass/pages/_caseStudy.scss */
+/* line 303, ../sass/pages/_caseStudy.scss */
 .contributor-image {
   max-width: 102px;
   display: inline-block;
 }
 
-/* line 303, ../sass/pages/_caseStudy.scss */
+/* line 307, ../sass/pages/_caseStudy.scss */
 .about-contributor {
   width: 84%;
   display: inline-block;
@@ -747,7 +752,7 @@ header[role="banner"] a {
   vertical-align: top;
 }
 
-/* line 309, ../sass/pages/_caseStudy.scss */
+/* line 313, ../sass/pages/_caseStudy.scss */
 .contributor-name {
   font-size: 20px;
   margin: 0 0 5px;
@@ -755,7 +760,7 @@ header[role="banner"] a {
   font-family: "OpenSans-Regular";
 }
 
-/* line 315, ../sass/pages/_caseStudy.scss */
+/* line 319, ../sass/pages/_caseStudy.scss */
 .contributor-about p {
   font-size: 16px;
   line-height: 24px;
@@ -767,7 +772,7 @@ header[role="banner"] a {
 /*
 **Navigation Section
 */
-/* line 326, ../sass/pages/_caseStudy.scss */
+/* line 330, ../sass/pages/_caseStudy.scss */
 .section-navigate {
   margin-top: 100px;
   margin-bottom: 30px;
@@ -775,33 +780,93 @@ header[role="banner"] a {
   border-top: solid 1px #ccc;
   overflow: hidden;
 }
-/* line 332, ../sass/pages/_caseStudy.scss */
+/* line 336, ../sass/pages/_caseStudy.scss */
 .section-navigate a {
   color: #2A5DB0;
   display: inline-block;
 }
 
-/* line 337, ../sass/pages/_caseStudy.scss */
+/* line 341, ../sass/pages/_caseStudy.scss */
 .nav-links {
   font-size: 36px;
 }
 
-/* line 340, ../sass/pages/_caseStudy.scss */
+/* line 344, ../sass/pages/_caseStudy.scss */
 .next-link {
   text-align: right;
   float: right;
 }
 
-/* line 344, ../sass/pages/_caseStudy.scss */
+/* line 348, ../sass/pages/_caseStudy.scss */
 .prev-link {
   text-align: left;
   float: left;
 }
 
-/* line 348, ../sass/pages/_caseStudy.scss */
+/* line 352, ../sass/pages/_caseStudy.scss */
 .link-name {
   font-size: 20px;
   display: block;
+}
+
+/*
+**Useful Content Section
+*/
+/* line 360, ../sass/pages/_caseStudy.scss */
+.useful-content {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 20px 0 12px;
+  border-bottom: solid 3px #fff;
+  margin: 0;
+}
+/* line 366, ../sass/pages/_caseStudy.scss */
+.useful-content label {
+  font-size: 18px;
+  color: #000;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+/* line 372, ../sass/pages/_caseStudy.scss */
+.useful-content ul {
+  margin: 0;
+}
+/* line 374, ../sass/pages/_caseStudy.scss */
+.useful-content ul li {
+  margin: 0 10px;
+  display: inline-block;
+  float: none;
+}
+/* line 378, ../sass/pages/_caseStudy.scss */
+.useful-content ul li a {
+  background: #333333;
+  color: #fff !important;
+  display: inline-block;
+  -moz-border-radius: 5px / 5px;
+  -webkit-border-radius: 5px 5px;
+  border-radius: 5px / 5px;
+  font-size: 16px;
+  padding: 10px 25px;
+  margin: 0;
+  border: none;
+}
+
+/*
+**casetudy inner Pages
+*/
+/* line 396, ../sass/pages/_caseStudy.scss */
+.casestudy-inner-page .content-type-name {
+  position: static;
+}
+
+/* line 403, ../sass/pages/_caseStudy.scss */
+.casestudy-left-nav li {
+  float: none;
+  margin: 5px 0 15px;
+}
+/* line 407, ../sass/pages/_caseStudy.scss */
+.casestudy-left-nav a {
+  font-size: 16px;
 }
 
 /*

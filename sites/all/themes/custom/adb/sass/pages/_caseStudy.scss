@@ -210,8 +210,9 @@
 /*
 **Project Snapshot Date Section
 */
-.project-date {
+.casestudy-project-date {
   display: inline-block;
+  vertical-align: top;
   width: 28%;
   color: $text;
   &:last-of-type .project-year{
@@ -221,6 +222,9 @@
   }
   .description {
     font-size: ($base-font)+2;
+    p {
+      margin: 2px 0 0;
+    }
   }
 }
 .project-year {
@@ -348,4 +352,59 @@
 .link-name {
   font-size: ($base-font)+6;
   display: block;
+}
+
+/*
+**Useful Content Section
+*/
+.useful-content {
+  background-color: $light-grey-background;
+  text-align: center;
+  padding: 20px 0 12px;
+  border-bottom: solid 3px $white;
+  margin: 0;
+  label {
+    font-size: ($base-font)+4;
+    color: $black;
+    display: inline-block;
+    margin-bottom: 18px;
+  }
+  ul {
+    margin: 0;
+    li {
+      margin: 0 10px;
+      display: inline-block;
+      float: none;
+      a {
+        background: $text;
+        color: $white!important;
+        display: inline-block;
+        @include border-radius(5px,5px);
+        font-size: ($base-font)+2;
+        padding: 10px 25px;
+        margin: 0;
+        border: none;
+      }
+    } 
+  } 
+}
+
+/*
+**casetudy inner Pages
+*/
+.casestudy-inner-page {
+  .content-type-name {
+    position: static;
+  }
+}
+
+.casestudy-left-nav {
+  @extend %inline-menu;
+  li {
+    float: none;
+    margin: 5px 0 15px;
+  }
+  a {
+    font-size: ($base-font)+2;
+  }
 }
