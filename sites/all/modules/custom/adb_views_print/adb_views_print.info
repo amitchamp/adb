@@ -1,5 +1,6 @@
 name = ADB views print
 description = Add comment print link views as field
 dependencies[] = views
+dependencies[] = print
 core = 7.x
 files[] = includes/views/handlers/adb_views_print_handler.inc
