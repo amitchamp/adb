@@ -208,7 +208,7 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Download Link for node page.
     if (isset($variables['field_download_file'][0]['uri'])) {
-      $variables['download_link'] = l(t('Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array(
+      $variables['download_link'] = l(t('Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array('html'),array(
         'attributes' => array(
           'target' => '_blank'
       )));
