@@ -35,6 +35,8 @@ class AdbViewsSharetHandler extends views_handler_area_text {
    */
   public function render($empty = FALSE) {
     $output = '';
+    
+    // Getting Social share widget on views field content.
     if (variable_get('simplified_social_share_enable_horizontal_share') == 1) {
       simplified_social_share_horizontal_script_code();
       $output .= simplified_social_share_horizontal_sharing_div();
