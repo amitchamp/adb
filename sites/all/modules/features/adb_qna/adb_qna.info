@@ -34,3 +34,4 @@ features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][features] = features
 features_exclude[dependencies][strongarm] = strongarm
 features_exclude[dependencies][taxonomy] = taxonomy
+features_exclude[field_instance][node-question_answer-field_tags] = node-question_answer-field_tags
