@@ -10,3 +10,28 @@
 header {
 	@extend .full-width;
 }
+
+/*
+**Wrapper Section to make the div the in the center of the page
+*/
+
+.wrapper-section {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/*
+**Secondary headings on all the pages
+*/
+
+.section-heading {
+  @extend %seconday-heading;
+}
+
+/*
+**Main headings on all the pages
+*/
+
+.main-heading {
+	font-size: ($base-font)+14;
+}

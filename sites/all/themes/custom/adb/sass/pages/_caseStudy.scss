@@ -31,12 +31,12 @@
   margin-bottom: 16px;
   text-transform: uppercase;
 }
+.menu-categories-title {
+  @extend %hide;
+}
 .case-study-tags {
   margin-bottom: 64px;
   @extend %inline-menu;
-  .menu-categories-title {
-    @extend %hide;
-  }
   li {
     background-color: $white;
 	border: solid 1px $black;
@@ -50,6 +50,9 @@
 	  content: "\f02b";
 	  color: $black;
 	  margin-right: 4px;
+	}
+	&:first-child {
+	  margin-right: 16px;
 	}
   }
   a {
@@ -82,20 +85,71 @@
   }
 }
 
-.casestudy-section {
-  max-width: 780px;
-  margin: 0 auto;
+/*
+**Overview Section
+*/
+.social-share-download {
+  width: 100%;
+  padding: 12px 0 8px;
+  border-bottom: solid 1px $grey;
+  overflow: hidden;
+  a {
+    color: $dark-grey;
+  }
 }
-.section-heading {
-  @extend %seconday-heading;
+.social-share {
+  li {
+    display: inline-block;
+    margin: 0 5px;
+    &:first-child {
+	  margin-left: 0;
+	}
+}
+  a {
+    font-size: ($base-font)+14;
+  }
+}
+.download-print {
+  float: right;
+  a {
+    font-size: $base-font;
+  }
+}
+
+/*
+**Overview Section
+*/
+.overview-content {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  overflow:hidden;
+  .summary {
+    padding: 20px 18px;
+    background-color: $light-grey-background;
+  }
+  p {
+    font-size: ($base-font)+2;
+    line-height: ($base-font)+10;
+    margin-bottom: 30px;
+    color: $black;
+  }
+  img,iframe {
+  	max-width: 100%;
+  }
+  img {
+    height: auto;
+  }
 }
 
 /*
 **Continue Reading Section
 */
 .continue-block {
+  margin-top: 35px; 
+  overflow: hidden;
   .section-heading {
     margin-bottom: 10px;
+    margin: 20px 0;
   }
 }
 .continue-reading {
@@ -156,21 +210,37 @@
 /*
 **Project Snapshot Date Section
 */
-.project-year {
+.project-date {
   display: inline-block;
+  width: 28%;
+  color: $text;
+  &:last-of-type .project-year{
+  	&:after {
+  	  content: initial;
+  	}
+  }
+  .description {
+    font-size: ($base-font)+2;
+  }
+}
+.project-year {
+  font-size: ($base-font)+14;
+  position: relative;
   &:after {
+    position: absolute;
   	content: '';
   	background: url(#{$img-path}/timeline-image.png) no-repeat center center;
   	width: 115px;
   	height: 9px;
   	display: inline-block;
   	padding: 0 12px;
+  	vertical-align: middle;
+  	top: 50%;
+  	-ms-transform: translateY(-50%);
+  	-webkit-transform: translateY(-50%);
+  	transform: translateY(-50%);
   }
-  &:last-of-type {
-  	&:after {
-  	  content: initial;
-  	}
-  }
+  
 }
 
 /*
@@ -199,5 +269,83 @@
 **Project Snapshot Institute Section
 */
 .institution-stakeholder {
+  padding-left: 125px;
+  padding-right: 95px;
   padding-bottom: 40px;
+  .fa {
+    margin-bottom: 7px;
+  }
+}
+.detail-wrapper {
+  text-align: left;
+}
+.institute-detail {
+  width: 46%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 8%;
+  word-wrap: break-word;
+  h4 {
+    margin: 16px 0 12px;
+  }
+  &:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+/*
+**Knowledge Contributor Section
+*/
+.contributor-image {
+  max-width: 102px;
+  display: inline-block;
+}
+.about-contributor {
+  width: 84%;
+  display: inline-block;
+  margin-left: 2%;
+  vertical-align: top;
+}
+.contributor-name {
+  font-size: ($base-font)+6;
+  margin: 0 0 5px;
+  color: $text;
+  font-family: $opensans-regular;
+}
+.contributor-about p {
+  font-size: ($base-font)+2;
+  line-height: ($base-font)+10;
+  color: $text;
+  font-family: $opensans-regular;
+  margin: 0 0 6px;
+}
+
+/*
+**Navigation Section
+*/
+.section-navigate {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  padding-top: 15px;
+  border-top: solid 1px #ccc;
+  overflow: hidden;
+  a {
+    color: $link;
+	display: inline-block;
+  }
+}
+.nav-links {
+  font-size: ($base-font)+22;
+}
+.next-link {
+  text-align: right;
+  float:right;
+}
+.prev-link {
+  text-align: left;
+  float: left;
+}
+.link-name {
+  font-size: ($base-font)+6;
+  display: block;
 }

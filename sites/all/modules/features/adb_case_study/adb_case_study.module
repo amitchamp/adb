@@ -86,19 +86,23 @@ function _adb_case_study_block_subsection_navigation() {
   if (isset($current_path[1]) && is_numeric($current_path[1])) {
     $navigation = '<div class="navigation-content">';
     if ($prev > 0) {
-      $navigation .= l(t('<span>Previous</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$prev]])), $key_array_indexing[$prev] . '/' . $current_path[1], array('html' => TRUE), array(
+      $navigation .= l(t('<span class="nav-links"><i class="fa fa-angle-left"></i> Previous</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$prev]])), $key_array_indexing[$prev] . '/' . $current_path[1], array(
         'attributes' => array(
-          'class' => 'navigation-section',
+          'class' => 'prev-link',
           'id' => 'nav-section'
-      )));
+      ),
+        'html' => TRUE,
+      ));
     }
     if ($next < count($key_array_indexing) + 1) {
-      $navigation .= l(t('<span>Next</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$next]]
-        )), $key_array_indexing[$next] . '/' . $current_path[1], array('html' => TRUE), array(
+      $navigation .= l(t('<span class="nav-links">Next <i class="fa fa-angle-right"></i></span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$next]]
+        )), $key_array_indexing[$next] . '/' . $current_path[1], array(
         'attributes' => array(
-          'class' => 'navigation-section',
+          'class' => 'next-link',
           'id' => 'nav-section'
-      )));
+        ),
+        'html' => TRUE,
+      ));
     }
     $navigation .= '</div>';
   }
@@ -240,6 +244,7 @@ function adb_case_study_preprocess_node(&$variables) {
     $snapshot_output = '';
     $snapshot_output .= '<i class="fa fa-clock-o"></i><h3 class="project-heading">' . t("Dates") . '</h3>';
     foreach ($project_snapshot as $value) {
+      $snapshot_output .= '<div class="project-date">';
       if (isset($value->field_date[$und][0]['value'])) {
         $snapshot_output .= '<div class="project-year">' .
           adb_case_study_get_date_formatted_value('Y', $value->field_date[$und][0]['value']) . '</div>';
@@ -247,6 +252,7 @@ function adb_case_study_preprocess_node(&$variables) {
       elseif (isset($value->field_description[$und][0]['value'])) {
         $snapshot_output .= '<div class="description">' . $value->field_description[$und][0]['value'] . '</div>';
       }
+      $snapshot_output .= '</div>';
     }
     $variables['project_snapshot'] = $snapshot_output;
 
@@ -288,11 +294,12 @@ function adb_case_study_preprocess_node(&$variables) {
     }
     $institute_stake = entity_load('field_collection_item', $insti_entity_ids);
     $institue_output = '';
-    $institue_output .= '<div class="institue-stakeholder"><i class="fa fa-bank"></i><h3 class="project-heading">' . t("Institution and stakeholders") . '</h3>';
+    $institue_output .= '<i class="fa fa-bank"></i><h3 class="project-heading">' . t("Institution and stakeholders") . '</h3><div class="detail-wrapper">';
     foreach ($institute_stake as $stake_value) {
       // Get Institute Category name label.
+      $institue_output .= '<div class="institute-detail">';
       if (isset($stake_value->field_institution_category[$und][0]['value'])) {
-        $institue_output .= '<div class="institue-stakeholder-cateogry"><h4>' .
+        $institue_output .= '<h4>' .
           $institute_category_value[$stake_value->field_institution_category[$und][0]['value']] . '</h4>';
       }
       foreach ($stake_value->field_institution_detail as $detail_id) {
@@ -300,9 +307,9 @@ function adb_case_study_preprocess_node(&$variables) {
           // In Institutions and stakeholder section we have field collection under field
           // collection so we have to relooping aging for inner ettity_id's.
           $sub_section_detail = entity_load('field_collection_item', array((int) $data['value']));
-          $institue_output .= '<div class="detail">';
+          
           foreach ($sub_section_detail as $key => $field_value) {
-            $institue_output .= '<div class="cateogry-detail">';
+            // $institue_output .= '<div class="category-detail">';
             // Getting link and url and make its anchor content.
             if (isset($field_value->field_value['und'][0]['value']) && isset($field_value->field_link['und'][0]['url'])) {
               $institue_output .= '<div class="detail-title">' .
@@ -315,15 +322,16 @@ function adb_case_study_preprocess_node(&$variables) {
             }
             // If not url is put in field so field content visible simple label field.
             else {
-              $institue_output .= '<div class="detail-title">' .
+              $institue_output .= '<p>' .
                 $field_value->field_value['und'][0]['value'] .
-                '</div>';
+                '</p>';
             }
-            $institue_output .= '</div>';
+            // $institue_output .= '</div>';
           }
-          $institue_output .= '</div></div></div>';
+          // $institue_output .= '</div>';
         }
       }
+      $institue_output .= '</div>';
     }
     $institue_output .= '</div>';
     $variables['institution_stakeholder'] = $institue_output;
