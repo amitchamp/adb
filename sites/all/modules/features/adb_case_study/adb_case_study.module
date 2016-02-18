@@ -90,7 +90,7 @@ function _adb_case_study_block_subsection_navigation() {
         'attributes' => array(
           'class' => 'prev-link',
           'id' => 'nav-section'
-      ),
+        ),
         'html' => TRUE,
       ));
     }
@@ -208,10 +208,14 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Download Link for node page.
     if (isset($variables['field_download_file'][0]['uri'])) {
-      $variables['download_link'] = l(t('Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array('html'),array(
+
+      $variables['download_link'] = l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array(
         'attributes' => array(
-          'target' => '_blank'
-      )));
+          'target' => '_blank',
+          'class' => 'download-link',
+        ),
+        'html' => TRUE,
+      ));
     }
     else {
       $variables['download_link'] = '';
@@ -219,7 +223,12 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Print Node page.
     if (isset($variables['nid'])) {
-      $variables['print_node'] = l(t('Print'), $baseUrl . 'print/node/' . $variables['nid']);
+      $variables['print_node'] = l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $variables['nid'], array(
+        'attributes' => array(
+          'class' => 'print-link',
+        ),
+        'html' => TRUE,
+      ));
     }
 
     // Social share icon list.
@@ -317,7 +326,7 @@ function adb_case_study_preprocess_node(&$variables) {
           // In Institutions and stakeholder section we have field collection under field
           // collection so we have to relooping aging for inner ettity_id's.
           $sub_section_detail = entity_load('field_collection_item', array((int) $data['value']));
-          
+
           foreach ($sub_section_detail as $key => $field_value) {
             // Getting link and url and make its anchor content.
             if (isset($field_value->field_value['und'][0]['value']) && isset($field_value->field_link['und'][0]['url'])) {
