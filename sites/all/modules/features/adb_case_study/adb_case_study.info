@@ -5,6 +5,7 @@ package = ADB
 version = 7.x-1.0
 dependencies[] = adb_site
 dependencies[] = adb_views_comment_form
+dependencies[] = adb_views_rate_widget_form
 dependencies[] = ctools
 dependencies[] = date
 dependencies[] = entityreference

@@ -54,7 +54,6 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['footer']['rate_widget_form']['id'] = 'rate_widget_form';
   $handler->display->display_options['footer']['rate_widget_form']['table'] = 'views';
   $handler->display->display_options['footer']['rate_widget_form']['field'] = 'rate_widget_form';
-  $handler->display->display_options['footer']['rate_widget_form']['label'] = 'was this usefull?';
   $handler->display->display_options['footer']['rate_widget_form']['empty'] = TRUE;
   $handler->display->display_options['footer']['rate_widget_form']['content'] = '!1';
   $handler->display->display_options['footer']['rate_widget_form']['tokenize'] = TRUE;
