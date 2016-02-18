@@ -219,7 +219,17 @@ function adb_case_study_preprocess_node(&$variables) {
     }
 
     // Social share icon list.
-    $variables['social_share'] = sharethis_block_contents();
+    $share_output = '';
+    if (variable_get('simplified_social_share_enable_horizontal_share') == 1) {
+      simplified_social_share_horizontal_script_code();
+      $share_output .= simplified_social_share_horizontal_sharing_div();
+    }
+
+    if (variable_get('simplified_social_share_enable_vertical_share') == 1) {
+      simplified_social_share_vertical_script_code();
+      $share_output .= simplified_social_share_vertical_sharing_div();
+    }
+    $variables['social_share'] = $share_output;
 
     // Body conten
     $variables['body'] = $variables['body'][0]['value'];
