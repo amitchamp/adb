@@ -85,12 +85,18 @@ function adb_qna_block_view($delta = '') {
         $siblings = taxonomy_get_children($term->tid);
       }
 
-      $block['content'] = theme('adb_qna_header', array(
-        'type_name' => $content_types['question_answer']->name,
-        'current_term_name' => $current_term_wrapper->label(),
-        'current_term_description' => $current_term_wrapper->description->raw(),
-        'siblings' => $siblings,
-      ));
+      $block['content'] = array(
+        '#theme' => 'adb_qna_header',
+        '#type_name' => $content_types['question_answer']->name,
+        '#current_term_name' => $current_term_wrapper->label(),
+        '#current_term_description' => $current_term_wrapper->description->raw(),
+        '#siblings' => $siblings,
+        '#attached' => array(
+          'js' => array(
+            drupal_get_path('module', 'adb_qna') . '/js/adb_qna.js',
+          ),
+        ),
+      );
 
       break;
   }

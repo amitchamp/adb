@@ -17,7 +17,7 @@
     <div class="term-name"><?php print $current_term_name; ?></div>
     <div class="cards-wrapper">
       <div class="cards-toggler"><?php print t('Change cards'); ?></div>
-      <div class="cards-toggle-wrapper">
+      <div class="cards-toggle-wrapper" style="display: none;">
         <?php foreach ($siblings as $term): ?>
           <div class="card card-<?php print $term->tid; ?>"><?php print l($term->name, 'taxonomy/term/' . $term->tid); ?></div>
         <?php endforeach; ?>
