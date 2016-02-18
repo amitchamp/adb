@@ -66,6 +66,12 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['header']['printpdf']['label'] = 'Download';
   $handler->display->display_options['header']['printpdf']['empty'] = TRUE;
   $handler->display->display_options['header']['printpdf']['content'] = '!1';
+  /* Footer: Global: Sub-Section Navigation Link */
+  $handler->display->display_options['footer']['navigation']['id'] = 'navigation';
+  $handler->display->display_options['footer']['navigation']['table'] = 'views';
+  $handler->display->display_options['footer']['navigation']['field'] = 'navigation';
+  $handler->display->display_options['footer']['navigation']['label'] = 'Navigation';
+  $handler->display->display_options['footer']['navigation']['empty'] = TRUE;
   /* Footer: Global: Rate Widget */
   $handler->display->display_options['footer']['rate_widget_form']['id'] = 'rate_widget_form';
   $handler->display->display_options['footer']['rate_widget_form']['table'] = 'views';

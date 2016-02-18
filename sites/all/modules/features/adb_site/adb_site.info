@@ -8,6 +8,7 @@ dependencies[] = adb_global_functions
 dependencies[] = adb_qna
 dependencies[] = adb_views_comment_form
 dependencies[] = adb_views_download
+dependencies[] = adb_views_navigation
 dependencies[] = adb_views_print
 dependencies[] = adb_views_rate_widget_form
 dependencies[] = adb_views_social_share
