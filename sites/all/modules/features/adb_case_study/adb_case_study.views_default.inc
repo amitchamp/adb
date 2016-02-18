@@ -54,7 +54,6 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['footer']['rate_widget_form']['id'] = 'rate_widget_form';
   $handler->display->display_options['footer']['rate_widget_form']['table'] = 'views';
   $handler->display->display_options['footer']['rate_widget_form']['field'] = 'rate_widget_form';
-  $handler->display->display_options['footer']['rate_widget_form']['label'] = 'was this usefull?';
   $handler->display->display_options['footer']['rate_widget_form']['empty'] = TRUE;
   $handler->display->display_options['footer']['rate_widget_form']['content'] = '!1';
   $handler->display->display_options['footer']['rate_widget_form']['tokenize'] = TRUE;
@@ -561,6 +560,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
+  $handler->display->display_options['fields']['field_download_file']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_download_file']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_download_file']['type'] = 'file_force_file_default';
   /* Field: Global: Fieldset */
@@ -607,11 +607,6 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'case_study' => 'case_study',
   );
-  /* Filter criterion: Content: Challenges (field_challenges) */
-  $handler->display->display_options['filters']['field_challenges_value']['id'] = 'field_challenges_value';
-  $handler->display->display_options['filters']['field_challenges_value']['table'] = 'field_data_field_challenges';
-  $handler->display->display_options['filters']['field_challenges_value']['field'] = 'field_challenges_value';
-  $handler->display->display_options['filters']['field_challenges_value']['operator'] = 'not empty';
   $handler->display->display_options['path'] = 'challenges/%';
 
   /* Display: Case study-Solutions */

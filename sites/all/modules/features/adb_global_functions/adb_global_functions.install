@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * ADB global function install file.
+ */
+
+/**
+ * Increase module weight more than rate module's.
+ */
+function adb_global_functions_update_7000(&$sandbox = NULL) {
+  $success = adb_global_functions_increase_module_weight();
+
+  if ($success) {
+    $message = t('Module weight increased successfully.');
+  }
+  else {
+    $message = t('Error occurred. Please check watchdog.');
+  }
+
+  return $message;
+}
+
+/**
+ * Implements hook_install().
+ */
+function adb_global_functions_install() {
+  // Increase module weight more than rate module's.
+  $success = adb_global_functions_increase_module_weight();
+}
+
+/**
+ * Increase module weight more than rate module's.
+ *
+ * @return boolean
+ *   Success or failed status.
+ */
+function adb_global_functions_increase_module_weight() {
+  $success = FALSE;
+
+  try {
+    // Get weight of rate module.
+    $query = db_select('system', 's')
+      ->fields('s', array('weight'))
+      ->condition('name', 'rate')
+      ->execute();
+    $rate_weight = $query->fetchField();
+
+    // Increase module weight one more than rate module's.
+    db_update('system')
+      ->fields(array('weight' => ($rate_weight + 1)))
+      ->condition('name', 'adb_global_functions')
+      ->execute();
+
+    $success = TRUE;
+  }
+  catch (Exception $e) {
+    watchdog('adb_global_functions', $e->getMessage(), WATCHDOG_ERROR);
+  }
+
+  return $success;
+}
