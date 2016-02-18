@@ -285,8 +285,8 @@ function adb_case_study_preprocess_node(&$variables) {
     $project_cost = entity_load('field_collection_item', $cost_entity_ids);
     $cost_output = '';
     $cost_output .= '<div class="project-cost"><i class="fa fa-money"></i><h3 class="project-heading">' . t("Cost") . '</h3>';
-    if (isset($variables['field_cost_description'][$und][0]['value'])) {
-      $cost_output .= '<div class="description">' . $variables['field_cost_description'][$und][0]['value'] . '</div>';
+    if (isset($variables['field_cost_description'][0]['value'])) {
+      $cost_output .= '<div class="description">' . $variables['field_cost_description'][0]['value'] . '</div>';
     }
     foreach ($project_cost as $cost_value) {
       if (isset($cost_value->field_primary_cost[$und][0]['value'])) {
