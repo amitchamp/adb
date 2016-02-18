@@ -26,7 +26,7 @@ class AdbViewsRateWidgetFormHandler extends views_handler_area_text {
 
   // Empty, so we don't inherit options_submit from the parent.
   function options_submit(&$form, &$form_state) {
-    
+
   }
 
   /**
@@ -44,9 +44,10 @@ class AdbViewsRateWidgetFormHandler extends views_handler_area_text {
       $rate_widget->nid = $nid;
       $node = node_load($nid);
 
-      // Get rate widget and render its on views page.  
-      $rate_widget = '<label id="useful">' . t('Was this article useful?') . '</label>';
+      // Get rate widget and render its on views page.
+      $rate_widget = '<div class="useful-content"><div class="wrapper-section"><label id="useful">' . t('Was this article useful?') . '</label>';
       $rate_widget .= rate_embed($node, 'rate_useful_content');
+      $rate_widget .= '</div></div>';
 
       return $rate_widget;
     }
