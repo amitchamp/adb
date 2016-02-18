@@ -26,7 +26,7 @@ function adb_qna_views_api($module = NULL, $api = NULL) {
 function adb_qna_node_info() {
   $items = array(
     'question_answer' => array(
-      'name' => t('Question and answer'),
+      'name' => t('Q&A'),
       'base' => 'node_content',
       'description' => t('Create question and answers content'),
       'has_title' => '1',

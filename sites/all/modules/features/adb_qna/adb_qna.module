@@ -8,51 +8,98 @@
 include_once 'adb_qna.features.inc';
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORM_ID_alter().
  */
-function adb_qna_form_alter(&$form, &$form_state, $form_id) {
-  switch ($form_id) {
-    case 'question_answer_node_form':
-      $form['#validate'][] = 'adb_qna_topic_validate';
+function adb_qna_form_question_answer_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['#validate'][] = 'adb_qna_topic_validate';
+}
 
-      break;
+/**
+ * Custom submit handler to check only one topic is selected for QnA.
+ */
+function adb_qna_topic_validate($form, &$form_state) {
+  $langcode = $form_state['values']['language'];
+  if (count($form_state['values']['field_topic'][$langcode]) > 1) {
+    form_set_error('field_topic', t('Only one topic is allowed'));
   }
 }
 
 /**
- * Custom submit handler to check every topic belongs to same parent.
+ * Implements hook_theme().
  */
-function adb_qna_topic_validate($form, &$form_state) {
-  $last_parent_tid = 0;
-  $langcode = $form_state['values']['language'];
-  $validate = TRUE;
+function adb_qna_theme($existing, $type, $theme, $path) {
+  return array(
+    'adb_qna_header' => array(
+      'variables' => array(
+        'type_name' => NULL,
+        'current_term_name' => NULL,
+        'current_term_description' => NULL,
+        'siblings' => NULL,
+      ),
+      'template' => 'templates/adb-qna-header',
+    ),
+  );
+}
 
-  // Iterate through every topics and check whether they belong to same parent.
-  foreach ($form_state['values']['field_topic'][$langcode] as $value) {
-    $parents = taxonomy_get_parents($value['tid']);
+/**
+ * Implements hook_block_info().
+ */
+function adb_qna_block_info() {
+  $blocks['adb_qna_header'] = array(
+    'info' => t('Question and answer header'),
+  );
 
-    if (empty($parents)) {
-      $current_parent_tid = $value['tid'];
-    }
-    else {
-      // We consider that the taxonomy has only two levels.
-      // Pop out the first parent.
-      $term = array_shift($parents);
-      $current_parent_tid = $term->tid;
-    }
+  return $blocks;
+}
 
-    // Make sure `$last_parent_tid` is different from the `$current_parent_tid`.
-    // If different then invalidate the submission.
-    if ($last_parent_tid != 0 && ($last_parent_tid != $current_parent_tid)) {
-      $validate = FALSE;
+/**
+ * Implements hook_block_view().
+ */
+function adb_qna_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'adb_qna_header':
+      if (arg(0) == 'node') {
+        $node_wrapper = entity_metadata_wrapper('node', arg(1));
+        $field_topic = $node_wrapper->field_topic->raw();
+        // Only one topic is allowed for QnA.
+        $current_term_tid = $field_topic[0];
+      }
+      else if (arg(0) == 'taxonomy') {
+        $current_term_tid = arg(2);
+      }
+
+      // Obtain metadata that we are going to show in header.
+      $content_types = node_type_get_types();
+      $current_term_wrapper = entity_metadata_wrapper('taxonomy_term', $current_term_tid);
+      $parents = taxonomy_get_parents($current_term_tid);
+
+      if (empty($parents)) {
+        $vocabulary = taxonomy_vocabulary_machine_name_load('topics');
+        // Make sure you show only the parent terms.
+        $siblings = taxonomy_get_tree($vocabulary->vid, $parent = 0, $depth = 1);
+      }
+      else {
+        $term = array_shift($parents);
+        $siblings = taxonomy_get_children($term->tid);
+      }
+
+      $block['content'] = array(
+        '#theme' => 'adb_qna_header',
+        '#type_name' => $content_types['question_answer']->name,
+        '#current_term_name' => $current_term_wrapper->label(),
+        '#current_term_description' => $current_term_wrapper->description->raw(),
+        '#siblings' => $siblings,
+        '#attached' => array(
+          'js' => array(
+            drupal_get_path('module', 'adb_qna') . '/js/adb_qna.js',
+          ),
+        ),
+      );
+
       break;
-    }
-    else {
-      $last_parent_tid = $current_parent_tid;
-    }
   }
 
-  if (!$validate) {
-    form_set_error('field_topic', t('Only one parent is allowed for topics'));
-  }
+  return $block;
 }
