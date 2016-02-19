@@ -1,0 +1,12 @@
+/*
+ ** style for Q&A page only.
+ */
+
+.qna-header-wrapper {
+  background-color: #e4e4e4;
+  padding-left: 12px;
+}
+
+.detail-pages-heading {
+  @extend %%seconday-heading;
+}

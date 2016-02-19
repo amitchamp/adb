@@ -65,7 +65,7 @@
 }
 
 /*
-** For the Heading on the images in the details pages (like case study)
+** For the Heading on the banner images in the details pages (like case study)
 */
 
 %main-heading {
@@ -77,7 +77,7 @@
 }
 
 /*
-** For the Section heading of the each sction on the pages (lke case study)
+** For the Section heading of the each section on the pages (lke case study)
 */
 
 %seconday-heading {
@@ -85,6 +85,17 @@
   color: $text;
   font-family: $opensans-regular;
   margin: 16px 0;
+}
+
+/*
+** For the Heading on the banner images in the inner pages
+*/
+
+%inner-pages-heading {
+  font-size: $inner-pages-title;
+  color: $text;
+  margin: 18px 0 0;
+  display: inline-block;
 }
 
 /*
