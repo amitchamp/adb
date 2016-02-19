@@ -1,0 +1,5 @@
+name = ADB views section navigation
+description = Add navigaion link views as field
+dependencies[] = views
+core = 7.x
+files[] = includes/views/handlers/adb_views_navigation_handler.inc

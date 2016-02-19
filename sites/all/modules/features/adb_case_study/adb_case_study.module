@@ -90,7 +90,7 @@ function _adb_case_study_block_subsection_navigation() {
         'attributes' => array(
           'class' => 'prev-link',
           'id' => 'nav-section'
-      ),
+        ),
         'html' => TRUE,
       ));
     }
@@ -208,6 +208,7 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Download Link for node page.
     if (isset($variables['field_download_file'][0]['uri'])) {
+
       $variables['download_link'] = l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array(
         'attributes' => array(
           'target' => '_blank',
@@ -222,14 +223,13 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Print Node page.
     if (isset($variables['nid'])) {
-      $variables['print_node'] = l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $variables['nid'], 
-        array(
+      $variables['print_node'] = l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $variables['nid'], array(
         'attributes' => array(
           'class' => 'print-link',
         ),
         'html' => TRUE,
       ));
-    } 
+    }
 
     // Social share icon list.
     $share_output = '';
@@ -285,8 +285,8 @@ function adb_case_study_preprocess_node(&$variables) {
     $project_cost = entity_load('field_collection_item', $cost_entity_ids);
     $cost_output = '';
     $cost_output .= '<div class="project-cost"><i class="fa fa-money"></i><h3 class="project-heading">' . t("Cost") . '</h3>';
-    if (isset($variables['field_cost_description'][$und][0]['value'])) {
-      $cost_output .= '<div class="description">' . $variables['field_cost_description'][$und][0]['value'] . '</div>';
+    if (isset($variables['field_cost_description'][0]['value'])) {
+      $cost_output .= '<div class="description">' . $variables['field_cost_description'][0]['value'] . '</div>';
     }
     foreach ($project_cost as $cost_value) {
       if (isset($cost_value->field_primary_cost[$und][0]['value'])) {
@@ -326,7 +326,7 @@ function adb_case_study_preprocess_node(&$variables) {
           // In Institutions and stakeholder section we have field collection under field
           // collection so we have to relooping aging for inner ettity_id's.
           $sub_section_detail = entity_load('field_collection_item', array((int) $data['value']));
-          
+
           foreach ($sub_section_detail as $key => $field_value) {
             // Getting link and url and make its anchor content.
             if (isset($field_value->field_value['und'][0]['value']) && isset($field_value->field_link['und'][0]['url'])) {
@@ -402,10 +402,12 @@ function adb_case_study_make_term_tagging($field_name, $taxonomy_refernce_term) 
   foreach ($field_name as $name) {
     $term_name = $taxonomy_refernce_term[$name];
     foreach ($term_name as $value) {
-      $linklist[$value['taxonomy_term']->name] = array(
-        'title' => t($value['taxonomy_term']->name),
-        'href' => 'search/' . $value['taxonomy_term']->name
-      );
+      if (!empty($value)) {
+        $linklist[$value['taxonomy_term']->name] = array(
+          'title' => t($value['taxonomy_term']->name),
+          'href' => 'search/' . $value['taxonomy_term']->name
+        );
+      }
     }
   }
 

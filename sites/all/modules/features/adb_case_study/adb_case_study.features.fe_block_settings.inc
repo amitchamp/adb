@@ -30,7 +30,7 @@ resources/*',
         'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'adb',
-        'weight' => 0,
+        'weight' => -15,
       ),
       'bartik' => array(
         'region' => '',
