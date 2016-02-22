@@ -2,3 +2,77 @@
  ** style for Q&A page only.
  */
 
+.qna-header-wrapper {
+  background-color: #e4e4e4;
+  padding: 30px 12px;
+}
+
+.detail-pages-heading {
+  @extend %inner-pages-heading;
+}
+.cards-wrapper {
+  display: inline-block;
+  margin-left: 40px;
+  position: relative;
+}
+.cards-toggler {
+  color: $link;
+  cursor: pointer;
+  font-size: ($base-font)+2;
+}
+.cards-toggle-wrapper {
+  position: absolute;
+  left: 0;
+  width: 200px;
+  background-color: $white;
+  padding: 5px 10px;
+  margin-top: 5px;
+  a {
+    border-bottom: solid 1px $grey;
+    font-size: ($base-font)+2;
+    line-height: ($base-font)+6;
+    padding: 5px 0;
+    display: inline-block;
+  }
+}
+.type-description {
+  font-size: ($base-font)+2;
+  margin-top: 20px;
+}
+
+
+/*
+ ** Q&A main content section
+ */
+
+.qa-list {
+  margin: 25px 0;
+  border-bottom: solid 1px $border-color;
+}
+ .row-counter {
+   width: 42px;
+   height: 42px;
+   background-color: $text;
+   color: $white;
+   font-size: ($base-font)+10;
+   display: inline-block;
+   margin-right: 34px;
+   @include border-radius(50%, 50%);
+   text-align: center;
+   line-height: 42px;
+   vertical-align: top;
+ }
+ .title-body-wrapper {
+   display: inline-block;
+   width: 89%;
+ }
+ .qna-title {
+   color: $link;
+   font-size: ($base-font)+10;
+   margin-bottom: 50px;
+ }
+ .qna-summary {
+   p {
+     margin: 0;
+   }
+ }
