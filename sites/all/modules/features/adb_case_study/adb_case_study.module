@@ -27,6 +27,12 @@ function adb_case_study_block_info() {
   $blocks['section_navigation'] = array(
     'info' => t('Sub section navigation in landing page'),
   );
+  $blocks['comment_form'] = array(
+    'info' => t('Comment form block'),
+  );
+  $blocks['rate_widget'] = array(
+    'info' => t('Rate widget block'),
+  );
   return $blocks;
 }
 
@@ -46,8 +52,60 @@ function adb_case_study_block_view($delta = '') {
       // Function call for getting render content of list.
       $block['content'] = _adb_case_study_block_subsection_navigation();
       break;
+    case 'comment_form':
+      // Function call for getting render comment form..
+      $block['content'] = _adb_case_study_comment_form_block(arg(1));
+      break;
+    case 'rate_widget':
+      // Function call for getting render comment form..
+      $block['content'] = _adb_case_study_rate_widget_block(arg(1));
+      break;
   }
   return $block;
+}
+
+/**
+ *  Custom function for creating rate widget form.
+ *  @return string
+ */
+function _adb_case_study_rate_widget_block($nid) {
+  if (isset($nid) && is_numeric($nid)) {
+    $node = node_load($nid);
+    if ($node->type == 'case_study') {
+
+      // Get rate widget and render its on views page.
+      $rate_widget = '<div class="useful-content"><div class="wrapper-section"><label id="useful">' . t('Was this article useful?') . '</label>';
+      $rate_widget .= rate_embed($node, 'rate_useful_content');
+      $rate_widget .= '</div></div>';
+      return $rate_widget;
+    }
+    else {
+      return;
+    }
+  }
+}
+
+/**
+ *  Custom function for creating comment form.
+ *  @return string
+ */
+function _adb_case_study_comment_form_block($nid) {
+  if (isset($nid) && is_numeric($nid)) {
+    $query = db_select('node', 'n')
+      ->fields('n', array('type'))
+      ->condition('nid', $nid)
+      ->execute();
+    $node_type = $query->fetchField();
+
+    $comment = new stdClass;
+    $comment->nid = $nid;
+    $form = drupal_get_form("comment_node_{$node_type}_form", $comment);
+
+    return drupal_render($form);
+  }
+  else {
+    return;
+  }
 }
 
 /**
