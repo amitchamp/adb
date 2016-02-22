@@ -30,14 +30,23 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
     'title' => 'title',
   );
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<div class=\'banner-node\'><div class="content-type-name"><span class="case-study-label">[type]</span><div class="node-title case-study-title">[title]</div><div class="project-date">[field_date]</div><div class="tagging case-study-tags">[nothing]</div></div></div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
+  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   /* Header: Global: Social Simplified Share */
   $handler->display->display_options['header']['socialshare']['id'] = 'socialshare';
   $handler->display->display_options['header']['socialshare']['table'] = 'views';
@@ -61,12 +70,14 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['footer']['rate_widget_form']['id'] = 'rate_widget_form';
   $handler->display->display_options['footer']['rate_widget_form']['table'] = 'views';
   $handler->display->display_options['footer']['rate_widget_form']['field'] = 'rate_widget_form';
+  $handler->display->display_options['footer']['rate_widget_form']['empty'] = TRUE;
   $handler->display->display_options['footer']['rate_widget_form']['content'] = '!1';
   $handler->display->display_options['footer']['rate_widget_form']['tokenize'] = TRUE;
   /* Footer: Global: Comment form */
   $handler->display->display_options['footer']['comment_form']['id'] = 'comment_form';
   $handler->display->display_options['footer']['comment_form']['table'] = 'views';
   $handler->display->display_options['footer']['comment_form']['field'] = 'comment_form';
+  $handler->display->display_options['footer']['comment_form']['empty'] = TRUE;
   $handler->display->display_options['footer']['comment_form']['content'] = '!1';
   $handler->display->display_options['footer']['comment_form']['tokenize'] = TRUE;
   /* Relationship: Content: Impact (field_impact) */
@@ -95,19 +106,24 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = '';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Field: Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['label'] = '';
+  $handler->display->display_options['fields']['field_date']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_date']['settings'] = array(
     'format_type' => 'day_month_year',
@@ -135,8 +151,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['fieldset_1']['label'] = 'service-link';
   $handler->display->display_options['fields']['fieldset_1']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['fieldset_1']['children'] = array(
-    0 => 'service_links',
-    1 => 'field_download_file',
+    0 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
   /* Field: Content: Download file */
@@ -154,10 +169,25 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['fieldset_2']['label'] = 'data-body';
   $handler->display->display_options['fields']['fieldset_2']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['fieldset_2']['children'] = array(
-    0 => 'field_impact',
-    1 => 'field_impact_summary',
+    0 => 'field_challenges',
   );
   $handler->display->display_options['fields']['fieldset_2']['fieldset']['type'] = 'div';
+  /* Field: Content: Challenges */
+  $handler->display->display_options['fields']['field_challenges']['id'] = 'field_challenges';
+  $handler->display->display_options['fields']['field_challenges']['table'] = 'field_data_field_challenges';
+  $handler->display->display_options['fields']['field_challenges']['field'] = 'field_challenges';
+  $handler->display->display_options['fields']['field_challenges']['type'] = 'field_collection_fields';
+  $handler->display->display_options['fields']['field_challenges']['settings'] = array(
+    'view_mode' => 'full',
+  );
+  /* Field: Global: Fieldset */
+  $handler->display->display_options['fields']['fieldset_3']['id'] = 'fieldset_3';
+  $handler->display->display_options['fields']['fieldset_3']['table'] = 'views';
+  $handler->display->display_options['fields']['fieldset_3']['field'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset_3']['label'] = 'tagging';
+  $handler->display->display_options['fields']['fieldset_3']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['fieldset_3']['fieldset']['type'] = 'div';
+  $handler->display->display_options['fields']['fieldset_3']['fieldset']['classes'] = 'tagging';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -192,19 +222,24 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = '';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Field: Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['label'] = '';
+  $handler->display->display_options['fields']['field_date']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_date']['settings'] = array(
     'format_type' => 'day_month_year',
@@ -234,6 +269,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_topic']['field'] = 'field_topic';
   $handler->display->display_options['fields']['field_topic']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_topic']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_topic']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_topic']['separator'] = '#';
   /* Field: Content: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
@@ -241,6 +277,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_tags']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_tags']['separator'] = '#';
   /* Field: Content: Countries */
   $handler->display->display_options['fields']['field_countries']['id'] = 'field_countries';
@@ -248,12 +285,14 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_countries']['field'] = 'field_countries';
   $handler->display->display_options['fields']['field_countries']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_countries']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_countries']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_countries']['separator'] = '#';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="tagging">[field_topic] [field_tags] [field_countries]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Global: Fieldset */
@@ -308,10 +347,16 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['default_argument_options']['argument'] = '8';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'case_study' => 'case_study',
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -367,19 +412,24 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = '';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Field: Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['label'] = '';
+  $handler->display->display_options['fields']['field_date']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_date']['settings'] = array(
     'format_type' => 'day_month_year',
@@ -409,12 +459,14 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_topic']['field'] = 'field_topic';
   $handler->display->display_options['fields']['field_topic']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_topic']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_topic']['multi_type'] = 'ul';
   /* Field: Content: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_tags']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_tags']['separator'] = '#';
   /* Field: Content: Countries */
   $handler->display->display_options['fields']['field_countries']['id'] = 'field_countries';
@@ -422,12 +474,14 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_countries']['field'] = 'field_countries';
   $handler->display->display_options['fields']['field_countries']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_countries']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_countries']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_countries']['separator'] = '#';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="tagging">[field_topic] [field_tags] [field_countries]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Global: Fieldset */
@@ -499,6 +553,133 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Challenges';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Global: Fieldset */
+  $handler->display->display_options['fields']['fieldset']['id'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset']['table'] = 'views';
+  $handler->display->display_options['fields']['fieldset']['field'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset']['label'] = 'header';
+  $handler->display->display_options['fields']['fieldset']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['fieldset']['children'] = array(
+    0 => 'type',
+    1 => 'title',
+    2 => 'field_date',
+    3 => 'fieldset_3',
+  );
+  $handler->display->display_options['fields']['fieldset']['fieldset']['type'] = 'div';
+  /* Field: Content: Type */
+  $handler->display->display_options['fields']['type']['id'] = 'type';
+  $handler->display->display_options['fields']['type']['table'] = 'node';
+  $handler->display->display_options['fields']['type']['field'] = 'type';
+  $handler->display->display_options['fields']['type']['label'] = '';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Field: Date */
+  $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
+  $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
+  $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
+  $handler->display->display_options['fields']['field_date']['label'] = '';
+  $handler->display->display_options['fields']['field_date']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_date']['settings'] = array(
+    'format_type' => 'day_month_year',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+    'show_repeat_rule' => 'show',
+  );
+  /* Field: Global: Fieldset */
+  $handler->display->display_options['fields']['fieldset_3']['id'] = 'fieldset_3';
+  $handler->display->display_options['fields']['fieldset_3']['table'] = 'views';
+  $handler->display->display_options['fields']['fieldset_3']['field'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset_3']['label'] = 'tagging';
+  $handler->display->display_options['fields']['fieldset_3']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['fieldset_3']['children'] = array(
+    0 => 'field_topic',
+    1 => 'field_countries',
+    2 => 'field_tags',
+    3 => 'nothing',
+  );
+  $handler->display->display_options['fields']['fieldset_3']['fieldset']['type'] = 'div';
+  $handler->display->display_options['fields']['fieldset_3']['fieldset']['classes'] = 'tagging';
+  /* Field: Content: Topic */
+  $handler->display->display_options['fields']['field_topic']['id'] = 'field_topic';
+  $handler->display->display_options['fields']['field_topic']['table'] = 'field_data_field_topic';
+  $handler->display->display_options['fields']['field_topic']['field'] = 'field_topic';
+  $handler->display->display_options['fields']['field_topic']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_topic']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_topic']['multi_type'] = 'ul';
+  /* Field: Content: Countries */
+  $handler->display->display_options['fields']['field_countries']['id'] = 'field_countries';
+  $handler->display->display_options['fields']['field_countries']['table'] = 'field_data_field_countries';
+  $handler->display->display_options['fields']['field_countries']['field'] = 'field_countries';
+  $handler->display->display_options['fields']['field_countries']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_countries']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_countries']['multi_type'] = 'ul';
+  /* Field: Content: Tags */
+  $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
+  $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_tags']['multi_type'] = 'ul';
+  $handler->display->display_options['fields']['field_tags']['separator'] = '#';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="tagging">[field_topic] [field_tags] [field_countries]</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Global: Fieldset */
+  $handler->display->display_options['fields']['fieldset_1']['id'] = 'fieldset_1';
+  $handler->display->display_options['fields']['fieldset_1']['table'] = 'views';
+  $handler->display->display_options['fields']['fieldset_1']['field'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset_1']['label'] = 'service-link';
+  $handler->display->display_options['fields']['fieldset_1']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['fieldset_1']['children'] = array(
+    0 => 'field_download_file',
+  );
+  $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
+  /* Field: Content: Download file */
+  $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
+  $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
+  $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
+  $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
+  $handler->display->display_options['fields']['field_download_file']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_download_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_download_file']['type'] = 'file_force_file_default';
+  /* Field: Global: Fieldset */
+  $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
+  $handler->display->display_options['fields']['fieldset_2']['table'] = 'views';
+  $handler->display->display_options['fields']['fieldset_2']['field'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset_2']['label'] = 'data-body';
+  $handler->display->display_options['fields']['fieldset_2']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['fieldset_2']['children'] = array(
+    0 => 'field_challenges',
+  );
+  $handler->display->display_options['fields']['fieldset_2']['fieldset']['type'] = 'div';
+  /* Field: Content: Challenges */
+  $handler->display->display_options['fields']['field_challenges']['id'] = 'field_challenges';
+  $handler->display->display_options['fields']['field_challenges']['table'] = 'field_data_field_challenges';
+  $handler->display->display_options['fields']['field_challenges']['field'] = 'field_challenges';
+  $handler->display->display_options['fields']['field_challenges']['type'] = 'field_collection_fields';
+  $handler->display->display_options['fields']['field_challenges']['settings'] = array(
+    'view_mode' => 'full',
+  );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -506,6 +687,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['default_argument_skip_url'] = TRUE;
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
@@ -556,6 +738,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = '';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -564,6 +747,8 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Field: Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
@@ -596,11 +781,15 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_topic']['id'] = 'field_topic';
   $handler->display->display_options['fields']['field_topic']['table'] = 'field_data_field_topic';
   $handler->display->display_options['fields']['field_topic']['field'] = 'field_topic';
+  $handler->display->display_options['fields']['field_topic']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_topic']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_topic']['multi_type'] = 'ul';
   /* Field: Content: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_tags']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_tags']['separator'] = '#';
   /* Field: Content: Countries */
   $handler->display->display_options['fields']['field_countries']['id'] = 'field_countries';
@@ -610,12 +799,14 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_countries']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_countries']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_countries']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_countries']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_countries']['separator'] = '#';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="tagging">[field_topic] [field_tags] [field_countries]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Global: Fieldset */
@@ -751,6 +942,9 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_topic']['id'] = 'field_topic';
   $handler->display->display_options['fields']['field_topic']['table'] = 'field_data_field_topic';
   $handler->display->display_options['fields']['field_topic']['field'] = 'field_topic';
+  $handler->display->display_options['fields']['field_topic']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_topic']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_topic']['multi_type'] = 'ul';
   /* Field: Content: Countries */
   $handler->display->display_options['fields']['field_countries']['id'] = 'field_countries';
   $handler->display->display_options['fields']['field_countries']['table'] = 'field_data_field_countries';
@@ -759,18 +953,22 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_countries']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_countries']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_countries']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_countries']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_countries']['separator'] = '#';
   /* Field: Content: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_tags']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_tags']['separator'] = '#';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="tagging">[field_topic] [field_tags] [field_countries]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Global: Fieldset */
@@ -906,11 +1104,16 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_topic']['id'] = 'field_topic';
   $handler->display->display_options['fields']['field_topic']['table'] = 'field_data_field_topic';
   $handler->display->display_options['fields']['field_topic']['field'] = 'field_topic';
+  $handler->display->display_options['fields']['field_topic']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_topic']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_topic']['multi_type'] = 'ul';
   /* Field: Content: Tags */
   $handler->display->display_options['fields']['field_tags']['id'] = 'field_tags';
   $handler->display->display_options['fields']['field_tags']['table'] = 'field_data_field_tags';
   $handler->display->display_options['fields']['field_tags']['field'] = 'field_tags';
+  $handler->display->display_options['fields']['field_tags']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_tags']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_tags']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_tags']['separator'] = '#';
   /* Field: Content: Countries */
   $handler->display->display_options['fields']['field_countries']['id'] = 'field_countries';
@@ -920,12 +1123,14 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_countries']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_countries']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_countries']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_countries']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_countries']['separator'] = '#';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="tagging">[field_topic] [field_tags] [field_countries]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Global: Fieldset */
