@@ -97,7 +97,7 @@ function adb_global_functions_block_view($delta = '') {
       // Social links.
       $links = array(
         array(
-          'title' => t('<i class="fa fa-facebook"></i>'),
+          'title' => '<i class="fa fa-facebook"></i>',
           'href' => 'https://www.facebook.com/AsianDevBank',
           'attributes' => array(
             'class' => array(
@@ -108,7 +108,7 @@ function adb_global_functions_block_view($delta = '') {
           'html' => TRUE,
         ),
         array(
-          'title' => t('<i class="fa fa-twitter"></i>'),
+          'title' => '<i class="fa fa-twitter"></i>',
           'href' => 'https://twitter.com/ADB_HQ',
           'attributes' => array(
             'class' => array(
@@ -119,7 +119,7 @@ function adb_global_functions_block_view($delta = '') {
           'html' => TRUE,
         ),
         array(
-          'title' => t('<i class="fa fa-linkedin"></i>'),
+          'title' => '<i class="fa fa-linkedin"></i>',
           'href' => 'https://www.linkedin.com/company/asian-development-bank',
           'attributes' => array(
             'class' => array(

@@ -57,10 +57,14 @@
    font-size: ($base-font)+10;
    display: inline-block;
    margin-right: 34px;
+   @include border-radius(50%, 50%);
+   text-align: center;
+   line-height: 42px;
+   vertical-align: top;
  }
  .title-body-wrapper {
    display: inline-block;
-
+   width: 89%;
  }
  .qna-title {
    color: $link;

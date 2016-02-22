@@ -1031,21 +1031,28 @@ header[role="banner"] a {
   font-size: 24px;
   display: inline-block;
   margin-right: 34px;
-}
-
-/* line 61, ../sass/pages/_qa.scss */
-.title-body-wrapper {
-  display: inline-block;
+  -moz-border-radius: 50% / 50%;
+  -webkit-border-radius: 50% 50%;
+  border-radius: 50% / 50%;
+  text-align: center;
+  line-height: 42px;
+  vertical-align: top;
 }
 
 /* line 65, ../sass/pages/_qa.scss */
+.title-body-wrapper {
+  display: inline-block;
+  width: 89%;
+}
+
+/* line 69, ../sass/pages/_qa.scss */
 .qna-title {
   color: #2A5DB0;
   font-size: 24px;
   margin-bottom: 50px;
 }
 
-/* line 71, ../sass/pages/_qa.scss */
+/* line 75, ../sass/pages/_qa.scss */
 .qna-summary p {
   margin: 0;
 }
