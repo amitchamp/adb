@@ -150,10 +150,11 @@
   a {
     font-size: $base-font;
     font-family: $opensans-regular;
+    margin-right: 16px;
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
-}
-.print-link {
-   margin-right: 16px;
 }
 
 /*
