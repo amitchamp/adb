@@ -36,6 +36,8 @@
   regions[help]              = Help
   regions[page_top]          = Page top
   regions[page_bottom]       = Page bottom
+  regions[comments_section]  = Comments section
+  regions[banner]            = Banner
 
 ;----------// Site Features
 
