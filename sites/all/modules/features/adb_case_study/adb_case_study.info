@@ -17,6 +17,7 @@ dependencies[] = field_group
 dependencies[] = file
 dependencies[] = flexslider
 dependencies[] = flexslider_views
+dependencies[] = hs_taxonomy
 dependencies[] = image
 dependencies[] = link
 dependencies[] = list
