@@ -1,0 +1,602 @@
+/*
+** Utilities.
+*/
+/**
+ * Variables for all patial files.
+**/
+/**
+ ** Variables for all the fonts.
+ */
+/*
+** Helpers (Placeholders)
+*/
+/* line 6, ../sass/utilities/_placeholder.scss */
+.nav ul, .case-study-tags ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 11, ../sass/utilities/_placeholder.scss */
+.nav li, .case-study-tags li {
+  float: left;
+}
+/* line 13, ../sass/utilities/_placeholder.scss */
+.nav li:first-child, .case-study-tags li:first-child {
+  margin: 0;
+}
+
+/* line 25, ../sass/utilities/_placeholder.scss */
+.case-study-tags .menu-categories-title, .continue-reading .menu-categories-title {
+  display: none;
+}
+
+/*
+** For the Heading on the images in the details pages (like case study)
+*/
+/* line 71, ../sass/utilities/_placeholder.scss */
+.case-study-title {
+  font-size: 48px;
+  line-height: 54px;
+  color: #fff;
+  margin: 6px 0 13px;
+  text-transform: capitalize;
+}
+
+/*
+** For the Section heading of the each sction on the pages (lke case study)
+*/
+/* line 83, ../sass/utilities/_placeholder.scss */
+.section-heading {
+  font-size: 20px;
+  color: #333333;
+  font-family: "OpenSans-Regular";
+  margin: 16px 0;
+}
+
+/*
+** Font awesome
+*/
+/* line 93, ../sass/utilities/_placeholder.scss */
+.case-study-tags li:before {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+** base.
+*/
+/**
+ ** Base layout of site.
+ */
+/* line 5, ../sass/base/_base.scss */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/* line 11, ../sass/base/_base.scss */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fcfcfc;
+  width: 100%;
+  font-size: 16px;
+  color: #333333;
+  font-family: "OpenSans-Regular";
+}
+
+/* line 20, ../sass/base/_base.scss */
+a {
+  color: #2A5DB0;
+  text-decoration: none;
+}
+/* line 23, ../sass/base/_base.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 27, ../sass/base/_base.scss */
+p {
+  color: #333333;
+}
+
+/*
+** site using fonts
+*/
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: url("../fonts/OpenSans-Regular.otf");
+  src: url("../fonts/OpenSans-Regular.ttf"), url("../fonts/OpenSans-Regular.woff"), url("../fonts/OpenSans-Regular.eot");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OpenSans-Light";
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/OpenSans-Light.otf");
+  src: url("../fonts/OpenSans-Light.ttf"), url("../fonts/OpenSans-Light.woff"), url("../fonts/OpenSans-Light.eot");
+}
+@font-face {
+  font-family: "OpenSans-Bold";
+  src: url("../fonts/OpenSans-Bold.otf");
+  src: url("../fonts/OpenSans-Bold.ttf"), url("../fonts/OpenSans-Bold.woff"), url("../fonts/OpenSans-Bold.eot");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OpenSans-Semibold";
+  src: url("../fonts/OpenSans-Semibold.otf");
+  src: url("../fonts/OpenSans-Semibold.ttf"), url("../fonts/OpenSans-Semibold.woff"), url("../fonts/OpenSans-Semibold.eot");
+  font-weight: 700;
+  font-style: normal;
+}
+/*
+**  Layout Specific.
+*/
+/*
+ ** Base layout of site.
+ ** Generally, It will inclue the width of the regions and their placement.
+ */
+/* line 6, ../sass/layout/_layout.scss */
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*
+** Component.
+*/
+/**
+ ** @file
+ ** Classes that would be used site wide.
+ */
+/* line 6, ../sass/component/_commonClass.scss */
+.pull-left {
+  float: left;
+}
+
+/* line 9, ../sass/component/_commonClass.scss */
+.pull-right {
+  float: right;
+}
+
+/* line 12, ../sass/component/_commonClass.scss */
+.full-width, header {
+  width: 100%;
+}
+
+/*
+** Style for Header Components
+*/
+/* line 5, ../sass/component/_header.scss */
+#site-name {
+  margin: 0;
+}
+/* line 7, ../sass/component/_header.scss */
+#site-name a {
+  text-transform: uppercase;
+  font-size: 16px;
+  float: left;
+  margin-top: 9px;
+}
+
+/* line 15, ../sass/component/_header.scss */
+header[role="banner"] {
+  background-color: #000;
+  padding: 20px;
+}
+/* line 18, ../sass/component/_header.scss */
+header[role="banner"] a {
+  color: #fff;
+}
+
+/* line 26, ../sass/component/_header.scss */
+[role="navigation"] {
+  padding: 0 20px;
+  background: #363636;
+}
+/* line 29, ../sass/component/_header.scss */
+[role="navigation"] a {
+  color: #fff;
+  padding: 5px 10px;
+}
+/* line 34, ../sass/component/_header.scss */
+[role="navigation"] li:first-child a {
+  padding-left: 0;
+}
+
+/* line 39, ../sass/component/_header.scss */
+.branding {
+  max-width: 160px;
+  width: 100%;
+}
+
+/* line 43, ../sass/component/_header.scss */
+.region-header {
+  float: right;
+  width: 75%;
+}
+/* line 46, ../sass/component/_header.scss */
+.region-header .block-search {
+  float: left;
+  width: 68%;
+}
+/* line 50, ../sass/component/_header.scss */
+.region-header .block-adb-global-functions {
+  float: right;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* line 58, ../sass/component/_header.scss */
+.block-search .form-text {
+  outline: none;
+  height: 40px;
+  background-color: #fff;
+  border: 2px solid #c9c9c9;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 16px;
+  float: left;
+  color: #999;
+  width: 92%;
+}
+/* line 71, ../sass/component/_header.scss */
+.block-search .form-submit {
+  width: 40px;
+  height: 40px;
+  background: inherit;
+  background-color: #c9c9c9;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #666;
+  border-left: 0px;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  color: #000;
+}
+
+/* line 87, ../sass/component/_header.scss */
+.not-logged-in .block-adb-global-functions {
+  margin-top: 9px;
+}
+/* line 90, ../sass/component/_header.scss */
+.not-logged-in .block-adb-global-functions a:first-child {
+  margin-right: 20px;
+  position: relative;
+}
+/* line 93, ../sass/component/_header.scss */
+.not-logged-in .block-adb-global-functions a:first-child:after {
+  content: "/";
+  position: absolute;
+  right: -8px;
+  width: 1px;
+  color: #fff;
+}
+
+/* line 105, ../sass/component/_header.scss */
+.logged-in .block-adb-global-functions {
+  margin-top: 9px;
+}
+
+/* line 110, ../sass/component/_header.scss */
+.block-adb-global-functions .profile-access-toggle {
+  width: 0;
+  height: 10px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  text-indent: 9999px;
+  margin: 0 0.3em;
+  position: absolute;
+  right: 0;
+  top: 40%;
+  color: transparent;
+}
+/* line 123, ../sass/component/_header.scss */
+.block-adb-global-functions .username {
+  float: left;
+  display: block;
+}
+
+/* line 128, ../sass/component/_header.scss */
+.profile-access-toggle-wrapper {
+  clear: both;
+  padding-right: 1.3em;
+}
+
+/* line 132, ../sass/component/_header.scss */
+.expand-profile-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-right: 1.4em;
+}
+
+/*
+** style for Footer.
+*/
+/* line 4, ../sass/component/_footer.scss */
+.footer-top {
+  background-color: #f2f2f2;
+  border-top: 5px solid #0e0e0e;
+  padding: 25px 20px 23px;
+}
+
+/* line 9, ../sass/component/_footer.scss */
+.footer-bottom {
+  background-color: #000;
+  padding: 12px 20px;
+}
+
+/* line 16, ../sass/component/_footer.scss */
+.social-links {
+  width: 30%;
+  display: inline-block;
+}
+/* line 19, ../sass/component/_footer.scss */
+.social-links li {
+  display: inline-block;
+  margin: 0 17px;
+}
+/* line 23, ../sass/component/_footer.scss */
+.social-links .fa {
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/**
+ ** Layout design for sidebar.
+ */
+/*
+** style for Content
+*/
+/*
+** Pages.
+*/
+/*
+ ** style for case study page only.
+ */
+/*
+**Featured Section
+*/
+/* line 8, ../sass/pages/_caseStudy.scss */
+.banner-image {
+  position: relative;
+}
+
+/* line 11, ../sass/pages/_caseStudy.scss */
+.content-type-name {
+  width: 100%;
+  padding-left: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* line 18, ../sass/pages/_caseStudy.scss */
+.case-study-label {
+  padding: 5px 10px;
+  background-color: #000;
+  color: #fff;
+  font-size: 13px;
+  display: inline-block;
+}
+
+/* line 28, ../sass/pages/_caseStudy.scss */
+.project-date {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+/* line 34, ../sass/pages/_caseStudy.scss */
+.case-study-tags {
+  margin-bottom: 64px;
+}
+/* line 40, ../sass/pages/_caseStudy.scss */
+.case-study-tags li {
+  background-color: #fff;
+  border: solid 1px #000;
+  display: inline-block;
+  float: none;
+  font-size: 12px;
+  padding: 4px 5px;
+  margin: 0 16px 8px 0;
+}
+/* line 48, ../sass/pages/_caseStudy.scss */
+.case-study-tags li:before {
+  content: "\f02b";
+  color: #000;
+  margin-right: 4px;
+}
+/* line 55, ../sass/pages/_caseStudy.scss */
+.case-study-tags a {
+  color: #000;
+}
+
+/* line 59, ../sass/pages/_caseStudy.scss */
+.black-border {
+  height: 20px;
+  background-color: #000;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* line 67, ../sass/pages/_caseStudy.scss */
+.arrow-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background-color: #fff;
+  -moz-border-radius: 50% / 50%;
+  -webkit-border-radius: 50% 50%;
+  border-radius: 50% / 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -2px;
+  text-align: center;
+}
+/* line 78, ../sass/pages/_caseStudy.scss */
+.arrow-icon .fa {
+  font-size: 22px;
+  line-height: 24px;
+  color: #333333;
+}
+
+/* line 85, ../sass/pages/_caseStudy.scss */
+.casestudy-section {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/*
+**Continue Reading Section
+*/
+/* line 97, ../sass/pages/_caseStudy.scss */
+.continue-block .section-heading {
+  margin-bottom: 10px;
+}
+
+/* line 101, ../sass/pages/_caseStudy.scss */
+.continue-reading {
+  border-top: solid 1px #999;
+  border-bottom: solid 1px #999;
+  margin-bottom: 50px;
+  position: relative;
+}
+/* line 109, ../sass/pages/_caseStudy.scss */
+.continue-reading ul {
+  padding: 0 20px 0 120px;
+  margin: 0;
+  list-style: none;
+}
+/* line 114, ../sass/pages/_caseStudy.scss */
+.continue-reading li {
+  width: 47%;
+  display: inline-block;
+  vertical-align: top;
+  margin: 15px 1%;
+}
+/* line 120, ../sass/pages/_caseStudy.scss */
+.continue-reading a {
+  color: #2A5DB0;
+  font-size: 24px;
+}
+/* line 123, ../sass/pages/_caseStudy.scss */
+.continue-reading a.active {
+  color: #2A5DB0;
+}
+/* line 127, ../sass/pages/_caseStudy.scss */
+.continue-reading .fa {
+  color: #999;
+  font-size: 30px;
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/*
+**Project Snapshots Section
+*/
+/* line 140, ../sass/pages/_caseStudy.scss */
+.project-snapshot-content {
+  background-color: #f2f2f2;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+/* line 145, ../sass/pages/_caseStudy.scss */
+.project-snapshot-content .fa {
+  font-size: 34px;
+}
+
+/* line 149, ../sass/pages/_caseStudy.scss */
+.project-heading {
+  font-size: 18px;
+  color: #333333;
+  font-family: "OpenSans-Regular";
+  margin: 0 0 15px;
+}
+
+/*
+**Project Snapshot Date Section
+*/
+/* line 159, ../sass/pages/_caseStudy.scss */
+.project-year {
+  display: inline-block;
+}
+/* line 161, ../sass/pages/_caseStudy.scss */
+.project-year:after {
+  content: '';
+  background: url(../images/timeline-image.png) no-repeat center center;
+  width: 115px;
+  height: 9px;
+  display: inline-block;
+  padding: 0 12px;
+}
+/* line 170, ../sass/pages/_caseStudy.scss */
+.project-year:last-of-type:after {
+  content: initial;
+}
+
+/*
+**Project Snapshot Cost Section
+*/
+/* line 179, ../sass/pages/_caseStudy.scss */
+.dates-content {
+  padding-bottom: 20px;
+}
+
+/* line 182, ../sass/pages/_caseStudy.scss */
+.cost-value {
+  font-size: 28px;
+  color: #333333;
+  line-height: 28px;
+  font-family: "OpenSans-Regular";
+}
+
+/* line 188, ../sass/pages/_caseStudy.scss */
+.cost-breakup {
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+  font-family: "OpenSans-Regular";
+}
+/* line 193, ../sass/pages/_caseStudy.scss */
+.cost-breakup p {
+  margin: 0;
+}
+
+/*
+**Project Snapshot Institute Section
+*/
+/* line 201, ../sass/pages/_caseStudy.scss */
+.institution-stakeholder {
+  padding-bottom: 40px;
+}
+
+/*
+ ** Style for Homepage only.
+ */
+/*
+ ** style for Q&A page only.
+ */
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,43 @@
+/*
+** site using fonts
+*/
+
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: url('../fonts/OpenSans-Regular.otf');
+  src: url('../fonts/OpenSans-Regular.ttf'),
+       url("../fonts/OpenSans-Regular.woff"),
+       url("../fonts/OpenSans-Regular.eot");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenSans-Light";
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/OpenSans-Light.otf");
+  src: url("../fonts/OpenSans-Light.ttf"),
+       url("../fonts/OpenSans-Light.woff"),
+       url("../fonts/OpenSans-Light.eot");
+}
+
+@font-face {
+  font-family: "OpenSans-Bold";
+  src: url("../fonts/OpenSans-Bold.otf");
+  src: url("../fonts/OpenSans-Bold.ttf"),
+       url("../fonts/OpenSans-Bold.woff"),
+       url("../fonts/OpenSans-Bold.eot");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OpenSans-Semibold";
+  src: url("../fonts/OpenSans-Semibold.otf");
+  src: url("../fonts/OpenSans-Semibold.ttf"),
+       url("../fonts/OpenSans-Semibold.woff"),
+       url("../fonts/OpenSans-Semibold.eot");
+  font-weight: 700;
+  font-style: normal;
+}

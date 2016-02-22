@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ADB feature.
+ */
+
+include_once 'adb_site.features.inc';

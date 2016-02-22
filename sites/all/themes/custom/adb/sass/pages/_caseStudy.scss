@@ -1,0 +1,203 @@
+/*
+ ** style for case study page only.
+ */
+
+/*
+**Featured Section
+*/
+.banner-image {
+  position: relative;	
+}
+.content-type-name {
+  width:100%;
+  padding-left: 12px;
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+}
+.case-study-label {
+  padding: 5px 10px;
+  background-color: $black;
+  color: $white;
+  font-size: ($base-font)-1;
+  display: inline-block;
+}
+.case-study-title {
+  @extend %main-heading;
+}
+.project-date {
+  color: $white;
+  font-size: ($base-font)+2;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.case-study-tags {
+  margin-bottom: 64px;
+  @extend %inline-menu;
+  .menu-categories-title {
+    @extend %hide;
+  }
+  li {
+    background-color: $white;
+	border: solid 1px $black;
+	display: inline-block;
+	float: none;
+	font-size: ($base-font)-2;
+	padding: 4px 5px;
+	margin: 0 16px 8px 0;	
+	&:before {
+	  @extend %fa;
+	  content: "\f02b";
+	  color: $black;
+	  margin-right: 4px;
+	}
+  }
+  a {
+    color: $black;
+  }
+}
+.black-border {
+  height: 20px;
+  background-color: $black;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.arrow-icon {
+  width: 40px;
+  height: 40px;
+  display:inline-block;
+  background-color: $white;
+  @include border-radius(50%, 50%);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -2px;
+  text-align: center;
+  .fa {
+    font-size: ($base-font)+8;
+	line-height: ($base-font)+10;
+	color: $text;
+  }
+}
+
+.casestudy-section {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.section-heading {
+  @extend %seconday-heading;
+}
+
+/*
+**Continue Reading Section
+*/
+.continue-block {
+  .section-heading {
+    margin-bottom: 10px;
+  }
+}
+.continue-reading {
+  border-top :solid 1px $grey;
+  border-bottom :solid 1px $grey;
+  margin-bottom: 50px;
+  position: relative;
+  .menu-categories-title {
+	@extend %hide;
+  }
+  ul {
+	padding: 0 20px 0 120px;
+	margin: 0;
+	list-style: none;
+  }
+  li{
+	width: 47%;
+	display: inline-block;
+	vertical-align: top;
+	margin: 15px 1%;
+  }
+  a {
+	color: $link;
+	font-size: ($base-font)+10;
+	&.active {
+	  color: $link;
+	}
+  }
+  .fa {
+	color: $grey;
+	font-size: ($base-font)+16;
+	position: absolute;
+	top: -11px;
+	left: 50%;
+	@include transform (translateX(-50%));
+  }
+}
+
+/*
+**Project Snapshots Section
+*/
+.project-snapshot-content {
+  background-color: $light-grey-background;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 25px;
+  .fa {
+    font-size: ($base-font)+20;
+  }
+}
+.project-heading {
+  font-size: ($base-font)+4;
+  color: $text;
+  font-family: $opensans-regular;
+  margin: 0 0 15px;
+}
+
+/*
+**Project Snapshot Date Section
+*/
+.project-year {
+  display: inline-block;
+  &:after {
+  	content: '';
+  	background: url(#{$img-path}/timeline-image.png) no-repeat center center;
+  	width: 115px;
+  	height: 9px;
+  	display: inline-block;
+  	padding: 0 12px;
+  }
+  &:last-of-type {
+  	&:after {
+  	  content: initial;
+  	}
+  }
+}
+
+/*
+**Project Snapshot Cost Section
+*/
+.dates-content {
+  padding-bottom: 20px;
+}
+.cost-value {
+  font-size: ($base-font)+14;
+  color: $text;
+  line-height: ($base-font)+14;
+  font-family: $opensans-regular;
+}
+.cost-breakup {
+  font-size: ($base-font)+2;
+  line-height: ($base-font)+10;
+  color: $text;
+  font-family: $opensans-regular;
+  p {
+	margin: 0;
+  }
+}
+
+/*
+**Project Snapshot Institute Section
+*/
+.institution-stakeholder {
+  padding-bottom: 40px;
+}

@@ -1,0 +1,100 @@
+/*
+** Helpers (Placeholders)
+*/
+
+%inline-menu {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+      float: left;
+      &:first-child {
+        margin: 0;
+      }
+  }
+}
+
+%responsive-images {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+%hide {
+  display: none;
+}
+
+%flex-row {
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+%nowrap {
+  -webkit-flex-wrap: nowrap;
+  -moz-box-wrap: nowrap;
+  -ms-flexbox-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+
+%wrap {
+  -webkit-flex-wrap: wrap;
+  -moz-box-wrap: wrap;
+  -ms-flexbox-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+%wrap-reverse {
+  -webkit-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+  -moz-box-wrap: wrap-reverse;
+  -ms-flexbox-wrap: wrap-reverse;
+}
+
+%inline-flex {
+  display: inline-flex;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flex;
+}
+
+/*
+** For the Heading on the images in the details pages (like case study)
+*/
+
+%main-heading {
+  font-size: $heading-title-48;
+  line-height: ($heading-title-48)+6;
+  color: $white;
+  margin: 6px 0 13px;
+  text-transform: capitalize;
+}
+
+/*
+** For the Section heading of the each sction on the pages (lke case study)
+*/
+
+%seconday-heading {
+  font-size: ($base-font)+6;
+  color: $text;
+  font-family: $opensans-regular;
+  margin: 16px 0;
+}
+
+/*
+** Font awesome
+*/
+%fa {
+  display:inline-block;
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}

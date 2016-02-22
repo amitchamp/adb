@@ -1,0 +1,28 @@
+/*
+** style for Footer.
+*/
+.footer-top {
+  background-color: $light-grey-background;
+  border-top: 5px solid ($light-grey-background)-#e4e4e4;
+  padding: 25px 20px 23px;
+}
+.footer-bottom {
+  background-color: $black;
+  padding: 12px 20px;
+}
+.site-info-wrapper {
+	
+}
+.social-links {
+  width: 30%;
+  display: inline-block;
+	li {
+	  display: inline-block;
+	  margin: 0 17px;
+	}
+	.fa {
+	  color: $white;
+	  font-weight: bold;
+	  font-size: ($base-font)+16px;
+	}
+}
