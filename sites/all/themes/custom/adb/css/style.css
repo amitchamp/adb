@@ -998,7 +998,7 @@ header[role="banner"] a {
   padding: 5px 10px;
   margin-top: 5px;
 }
-/* line 31, ../sass/pages/_qa.scss */
+/* line 30, ../sass/pages/_qa.scss */
 .cards-toggle-wrapper a {
   border-bottom: solid 1px #999;
   font-size: 16px;
@@ -1007,10 +1007,47 @@ header[role="banner"] a {
   display: inline-block;
 }
 
-/* line 39, ../sass/pages/_qa.scss */
+/* line 38, ../sass/pages/_qa.scss */
 .type-description {
   font-size: 16px;
   margin-top: 20px;
+}
+
+/*
+ ** Q&A main content section
+ */
+/* line 48, ../sass/pages/_qa.scss */
+.qa-list {
+  margin: 25px 0;
+  border-bottom: solid 1px #ccc;
+}
+
+/* line 52, ../sass/pages/_qa.scss */
+.row-counter {
+  width: 42px;
+  height: 42px;
+  background-color: #333333;
+  color: #fff;
+  font-size: 24px;
+  display: inline-block;
+  margin-right: 34px;
+}
+
+/* line 61, ../sass/pages/_qa.scss */
+.title-body-wrapper {
+  display: inline-block;
+}
+
+/* line 65, ../sass/pages/_qa.scss */
+.qna-title {
+  color: #2A5DB0;
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+
+/* line 71, ../sass/pages/_qa.scss */
+.qna-summary p {
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
