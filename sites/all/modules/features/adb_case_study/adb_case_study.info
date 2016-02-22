@@ -26,9 +26,7 @@ dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = views
-<<<<<<< HEAD
 dependencies[] = adb_views_print
->>>>>>> 117bc2ef4d6beb669ed9efb13c27cb6f3261b906
 dependencies[] = ctools
 features[ctools][] = field_group:field_group:1
 features[ctools][] = flexslider:flexslider_default_preset:1
