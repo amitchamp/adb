@@ -112,15 +112,49 @@
   .lrshare_interfacehorizontal {
     padding: 0;
   }
+  .lrshare_iconsprite32 {
+    background: none;
+    width: auto;
+    height: auto;
+    margin: 0 8px;
+    &:after {
+      @extend %fa;
+      font-size: ($base-font)+14;
+      color: $dark-grey;
+    }
+  }
+  .lrshare_facebook {
+    margin-left: 0;
+  }
+}
+.lrshare_twitter {
+  &:after {
+    content: '\f081';
+  }
+}
+.lrshare_linkedin {
+  &:after {
+    content: '\f0d4';
+  }
+}
+.lrshare_facebook {
+  &:after {
+    content: '\f08c';
+  }
+}
+.lrshare_evenmore32,.lrshare-totalshare {
+  @extend %hide;
 }
 .download-print {
   float: right;
   a {
     font-size: $base-font;
+    font-family: $opensans-regular;
+    margin-right: 16px;
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
-}
-.print-link {
-	margin-right: 16px;
 }
 
 /*
@@ -133,6 +167,7 @@
   .summary {
     padding: 20px 18px;
     background-color: $light-grey-background;
+    margin: 30px 0 40px;
   }
   p {
     font-size: ($base-font)+2;
@@ -341,7 +376,7 @@
   margin-top: 100px;
   margin-bottom: 30px;
   padding-top: 15px;
-  border-top: solid 1px #ccc;
+  border-top: solid 1px $border-color;
   overflow: hidden;
   a {
     color: $link;
@@ -408,6 +443,31 @@
 .casestudy-inner-page {
   .content-type-name {
     position: static;
+    border-bottom: solid 1px $grey;
+  }
+  .case-study-title {
+    @extend %inner-pages-heading;
+    line-height: ($inner-pages-title)+6;
+    color: $text;
+  }
+  .project-date {
+    color: $dark-grey;
+    margin-top: 18px;
+  }
+  .case-study-tags {
+    margin-bottom: 0;
+    li {
+      background-color: transparent;
+      border: none;
+    }
+  }
+  .item-list {
+    ul li {
+  	  margin: 0 16px 8px 0;
+    }
+  }
+  .section-navigate {
+    margin-top: 70px;
   }
 }
 
