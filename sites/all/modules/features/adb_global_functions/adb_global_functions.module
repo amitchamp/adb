@@ -187,31 +187,35 @@ function adb_global_functions_preprocess_rate_template_yesno(&$variables) {
       ->execute();
     $node_type = $query->fetchField();
 
-    // Get active widget.
-    $widgets = rate_get_active_widgets('node', $node_type);
+    // @todo This is a hotfix.
+    if ($node_type == 'case_study') {
+      // Get active widget.
+      $widgets = rate_get_active_widgets('node', $node_type);
 
-    // Get value for 'Yes' and 'No'.
-    // @todo We consider that only widget is embedded for a node.
-    $widget = array_shift($widgets);
-    $yes_value = $widget->options[0][0];
-    $no_value = $widget->options[1][0];
+      // Get value for 'Yes' and 'No'.
+      // @todo We consider that only widget is embedded for a node.
+      $widget = array_shift($widgets);
+      $yes_value = $widget->options[0][0];
+      $no_value = $widget->options[1][0];
 
-    // Alter rate widget based on user's vote.
-    $result = votingapi_select_votes(array(
-      'uid' => $user->uid,
-      'entity_id' => $variables['content_id'],
-    ));
-    if (!empty($result) && ($result[0]['value'] == $yes_value || $result[0]['value'] == $no_value)) {
-      $variables['user_voted'] = TRUE;
-      $variables['user_voted_message'] = t('Thank you for your feedback.');
+      // Alter rate widget based on user's vote.
+      $result = votingapi_select_votes(array(
+        'uid' => $user->uid,
+        'entity_id' => $variables['content_id'],
+      ));
+      if (!empty($result) && ($result[0]['value'] == $yes_value || $result[0]['value'] == $no_value)) {
+        $variables['user_voted'] = TRUE;
+        $variables['user_voted_message'] = t('Thank you for your feedback.');
+      }
+      else {
+        $variables['user_voted'] = FALSE;
+      }
+
+      // Do not show votes.
+      $variables['links'][0]['votes'] = '';
+      $variables['links'][1]['votes'] = '';
     }
-    else {
-      $variables['user_voted'] = FALSE;
-    }
 
-    // Do not show votes.
-    $variables['links'][0]['votes'] = '';
-    $variables['links'][1]['votes'] = '';
   }
 }
 
@@ -337,5 +341,19 @@ function adb_global_functions_preprocess_views_view_list(&$variables) {
       drupal_add_js(drupal_get_path('module', 'adb_global_functions') . '/js/adb_global_functions.js');
 
       break;
+  }
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function adb_global_functions_node_view($node, $view_mode, $langcode) {
+  $widgets = rate_get_active_widgets('node', $node->type);
+
+  // Rate widget is enabled for this content type.
+  // So, we add markup around rate widget.
+  if (!empty($widgets)) {
+    $node->content['rate_rate_useful_content']['#prefix'] = '<div class="useful-content"><div class="wrapper-section">';
+    $node->content['rate_rate_useful_content']['#suffix'] = '</div></div>';
   }
 }

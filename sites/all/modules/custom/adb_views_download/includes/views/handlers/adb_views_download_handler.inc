@@ -38,10 +38,10 @@ class AdbViewsDownloadHandler extends views_handler_area_text {
       $value = $this->view->style_plugin->tokenize_value($this->options['content'], 0);
       $download_text = $this->sanitize_value($value, 'xss_admin');
 
-      $output = t('<a href="@url">@downloadtext</a>', array('@url' => url('printpdf/' . current_path()), '@downloadtext' => $download_text));
+      $output = t('<a href="@url" class="download-link">@downloadtext</a>', array('@url' => url('printpdf/' . current_path()), '@downloadtext' => $download_text));
     }
     else {
-      $output = t('<a href="@url">Download</a>', array('@url' => url('printpdf/' . current_path())));
+      $output = t('<a href="@url" class="download-link">Download</a>', array('@url' => url('printpdf/' . current_path())));
     }
 
     return $output;

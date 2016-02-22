@@ -38,10 +38,10 @@ class AdbViewsPrintHandler extends views_handler_area_text {
       $value = $this->view->style_plugin->tokenize_value($this->options['content'], 0);
       $print_text = $this->sanitize_value($value, 'xss_admin');
 
-      $output = t('<a href="@url">@printtext</a>', array('@url' => url('print/' . current_path()), '@printtext' => $print_text));
+      $output = t('<a href="@url" class="print-link">@printtext</a>', array('@url' => url('print/' . current_path()), '@printtext' => $print_text));
     }
     else {
-      $output = t('<a href="@url">Print</a>', array('@url' => url('print/' . current_path())));
+      $output = t('<a href="@url" class="print-link">Print</a>', array('@url' => url('print/' . current_path())));
     }
 
     return $output;

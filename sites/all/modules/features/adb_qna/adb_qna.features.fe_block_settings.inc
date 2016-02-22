@@ -1,36 +1,32 @@
 <?php
 /**
  * @file
- * adb_case_study.features.fe_block_settings.inc
+ * adb_qna.features.fe_block_settings.inc
  */
 
 /**
  * Implements hook_default_fe_block_settings().
  */
-function adb_case_study_default_fe_block_settings() {
+function adb_qna_default_fe_block_settings() {
   $export = array();
 
   $export['version'] = '2.0';
 
-  $export['adb_case_study-subsection_menu'] = array(
+  $export['adb_qna-adb_qna_header'] = array(
     'cache' => 1,
     'custom' => 0,
-    'delta' => 'subsection_menu',
-    'module' => 'adb_case_study',
+    'delta' => 'adb_qna_header',
+    'module' => 'adb_qna',
     'node_types' => array(),
-    'pages' => 'impact/*
-context/*
-challenges/*
-solutions/*
-lessons/*
-resources/*',
+    'pages' => 'qa/*
+taxonomy/term/*',
     'roles' => array(),
     'themes' => array(
       'adb' => array(
-        'region' => 'sidebar_first',
+        'region' => 'leaderboard',
         'status' => 1,
         'theme' => 'adb',
-        'weight' => -15,
+        'weight' => 0,
       ),
       'bartik' => array(
         'region' => '',
@@ -45,7 +41,7 @@ resources/*',
         'weight' => 0,
       ),
     ),
-    'title' => '<none>',
+    'title' => '',
     'visibility' => 1,
   );
 
