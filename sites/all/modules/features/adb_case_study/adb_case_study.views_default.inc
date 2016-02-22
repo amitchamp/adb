@@ -381,11 +381,6 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['filters']['field_name']['value'] = array(
     'field_impact' => 'field_impact',
   );
-  /* Filter criterion: Content: Impact (field_impact) */
-  $handler->display->display_options['filters']['field_impact_value']['id'] = 'field_impact_value';
-  $handler->display->display_options['filters']['field_impact_value']['table'] = 'field_data_field_impact';
-  $handler->display->display_options['filters']['field_impact_value']['field'] = 'field_impact_value';
-  $handler->display->display_options['filters']['field_impact_value']['operator'] = 'not empty';
   $handler->display->display_options['path'] = 'impact/%';
 
   /* Display: Case study-Context */
@@ -707,11 +702,6 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'case_study' => 'case_study',
   );
-  /* Filter criterion: Content: Challenges (field_challenges) */
-  $handler->display->display_options['filters']['field_challenges_value']['id'] = 'field_challenges_value';
-  $handler->display->display_options['filters']['field_challenges_value']['table'] = 'field_data_field_challenges';
-  $handler->display->display_options['filters']['field_challenges_value']['field'] = 'field_challenges_value';
-  $handler->display->display_options['filters']['field_challenges_value']['operator'] = 'not empty';
   $handler->display->display_options['path'] = 'challenges/%';
 
   /* Display: Case study-Solutions */
@@ -871,11 +861,6 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'case_study' => 'case_study',
   );
-  /* Filter criterion: Content: Solutions (field_solutions) */
-  $handler->display->display_options['filters']['field_solutions_value']['id'] = 'field_solutions_value';
-  $handler->display->display_options['filters']['field_solutions_value']['table'] = 'field_data_field_solutions';
-  $handler->display->display_options['filters']['field_solutions_value']['field'] = 'field_solutions_value';
-  $handler->display->display_options['filters']['field_solutions_value']['operator'] = 'not empty';
   $handler->display->display_options['path'] = 'solutions/%';
 
   /* Display: Case study-Lessons */
@@ -1034,11 +1019,6 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'case_study' => 'case_study',
   );
-  /* Filter criterion: Content: Lessons (field_lessons) */
-  $handler->display->display_options['filters']['field_lessons_value']['id'] = 'field_lessons_value';
-  $handler->display->display_options['filters']['field_lessons_value']['table'] = 'field_data_field_lessons';
-  $handler->display->display_options['filters']['field_lessons_value']['field'] = 'field_lessons_value';
-  $handler->display->display_options['filters']['field_lessons_value']['operator'] = 'not empty';
   $handler->display->display_options['path'] = 'lessons/%';
 
   /* Display: Case study-Resources */
@@ -1196,11 +1176,6 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'case_study' => 'case_study',
   );
-  /* Filter criterion: Content: Additional resources (field_additional_resources) */
-  $handler->display->display_options['filters']['field_additional_resources_value']['id'] = 'field_additional_resources_value';
-  $handler->display->display_options['filters']['field_additional_resources_value']['table'] = 'field_data_field_additional_resources';
-  $handler->display->display_options['filters']['field_additional_resources_value']['field'] = 'field_additional_resources_value';
-  $handler->display->display_options['filters']['field_additional_resources_value']['operator'] = 'not empty';
   $handler->display->display_options['path'] = 'resources/%';
   $export['impact'] = $view;
 
