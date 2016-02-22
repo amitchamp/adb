@@ -46,12 +46,14 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = '<div class=\'banner-node\'><div class="content-type-name"><span class="case-study-label">[type]</span><div class="node-title case-study-title">[title]</div><div class="project-date">[field_date]</div><div class="tagging case-study-tags">[nothing] </div><small class="arrow-icon"><i class="fa fa-angle-down"></i></small></div><span class="black-border"></span></div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
-  /* Header: Global: Social Simplified Share */
-  $handler->display->display_options['header']['socialshare']['id'] = 'socialshare';
-  $handler->display->display_options['header']['socialshare']['table'] = 'views';
-  $handler->display->display_options['header']['socialshare']['field'] = 'socialshare';
-  $handler->display->display_options['header']['socialshare']['label'] = 'Social Share';
-  $handler->display->display_options['header']['socialshare']['empty'] = TRUE;
+  /* Header: Global: Social Sharethis */
+  $handler->display->display_options['header']['sharethis']['id'] = 'sharethis';
+  $handler->display->display_options['header']['sharethis']['table'] = 'views';
+  $handler->display->display_options['header']['sharethis']['field'] = 'sharethis';
+  $handler->display->display_options['header']['sharethis']['content'] = array(
+    'value' => '',
+    'format' => 'full_html',
+  );
   /* Header: Global: Print Link */
   $handler->display->display_options['header']['print']['id'] = 'print';
   $handler->display->display_options['header']['print']['table'] = 'views';
@@ -66,7 +68,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['header']['printpdf']['label'] = 'Download';
   $handler->display->display_options['header']['printpdf']['empty'] = TRUE;
   $handler->display->display_options['header']['printpdf']['content'] = '!1';
-  /* Footer: Global: Sub-Section Navigation Link */
+  /* Footer: Broken/missing handler */
   $handler->display->display_options['footer']['navigation']['id'] = 'navigation';
   $handler->display->display_options['footer']['navigation']['table'] = 'views';
   $handler->display->display_options['footer']['navigation']['field'] = 'navigation';
