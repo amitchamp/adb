@@ -21,9 +21,11 @@ function adb_global_functions_strongarm() {
       'title' => 'Useful content',
       'node_types' => array(
         0 => 'case_study',
+        1 => 'question_answer',
       ),
       'comment_types' => array(
         0 => 'case_study',
+        1 => 'question_answer',
       ),
       'options' => array(
         0 => array(
