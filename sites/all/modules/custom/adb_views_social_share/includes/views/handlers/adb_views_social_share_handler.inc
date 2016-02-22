@@ -7,7 +7,7 @@
  *  @ingroup views_field_handlers
  */
 
-class AdbViewsSharetHandler extends views_handler_area_text {
+class AdbViewsShareHandler extends views_handler_area_text {
 
   /**
    *  {@inheritdoc}

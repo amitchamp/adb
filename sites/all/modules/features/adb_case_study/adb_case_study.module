@@ -86,19 +86,23 @@ function _adb_case_study_block_subsection_navigation() {
   if (isset($current_path[1]) && is_numeric($current_path[1])) {
     $navigation = '<div class="navigation-content">';
     if ($prev > 0) {
-      $navigation .= l(t('<span>Previous</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$prev]])), $key_array_indexing[$prev] . '/' . $current_path[1], array('html' => TRUE), array(
+      $navigation .= l(t('<span class="nav-links"><i class="fa fa-angle-left"></i> Previous</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$prev]])), $key_array_indexing[$prev] . '/' . $current_path[1], array(
         'attributes' => array(
-          'class' => 'navigation-section',
+          'class' => 'prev-link',
           'id' => 'nav-section'
-      )));
+        ),
+        'html' => TRUE,
+      ));
     }
     if ($next < count($key_array_indexing) + 1) {
-      $navigation .= l(t('<span>Next</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$next]]
-        )), $key_array_indexing[$next] . '/' . $current_path[1], array('html' => TRUE), array(
+      $navigation .= l(t('<span class="nav-links">Next <i class="fa fa-angle-right"></i></span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$next]]
+        )), $key_array_indexing[$next] . '/' . $current_path[1], array(
         'attributes' => array(
-          'class' => 'navigation-section',
+          'class' => 'next-link',
           'id' => 'nav-section'
-      )));
+        ),
+        'html' => TRUE,
+      ));
     }
     $navigation .= '</div>';
   }
@@ -204,10 +208,14 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Download Link for node page.
     if (isset($variables['field_download_file'][0]['uri'])) {
-      $variables['download_link'] = l(t('Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array(
+
+      $variables['download_link'] = l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array(
         'attributes' => array(
-          'target' => '_blank'
-      )));
+          'target' => '_blank',
+          'class' => 'download-link',
+        ),
+        'html' => TRUE,
+      ));
     }
     else {
       $variables['download_link'] = '';
@@ -215,11 +223,26 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Print Node page.
     if (isset($variables['nid'])) {
-      $variables['print_node'] = l(t('Print'), $baseUrl . 'print/node/' . $variables['nid']);
+      $variables['print_node'] = l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $variables['nid'], array(
+        'attributes' => array(
+          'class' => 'print-link',
+        ),
+        'html' => TRUE,
+      ));
     }
 
     // Social share icon list.
-    $variables['social_share'] = sharethis_block_contents();
+    $share_output = '';
+    if (variable_get('simplified_social_share_enable_horizontal_share') == 1) {
+      simplified_social_share_horizontal_script_code();
+      $share_output .= simplified_social_share_horizontal_sharing_div();
+    }
+
+    if (variable_get('simplified_social_share_enable_vertical_share') == 1) {
+      simplified_social_share_vertical_script_code();
+      $share_output .= simplified_social_share_vertical_sharing_div();
+    }
+    $variables['social_share'] = $share_output;
 
     // Body content.
     $variables['body'] = $variables['body'][0]['value'];
@@ -240,13 +263,15 @@ function adb_case_study_preprocess_node(&$variables) {
     $snapshot_output = '';
     $snapshot_output .= '<i class="fa fa-clock-o"></i><h3 class="project-heading">' . t("Dates") . '</h3>';
     foreach ($project_snapshot as $value) {
+      $snapshot_output .= '<div class="casestudy-project-date">';
       if (isset($value->field_date[$und][0]['value'])) {
         $snapshot_output .= '<div class="project-year">' .
           adb_case_study_get_date_formatted_value('Y', $value->field_date[$und][0]['value']) . '</div>';
       }
-      elseif (isset($value->field_description[$und][0]['value'])) {
+      if (isset($value->field_description[$und][0]['value'])) {
         $snapshot_output .= '<div class="description">' . $value->field_description[$und][0]['value'] . '</div>';
       }
+      $snapshot_output .= '</div>';
     }
     $variables['project_snapshot'] = $snapshot_output;
 
@@ -260,8 +285,8 @@ function adb_case_study_preprocess_node(&$variables) {
     $project_cost = entity_load('field_collection_item', $cost_entity_ids);
     $cost_output = '';
     $cost_output .= '<div class="project-cost"><i class="fa fa-money"></i><h3 class="project-heading">' . t("Cost") . '</h3>';
-    if (isset($variables['field_cost_description'][$und][0]['value'])) {
-      $cost_output .= '<div class="description">' . $variables['field_cost_description'][$und][0]['value'] . '</div>';
+    if (isset($variables['field_cost_description'][0]['value'])) {
+      $cost_output .= '<div class="description">' . $variables['field_cost_description'][0]['value'] . '</div>';
     }
     foreach ($project_cost as $cost_value) {
       if (isset($cost_value->field_primary_cost[$und][0]['value'])) {
@@ -288,11 +313,12 @@ function adb_case_study_preprocess_node(&$variables) {
     }
     $institute_stake = entity_load('field_collection_item', $insti_entity_ids);
     $institue_output = '';
-    $institue_output .= '<div class="institue-stakeholder"><i class="fa fa-bank"></i><h3 class="project-heading">' . t("Institution and stakeholders") . '</h3>';
+    $institue_output .= '<i class="fa fa-bank"></i><h3 class="project-heading">' . t("Institution and stakeholders") . '</h3><div class="detail-wrapper">';
     foreach ($institute_stake as $stake_value) {
       // Get Institute Category name label.
+      $institue_output .= '<div class="institute-detail">';
       if (isset($stake_value->field_institution_category[$und][0]['value'])) {
-        $institue_output .= '<div class="institue-stakeholder-cateogry"><h4>' .
+        $institue_output .= '<h4>' .
           $institute_category_value[$stake_value->field_institution_category[$und][0]['value']] . '</h4>';
       }
       foreach ($stake_value->field_institution_detail as $detail_id) {
@@ -300,9 +326,8 @@ function adb_case_study_preprocess_node(&$variables) {
           // In Institutions and stakeholder section we have field collection under field
           // collection so we have to relooping aging for inner ettity_id's.
           $sub_section_detail = entity_load('field_collection_item', array((int) $data['value']));
-          $institue_output .= '<div class="detail">';
+
           foreach ($sub_section_detail as $key => $field_value) {
-            $institue_output .= '<div class="cateogry-detail">';
             // Getting link and url and make its anchor content.
             if (isset($field_value->field_value['und'][0]['value']) && isset($field_value->field_link['und'][0]['url'])) {
               $institue_output .= '<div class="detail-title">' .
@@ -315,15 +340,14 @@ function adb_case_study_preprocess_node(&$variables) {
             }
             // If not url is put in field so field content visible simple label field.
             else {
-              $institue_output .= '<div class="detail-title">' .
+              $institue_output .= '<p>' .
                 $field_value->field_value['und'][0]['value'] .
-                '</div>';
+                '</p>';
             }
-            $institue_output .= '</div>';
           }
-          $institue_output .= '</div></div></div>';
         }
       }
+      $institue_output .= '</div>';
     }
     $institue_output .= '</div>';
     $variables['institution_stakeholder'] = $institue_output;
@@ -378,10 +402,12 @@ function adb_case_study_make_term_tagging($field_name, $taxonomy_refernce_term) 
   foreach ($field_name as $name) {
     $term_name = $taxonomy_refernce_term[$name];
     foreach ($term_name as $value) {
-      $linklist[$value['taxonomy_term']->name] = array(
-        'title' => t($value['taxonomy_term']->name),
-        'href' => 'search/' . $value['taxonomy_term']->name
-      );
+      if (!empty($value)) {
+        $linklist[$value['taxonomy_term']->name] = array(
+          'title' => t($value['taxonomy_term']->name),
+          'href' => 'search/' . $value['taxonomy_term']->name
+        );
+      }
     }
   }
 
@@ -421,4 +447,49 @@ function adb_case_study_get_theme_list_content($itemlist) {
 function adb_case_study_get_date_formatted_value($format, $date_time) {
   $unix_time_stamp = explode(' ', $date_time);
   return gmdate($format, strtotime($unix_time_stamp[0]));
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function adb_case_study_form_case_study_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['#validate'][] = 'adb_case_study_topic_validate';
+}
+
+/**
+ * Custom submit handler to check every topic belongs to same parent.
+ */
+function adb_case_study_topic_validate($form, &$form_state) {
+  $last_parent_tid = 0;
+  $langcode = $form_state['values']['language'];
+  $validate = TRUE;
+
+  // Iterate through every topics and check whether they belong to same parent.
+  foreach ($form_state['values']['field_topic'][$langcode] as $value) {
+    $parents = taxonomy_get_parents($value['tid']);
+
+    if (empty($parents)) {
+      $current_parent_tid = $value['tid'];
+    }
+    else {
+      // We consider that the taxonomy has only two levels.
+      // Pop out the first parent.
+      $term = array_shift($parents);
+      $current_parent_tid = $term->tid;
+    }
+
+    // Make sure `$last_parent_tid` is different from the `$current_parent_tid`.
+    // If different then invalidate the submission.
+    if ($last_parent_tid != 0 && ($last_parent_tid != $current_parent_tid)) {
+      $validate = FALSE;
+      break;
+    }
+    else {
+      $last_parent_tid = $current_parent_tid;
+    }
+  }
+
+  if (!$validate) {
+    form_set_error('field_topic', t('Only one parent is allowed for topics'));
+  }
 }

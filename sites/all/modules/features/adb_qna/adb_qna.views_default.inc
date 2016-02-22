@@ -32,6 +32,10 @@ function adb_qna_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Header: Global: Social Simplified Share */
+  $handler->display->display_options['header']['socialshare']['id'] = 'socialshare';
+  $handler->display->display_options['header']['socialshare']['table'] = 'views';
+  $handler->display->display_options['header']['socialshare']['field'] = 'socialshare';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -82,8 +86,6 @@ function adb_qna_views_default_views() {
   $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['default_action'] = 'not found';
   $handler->display->display_options['arguments']['term_node_tid_depth']['exception']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['term_node_tid_depth']['title_enable'] = TRUE;
-  $handler->display->display_options['arguments']['term_node_tid_depth']['title'] = '%1';
   $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';

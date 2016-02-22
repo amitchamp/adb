@@ -125,15 +125,17 @@ hide($content['links']);
         ?><div class="content-type-name"><span class="case-study-label"><?php print t('Case study'); ?></span><div class="node-title case-study-title"><?php print $title ?></div><div class="project-date"><?php print $node_field_date; ?></div><div class="tagging case-study-tags"><?php print $node_field_tagging; ?></div><small class="arrow-icon"><i class="fa fa-angle-down"></i></small></div><span class="black-border"></span></div></div>
     <!--Social Share Area-->
     <div class="social-share-download">
-      <div class="social-share">
-        <?php print $social_share; ?>
-      </div>
-      <!--Download and Print section-->
-      <div class="download-print">
-        <div class="print"><?php print $print_node; ?></div>
-        <?php if ($download_link): ?>
-          <div class="download"><?php print $download_link; ?></div>
-        <?php endif; ?>
+      <div class="wrapper-section">
+        <div class="social-share">
+          <?php print $social_share; ?>
+        </div>
+        <!--Download and Print section-->
+        <div class="download-print">
+          <?php print $print_node; ?>
+          <?php if ($download_link): ?>
+            <?php print $download_link; ?>
+          <?php endif; ?>
+        </div>
       </div>
     </div>
   </div>
@@ -141,8 +143,9 @@ hide($content['links']);
 
     <!--Overview-->
     <?php if ($body): ?>
-      <div class="casestudy-section"><h2 class="section-heading"><?php print t('Overview'); ?></h2>
+      <div class="wrapper-section">
         <div class="overview-content">
+          <h2 class="section-heading main-heading"><?php print t('Overview'); ?></h2>
           <?php if ($summary): ?>
             <div class="summary"><?php print $summary; ?></div>
           <?php endif; ?>
@@ -152,35 +155,35 @@ hide($content['links']);
 
     <!--Project snapshot-->
     <?php if ($project_snapshot): ?>
-      <div class="casestudy-section"><h2 class="section-heading"><?php print t('Project snapshot'); ?></h2>
+      <div class="wrapper-section"><h2 class="section-heading"><?php print t('Project snapshot'); ?></h2>
         <div class="project-snapshot-content dates-content"><?php print $project_snapshot; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Cost content-->
     <?php if ($project_cost): ?>
-      <div class="casestudy-section">
+      <div class="wrapper-section">
         <div class="project-snapshot-content cost-content"><?php print $project_cost; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Institution and stakeholders-->
     <?php if ($institution_stakeholder): ?>
-      <div class="casestudy-section">
+      <div class="wrapper-section">
         <div class="project-snapshot-content institution-stakeholder"><?php print $institution_stakeholder; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Continue reading...-->
     <?php if ($continue_reading): ?>
-      <div class="casestudy-section continue-block"><h2 class="section-heading">Continue reading...</h2>
+      <div class="wrapper-section continue-block"><h2 class="section-heading">Continue reading...</h2>
         <div class="continue-reading"><i class="fa fa-caret-down"></i><?php print $continue_reading; ?></div>
       </div>
     <?php endif; ?>
 
     <!--Meet our knowledge contributor...-->
     <?php if ($have_contributor): ?>
-      <div class="casestudy-section"><h2 class="section-heading"><?php print t('Meet our knowledge contributor'); ?></h2>
+      <div class="wrapper-section"><h2 class="section-heading"><?php print t('Meet our knowledge contributor'); ?></h2>
         <div class="knowledge-contributor"><?php print $contributor; ?></div>
       </div>
     <?php endif; ?>
@@ -188,7 +191,7 @@ hide($content['links']);
 
   <!--Navigation.-->
   <?php if ($section_navigation): ?>
-    <div class="section-navigate"><?php print $section_navigation; ?></div>
+    <div class="wrapper-section section-navigate"><?php print $section_navigation; ?></div>
   <?php endif; ?>
 
   <!--End Of Main Content -->

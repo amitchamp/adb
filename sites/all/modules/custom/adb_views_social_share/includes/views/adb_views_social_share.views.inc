@@ -13,7 +13,7 @@ function adb_views_social_share_views_data_alter(&$data) {
     'title' => t('Social Simplified Share'),
     'help' => t('Share current page using social simplified share'),
     'area' => array(
-      'handler' => 'AdbViewsSharetHandler',
+      'handler' => 'AdbViewsShareHandler',
     ),
   );
 }
