@@ -964,6 +964,26 @@ header[role="banner"] a {
 }
 
 /*
+**Solutions Section
+*/
+/* line 489, ../sass/pages/_caseStudy.scss */
+.facts-section {
+  max-width: 582px;
+  margin: 24px auto;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+/* line 494, ../sass/pages/_caseStudy.scss */
+.facts-section .para-heading {
+  font-size: 20px;
+}
+/* line 497, ../sass/pages/_caseStudy.scss */
+.facts-section ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+/*
  ** Style for Homepage only.
  */
 /*
@@ -997,17 +1017,21 @@ header[role="banner"] a {
   background-color: #fff;
   padding: 5px 10px;
   margin-top: 5px;
+  z-index: 1;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 8px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 8px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 8px;
 }
-/* line 30, ../sass/pages/_qa.scss */
+/* line 32, ../sass/pages/_qa.scss */
 .cards-toggle-wrapper a {
-  border-bottom: solid 1px #999;
+  border-bottom: solid 1px #f2f2f2;
   font-size: 16px;
   line-height: 20px;
   padding: 5px 0;
-  display: inline-block;
+  display: block;
 }
 
-/* line 38, ../sass/pages/_qa.scss */
+/* line 40, ../sass/pages/_qa.scss */
 .type-description {
   font-size: 16px;
   margin-top: 20px;
@@ -1016,13 +1040,13 @@ header[role="banner"] a {
 /*
  ** Q&A main content section
  */
-/* line 48, ../sass/pages/_qa.scss */
+/* line 50, ../sass/pages/_qa.scss */
 .qa-list {
-  margin: 25px 0;
+  padding: 25px 0;
   border-bottom: solid 1px #ccc;
 }
 
-/* line 52, ../sass/pages/_qa.scss */
+/* line 54, ../sass/pages/_qa.scss */
 .row-counter {
   width: 42px;
   height: 42px;
@@ -1039,20 +1063,20 @@ header[role="banner"] a {
   vertical-align: top;
 }
 
-/* line 65, ../sass/pages/_qa.scss */
+/* line 67, ../sass/pages/_qa.scss */
 .title-body-wrapper {
   display: inline-block;
   width: 89%;
 }
 
-/* line 69, ../sass/pages/_qa.scss */
+/* line 71, ../sass/pages/_qa.scss */
 .qna-title {
   color: #2A5DB0;
   font-size: 24px;
   margin-bottom: 50px;
 }
 
-/* line 75, ../sass/pages/_qa.scss */
+/* line 77, ../sass/pages/_qa.scss */
 .qna-summary p {
   margin: 0;
 }

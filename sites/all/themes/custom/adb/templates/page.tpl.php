@@ -187,6 +187,9 @@
               </header>
             <?php endif; ?>
 
+            <!-- Banner in the inner pages -->
+            <?php print render($page['banner']); ?>
+            
             <!-- !Main Content -->
             <?php if ($content = render($page['content'])): ?>
               <div id="content" class="region">

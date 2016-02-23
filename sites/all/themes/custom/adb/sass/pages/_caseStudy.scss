@@ -481,3 +481,21 @@
     font-size: ($base-font)+2;
   }
 }
+
+/*
+**Solutions Section
+*/
+
+.facts-section {
+  max-width: 582px;
+  margin: 24px auto;
+  background-color: $light-grey-background;
+  padding: 20px;
+  .para-heading {
+    font-size: ($base-font)+6;
+  }
+  ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+}
