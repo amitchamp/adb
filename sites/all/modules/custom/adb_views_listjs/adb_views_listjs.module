@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Provides listjs style for views.
+ */
+
+/**
+ * Implements hook_views_api().
+ */
+function adb_views_listjs_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'adb_views_listjs') . '/includes/views',
+  );
+}
