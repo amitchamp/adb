@@ -38,31 +38,11 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['label'] = 'Header';
+  $handler->display->display_options['header']['area']['label'] = 'banner-info';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<div class=\'banner-node\'><div class="content-type-name"><span class="case-study-label">[type]</span><div class="node-title case-study-title">[title]</div><div class="project-date">[field_date]</div><div class="tagging case-study-tags">[nothing]</div></div></div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="content-type-name"><span class="case-study-label">[type]</span><div class="node-title case-study-title">[title]</div><div class="project-date">[field_date]</div><div class="tagging case-study-tags">[nothing]</div></div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
-  /* Header: Global: Social Simplified Share */
-  $handler->display->display_options['header']['socialshare']['id'] = 'socialshare';
-  $handler->display->display_options['header']['socialshare']['table'] = 'views';
-  $handler->display->display_options['header']['socialshare']['field'] = 'socialshare';
-  $handler->display->display_options['header']['socialshare']['empty'] = TRUE;
-  $handler->display->display_options['header']['socialshare']['content'] = 'Share';
-  $handler->display->display_options['header']['socialshare']['tokenize'] = TRUE;
-  /* Header: Global: Download */
-  $handler->display->display_options['header']['printpdf']['id'] = 'printpdf';
-  $handler->display->display_options['header']['printpdf']['table'] = 'views';
-  $handler->display->display_options['header']['printpdf']['field'] = 'printpdf';
-  $handler->display->display_options['header']['printpdf']['empty'] = TRUE;
-  $handler->display->display_options['header']['printpdf']['content'] = 'Print';
-  /* Header: Global: Print Link */
-  $handler->display->display_options['header']['print']['id'] = 'print';
-  $handler->display->display_options['header']['print']['table'] = 'views';
-  $handler->display->display_options['header']['print']['field'] = 'print';
-  $handler->display->display_options['header']['print']['empty'] = TRUE;
-  $handler->display->display_options['header']['print']['content'] = 'Download';
-  $handler->display->display_options['header']['print']['tokenize'] = TRUE;
   /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';

@@ -14,6 +14,7 @@ function adb_case_study_default_fe_block_settings() {
 
   $export['adb_case_study-comment_form'] = array(
     'cache' => 1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'comment_form',
     'module' => 'adb_case_study',
@@ -51,6 +52,7 @@ resources/*',
 
   $export['adb_case_study-rate_widget'] = array(
     'cache' => 1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'rate_widget',
     'module' => 'adb_case_study',
@@ -88,6 +90,7 @@ resources/*',
 
   $export['adb_case_study-section_navigation'] = array(
     'cache' => 1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'section_navigation',
     'module' => 'adb_case_study',
@@ -125,6 +128,7 @@ resources/*',
 
   $export['adb_case_study-subsection_menu'] = array(
     'cache' => 1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'subsection_menu',
     'module' => 'adb_case_study',
