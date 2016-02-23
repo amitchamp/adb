@@ -65,6 +65,7 @@ dependencies[] = search
 dependencies[] = sharethis
 dependencies[] = simplified_social_share
 dependencies[] = strongarm
+dependencies[] = summary_settings
 dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = views
