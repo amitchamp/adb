@@ -4,10 +4,7 @@
  * @file
  * Code for the ADB Case Study feature.
  */
-
 include_once 'adb_case_study.features.inc';
-module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
-
 
 /**
  * Custom module responsible for various specific customizations on
@@ -101,6 +98,7 @@ function _adb_case_study_block_subsection_navigation() {
  * Implements hook_block_view().
  */
 function adb_case_study_block_view($delta = '') {
+  module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
   $block = array();
   $nid = arg(1);
   switch ($delta) {
@@ -147,7 +145,7 @@ function adb_case_study_block_view($delta = '') {
  *  @param  &$variables
  */
 function adb_case_study_preprocess_node(&$variables) {
-
+  module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
   // Need in creating link with base_url.
   global $baseUrl;
 
@@ -485,11 +483,10 @@ function adb_case_study_preprocess_views_view(&$vars) {
     if (isset($nid) && is_numeric($nid)) {
       $node = entity_metadata_wrapper('node', $nid);
       $download_file_url = $node->field_download_file->value();
-      $und = $node->language->value();
       // Create and appand structure of HTML in banner.
       $header_content = "<div class='banner-node'><div class='inner-banner-node-info'>";
       $header_content .= $vars['header'];
-      $header_content .="</div></div><div class='social-share-download'>"
+      $header_content .= "</div></div><div class='social-share-download'>"
         . "<div class='wrapper-section'><div class='social-share'>"
         . "<span>Social share</div></div><div class='download-print'>";
       $header_content .= l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $nid, array(
@@ -501,7 +498,7 @@ function adb_case_study_preprocess_views_view(&$vars) {
 
       // Get file download url.
       if (isset($download_file_url['uri'])) {
-        $header_content .=l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($download_file_url['uri']), array(
+        $header_content .= l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($download_file_url['uri']), array(
           'attributes' => array(
             'target' => '_blank',
             'class' => 'download-link',
