@@ -51,9 +51,16 @@
 /**
  * Override or insert variables for the page templates.
  */
-/* -- Delete this line if you want to use these functions
-  function adaptivetheme_subtheme_preprocess_page(&$vars) {
+function adb_preprocess_page(&$vars) {
+  // Add class to main content container for pages with sidebar first.
+  if (!empty($vars['page']['sidebar_first'])) {
+    $vars['main_content_sidebar_first_class'] = 'sidebar-first-pages';
   }
+  else {
+    $vars['main_content_sidebar_first_class'] = '';
+  }
+}
+/* -- Delete this line if you want to use these functions
   function adaptivetheme_subtheme_process_page(&$vars) {
   }
   // */

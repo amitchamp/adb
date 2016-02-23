@@ -551,12 +551,12 @@ header[role="banner"] a {
 
 /* line 136, ../sass/pages/_caseStudy.scss */
 .lrshare_linkedin:after {
-  content: '\f0d4';
+  content: '\f08c';
 }
 
 /* line 141, ../sass/pages/_caseStudy.scss */
 .lrshare_facebook:after {
-  content: '\f08c';
+  content: '\f082';
 }
 
 /* line 148, ../sass/pages/_caseStudy.scss */
@@ -1015,23 +1015,27 @@ header[role="banner"] a {
   left: 0;
   width: 200px;
   background-color: #fff;
-  padding: 5px 10px;
+  padding: 5px 8px;
   margin-top: 5px;
   z-index: 1;
-  -moz-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 8px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 8px;
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 8px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 3px;
 }
 /* line 32, ../sass/pages/_qa.scss */
 .cards-toggle-wrapper a {
   border-bottom: solid 1px #f2f2f2;
   font-size: 16px;
   line-height: 20px;
-  padding: 5px 0;
+  padding: 6px 0;
   display: block;
 }
-
 /* line 40, ../sass/pages/_qa.scss */
+.cards-toggle-wrapper > div:last-of-type a {
+  border-bottom: none;
+}
+
+/* line 45, ../sass/pages/_qa.scss */
 .type-description {
   font-size: 16px;
   margin-top: 20px;
@@ -1040,13 +1044,13 @@ header[role="banner"] a {
 /*
  ** Q&A main content section
  */
-/* line 50, ../sass/pages/_qa.scss */
+/* line 55, ../sass/pages/_qa.scss */
 .qa-list {
   padding: 25px 0;
   border-bottom: solid 1px #ccc;
 }
 
-/* line 54, ../sass/pages/_qa.scss */
+/* line 59, ../sass/pages/_qa.scss */
 .row-counter {
   width: 42px;
   height: 42px;
@@ -1063,20 +1067,20 @@ header[role="banner"] a {
   vertical-align: top;
 }
 
-/* line 67, ../sass/pages/_qa.scss */
+/* line 72, ../sass/pages/_qa.scss */
 .title-body-wrapper {
   display: inline-block;
   width: 89%;
 }
 
-/* line 71, ../sass/pages/_qa.scss */
+/* line 76, ../sass/pages/_qa.scss */
 .qna-title {
   color: #2A5DB0;
   font-size: 24px;
   margin-bottom: 50px;
 }
 
-/* line 77, ../sass/pages/_qa.scss */
+/* line 82, ../sass/pages/_qa.scss */
 .qna-summary p {
   margin: 0;
 }

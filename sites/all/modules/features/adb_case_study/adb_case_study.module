@@ -5,6 +5,7 @@
  * Code for the ADB Case Study feature.
  */
 include_once 'adb_case_study.features.inc';
+module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
 
 
 /**
@@ -100,7 +101,6 @@ function _adb_case_study_block_subsection_navigation() {
  */
 function adb_case_study_block_view($delta = '') {
   $block = array();
-  module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
   $nid = arg(1);
   switch ($delta) {
     case 'subsection_menu':

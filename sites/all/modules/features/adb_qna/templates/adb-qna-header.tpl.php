@@ -25,5 +25,7 @@
       </div>
     </div>
   </div>
-  <div class="type-description"><?php print $current_term_description; ?></div>
+  <?php if (!empty($current_term_description)): ?>
+    <div class="type-description"><?php print $current_term_description; ?></div>
+  <?php endif; ?>
 </div>
