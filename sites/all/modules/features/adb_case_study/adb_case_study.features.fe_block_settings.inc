@@ -27,7 +27,7 @@ resources/*',
     'roles' => array(),
     'themes' => array(
       'adb' => array(
-        'region' => 'content',
+        'region' => 'comments_section',
         'status' => 1,
         'theme' => 'adb',
         'weight' => -13,
@@ -64,7 +64,7 @@ resources/*',
     'roles' => array(),
     'themes' => array(
       'adb' => array(
-        'region' => 'content',
+        'region' => 'comments_section',
         'status' => 1,
         'theme' => 'adb',
         'weight' => -14,
@@ -138,7 +138,7 @@ resources/*',
     'roles' => array(),
     'themes' => array(
       'adb' => array(
-        'region' => 'content',
+        'region' => 'sidebar_first',
         'status' => 1,
         'theme' => 'adb',
         'weight' => -15,
