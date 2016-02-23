@@ -1,94 +1,1123 @@
 /*
-Error: Invalid CSS after "&:": expected pseudoclass or pseudoelement, was " first-child"
-        on line 476 of /Applications/MAMP/htdocs/adb/sites/all/themes/custom/adb/sass/pages/_caseStudy.scss
-        from line 44 of /Applications/MAMP/htdocs/adb/sites/all/themes/custom/adb/sass/style.scss
-
-Backtrace:
-/Applications/MAMP/htdocs/adb/sites/all/themes/custom/adb/sass/pages/_caseStudy.scss:476
-/Applications/MAMP/htdocs/adb/sites/all/themes/custom/adb/sass/style.scss:44
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:1179:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:1115:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:1110:in `tok!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/scss/static_parser.rb:277:in `pseudo'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/scss/static_parser.rb:160:in `simple_selector_sequence'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/scss/static_parser.rb:112:in `selector'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/scss/static_parser.rb:86:in `selector_comma_sequence'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:1093:in `expr!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/scss/static_parser.rb:20:in `parse_selector'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:425:in `visit_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:79:in `with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:79:in `with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:79:in `with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:326:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:88:in `block in with_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:88:in `with_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/stack.rb:79:in `with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:378:in `_render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:296:in `block in render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/util.rb:504:in `silence_sass_warnings'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:296:in `render_with_sourcemap'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:209:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:328:in `block in watch'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/vendor/listen/lib/listen/listener.rb:252:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/vendor/listen/lib/listen/adapter.rb:254:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+** Utilities.
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"&:\": expected pseudoclass or pseudoelement, was \" first-child\"\A         on line 476 of /Applications/MAMP/htdocs/adb/sites/all/themes/custom/adb/sass/pages/_caseStudy.scss\A         from line 44 of /Applications/MAMP/htdocs/adb/sites/all/themes/custom/adb/sass/style.scss"; }
+/**
+ * Variables for all patial files.
+**/
+/**
+ ** Variables for all the fonts.
+ */
+/*
+** Helpers (Placeholders)
+*/
+/* line 6, ../sass/utilities/_placeholder.scss */
+.nav ul, .case-study-tags ul, .casestudy-left-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 11, ../sass/utilities/_placeholder.scss */
+.nav li, .case-study-tags li, .casestudy-left-nav li {
+  float: left;
+}
+/* line 13, ../sass/utilities/_placeholder.scss */
+.nav li:first-child, .case-study-tags li:first-child, .casestudy-left-nav li:first-child {
+  margin: 0;
+}
+
+/* line 25, ../sass/utilities/_placeholder.scss */
+.menu-categories-title, .lrshare_evenmore32, .lrshare-totalshare, .continue-reading .menu-categories-title {
+  display: none;
+}
+
+/* line 29, ../sass/utilities/_placeholder.scss */
+.sidebar-first-pages {
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* line 53, ../sass/utilities/_placeholder.scss */
+.sidebar-first-pages {
+  -webkit-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+  -moz-box-wrap: wrap-reverse;
+  -ms-flexbox-wrap: wrap-reverse;
+}
+
+/*
+** For the Heading on the banner images in the details pages (like case study)
+*/
+/* line 71, ../sass/utilities/_placeholder.scss */
+.case-study-title {
+  font-size: 48px;
+  line-height: 54px;
+  color: #fff;
+  margin: 6px 0 13px;
+  text-transform: capitalize;
+}
+
+/*
+** For the Section heading of the each section on the pages (lke case study)
+*/
+/* line 83, ../sass/utilities/_placeholder.scss */
+.section-heading {
+  font-size: 20px;
+  color: #333333;
+  font-family: "OpenSans-Regular";
+  margin: 16px 0;
+}
+
+/*
+** For the Heading on the banner images in the inner pages
+*/
+/* line 94, ../sass/utilities/_placeholder.scss */
+.casestudy-inner-page .case-study-title, .detail-pages-heading {
+  font-size: 36px;
+  color: #333333;
+  margin: 18px 0 0;
+  display: inline-block;
+}
+
+/*
+** Font awesome
+*/
+/* line 104, ../sass/utilities/_placeholder.scss */
+.case-study-tags li:before, .social-share .lrshare_iconsprite32:after {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+** base.
+*/
+/**
+ ** Base layout of site.
+ */
+/* line 5, ../sass/base/_base.scss */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/* line 11, ../sass/base/_base.scss */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fcfcfc;
+  width: 100%;
+  font-size: 16px;
+  color: #333333;
+  font-family: "OpenSans-Regular";
+}
+
+/* line 20, ../sass/base/_base.scss */
+a {
+  color: #2A5DB0;
+  text-decoration: none;
+}
+/* line 23, ../sass/base/_base.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 27, ../sass/base/_base.scss */
+p {
+  color: #333333;
+}
+
+/*
+** site using fonts
+*/
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: url("../fonts/OpenSans-Regular.otf");
+  src: url("../fonts/OpenSans-Regular.ttf"), url("../fonts/OpenSans-Regular.woff"), url("../fonts/OpenSans-Regular.eot");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OpenSans-Light";
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/OpenSans-Light.otf");
+  src: url("../fonts/OpenSans-Light.ttf"), url("../fonts/OpenSans-Light.woff"), url("../fonts/OpenSans-Light.eot");
+}
+@font-face {
+  font-family: "OpenSans-Bold";
+  src: url("../fonts/OpenSans-Bold.otf");
+  src: url("../fonts/OpenSans-Bold.ttf"), url("../fonts/OpenSans-Bold.woff"), url("../fonts/OpenSans-Bold.eot");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OpenSans-Semibold";
+  src: url("../fonts/OpenSans-Semibold.otf");
+  src: url("../fonts/OpenSans-Semibold.ttf"), url("../fonts/OpenSans-Semibold.woff"), url("../fonts/OpenSans-Semibold.eot");
+  font-weight: 700;
+  font-style: normal;
+}
+/*
+**  Layout Specific.
+*/
+/*
+ ** Base layout of site.
+ ** Generally, It will inclue the width of the regions and their placement.
+ */
+/* line 6, ../sass/layout/_layout.scss */
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*
+**Wrapper Section to make the div the in the center of the page
+*/
+/* line 18, ../sass/layout/_layout.scss */
+.wrapper-section {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/*
+**Secondary headings on all the pages
+*/
+/*
+**Main headings on all the pages
+*/
+/* line 35, ../sass/layout/_layout.scss */
+.main-heading {
+  font-size: 28px;
+}
+
+/* line 40, ../sass/layout/_layout.scss */
+.sidebar-first-pages {
+  /*display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: flex-end;*/
+}
+/* line 46, ../sass/layout/_layout.scss */
+.sidebar-first-pages #content-column {
+  width: 80%;
+}
+/* line 49, ../sass/layout/_layout.scss */
+.sidebar-first-pages .sidebar {
+  width: 20%;
+  padding-right: 20px;
+}
+
+/*
+** Component.
+*/
+/**
+ ** @file
+ ** Classes that would be used site wide.
+ */
+/* line 6, ../sass/component/_commonClass.scss */
+.pull-left {
+  float: left;
+}
+
+/* line 9, ../sass/component/_commonClass.scss */
+.pull-right {
+  float: right;
+}
+
+/* line 12, ../sass/component/_commonClass.scss */
+.full-width, header {
+  width: 100%;
+}
+
+/*
+** Style for Header Components
+*/
+/* line 5, ../sass/component/_header.scss */
+#site-name {
+  margin: 0;
+}
+/* line 7, ../sass/component/_header.scss */
+#site-name a {
+  text-transform: uppercase;
+  font-size: 16px;
+  float: left;
+  margin-top: 9px;
+}
+
+/* line 15, ../sass/component/_header.scss */
+header[role="banner"] {
+  background-color: #000;
+  padding: 20px;
+}
+/* line 18, ../sass/component/_header.scss */
+header[role="banner"] a {
+  color: #fff;
+}
+
+/* line 26, ../sass/component/_header.scss */
+[role="navigation"] {
+  padding: 0 20px;
+  background: #363636;
+}
+/* line 29, ../sass/component/_header.scss */
+[role="navigation"] a {
+  color: #fff;
+  padding: 5px 10px;
+}
+/* line 34, ../sass/component/_header.scss */
+[role="navigation"] li:first-child a {
+  padding-left: 0;
+}
+
+/* line 39, ../sass/component/_header.scss */
+.branding {
+  max-width: 160px;
+  width: 100%;
+}
+
+/* line 43, ../sass/component/_header.scss */
+.region-header {
+  float: right;
+  width: 75%;
+}
+/* line 46, ../sass/component/_header.scss */
+.region-header .block-search {
+  float: left;
+  width: 68%;
+}
+/* line 50, ../sass/component/_header.scss */
+.region-header .block-adb-global-functions {
+  float: right;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* line 58, ../sass/component/_header.scss */
+.block-search .form-text {
+  outline: none;
+  height: 40px;
+  background-color: #fff;
+  border: 2px solid #c9c9c9;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 16px;
+  float: left;
+  color: #999;
+  width: 92%;
+}
+/* line 71, ../sass/component/_header.scss */
+.block-search .form-submit {
+  width: 40px;
+  height: 40px;
+  background: inherit;
+  background-color: #c9c9c9;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #666;
+  border-left: 0px;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  color: #000;
+}
+
+/* line 87, ../sass/component/_header.scss */
+.not-logged-in .block-adb-global-functions {
+  margin-top: 9px;
+}
+/* line 90, ../sass/component/_header.scss */
+.not-logged-in .block-adb-global-functions a:first-child {
+  margin-right: 20px;
+  position: relative;
+}
+/* line 93, ../sass/component/_header.scss */
+.not-logged-in .block-adb-global-functions a:first-child:after {
+  content: "/";
+  position: absolute;
+  right: -8px;
+  width: 1px;
+  color: #fff;
+}
+
+/* line 105, ../sass/component/_header.scss */
+.logged-in .block-adb-global-functions {
+  margin-top: 9px;
+}
+
+/* line 110, ../sass/component/_header.scss */
+.block-adb-global-functions .profile-access-toggle {
+  width: 0;
+  height: 10px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  text-indent: 9999px;
+  margin: 0 0.3em;
+  position: absolute;
+  right: 0;
+  top: 40%;
+  color: transparent;
+}
+/* line 123, ../sass/component/_header.scss */
+.block-adb-global-functions .username {
+  float: left;
+  display: block;
+}
+
+/* line 128, ../sass/component/_header.scss */
+.profile-access-toggle-wrapper {
+  clear: both;
+  padding-right: 1.3em;
+}
+
+/* line 132, ../sass/component/_header.scss */
+.expand-profile-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-right: 1.4em;
+}
+
+/*
+** style for Footer.
+*/
+/* line 4, ../sass/component/_footer.scss */
+.footer-top {
+  background-color: #f2f2f2;
+  border-top: 5px solid #0e0e0e;
+  padding: 25px 20px 23px;
+}
+
+/* line 9, ../sass/component/_footer.scss */
+.footer-bottom {
+  background-color: #000;
+  padding: 12px 20px;
+}
+
+/* line 16, ../sass/component/_footer.scss */
+.social-links {
+  width: 30%;
+  display: inline-block;
+}
+/* line 19, ../sass/component/_footer.scss */
+.social-links li {
+  display: inline-block;
+  margin: 0 17px;
+}
+/* line 23, ../sass/component/_footer.scss */
+.social-links .fa {
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/**
+ ** Layout design for sidebar.
+ */
+/*
+** style for Content
+*/
+/*
+** Pages.
+*/
+/*
+ ** style for case study page only.
+ */
+/*
+**Featured Section
+*/
+/* line 8, ../sass/pages/_caseStudy.scss */
+.banner-image {
+  position: relative;
+}
+
+/* line 11, ../sass/pages/_caseStudy.scss */
+.content-type-name {
+  width: 100%;
+  padding-left: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* line 18, ../sass/pages/_caseStudy.scss */
+.case-study-label {
+  padding: 5px 10px;
+  background-color: #000;
+  color: #fff;
+  font-size: 13px;
+  display: inline-block;
+}
+
+/* line 28, ../sass/pages/_caseStudy.scss */
+.project-date {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+/* line 37, ../sass/pages/_caseStudy.scss */
+.case-study-tags {
+  margin-bottom: 64px;
+}
+/* line 40, ../sass/pages/_caseStudy.scss */
+.case-study-tags li {
+  background-color: #fff;
+  border: solid 1px #000;
+  display: inline-block;
+  float: none;
+  font-size: 12px;
+  padding: 4px 5px;
+  margin: 0 16px 8px 0;
+}
+/* line 48, ../sass/pages/_caseStudy.scss */
+.case-study-tags li:before {
+  content: "\f02b";
+  color: #000;
+  margin-right: 4px;
+}
+/* line 54, ../sass/pages/_caseStudy.scss */
+.case-study-tags li:first-child {
+  margin-right: 16px;
+}
+/* line 58, ../sass/pages/_caseStudy.scss */
+.case-study-tags a {
+  color: #000;
+}
+
+/* line 62, ../sass/pages/_caseStudy.scss */
+.black-border {
+  height: 20px;
+  background-color: #000;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* line 70, ../sass/pages/_caseStudy.scss */
+.arrow-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background-color: #fff;
+  -moz-border-radius: 50% / 50%;
+  -webkit-border-radius: 50% 50%;
+  border-radius: 50% / 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -2px;
+  text-align: center;
+}
+/* line 81, ../sass/pages/_caseStudy.scss */
+.arrow-icon .fa {
+  font-size: 22px;
+  line-height: 24px;
+  color: #333333;
+}
+
+/*
+**Overview Section
+*/
+/* line 91, ../sass/pages/_caseStudy.scss */
+.social-share-download {
+  width: 100%;
+  padding: 10px 0 6px;
+  border-bottom: solid 1px #999;
+  overflow: hidden;
+}
+/* line 96, ../sass/pages/_caseStudy.scss */
+.social-share-download a {
+  color: #666;
+}
+
+/* line 100, ../sass/pages/_caseStudy.scss */
+.social-share {
+  float: left;
+}
+/* line 102, ../sass/pages/_caseStudy.scss */
+.social-share li {
+  display: inline-block;
+  margin: 0 5px;
+}
+/* line 105, ../sass/pages/_caseStudy.scss */
+.social-share li:first-child {
+  margin-left: 0;
+}
+/* line 109, ../sass/pages/_caseStudy.scss */
+.social-share a {
+  font-size: 28px;
+}
+/* line 112, ../sass/pages/_caseStudy.scss */
+.social-share .lrshare_interfacehorizontal {
+  padding: 0;
+}
+/* line 115, ../sass/pages/_caseStudy.scss */
+.social-share .lrshare_iconsprite32 {
+  background: none;
+  width: auto;
+  height: auto;
+  margin: 0 8px;
+}
+/* line 120, ../sass/pages/_caseStudy.scss */
+.social-share .lrshare_iconsprite32:after {
+  font-size: 28px;
+  color: #666;
+}
+/* line 126, ../sass/pages/_caseStudy.scss */
+.social-share .lrshare_facebook {
+  margin-left: 0;
+}
+
+/* line 131, ../sass/pages/_caseStudy.scss */
+.lrshare_twitter:after {
+  content: '\f081';
+}
+
+/* line 136, ../sass/pages/_caseStudy.scss */
+.lrshare_linkedin:after {
+  content: '\f08c';
+}
+
+/* line 141, ../sass/pages/_caseStudy.scss */
+.lrshare_facebook:after {
+  content: '\f082';
+}
+
+/* line 148, ../sass/pages/_caseStudy.scss */
+.download-print {
+  float: right;
+}
+/* line 150, ../sass/pages/_caseStudy.scss */
+.download-print a {
+  font-size: 14px;
+  font-family: "OpenSans-Regular";
+  margin-right: 16px;
+}
+/* line 154, ../sass/pages/_caseStudy.scss */
+.download-print a:last-of-type {
+  margin-right: 0;
+}
+
+/*
+**Overview Section
+*/
+/* line 163, ../sass/pages/_caseStudy.scss */
+.overview-content {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+/* line 167, ../sass/pages/_caseStudy.scss */
+.overview-content .summary {
+  padding: 20px 18px;
+  background-color: #f2f2f2;
+  margin: 30px 0 40px;
+}
+/* line 172, ../sass/pages/_caseStudy.scss */
+.overview-content p {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 30px;
+  color: #000;
+}
+/* line 178, ../sass/pages/_caseStudy.scss */
+.overview-content img, .overview-content iframe {
+  max-width: 100%;
+}
+/* line 181, ../sass/pages/_caseStudy.scss */
+.overview-content img {
+  height: auto;
+}
+
+/*
+**Continue Reading Section
+*/
+/* line 189, ../sass/pages/_caseStudy.scss */
+.continue-block {
+  margin-top: 35px;
+  overflow: hidden;
+}
+/* line 192, ../sass/pages/_caseStudy.scss */
+.continue-block .section-heading {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+/* line 197, ../sass/pages/_caseStudy.scss */
+.continue-reading {
+  border-top: solid 1px #999;
+  border-bottom: solid 1px #999;
+  margin-bottom: 50px;
+  position: relative;
+}
+/* line 205, ../sass/pages/_caseStudy.scss */
+.continue-reading ul {
+  padding: 0 20px 0 120px;
+  margin: 0;
+  list-style: none;
+}
+/* line 210, ../sass/pages/_caseStudy.scss */
+.continue-reading li {
+  width: 47%;
+  display: inline-block;
+  vertical-align: top;
+  margin: 15px 1%;
+}
+/* line 216, ../sass/pages/_caseStudy.scss */
+.continue-reading a {
+  color: #2A5DB0;
+  font-size: 24px;
+}
+/* line 220, ../sass/pages/_caseStudy.scss */
+.continue-reading .fa {
+  color: #999;
+  font-size: 30px;
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+/*
+**Project Snapshots Section
+*/
+/* line 233, ../sass/pages/_caseStudy.scss */
+.project-snapshot-content {
+  background-color: #f2f2f2;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+/* line 238, ../sass/pages/_caseStudy.scss */
+.project-snapshot-content .fa {
+  font-size: 34px;
+}
+
+/* line 242, ../sass/pages/_caseStudy.scss */
+.project-heading {
+  font-size: 18px;
+  color: #333333;
+  font-family: "OpenSans-Regular";
+  margin: 0 0 15px;
+}
+
+/*
+**Project Snapshot Date Section
+*/
+/* line 252, ../sass/pages/_caseStudy.scss */
+.casestudy-project-date {
+  display: inline-block;
+  vertical-align: top;
+  width: 28%;
+  color: #333333;
+}
+/* line 258, ../sass/pages/_caseStudy.scss */
+.casestudy-project-date:last-of-type .project-year:after {
+  content: initial;
+}
+/* line 262, ../sass/pages/_caseStudy.scss */
+.casestudy-project-date .description {
+  font-size: 16px;
+}
+/* line 264, ../sass/pages/_caseStudy.scss */
+.casestudy-project-date .description p {
+  margin: 2px 0 0;
+}
+
+/* line 269, ../sass/pages/_caseStudy.scss */
+.project-year {
+  font-size: 28px;
+  position: relative;
+}
+/* line 272, ../sass/pages/_caseStudy.scss */
+.project-year:after {
+  position: absolute;
+  content: '';
+  background: url(../images/timeline-image.png) no-repeat center center;
+  width: 115px;
+  height: 9px;
+  display: inline-block;
+  padding: 0 12px;
+  vertical-align: middle;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/*
+**Project Snapshot Cost Section
+*/
+/* line 292, ../sass/pages/_caseStudy.scss */
+.dates-content {
+  padding-bottom: 20px;
+}
+
+/* line 295, ../sass/pages/_caseStudy.scss */
+.cost-value {
+  font-size: 28px;
+  color: #333333;
+  line-height: 28px;
+  font-family: "OpenSans-Regular";
+}
+
+/* line 301, ../sass/pages/_caseStudy.scss */
+.cost-breakup, .cost-data_description {
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+  font-family: "OpenSans-Regular";
+}
+/* line 306, ../sass/pages/_caseStudy.scss */
+.cost-breakup p, .cost-data_description p {
+  margin: 0;
+}
+
+/* line 310, ../sass/pages/_caseStudy.scss */
+.cost-data_description {
+  margin-top: 2px;
+}
+
+/*
+**Project Snapshot Institute Section
+*/
+/* line 317, ../sass/pages/_caseStudy.scss */
+.institution-stakeholder {
+  padding-left: 125px;
+  padding-right: 95px;
+  padding-bottom: 40px;
+}
+/* line 321, ../sass/pages/_caseStudy.scss */
+.institution-stakeholder .fa {
+  margin-bottom: 7px;
+}
+
+/* line 325, ../sass/pages/_caseStudy.scss */
+.detail-wrapper {
+  text-align: left;
+}
+
+/* line 328, ../sass/pages/_caseStudy.scss */
+.institute-detail {
+  width: 46%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 8%;
+  word-wrap: break-word;
+}
+/* line 334, ../sass/pages/_caseStudy.scss */
+.institute-detail h4 {
+  margin: 16px 0 12px;
+}
+/* line 337, ../sass/pages/_caseStudy.scss */
+.institute-detail:nth-child(2n) {
+  margin-right: 0;
+}
+
+/*
+**Knowledge Contributor Section
+*/
+/* line 345, ../sass/pages/_caseStudy.scss */
+.contributor-image {
+  max-width: 102px;
+  display: inline-block;
+}
+
+/* line 349, ../sass/pages/_caseStudy.scss */
+.about-contributor {
+  width: 84%;
+  display: inline-block;
+  margin-left: 2%;
+  vertical-align: top;
+}
+
+/* line 355, ../sass/pages/_caseStudy.scss */
+.contributor-name {
+  font-size: 20px;
+  margin: 0 0 5px;
+  color: #333333;
+  font-family: "OpenSans-Regular";
+}
+
+/* line 361, ../sass/pages/_caseStudy.scss */
+.contributor-about p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+  font-family: "OpenSans-Regular";
+  margin: 0 0 6px;
+}
+
+/*
+**Navigation Section
+*/
+/* line 372, ../sass/pages/_caseStudy.scss */
+.section-navigate {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  padding-top: 15px;
+  border-top: solid 1px #ccc;
+  overflow: hidden;
+}
+/* line 378, ../sass/pages/_caseStudy.scss */
+.section-navigate a {
+  color: #2A5DB0;
+  display: inline-block;
+}
+
+/* line 383, ../sass/pages/_caseStudy.scss */
+.nav-links {
+  font-size: 36px;
+}
+
+/* line 386, ../sass/pages/_caseStudy.scss */
+.next-link {
+  text-align: right;
+  float: right;
+}
+
+/* line 390, ../sass/pages/_caseStudy.scss */
+.prev-link {
+  text-align: left;
+  float: left;
+}
+
+/* line 394, ../sass/pages/_caseStudy.scss */
+.link-name {
+  font-size: 20px;
+  display: block;
+}
+
+/*
+**Useful Content Section
+*/
+/* line 402, ../sass/pages/_caseStudy.scss */
+.useful-content {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 20px 0 12px;
+  border-bottom: solid 3px #fff;
+  margin: 0;
+}
+/* line 408, ../sass/pages/_caseStudy.scss */
+.useful-content .form-type-item {
+  margin: 0;
+}
+/* line 411, ../sass/pages/_caseStudy.scss */
+.useful-content label {
+  font-size: 18px;
+  color: #000;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+/* line 417, ../sass/pages/_caseStudy.scss */
+.useful-content ul {
+  margin: 0;
+}
+/* line 419, ../sass/pages/_caseStudy.scss */
+.useful-content ul li {
+  margin: 0 10px;
+  display: inline-block;
+  float: none;
+}
+/* line 423, ../sass/pages/_caseStudy.scss */
+.useful-content ul li a {
+  background: #333333;
+  color: #fff !important;
+  display: inline-block;
+  -moz-border-radius: 5px / 5px;
+  -webkit-border-radius: 5px 5px;
+  border-radius: 5px / 5px;
+  font-size: 16px;
+  padding: 10px 25px;
+  margin: 0;
+  border: none;
+}
+
+/*
+**casetudy inner Pages
+*/
+/* line 441, ../sass/pages/_caseStudy.scss */
+.casestudy-inner-page .content-type-name {
+  position: static;
+  border-bottom: solid 1px #999;
+}
+/* line 445, ../sass/pages/_caseStudy.scss */
+.casestudy-inner-page .case-study-title {
+  line-height: 42px;
+  color: #333333;
+}
+/* line 450, ../sass/pages/_caseStudy.scss */
+.casestudy-inner-page .project-date {
+  color: #666;
+  margin-top: 18px;
+}
+/* line 454, ../sass/pages/_caseStudy.scss */
+.casestudy-inner-page .case-study-tags {
+  margin-bottom: 0;
+}
+/* line 456, ../sass/pages/_caseStudy.scss */
+.casestudy-inner-page .case-study-tags li {
+  background-color: transparent;
+  border: none;
+}
+/* line 462, ../sass/pages/_caseStudy.scss */
+.casestudy-inner-page .item-list ul li {
+  margin: 0 16px 8px 0;
+}
+/* line 466, ../sass/pages/_caseStudy.scss */
+.casestudy-inner-page .section-navigate {
+  margin-top: 70px;
+}
+
+/* line 473, ../sass/pages/_caseStudy.scss */
+.casestudy-left-nav li {
+  float: none;
+  margin: 5px 0 15px;
+}
+/* line 476, ../sass/pages/_caseStudy.scss */
+.casestudy-left-nav li:first-child {
+  margin: 0 0 15px;
+}
+/* line 480, ../sass/pages/_caseStudy.scss */
+.casestudy-left-nav a {
+  font-size: 16px;
+}
+
+/*
+**Solutions Section
+*/
+/* line 489, ../sass/pages/_caseStudy.scss */
+.facts-section {
+  max-width: 582px;
+  margin: 24px auto;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+/* line 494, ../sass/pages/_caseStudy.scss */
+.facts-section .para-heading {
+  font-size: 20px;
+}
+/* line 497, ../sass/pages/_caseStudy.scss */
+.facts-section ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+/*
+ ** Style for Homepage only.
+ */
+/*
+ ** style for Q&A page only.
+ */
+/* line 5, ../sass/pages/_qa.scss */
+.qna-header-wrapper {
+  background-color: #e4e4e4;
+  padding: 30px 12px;
+}
+
+/* line 13, ../sass/pages/_qa.scss */
+.cards-wrapper {
+  display: inline-block;
+  margin-left: 40px;
+  position: relative;
+}
+
+/* line 18, ../sass/pages/_qa.scss */
+.cards-toggler {
+  color: #2A5DB0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* line 23, ../sass/pages/_qa.scss */
+.cards-toggle-wrapper {
+  position: absolute;
+  left: 0;
+  width: 200px;
+  background-color: #fff;
+  padding: 5px 8px;
+  margin-top: 5px;
+  z-index: 1;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 3px;
+}
+/* line 32, ../sass/pages/_qa.scss */
+.cards-toggle-wrapper a {
+  border-bottom: solid 1px #f2f2f2;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 6px 0;
+  display: block;
+}
+/* line 40, ../sass/pages/_qa.scss */
+.cards-toggle-wrapper > div:last-of-type a {
+  border-bottom: none;
+}
+
+/* line 45, ../sass/pages/_qa.scss */
+.type-description {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/*
+ ** Q&A main content section
+ */
+/* line 55, ../sass/pages/_qa.scss */
+.qa-list {
+  padding: 25px 0;
+  border-bottom: solid 1px #ccc;
+}
+
+/* line 59, ../sass/pages/_qa.scss */
+.row-counter {
+  width: 42px;
+  height: 42px;
+  background-color: #333333;
+  color: #fff;
+  font-size: 24px;
+  display: inline-block;
+  margin-right: 34px;
+  -moz-border-radius: 50% / 50%;
+  -webkit-border-radius: 50% 50%;
+  border-radius: 50% / 50%;
+  text-align: center;
+  line-height: 42px;
+  vertical-align: top;
+}
+
+/* line 72, ../sass/pages/_qa.scss */
+.title-body-wrapper {
+  display: inline-block;
+  width: 89%;
+}
+
+/* line 76, ../sass/pages/_qa.scss */
+.qna-title {
+  color: #2A5DB0;
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+
+/* line 82, ../sass/pages/_qa.scss */
+.qna-summary p {
+  margin: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
