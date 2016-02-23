@@ -189,10 +189,9 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['header']['sharethis']['id'] = 'sharethis';
   $handler->display->display_options['header']['sharethis']['table'] = 'views';
   $handler->display->display_options['header']['sharethis']['field'] = 'sharethis';
-  $handler->display->display_options['header']['sharethis']['content'] = array(
-    'value' => '',
-    'format' => 'full_html',
-  );
+  $handler->display->display_options['header']['sharethis']['content'] = '[title]';
+  $handler->display->display_options['header']['sharethis']['tokenize'] = TRUE;
+  $handler->display->display_options['header']['sharethis']['share_path'] = 'node/!1';
   /* Header: Global: Print Link */
   $handler->display->display_options['header']['print']['id'] = 'print';
   $handler->display->display_options['header']['print']['table'] = 'views';
