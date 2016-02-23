@@ -5,8 +5,6 @@
  * Code for the ADB Case Study feature.
  */
 include_once 'adb_case_study.features.inc';
-module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
-
 
 /**
  * Custom module responsible for various specific customizations on
@@ -71,7 +69,7 @@ function _adb_case_study_block_subsection_navigation() {
   $next = $current_index + 1;
   $prev = $current_index - 1;
   if (isset($current_path[1]) && is_numeric($current_path[1])) {
-    $navigation = '<div class="navigation-content">';
+    $navigation = '<div class="section-navigate"><div class="navigation-content">';
     if ($prev > 0) {
       $navigation .= l(t('<span class="nav-links"><i class="fa fa-angle-left"></i> Previous</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$prev]])), $key_array_indexing[$prev] . '/' . $current_path[1], array(
         'attributes' => array(
@@ -91,7 +89,7 @@ function _adb_case_study_block_subsection_navigation() {
         'html' => TRUE,
       ));
     }
-    $navigation .= '</div>';
+    $navigation .= '</div></div>';
   }
   return $navigation;
 }
@@ -100,6 +98,7 @@ function _adb_case_study_block_subsection_navigation() {
  * Implements hook_block_view().
  */
 function adb_case_study_block_view($delta = '') {
+  module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
   $block = array();
   $nid = arg(1);
   switch ($delta) {
@@ -146,7 +145,7 @@ function adb_case_study_block_view($delta = '') {
  *  @param  &$variables
  */
 function adb_case_study_preprocess_node(&$variables) {
-
+  module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
   // Need in creating link with base_url.
   global $baseUrl;
 
@@ -470,5 +469,46 @@ function adb_case_study_topic_validate($form, &$form_state) {
 
   if (!$validate) {
     form_set_error('field_topic', t('Only one parent is allowed for topics'));
+  }
+}
+
+/**
+ * 
+ *  @param type string
+ */
+function adb_case_study_preprocess_views_view(&$vars) {
+  if ($vars['view']->name == 'header_block_view') {
+    $nid = arg(1);
+    // Get Current node id from url.
+    if (isset($nid) && is_numeric($nid)) {
+      $node = entity_metadata_wrapper('node', $nid);
+      $download_file_url = $node->field_download_file->value();
+      // Create and appand structure of HTML in banner.
+      $header_content = "<div class='banner-node'><div class='inner-banner-node-info'>";
+      $header_content .= $vars['header'];
+      $header_content .= "</div></div><div class='social-share-download'>"
+        . "<div class='wrapper-section'><div class='social-share'>"
+        . "<span>Social share</div></div><div class='download-print'>";
+      $header_content .= l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $nid, array(
+        'attributes' => array(
+          'class' => 'print-link',
+        ),
+        'html' => TRUE,
+      ));
+
+      // Get file download url.
+      if (isset($download_file_url['uri'])) {
+        $header_content .= l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($download_file_url['uri']), array(
+          'attributes' => array(
+            'target' => '_blank',
+            'class' => 'download-link',
+          ),
+          'html' => TRUE,
+        ));
+      }
+      $header_content .= "</div></div></div></div>";
+      // Set header value of views.
+      $vars['header'] = $header_content;
+    }
   }
 }
