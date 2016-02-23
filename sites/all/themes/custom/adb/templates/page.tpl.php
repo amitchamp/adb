@@ -145,6 +145,9 @@
     <!-- !Secondary Content Region -->
     <?php print render($page['secondary_content']); ?>
 
+    <!-- Inner pages header -->
+    <?php print render($page['banner']); ?>
+
     <div id="columns" class="columns clearfix <?php print $main_content_sidebar_first_class; ?>">
       <main id="content-column" class="content-column" role="main">
         <div class="content-inner">

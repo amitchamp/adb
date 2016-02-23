@@ -203,30 +203,27 @@
 	@extend %hide;
   }
   ul {
-	padding: 0 20px 0 120px;
-	margin: 0;
-	list-style: none;
+  	padding: 0 20px 0 120px;
+  	margin: 0;
+  	list-style: none;
   }
   li{
-	width: 47%;
-	display: inline-block;
-	vertical-align: top;
-	margin: 15px 1%;
+  	width: 47%;
+  	display: inline-block;
+  	vertical-align: top;
+  	margin: 15px 1%;
   }
   a {
-	color: $link;
-	font-size: ($base-font)+10;
-	&.active {
-	  color: $link;
-	}
+  	color: $link;
+  	font-size: ($base-font)+10;
   }
   .fa {
-	color: $grey;
-	font-size: ($base-font)+16;
-	position: absolute;
-	top: -11px;
-	left: 50%;
-	@include transform (translateX(-50%));
+  	color: $grey;
+  	font-size: ($base-font)+16;
+  	position: absolute;
+  	top: -11px;
+  	left: 50%;
+  	@include transform (translateX(-50%));
   }
 }
 
@@ -476,6 +473,9 @@
   li {
     float: none;
     margin: 5px 0 15px;
+    &: first-child {
+      margin: 0 0 15px;
+    }
   }
   a {
     font-size: ($base-font)+2;

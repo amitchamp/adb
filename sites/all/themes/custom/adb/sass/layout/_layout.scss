@@ -35,3 +35,19 @@ header {
 .main-heading {
   font-size: ($base-font)+14;
 }
+
+
+.sidebar-first-pages {
+  @extend %flex-row;
+  @extend %wrap-reverse;
+  /*display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: flex-end;*/
+  #content-column {
+    width:80%;
+  }
+  .sidebar {
+    width:20%;
+    padding-right: 20px;
+  }
+}
