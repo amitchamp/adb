@@ -41,27 +41,30 @@ class AdbViewsSharethisHandler extends views_handler_area_text {
    */
   public function render($empty = FALSE) {
     if ($this->options['tokenize']) {
-      // Get share title
+      // Get share title.
       // But also make sure output is sanitized.
       $value = $this->view->style_plugin->tokenize_value($this->options['content'], 0);
       $share_title = $this->sanitize_value($value, 'xss_admin');
 
-      // Get share path
+      // Get share path.
       // But also make sure output is sanitized.
       $value = $this->view->style_plugin->tokenize_value($this->options['share_path'], 0);
       $path = $this->sanitize_value($value, 'xss_admin');
       $share_path = url($path, array('absolute' => TRUE));
-    } else {
-      if (isset($this->options['content']) && $this->options['content'] != '') {
-        $share_title = $this->view->style_plugin->tokenize_value($this->options['content'], 0);
-      } else {
+    }
+    else {
+      if (!empty($this->options['content'])) {
+        $share_title = $this->options['content'];
+      }
+      else {
         $share_title = decode_entities(drupal_get_title());    
       }
 
-      if (isset($this->options['share_path']) && $this->options['share_path'] != '') {
-        $path = $this->view->style_plugin->tokenize_value($this->options['share_path'], 0);
+      if (!empty($this->options['share_path'])) {
+        $path = $this->options['share_path'];
         $share_path = url($path, array('absolute' => TRUE));
-      } else {
+      }
+      else {
         $path = isset($_GET['q']) ? $_GET['q'] : '<front>';
         if ($path == variable_get('site_frontpage')) {
           $path = "<front>";
@@ -73,13 +76,11 @@ class AdbViewsSharethisHandler extends views_handler_area_text {
 
     $data_options = sharethis_get_options_array();
 
-    return theme('sharethis', 
-                  array(
-                    'data_options' => $data_options, 
-                    'm_path' => $share_path, 
-                    'm_title' => $share_title
-                  )
-                );
+    return theme('sharethis', array(
+        'data_options' => $data_options, 
+        'm_path' => $share_path, 
+        'm_title' => $share_title
+      )
+    );
   }
-
 }
