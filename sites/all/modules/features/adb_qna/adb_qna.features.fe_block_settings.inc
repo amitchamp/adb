@@ -45,5 +45,37 @@ taxonomy/term/*',
     'visibility' => 1,
   );
 
+  $export['views-26bb7f36bbfa0f556d67c85d626bd03a'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => '26bb7f36bbfa0f556d67c85d626bd03a',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'qa/*',
+    'roles' => array(),
+    'themes' => array(
+      'adb' => array(
+        'region' => 'sidebar_first',
+        'status' => 1,
+        'theme' => 'adb',
+        'weight' => 0,
+      ),
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 1,
+  );
+
   return $export;
 }

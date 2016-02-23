@@ -74,6 +74,7 @@ function adb_case_study_field_default_field_instances() {
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
+        'summary_display' => 'default',
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
@@ -111,6 +112,7 @@ function adb_case_study_field_default_field_instances() {
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
+        'summary_display' => 'default',
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
@@ -148,6 +150,7 @@ function adb_case_study_field_default_field_instances() {
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
+        'summary_display' => 'default',
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
@@ -330,6 +333,7 @@ function adb_case_study_field_default_field_instances() {
     ),
   );
 
+
   // Exported field_instance:
   // 'field_collection_item-field_impact-field_description_body'.
   $field_instances['field_collection_item-field_impact-field_description_body'] = array(
@@ -366,6 +370,7 @@ function adb_case_study_field_default_field_instances() {
       'weight' => 5,
     ),
   );
+
 
   // Exported field_instance: 'field_collection_item-field_impact-field_unit'.
   $field_instances['field_collection_item-field_impact-field_unit'] = array(
@@ -657,6 +662,7 @@ function adb_case_study_field_default_field_instances() {
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
+        'summary_display' => 'default',
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
@@ -782,6 +788,7 @@ function adb_case_study_field_default_field_instances() {
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
+        'summary_display' => 'default',
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
@@ -818,7 +825,8 @@ function adb_case_study_field_default_field_instances() {
     'label' => 'Body',
     'required' => 0,
     'settings' => array(
-      'display_summary' => 0,
+      'display_summary' => 1,
+      'summary_display' => 'visible',
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -827,10 +835,11 @@ function adb_case_study_field_default_field_instances() {
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
+        'summary_display' => 'default',
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 4,
+      'weight' => 2,
     ),
   );
 
@@ -1164,7 +1173,7 @@ function adb_case_study_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_date',
     'label' => 'Date',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'default_value' => 'now',
       'default_value2' => 'same',
@@ -1311,6 +1320,7 @@ function adb_case_study_field_default_field_instances() {
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
+        'summary_display' => 'default',
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
@@ -1565,7 +1575,7 @@ function adb_case_study_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -1593,7 +1603,7 @@ function adb_case_study_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_topic',
     'label' => 'Topic',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -1602,7 +1612,7 @@ function adb_case_study_field_default_field_instances() {
       'module' => 'hs_taxonomy',
       'settings' => array(),
       'type' => 'taxonomy_hs',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -1643,6 +1653,7 @@ function adb_case_study_field_default_field_instances() {
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
+        'summary_display' => 'default',
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
