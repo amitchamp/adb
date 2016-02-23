@@ -163,12 +163,6 @@
             <?php if ($title || $primary_local_tasks || $secondary_local_tasks || $action_links = render($action_links)): ?>
               <header<?php print $content_header_attributes; ?>>
 
-                <!--<?php if ($title): ?>
-                  <h1 id="page-title">
-                    <?php print $title; ?>
-                  </h1>
-                <?php endif; ?>-->
-
                 <?php if (($primary_local_tasks || $secondary_local_tasks || $action_links) && $is_admin): ?>
                   <div id="tasks">
 

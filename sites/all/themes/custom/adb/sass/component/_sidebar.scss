@@ -2,3 +2,16 @@
  ** Layout design for sidebar.
  */
 
+.casestudy-left-nav {
+  @extend %inline-menu;
+  li {
+    float: none;
+    margin: 5px 0 15px;
+    &:first-child {
+      margin: 0 0 15px;
+    }
+  }
+  a {
+    font-size: ($base-font)+2;
+  }
+}

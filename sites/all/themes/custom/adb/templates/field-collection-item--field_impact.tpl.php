@@ -28,14 +28,14 @@
  * @see template_process()
  */
 ?>
-	<div class="<?php print $classes; ?> clearfix impact-list"<?php print $attributes; ?>>
-	  <div class="content"<?php print $content_attributes; ?>>
-	    <div class="impact-value-unit-wrapper">
-	      <?php print render($content['field_value']); ?>
-	      <?php print render($content['field_unit']); ?>
-	    </div>
-	    <div class="impact-description-wrapper">
-	      <?php print render($content['field_description']); ?>
-	    </div>
-	  </div>
-	</div>
+<div class="<?php print $classes; ?> clearfix impact-list"<?php print $attributes; ?>>
+  <div class="content"<?php print $content_attributes; ?>>
+    <div class="impact-value-unit-wrapper">
+      <?php print render($content['field_value']); ?>
+      <?php print render($content['field_unit']); ?>
+    </div>
+    <div class="impact-description-wrapper">
+      <?php print render($content['field_description']); ?>
+    </div>
+  </div>
+</div>

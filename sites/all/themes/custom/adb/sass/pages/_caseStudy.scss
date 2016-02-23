@@ -456,8 +456,9 @@
 }
 
 /*
-**casetudy inner Pages
+**casetudy inner Pages banner section
 */
+
 .casestudy-inner-page {
   .content-type-name {
     position: static;
@@ -487,20 +488,6 @@
     ul li {
   	  margin: 0 16px 8px 0;
     }
-  }
-}
-
-.casestudy-left-nav {
-  @extend %inline-menu;
-  li {
-    float: none;
-    margin: 5px 0 15px;
-    &:first-child {
-      margin: 0 0 15px;
-    }
-  }
-  a {
-    font-size: ($base-font)+2;
   }
 }
 
@@ -554,12 +541,13 @@
 **Impact Section
 */
 
-.lessions-page {
+.lessons-page {
   p {
-    margin: 0 0 15px;
+    margin: 0 0 20px;
   }
-}
-.lessons-title {
-  font-size: ($base-font)+6;
-  margin: 0;
+  h3 {
+    font-size: ($base-font)+6;
+    line-height: ($base-font)+16;
+    margin: 0;
+  }
 }
