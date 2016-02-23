@@ -14,3 +14,17 @@ function adb_views_listjs_views_api() {
     'path' => drupal_get_path('module', 'adb_views_listjs') . '/includes/views',
   );
 }
+
+/**
+ * Implements hook_theme().
+ */
+function adb_views_listjs_theme($existing, $type, $theme, $path) {
+  return array(
+    'adb_listjs' => array(
+      'variables' => array(
+        'placeholder_text' => NULL,
+        'items' => NULL,
+      ),
+    ),
+  );
+}

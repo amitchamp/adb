@@ -29,30 +29,20 @@ class AdbViewsListjsPluginStyleListjs extends views_plugin_style {
    * Render the display in this style.
    */
   function render() {
-
     // Group the rows according to the grouping field, if specified.
-    //$sets = $this->render_grouping($this->view->result, $this->options['grouping']);
+    $sets = $this->render_grouping($this->view->result, $this->options['grouping']);
 
     // Render each group separately and concatenate.
-    $output = 'sexy';
+    $output = '';
 
-    /*foreach ($sets as $title => $rows) {
-      // Add caption field if chosen.
-      if (!empty($this->options['captionfield'])) {
-        $caption_field = $this->options['captionfield'];
-        foreach ($rows as $index => $row) {
-          $rows[$index]->caption = $this->rendered_fields[$index][$caption_field];
-        }
-      }
-      $output .= theme($this->theme_functions(),
-        array(
-          'view' => $this->view,
-          'options' => $this->options,
-          'rows' => $rows,
-          'title' => $title
-        )
-      );
-    }*/
+    foreach ($sets as $title => $rows) {
+      $output .= theme($this->theme_functions(), array(
+        'view' => $this->view,
+        'options' => $this->options,
+        'rows' => $rows,
+        'title' => $title,
+      ));
+    }
 
     return $output;
   }
