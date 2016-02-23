@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ADB Policy Brief feature.
+ */
+
+include_once 'adb_policy_brief.features.inc';
