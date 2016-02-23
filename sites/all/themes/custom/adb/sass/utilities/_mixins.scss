@@ -100,3 +100,9 @@
   overflow: hidden;
   outline: 0;
 }
+
+
+@mixin flex-direction($dir) {
+  -webkit-flex-direction: $dir;
+  flex-direction: $dir; 
+}
