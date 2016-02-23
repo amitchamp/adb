@@ -15,6 +15,10 @@ class AdbViewsListjsPluginStyleListjs extends views_plugin_style {
    */
   function option_definition() {
     $options = parent::option_definition();
+
+    // More options.
+    $options['placeholder_text'] = array('default' => FALSE);
+
     return $options;
   }
 
@@ -23,6 +27,12 @@ class AdbViewsListjsPluginStyleListjs extends views_plugin_style {
    */
   function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
+
+    $form['placeholder_text'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Placeholder text for search box'),
+      '#default_value' => $this->options['placeholder_text'],
+    );
   }
 
   /**
@@ -40,7 +50,6 @@ class AdbViewsListjsPluginStyleListjs extends views_plugin_style {
         'view' => $this->view,
         'options' => $this->options,
         'rows' => $rows,
-        'title' => $title,
       ));
     }
 

@@ -16,18 +16,15 @@ function template_preprocess_adb_listjs(&$variables) {
 
     $row_plugin = $view->style_plugin->row_plugin;
 
+    // Prepare items to be shown in the list.
     foreach ($variables['rows'] as $id => $row) {
-      // Render the row into a slide
       $view->row_index = $id;
       $item['title'] = $row_plugin->render($row);
       $items[] = $item;
     }
 
-    // Add the items to the variables.
     $variables['items'] = $items;
-
-    // @TODO make this configurable.
-    $variables['placeholder_text'] = t('Change this');
+    $variables['placeholder_text'] = $variables['options']['placeholder_text'];
   }
 
   drupal_add_js(drupal_get_path('module', 'adb_views_listjs') . '/js/list.min.js');
