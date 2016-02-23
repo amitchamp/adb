@@ -486,9 +486,9 @@ function adb_case_study_preprocess_views_view(&$vars) {
       // Create and appand structure of HTML in banner.
       $header_content = "<div class='banner-node'><div class='inner-banner-node-info'>";
       $header_content .= $vars['header'];
-      $header_content .= "</div></div><div class='social-share-download'>"
+      $header_content .= "</div><div class='social-share-download'>"
         . "<div class='wrapper-section'><div class='social-share'>"
-        . "<span>Social share</div></div><div class='download-print'>";
+        . "<span>Social share</span></div><div class='download-print'>";
       $header_content .= l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $nid, array(
         'attributes' => array(
           'class' => 'print-link',
