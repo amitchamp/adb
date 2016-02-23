@@ -15,6 +15,7 @@ dependencies[] = adb_views_sharethis
 dependencies[] = admin_menu
 dependencies[] = admin_menu_toolbar
 dependencies[] = block
+dependencies[] = block_class
 dependencies[] = ckeditor
 dependencies[] = color
 dependencies[] = comment

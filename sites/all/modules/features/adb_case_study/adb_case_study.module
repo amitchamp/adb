@@ -6,7 +6,6 @@
  */
 include_once 'adb_case_study.features.inc';
 
-
 /**
  * Custom module responsible for various specific customizations on
  * menu showing on node case study for subsections.
@@ -27,27 +26,13 @@ function adb_case_study_block_info() {
   $blocks['section_navigation'] = array(
     'info' => t('Sub section navigation in landing page'),
   );
+  $blocks['comment_form'] = array(
+    'info' => t('Comment form block'),
+  );
+  $blocks['rate_widget'] = array(
+    'info' => t('Rate widget block'),
+  );
   return $blocks;
-}
-
-/**
- * Implements hook_block_view().
- */
-function adb_case_study_block_view($delta = '') {
-  $block = array();
-  switch ($delta) {
-    case 'subsection_menu':
-      $block['subject'] = '';
-      // Function call for getting render content of list.
-      $block['content'] = _adb_case_study_block_sub_sction_menu_content();
-      break;
-    case 'section_navigation':
-      $block['subject'] = '';
-      // Function call for getting render content of list.
-      $block['content'] = _adb_case_study_block_subsection_navigation();
-      break;
-  }
-  return $block;
 }
 
 /**
@@ -84,7 +69,7 @@ function _adb_case_study_block_subsection_navigation() {
   $next = $current_index + 1;
   $prev = $current_index - 1;
   if (isset($current_path[1]) && is_numeric($current_path[1])) {
-    $navigation = '<div class="navigation-content">';
+    $navigation = '<div class="section-navigate"><div class="navigation-content">';
     if ($prev > 0) {
       $navigation .= l(t('<span class="nav-links"><i class="fa fa-angle-left"></i> Previous</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$prev]])), $key_array_indexing[$prev] . '/' . $current_path[1], array(
         'attributes' => array(
@@ -104,58 +89,51 @@ function _adb_case_study_block_subsection_navigation() {
         'html' => TRUE,
       ));
     }
-    $navigation .= '</div>';
+    $navigation .= '</div></div>';
   }
   return $navigation;
 }
 
 /**
- *  Define menu link for custom section on case study.
- *  We are getting curent node nid and link url for another view content.
- *  @return string
+ * Implements hook_block_view().
  */
-function _adb_case_study_block_sub_sction_menu_content() {
-
-  // Get current path and get node ID.
-  $current_path = explode('/', current_path());
-  $current_node = $current_path[1];
-  if (isset($current_node) && is_numeric($current_node)) {
-
-    // Create link for sub section menu and combine for continue reading.
-    $linklist = array(
-      'overview' => array(
-        'title' => t('Overview'),
-        'href' => 'node/' . $current_node
-      ),
-      'context' => array(
-        'title' => t('Context'),
-        'href' => 'context/' . $current_node
-      ),
-      'challenges' => array(
-        'title' => t('Challenges'),
-        'href' => 'challenges/' . $current_node
-      ),
-      'solutions' => array(
-        'title' => t('Solutions'),
-        'href' => 'solutions/' . $current_node
-      ),
-      'impact' => array(
-        'title' => t('Impact'),
-        'href' => 'impact/' . $current_node
-      ),
-      'lessons' => array(
-        'title' => t('Lessons'),
-        'href' => 'lessons/' . $current_node
-      ),
-      'resources' => array(
-        'title' => t('Additional resources'),
-        'href' => 'resources/' . $current_node
-      )
-    );
+function adb_case_study_block_view($delta = '') {
+  module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
+  $block = array();
+  $nid = arg(1);
+  switch ($delta) {
+    case 'subsection_menu':
+      $block['subject'] = '';
+      // Function call for getting render content of list.
+      $block['content'] = array(
+        '#markup' => _adb_case_study_block_sub_sction_menu_content(),
+      );
+      break;
+    case 'section_navigation':
+      $block['subject'] = '';
+      // Function call for getting render content of list.
+      $block['content'] = array(
+        '#markup' => _adb_case_study_block_subsection_navigation(),
+      );
+      break;
+    case 'comment_form':
+      // Function call for getting render comment form.
+      if (isset($nid) && is_numeric($nid)) {
+        $block['content'] = array(
+          '#markup' => _adb_case_study_comment_form_block($nid),
+        );
+      }
+      break;
+    case 'rate_widget':
+      // Function call for getting render comment form..
+      if (isset($nid) && is_numeric($nid)) {
+        $block['content'] = array(
+          '#markup' => _adb_case_study_rate_widget_block($nid),
+        );
+      }
+      break;
   }
-
-  // Call render list items.
-  return adb_case_study_get_theme_list_content($linklist);
+  return $block;
 }
 
 /**
@@ -167,7 +145,7 @@ function _adb_case_study_block_sub_sction_menu_content() {
  *  @param  &$variables
  */
 function adb_case_study_preprocess_node(&$variables) {
-
+  module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
   // Need in creating link with base_url.
   global $baseUrl;
 
@@ -244,7 +222,7 @@ function adb_case_study_preprocess_node(&$variables) {
     }
     $variables['social_share'] = $share_output;
 
-    // Body conten
+    // Body content.
     $variables['body'] = $variables['body'][0]['value'];
 
 
@@ -491,5 +469,46 @@ function adb_case_study_topic_validate($form, &$form_state) {
 
   if (!$validate) {
     form_set_error('field_topic', t('Only one parent is allowed for topics'));
+  }
+}
+
+/**
+ * 
+ *  @param type string
+ */
+function adb_case_study_preprocess_views_view(&$vars) {
+  if ($vars['view']->name == 'header_block_view') {
+    $nid = arg(1);
+    // Get Current node id from url.
+    if (isset($nid) && is_numeric($nid)) {
+      $node = entity_metadata_wrapper('node', $nid);
+      $download_file_url = $node->field_download_file->value();
+      // Create and appand structure of HTML in banner.
+      $header_content = "<div class='banner-node'><div class='inner-banner-node-info'>";
+      $header_content .= $vars['header'];
+      $header_content .= "</div><div class='social-share-download'>"
+        . "<div class='wrapper-section'><div class='social-share'>"
+        . "<span>Social share</span></div><div class='download-print'>";
+      $header_content .= l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $nid, array(
+        'attributes' => array(
+          'class' => 'print-link',
+        ),
+        'html' => TRUE,
+      ));
+
+      // Get file download url.
+      if (isset($download_file_url['uri'])) {
+        $header_content .= l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($download_file_url['uri']), array(
+          'attributes' => array(
+            'target' => '_blank',
+            'class' => 'download-link',
+          ),
+          'html' => TRUE,
+        ));
+      }
+      $header_content .= "</div></div></div></div>";
+      // Set header value of views.
+      $vars['header'] = $header_content;
+    }
   }
 }

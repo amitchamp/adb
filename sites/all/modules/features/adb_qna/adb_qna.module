@@ -64,42 +64,72 @@ function adb_qna_block_view($delta = '') {
         $node_wrapper = entity_metadata_wrapper('node', arg(1));
         $field_topic = $node_wrapper->field_topic->raw();
         // Only one topic is allowed for QnA.
-        $current_term_tid = $field_topic[0];
+        $current_term_tid = !empty($field_topic) ? $field_topic[0] : null;
       }
       else if (arg(0) == 'taxonomy') {
         $current_term_tid = arg(2);
       }
 
-      // Obtain metadata that we are going to show in header.
-      $content_types = node_type_get_types();
-      $current_term_wrapper = entity_metadata_wrapper('taxonomy_term', $current_term_tid);
-      $parents = taxonomy_get_parents($current_term_tid);
+      // If topics not set, do not display header.
+      if (!empty($current_term_tid)) {
+        // Obtain metadata that we are going to show in header.
+        $content_types = node_type_get_types();
+        $current_term_wrapper = entity_metadata_wrapper('taxonomy_term', $current_term_tid);
+        $parents = taxonomy_get_parents($current_term_tid);
 
-      if (empty($parents)) {
-        $vocabulary = taxonomy_vocabulary_machine_name_load('topics');
-        // Make sure you show only the parent terms.
-        $siblings = taxonomy_get_tree($vocabulary->vid, $parent = 0, $depth = 1);
+        if (empty($parents)) {
+          $vocabulary = taxonomy_vocabulary_machine_name_load('topics');
+          // Make sure you show only the parent terms.
+          $siblings = taxonomy_get_tree($vocabulary->vid, $parent = 0, $depth = 1);
+        }
+        else {
+          $term = array_shift($parents);
+          $siblings = taxonomy_get_children($term->tid);
+        }
+
+        $block['content'] = array(
+          '#theme' => 'adb_qna_header',
+          '#type_name' => $content_types['question_answer']->name,
+          '#current_term_name' => $current_term_wrapper->label(),
+          '#current_term_description' => $current_term_wrapper->description->raw(),
+          '#siblings' => $siblings,
+          '#attached' => array(
+            'js' => array(
+              drupal_get_path('module', 'adb_qna') . '/js/adb_qna.js',
+            ),
+          ),
+        );
       }
       else {
-        $term = array_shift($parents);
-        $siblings = taxonomy_get_children($term->tid);
+        $block['content'] = '';
       }
-
-      $block['content'] = array(
-        '#theme' => 'adb_qna_header',
-        '#type_name' => $content_types['question_answer']->name,
-        '#current_term_name' => $current_term_wrapper->label(),
-        '#current_term_description' => $current_term_wrapper->description->raw(),
-        '#siblings' => $siblings,
-        '#attached' => array(
-          'js' => array(
-            drupal_get_path('module', 'adb_qna') . '/js/adb_qna.js',
-          ),
-        ),
-      );
 
       break;
   }
 
   return $block;
+}
+
+/**
+ * Implements HOOK_preprocess_node().
+ */
+function adb_qna_preprocess_node(&$variables) {
+  if ($variables['type'] == 'question_answer') {
+    // @todo Change API for rendering sharing links once implementation is
+    // finalized.
+    $variables['social_share'] = simplified_social_share_horizontal_sharing_div();
+    $variables['print_node'] = l(t('Print'), 'print/node/' . $variables['nid']);
+    // @todo Change download link once implementation is finalized.
+    $variables['download_link'] = l(t('Download'), '<front>');
+    // Display tags.
+    $vocabulary_fields = array(
+      'field_tags',
+      'field_topic',
+      'field_countries',
+    );
+    $formatted_list = adb_case_study_make_term_tagging($vocabulary_fields, $variables);
+    if (!empty($formatted_list)) {
+      $variables['node_field_tagging'] = $formatted_list;
+    }
+  }
 }
