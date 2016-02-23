@@ -27,27 +27,13 @@ function adb_case_study_block_info() {
   $blocks['section_navigation'] = array(
     'info' => t('Sub section navigation in landing page'),
   );
+  $blocks['comment_form'] = array(
+    'info' => t('Comment form block'),
+  );
+  $blocks['rate_widget'] = array(
+    'info' => t('Rate widget block'),
+  );
   return $blocks;
-}
-
-/**
- * Implements hook_block_view().
- */
-function adb_case_study_block_view($delta = '') {
-  $block = array();
-  switch ($delta) {
-    case 'subsection_menu':
-      $block['subject'] = '';
-      // Function call for getting render content of list.
-      $block['content'] = _adb_case_study_block_sub_sction_menu_content();
-      break;
-    case 'section_navigation':
-      $block['subject'] = '';
-      // Function call for getting render content of list.
-      $block['content'] = _adb_case_study_block_subsection_navigation();
-      break;
-  }
-  return $block;
 }
 
 /**
@@ -110,52 +96,45 @@ function _adb_case_study_block_subsection_navigation() {
 }
 
 /**
- *  Define menu link for custom section on case study.
- *  We are getting curent node nid and link url for another view content.
- *  @return string
+ * Implements hook_block_view().
  */
-function _adb_case_study_block_sub_sction_menu_content() {
-
-  // Get current path and get node ID.
-  $current_path = explode('/', current_path());
-  $current_node = $current_path[1];
-  if (isset($current_node) && is_numeric($current_node)) {
-
-    // Create link for sub section menu and combine for continue reading.
-    $linklist = array(
-      'overview' => array(
-        'title' => t('Overview'),
-        'href' => 'node/' . $current_node
-      ),
-      'context' => array(
-        'title' => t('Context'),
-        'href' => 'context/' . $current_node
-      ),
-      'challenges' => array(
-        'title' => t('Challenges'),
-        'href' => 'challenges/' . $current_node
-      ),
-      'solutions' => array(
-        'title' => t('Solutions'),
-        'href' => 'solutions/' . $current_node
-      ),
-      'impact' => array(
-        'title' => t('Impact'),
-        'href' => 'impact/' . $current_node
-      ),
-      'lessons' => array(
-        'title' => t('Lessons'),
-        'href' => 'lessons/' . $current_node
-      ),
-      'resources' => array(
-        'title' => t('Additional resources'),
-        'href' => 'resources/' . $current_node
-      )
-    );
+function adb_case_study_block_view($delta = '') {
+  $block = array();
+  module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
+  $nid = arg(1);
+  switch ($delta) {
+    case 'subsection_menu':
+      $block['subject'] = '';
+      // Function call for getting render content of list.
+      $block['content'] = array(
+        '#markup' => _adb_case_study_block_sub_sction_menu_content(),
+      );
+      break;
+    case 'section_navigation':
+      $block['subject'] = '';
+      // Function call for getting render content of list.
+      $block['content'] = array(
+        '#markup' => _adb_case_study_block_subsection_navigation(),
+      );
+      break;
+    case 'comment_form':
+      // Function call for getting render comment form.
+      if (isset($nid) && is_numeric($nid)) {
+        $block['content'] = array(
+          '#markup' => _adb_case_study_comment_form_block($nid),
+        );
+      }
+      break;
+    case 'rate_widget':
+      // Function call for getting render comment form..
+      if (isset($nid) && is_numeric($nid)) {
+        $block['content'] = array(
+          '#markup' => _adb_case_study_rate_widget_block($nid),
+        );
+      }
+      break;
   }
-
-  // Call render list items.
-  return adb_case_study_get_theme_list_content($linklist);
+  return $block;
 }
 
 /**
@@ -244,7 +223,7 @@ function adb_case_study_preprocess_node(&$variables) {
     }
     $variables['social_share'] = $share_output;
 
-    // Body conten
+    // Body content.
     $variables['body'] = $variables['body'][0]['value'];
 
 
