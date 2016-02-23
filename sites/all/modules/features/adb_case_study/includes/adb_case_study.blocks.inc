@@ -2,7 +2,7 @@
 
 /**
  * @file
- * ADB global functions block callbacks.
+ * ADB case study block callbacks.
  */
 
 /**
