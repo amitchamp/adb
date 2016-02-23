@@ -128,7 +128,7 @@ resources/*',
 
   $export['adb_case_study-subsection_menu'] = array(
     'cache' => 1,
-    'css_class' => '',
+    'css_class' => 'casestudy-left-nav',
     'custom' => 0,
     'delta' => 'subsection_menu',
     'module' => 'adb_case_study',

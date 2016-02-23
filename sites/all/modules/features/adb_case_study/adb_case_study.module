@@ -69,7 +69,7 @@ function _adb_case_study_block_subsection_navigation() {
   $next = $current_index + 1;
   $prev = $current_index - 1;
   if (isset($current_path[1]) && is_numeric($current_path[1])) {
-    $navigation = '<div class="navigation-content">';
+    $navigation = '<div class="section-navigate"><div class="navigation-content">';
     if ($prev > 0) {
       $navigation .= l(t('<span class="nav-links"><i class="fa fa-angle-left"></i> Previous</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$prev]])), $key_array_indexing[$prev] . '/' . $current_path[1], array(
         'attributes' => array(
@@ -89,7 +89,7 @@ function _adb_case_study_block_subsection_navigation() {
         'html' => TRUE,
       ));
     }
-    $navigation .= '</div>';
+    $navigation .= '</div></div>';
   }
   return $navigation;
 }
