@@ -29,7 +29,7 @@ function adb_qna_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_plugin'] = 'adb_views_listjs';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Content: Topic (field_topic) */
   $handler->display->display_options['relationships']['field_topic_tid']['id'] = 'field_topic_tid';
