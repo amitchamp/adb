@@ -42,7 +42,7 @@ function adb_case_study_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_knowledge_contributor';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_default_mode_knowledge_contributor'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -70,7 +70,7 @@ function adb_case_study_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_knowledge_contributor';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_form_location_knowledge_contributor'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -105,7 +105,7 @@ function adb_case_study_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_knowledge_contributor';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_knowledge_contributor'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -148,6 +148,9 @@ function adb_case_study_strongarm() {
         'title' => array(
           'weight' => '0',
         ),
+        'path' => array(
+          'weight' => '11',
+        ),
       ),
       'display' => array(
         'sharethis' => array(
@@ -170,7 +173,10 @@ function adb_case_study_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '4',
         ),
       ),
       'display' => array(),
@@ -239,7 +245,7 @@ function adb_case_study_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_knowledge_contributor';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_knowledge_contributor'] = $strongarm;
 
   $strongarm = new stdClass();

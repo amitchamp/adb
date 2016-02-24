@@ -1,7 +1,125 @@
 <?php
+
 /**
  * @file
  * Code for the ADB Policy Brief feature.
  */
-
 include_once 'adb_policy_brief.features.inc';
+
+/**
+ *  For creating content type template file called node.tpl.we are creating
+ * 	 variable for rendering different section of content in landing page.
+ *  HOOK_preprocess_node we are using for one type of node content.
+ *
+ *  @global type $baseUrl
+ *  @param  &$variables
+ */
+function adb_policy_brief_preprocess_node(&$variables) {
+
+  // Need in creating link with base_url.
+  global $baseUrl;
+
+  // Type of node check.
+  if ($variables['type'] == 'policy_brief') {
+
+    // Get undefined language code from variable.
+    $und = $variables['language'];
+
+    // Case study date field value.
+    if (isset($variables['field_date'])) {
+      $variables['node_field_date'] = adb_case_study_get_date_formatted_value('j M Y', $variables['field_date'][0]['value']);
+    }
+
+    // Case Study Tagging in landing page.
+    $node_vocab_field = array(
+      'field_tags',
+      'field_topic',
+      'field_countries'
+    );
+    $formatted_list = adb_case_study_make_term_tagging($node_vocab_field, $variables);
+    if (isset($formatted_list)) {
+      $variables['node_field_tagging'] = $formatted_list;
+    }
+
+    // Banner image content.
+    if (isset($variables['field_banner_image'][0]['uri'])) {
+      $variables['banner_image'] = theme('image_style', array(
+        'style_name' => 'node_banner_image',
+        'path' => $variables['field_banner_image'][0]['uri']
+        )
+      );
+    }
+
+    // Download Link for node page.
+    if (isset($variables['field_download_file'][0]['uri'])) {
+
+      $variables['download_link'] = l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array(
+        'attributes' => array(
+          'target' => '_blank',
+          'class' => 'download-link',
+        ),
+        'html' => TRUE,
+      ));
+    }
+    else {
+      $variables['download_link'] = '';
+    }
+
+    // Print Node page.
+    if (isset($variables['nid'])) {
+      $variables['print_node'] = l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $variables['nid'], array(
+        'attributes' => array(
+          'class' => 'print-link',
+        ),
+        'html' => TRUE,
+      ));
+    }
+
+    // Social share icon list.
+    $variables['social_share'] = _adb_case_study_share_this();
+
+    // Body content.
+    $variables['body'] = $variables['body'][0]['value'];
+
+
+    // Summary content.
+    if (isset($variables['node']->body[$und][0]['summary'])) {
+      $variables['summary'] = $variables['node']->body[$und][0]['summary'];
+    }
+
+    // Meet our knowledge contributor.
+    $contributor_exist = FALSE;
+    $contributor_output = '';
+    foreach ($variables['field_meet_contributor'] as $contributor) {
+      if (isset($contributor['entity']->title) ||
+        isset($contributor['entity']->body[$und][0]['value']) ||
+        isset($contributor['entity']->body[$und][0]['value'])) {
+        $contributor_exist = TRUE;
+      }
+      if (isset($contributor['entity']->field_contributor_image[$und][0]['uri'])) {
+        $contributor_output .= '<div class="contributor-image">' . theme('image_style', array(
+            'style_name' => 'contributor_profile',
+            'path' => $contributor['entity']->field_contributor_image[$und][0]['uri']
+            )
+          ) . '</div>';
+      }
+      $contributor_output .= '<div class="about-contributor">';
+      if (isset($contributor['entity']->title)) {
+        // Getting name of knowledge
+        $contributor_output .= '<h4 class="contributor-name">' . $contributor['entity']->title . '</h4>';
+      }
+      if (isset($contributor['entity']->field_education[$und][0]['value'])) {
+        $contributor_output .= '<div class="contributor-education">' . $contributor['entity']->field_education[$und][0]['value'] . '</div>';
+      }
+      if (isset($contributor['entity']->body[$und][0]['value'])) {
+        $contributor_output .= '<div class="contributor-about">' . $contributor['entity']->body[$und][0]['value'] . '</div>';
+      }
+      $contributor_output .= '</div>';
+    }
+    $variables['have_contributor'] = $contributor_exist;
+    $variables['contributor'] = $contributor_output;
+
+    // Navigation for section.
+    $variables['section_navigation'] = _adb_case_study_block_subsection_navigation();
+  }
+}

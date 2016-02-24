@@ -21,11 +21,13 @@ function adb_global_functions_strongarm() {
       'title' => 'Useful content',
       'node_types' => array(
         0 => 'case_study',
-        1 => 'question_answer',
+        1 => 'policy_brief',
+        2 => 'question_answer',
       ),
       'comment_types' => array(
         0 => 'case_study',
-        1 => 'question_answer',
+        1 => 'policy_brief',
+        2 => 'question_answer',
       ),
       'options' => array(
         0 => array(
@@ -48,6 +50,7 @@ function adb_global_functions_strongarm() {
         1 => '1',
         2 => '2',
         3 => 0,
+        4 => 0,
       ),
       'allow_voting_by_author' => 0,
       'noperm_behaviour' => '4',

@@ -345,6 +345,9 @@ function adb_case_study_preprocess_node(&$variables) {
         // Getting name of knowledge
         $contributor_output .= '<h4 class="contributor-name">' . $contributor['entity']->title . '</h4>';
       }
+      if (isset($contributor['entity']->field_education[$und][0]['value'])) {
+        $contributor_output .= '<div class="contributor-education">' . $contributor['entity']->field_education[$und][0]['value'] . '</div>';
+      }
       if (isset($contributor['entity']->body[$und][0]['value'])) {
         $contributor_output .= '<div class="contributor-about">' . $contributor['entity']->body[$und][0]['value'] . '</div>';
       }
