@@ -510,6 +510,7 @@ function adb_case_study_preprocess_views_view(&$vars) {
  *  @return string
  */
 function _adb_case_study_share_this() {
+  // Getting title of node.
   $share_title = decode_entities(drupal_get_title());
   $path = isset($_GET['q']) ? $_GET['q'] : '<front>';
   if ($path == variable_get('site_frontpage')) {
