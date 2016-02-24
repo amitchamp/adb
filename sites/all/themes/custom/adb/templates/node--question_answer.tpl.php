@@ -124,8 +124,8 @@ hide($content['links']);
       <div class="social-share"><?php print $social_share; ?></div>
       <!--Download and Print section-->
       <div class="download-print">
-        <div class="print"><?php print $print_node; ?></div>
-        <div class="download"><?php print $download_link; ?></div>
+        <?php print $print_node; ?>
+        <?php print $download_link; ?>
       </div>
     </div>
   </div>
