@@ -136,3 +136,54 @@ function adb_form_required_marker($variables) {
   );
   return '<span' . drupal_attributes($attributes) . '></span>';
 }
+
+/**
+ * Renders the content of the print page using the theme api.
+ * Implements theme_preprocess_print().
+ */
+function adb_preprocess_print(&$vars, $hook) {
+  // Create variable for print pdf template.
+  if (isset($vars['node'])) {
+    $node = $vars['node'];
+
+    switch ($node->type) {
+      case 'case_study':
+        // Get value for context field.
+        $case_study_context = '<h2>' . t('Case study') . '</h2>' . '<h3>' . t('Context') . '</h3>';
+        $context = field_get_items('node', $node, 'field_context');
+        $view_field = field_view_value('node', $node, 'field_context', $context[0]);
+        $case_study_context .= render($view_field);
+
+        // Get value for challenges field.
+        $case_study_challenges = '<h3>' . t('Challenges') . '</h3>';
+        $challenges = field_get_items('node', $node, 'field_challenges');
+        $view_field = field_view_value('node', $node, 'field_challenges', $challenges[0]);
+        $case_study_challenges .= render($view_field);
+
+        // Get value for solutions field.
+        $case_study_solutions = '<h3>' . t('Solutions') . '</h3>';
+        $solutions = field_get_items('node', $node, 'field_solutions');
+        $view_field = field_view_value('node', $node, 'field_solutions', $solutions[0]);
+        $case_study_solutions .= render($view_field);
+
+        // Get value for lessons field.
+        $case_study_lessons = '<h3>' . t('Lessons') . '</h3>';
+        $lessons = field_get_items('node', $node, 'field_lessons');
+        $view_field = field_view_value('node', $node, 'field_lessons', $lessons[0]);
+        $case_study_lessons .= render($view_field);
+
+        // Get value for additional resources field.
+        $case_study_additional_resources = '<h3>' . t('Additional Resources') . '</h3>';
+        $additional_resources = field_get_items('node', $node, 'field_additional_resources');
+        $view_field = field_view_value('node', $node, 'field_additional_resources', $additional_resources[0]);
+        $case_study_additional_resources .= render($view_field);
+
+        $vars['case_study_context'] = $case_study_context;
+        $vars['case_study_challenges'] = $case_study_challenges;
+        $vars['case_study_solutions'] = $case_study_solutions;
+        $vars['case_study_lessons'] = $case_study_lessons;
+        $vars['case_study_additional_resources'] = $case_study_additional_resources;
+        break;
+    }
+  }
+}

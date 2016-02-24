@@ -162,7 +162,6 @@ function adb_case_study_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Impact';
-  $handler->display->display_options['css_class'] = 'wrapper-section';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -437,16 +436,24 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['fieldset_2']['label'] = 'data-body';
   $handler->display->display_options['fields']['fieldset_2']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['fieldset_2']['children'] = array(
-    0 => 'field_impact',
-    1 => 'field_impact_summary',
+    0 => 'field_impact_sub_title',
+    1 => 'field_impact',
+    2 => 'field_impact_summary',
   );
   $handler->display->display_options['fields']['fieldset_2']['fieldset']['type'] = 'div';
+  /* Field: Content: Sub title */
+  $handler->display->display_options['fields']['field_impact_sub_title']['id'] = 'field_impact_sub_title';
+  $handler->display->display_options['fields']['field_impact_sub_title']['table'] = 'field_data_field_impact_sub_title';
+  $handler->display->display_options['fields']['field_impact_sub_title']['field'] = 'field_impact_sub_title';
+  $handler->display->display_options['fields']['field_impact_sub_title']['label'] = '';
+  $handler->display->display_options['fields']['field_impact_sub_title']['element_type'] = 'h1';
+  $handler->display->display_options['fields']['field_impact_sub_title']['element_class'] = 'section-heading main-heading';
+  $handler->display->display_options['fields']['field_impact_sub_title']['element_label_colon'] = FALSE;
   /* Field: Content: Impact */
   $handler->display->display_options['fields']['field_impact']['id'] = 'field_impact';
   $handler->display->display_options['fields']['field_impact']['table'] = 'field_data_field_impact';
   $handler->display->display_options['fields']['field_impact']['field'] = 'field_impact';
-  $handler->display->display_options['fields']['field_impact']['element_label_type'] = 'h2';
-  $handler->display->display_options['fields']['field_impact']['element_label_class'] = 'section-heading main-heading';
+  $handler->display->display_options['fields']['field_impact']['label'] = '';
   $handler->display->display_options['fields']['field_impact']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_impact']['type'] = 'field_collection_fields';
   $handler->display->display_options['fields']['field_impact']['settings'] = array(
@@ -510,7 +517,6 @@ function adb_case_study_views_default_views() {
   /* Display: Case study-Context */
   $handler = $view->new_display('page', 'Case study-Context', 'context');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Context';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Global: Fieldset */
@@ -647,8 +653,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_context']['id'] = 'field_context';
   $handler->display->display_options['fields']['field_context']['table'] = 'field_data_field_context';
   $handler->display->display_options['fields']['field_context']['field'] = 'field_context';
-  $handler->display->display_options['fields']['field_context']['element_label_type'] = 'h2';
-  $handler->display->display_options['fields']['field_context']['element_label_class'] = 'section-heading main-heading';
+  $handler->display->display_options['fields']['field_context']['label'] = '';
   $handler->display->display_options['fields']['field_context']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_context']['type'] = 'field_collection_fields';
   $handler->display->display_options['fields']['field_context']['settings'] = array(
@@ -822,8 +827,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_challenges']['id'] = 'field_challenges';
   $handler->display->display_options['fields']['field_challenges']['table'] = 'field_data_field_challenges';
   $handler->display->display_options['fields']['field_challenges']['field'] = 'field_challenges';
-  $handler->display->display_options['fields']['field_challenges']['element_label_type'] = 'h2';
-  $handler->display->display_options['fields']['field_challenges']['element_label_class'] = 'section-heading main-heading';
+  $handler->display->display_options['fields']['field_challenges']['label'] = '';
   $handler->display->display_options['fields']['field_challenges']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_challenges']['type'] = 'field_collection_fields';
   $handler->display->display_options['fields']['field_challenges']['settings'] = array(
@@ -1004,8 +1008,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_solutions']['id'] = 'field_solutions';
   $handler->display->display_options['fields']['field_solutions']['table'] = 'field_data_field_solutions';
   $handler->display->display_options['fields']['field_solutions']['field'] = 'field_solutions';
-  $handler->display->display_options['fields']['field_solutions']['element_label_type'] = 'h2';
-  $handler->display->display_options['fields']['field_solutions']['element_label_class'] = 'section-heading main-heading';
+  $handler->display->display_options['fields']['field_solutions']['label'] = '';
   $handler->display->display_options['fields']['field_solutions']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_solutions']['type'] = 'field_collection_fields';
   $handler->display->display_options['fields']['field_solutions']['settings'] = array(
@@ -1048,8 +1051,6 @@ function adb_case_study_views_default_views() {
   $handler = $view->new_display('page', 'Case study-Lessons', 'lessons');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Lessons';
-  $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'wrapper-section lessons-page';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Global: Fieldset */
@@ -1057,6 +1058,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['fieldset_4']['table'] = 'views';
   $handler->display->display_options['fields']['fieldset_4']['field'] = 'fieldset';
   $handler->display->display_options['fields']['fieldset_4']['label'] = 'section-overview';
+  $handler->display->display_options['fields']['fieldset_4']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['fieldset_4']['children'] = array(
     0 => 'fieldset',
     1 => 'fieldset_1',
@@ -1094,6 +1096,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Field: Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
@@ -1187,8 +1190,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_lessons']['id'] = 'field_lessons';
   $handler->display->display_options['fields']['field_lessons']['table'] = 'field_data_field_lessons';
   $handler->display->display_options['fields']['field_lessons']['field'] = 'field_lessons';
-  $handler->display->display_options['fields']['field_lessons']['element_label_type'] = 'h2';
-  $handler->display->display_options['fields']['field_lessons']['element_label_class'] = 'section-heading main-heading';
+  $handler->display->display_options['fields']['field_lessons']['label'] = '';
   $handler->display->display_options['fields']['field_lessons']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_lessons']['type'] = 'field_collection_fields';
   $handler->display->display_options['fields']['field_lessons']['settings'] = array(
@@ -1371,8 +1373,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_additional_resources']['id'] = 'field_additional_resources';
   $handler->display->display_options['fields']['field_additional_resources']['table'] = 'field_data_field_additional_resources';
   $handler->display->display_options['fields']['field_additional_resources']['field'] = 'field_additional_resources';
-  $handler->display->display_options['fields']['field_additional_resources']['element_label_type'] = 'h2';
-  $handler->display->display_options['fields']['field_additional_resources']['element_label_class'] = 'section-heading main-heading';
+  $handler->display->display_options['fields']['field_additional_resources']['label'] = '';
   $handler->display->display_options['fields']['field_additional_resources']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_additional_resources']['type'] = 'field_collection_fields';
   $handler->display->display_options['fields']['field_additional_resources']['settings'] = array(

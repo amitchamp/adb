@@ -151,6 +151,9 @@ function adb_case_study_preprocess_node(&$variables) {
 
   // Type of node check.
   if ($variables['type'] == 'case_study') {
+    $node_url = url($variables['node_url'], array(
+      'absolute' => TRUE,
+    ));
 
     // Get undefined language code from variable.
     $und = $variables['language'];
@@ -210,7 +213,7 @@ function adb_case_study_preprocess_node(&$variables) {
     }
 
     // Social share icon list.
-    $variables['social_share'] = _adb_case_study_share_this();
+    $variables['social_share'] = _adb_case_study_share_this($node_url, $variables['title']);
 
     // Body content.
     $variables['body'] = $variables['body'][0]['value'];
@@ -345,6 +348,9 @@ function adb_case_study_preprocess_node(&$variables) {
         // Getting name of knowledge
         $contributor_output .= '<h4 class="contributor-name">' . $contributor['entity']->title . '</h4>';
       }
+      if (isset($contributor['entity']->field_education[$und][0]['value'])) {
+        $contributor_output .= '<div class="contributor-education">' . $contributor['entity']->field_education[$und][0]['value'] . '</div>';
+      }
       if (isset($contributor['entity']->body[$und][0]['value'])) {
         $contributor_output .= '<div class="contributor-about">' . $contributor['entity']->body[$und][0]['value'] . '</div>';
       }
@@ -463,7 +469,7 @@ function adb_case_study_topic_validate($form, &$form_state) {
 }
 
 /**
- * 
+ *
  *  @param type string
  */
 function adb_case_study_preprocess_views_view(&$vars) {
@@ -471,9 +477,12 @@ function adb_case_study_preprocess_views_view(&$vars) {
     $nid = arg(1);
     // Get Current node id from url.
     if (isset($nid) && is_numeric($nid)) {
+      $url = url(current_path(), array(
+        'absolute' => TRUE,
+      ));
       $node = entity_metadata_wrapper('node', $nid);
       $download_file_url = $node->field_download_file->value();
-      $share = _adb_case_study_share_this();
+      $share = _adb_case_study_share_this($url, decode_entities(drupal_get_title()));
       // Create and appand structure of HTML in banner.
       $header_content = "<div class='banner-node'>"
         . "<div class='inner-banner-node-info'>";
@@ -506,22 +515,21 @@ function adb_case_study_preprocess_views_view(&$vars) {
 }
 
 /**
- *  Getting social share icon.
- *  @return string
+ * Get social share markup.
+ *
+ * @param string $share_path
+ *   Path to be shared.
+ * @param string $share_title
+ *   Title that you want to display during share.
+ *
+ * @return string
+ *   Markup for social share icon.
  */
-function _adb_case_study_share_this() {
-  // Getting title of node.
-  $share_title = decode_entities(drupal_get_title());
-  $path = isset($_GET['q']) ? $_GET['q'] : '<front>';
-  if ($path == variable_get('site_frontpage')) {
-    $path = "<front>";
-  }
-  $share_path = url($path, array('absolute' => TRUE));
+function _adb_case_study_share_this($share_path, $share_title) {
   $data_options = sharethis_get_options_array();
   return theme('sharethis', array(
     'data_options' => $data_options,
     'm_path' => $share_path,
     'm_title' => $share_title
-    )
-  );
+  ));
 }

@@ -105,10 +105,13 @@ function adb_qna_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Header: Global: Social Simplified Share */
-  $handler->display->display_options['header']['socialshare']['id'] = 'socialshare';
-  $handler->display->display_options['header']['socialshare']['table'] = 'views';
-  $handler->display->display_options['header']['socialshare']['field'] = 'socialshare';
+  /* Header: Global: Social Sharethis */
+  $handler->display->display_options['header']['sharethis']['id'] = 'sharethis';
+  $handler->display->display_options['header']['sharethis']['table'] = 'views';
+  $handler->display->display_options['header']['sharethis']['field'] = 'sharethis';
+  $handler->display->display_options['header']['sharethis']['content'] = '%1';
+  $handler->display->display_options['header']['sharethis']['tokenize'] = TRUE;
+  $handler->display->display_options['header']['sharethis']['share_path'] = 'taxonomy/term/!1';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';

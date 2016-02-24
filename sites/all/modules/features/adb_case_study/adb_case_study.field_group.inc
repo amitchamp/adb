@@ -113,10 +113,11 @@ function adb_case_study_field_group_info() {
   $field_group->parent_name = 'group_case_study_subsection';
   $field_group->data = array(
     'label' => 'Impact group',
-    'weight' => '15',
+    'weight' => '16',
     'children' => array(
       0 => 'field_impact',
       1 => 'field_impact_summary',
+      2 => 'field_impact_sub_title',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
