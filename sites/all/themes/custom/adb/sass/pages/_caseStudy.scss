@@ -109,48 +109,47 @@
   a {
     font-size: ($base-font)+14;
   }
-  .lrshare_interfacehorizontal {
-    padding: 0;
-  }
-  .lrshare_iconsprite32 {
-    background: none;
-    width: auto;
-    height: auto;
+  
+  .stButton {
     margin: 0 8px;
-    &:after {
-      @extend %fa;
-      font-size: ($base-font)+14;
-      color: $dark-grey;
+    .stLarge {
+      background: none!important;
+      width: auto;
+      height: auto;
+      &:after {
+        @extend %fa;
+        font-size: ($base-font)+14;
+        color: $dark-grey;
+      }
     }
   }
-  .lrshare_facebook {
-    margin-left: 0;
+}
+.st_facebook_large .stButton {
+  margin-left: 0;
+  .stLarge {
+    &:after {
+      content: '\f082';
+    }
   }
 }
-.lrshare_twitter {
+.st_twitter_large .stButton .stLarge {
   &:after {
     content: '\f081';
   }
 }
-.lrshare_linkedin {
+.st_linkedin_large .stButton .stLarge {
   &:after {
     content: '\f08c';
   }
 }
-.lrshare_facebook {
-  &:after {
-    content: '\f082';
-  }
-}
-.lrshare_evenmore32,.lrshare-totalshare {
-  @extend %hide;
-}
+
 .download-print {
   float: right;
   a {
     font-size: $base-font;
     font-family: $opensans-regular;
     margin-right: 16px;
+    display: inline-block;
     &:last-of-type {
       margin-right: 0;
     }
@@ -497,11 +496,14 @@
 
 .facts-section {
   max-width: 582px;
-  margin: 24px auto;
+  margin: 45px auto 50px;
   background-color: $light-grey-background;
   padding: 20px;
-  .para-heading {
-    font-size: ($base-font)+6;
+  ul {
+    margin: 6px 0 0; 
+  }
+  h3 {
+    @extend %secondary-inner-pages-heading;
   }
 }
 
@@ -538,7 +540,7 @@
 
 
 /*
-**Impact Section
+**Lessons Section
 */
 
 .lessons-page {
@@ -546,8 +548,23 @@
     margin: 0 0 20px;
   }
   h3 {
-    font-size: ($base-font)+6;
-    line-height: ($base-font)+16;
+    @extend %secondary-inner-pages-heading;
+  }
+}
+
+/*
+**Additional Resources Section
+*/
+
+.additional-resources {
+  h3 {
+    margin-top: 35px;
+    margin-bottom: 10px;
+  }
+  ul {
     margin: 0;
+  }
+  a {
+    display: inline-block;
   }
 }

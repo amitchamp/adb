@@ -1,6 +1,0 @@
-name = ADB views social share
-description = Add social share link views as field
-dependencies[] = views
-dependencies[] = simplified_social_share
-core = 7.x
-files[] = includes/views/handlers/adb_views_social_share_handler.inc

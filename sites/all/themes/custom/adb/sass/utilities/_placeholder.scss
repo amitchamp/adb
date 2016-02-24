@@ -109,3 +109,13 @@
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
+
+/*
+** Secondary headings in the inner pages without any spacing and small font size (lessons and solutions page)
+*/
+
+%secondary-inner-pages-heading {
+  font-size: ($base-font)+6;
+  line-height: ($base-font)+16;
+  margin: 0;
+}
