@@ -7,9 +7,7 @@
 include_once 'adb_policy_brief.features.inc';
 
 /**
- *  For creating content type template file called node.tpl.we are creating
- * 	 variable for rendering different section of content in landing page.
- *  HOOK_preprocess_node we are using for one type of node content.
+ *  implements hook_preprocess_node..
  *
  *  @global type $baseUrl
  *  @param  &$variables
@@ -23,9 +21,9 @@ function adb_policy_brief_preprocess_node(&$variables) {
   if ($variables['type'] == 'policy_brief') {
 
     // Get undefined language code from variable.
-    $und = $variables['language'];
+    $lang_code = $variables['language'];
 
-    // Case study date field value.
+    // Policy brief date field value.
     if (isset($variables['field_date'])) {
       $variables['node_field_date'] = adb_case_study_get_date_formatted_value('j M Y', $variables['field_date'][0]['value']);
     }
@@ -45,9 +43,8 @@ function adb_policy_brief_preprocess_node(&$variables) {
     if (isset($variables['field_banner_image'][0]['uri'])) {
       $variables['banner_image'] = theme('image_style', array(
         'style_name' => 'node_banner_image',
-        'path' => $variables['field_banner_image'][0]['uri']
-        )
-      );
+        'path' => $variables['field_banner_image'][0]['uri'],
+      ));
     }
 
     // Download Link for node page.
@@ -76,15 +73,15 @@ function adb_policy_brief_preprocess_node(&$variables) {
     }
 
     // Social share icon list.
-    $variables['social_share'] = _adb_case_study_share_this();
+    $variables['social_share'] = _adb_case_study_share_this($node_url, $variables['title']);
 
     // Body content.
     $variables['body'] = $variables['body'][0]['value'];
 
 
     // Summary content.
-    if (isset($variables['node']->body[$und][0]['summary'])) {
-      $variables['summary'] = $variables['node']->body[$und][0]['summary'];
+    if (isset($variables['node']->body[$lang_code][0]['summary'])) {
+      $variables['summary'] = $variables['node']->body[$lang_code][0]['summary'];
     }
 
     // Meet our knowledge contributor.
@@ -92,27 +89,26 @@ function adb_policy_brief_preprocess_node(&$variables) {
     $contributor_output = '';
     foreach ($variables['field_meet_contributor'] as $contributor) {
       if (isset($contributor['entity']->title) ||
-        isset($contributor['entity']->body[$und][0]['value']) ||
-        isset($contributor['entity']->body[$und][0]['value'])) {
+        isset($contributor['entity']->body[$lang_code][0]['value']) ||
+        isset($contributor['entity']->body[$lang_code][0]['value'])) {
         $contributor_exist = TRUE;
       }
-      if (isset($contributor['entity']->field_contributor_image[$und][0]['uri'])) {
+      if (isset($contributor['entity']->field_contributor_image[$lang_code][0]['uri'])) {
         $contributor_output .= '<div class="contributor-image">' . theme('image_style', array(
             'style_name' => 'contributor_profile',
-            'path' => $contributor['entity']->field_contributor_image[$und][0]['uri']
-            )
-          ) . '</div>';
+            'path' => $contributor['entity']->field_contributor_image[$lang_code][0]['uri']
+          )) . '</div>';
       }
       $contributor_output .= '<div class="about-contributor">';
       if (isset($contributor['entity']->title)) {
         // Getting name of knowledge
         $contributor_output .= '<h4 class="contributor-name">' . $contributor['entity']->title . '</h4>';
       }
-      if (isset($contributor['entity']->field_education[$und][0]['value'])) {
-        $contributor_output .= '<div class="contributor-education">' . $contributor['entity']->field_education[$und][0]['value'] . '</div>';
+      if (isset($contributor['entity']->field_education[$lang_code][0]['value'])) {
+        $contributor_output .= '<div class="contributor-education">' . $contributor['entity']->field_education[$lang_code][0]['value'] . '</div>';
       }
-      if (isset($contributor['entity']->body[$und][0]['value'])) {
-        $contributor_output .= '<div class="contributor-about">' . $contributor['entity']->body[$und][0]['value'] . '</div>';
+      if (isset($contributor['entity']->body[$lang_code][0]['value'])) {
+        $contributor_output .= '<div class="contributor-about">' . $contributor['entity']->body[$lang_code][0]['value'] . '</div>';
       }
       $contributor_output .= '</div>';
     }
