@@ -1,12 +1,12 @@
 <?php
 
 /**
- *  @file
- *  A global views field that allows you to add share link of a current page.
+ * @file
+ * A global views field that allows you to add print link of a current page.
  */
 
 /**
- *  Implements hook_views_api().
+ * Implements hook_views_api().
  */
 function adb_views_social_share_views_api() {
   return array(
