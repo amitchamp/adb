@@ -481,14 +481,28 @@ function adb_case_study_preprocess_views_view(&$vars) {
     $nid = arg(1);
     // Get Current node id from url.
     if (isset($nid) && is_numeric($nid)) {
+      $share_title = decode_entities(drupal_get_title());
+      $path = isset($_GET['q']) ? $_GET['q'] : '<front>';
+      if ($path == variable_get('site_frontpage')) {
+        $path = "<front>";
+      }
+      $share_path = url($path, array('absolute' => TRUE));
+      $data_options = sharethis_get_options_array();
+      $share = theme('sharethis', array(
+        'data_options' => $data_options,
+        'm_path' => $share_path,
+        'm_title' => $share_title
+        )
+      );
       $node = entity_metadata_wrapper('node', $nid);
       $download_file_url = $node->field_download_file->value();
       // Create and appand structure of HTML in banner.
-      $header_content = "<div class='banner-node'><div class='inner-banner-node-info'>";
+      $header_content = "<div class='banner-node'>"
+        . "<div class='inner-banner-node-info'>";
       $header_content .= $vars['header'];
       $header_content .= "</div><div class='social-share-download'>"
         . "<div class='wrapper-section'><div class='social-share'>"
-        . "<span>Social share</span></div><div class='download-print'>";
+        . "<span>$share</span></div><div class='download-print'>";
       $header_content .= l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $nid, array(
         'attributes' => array(
           'class' => 'print-link',

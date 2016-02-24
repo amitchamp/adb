@@ -178,13 +178,6 @@ function adb_case_study_views_default_views() {
     'title' => 'title',
   );
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
-  /* Header: Global: Social Sharethis */
-  $handler->display->display_options['header']['sharethis']['id'] = 'sharethis';
-  $handler->display->display_options['header']['sharethis']['table'] = 'views';
-  $handler->display->display_options['header']['sharethis']['field'] = 'sharethis';
-  $handler->display->display_options['header']['sharethis']['content'] = '[title]';
-  $handler->display->display_options['header']['sharethis']['tokenize'] = TRUE;
-  $handler->display->display_options['header']['sharethis']['share_path'] = 'node/!1';
   /* Footer: Global: Sub-Section Navigation Link */
   $handler->display->display_options['footer']['navigation']['id'] = 'navigation';
   $handler->display->display_options['footer']['navigation']['table'] = 'views';
