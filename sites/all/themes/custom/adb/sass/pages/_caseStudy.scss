@@ -149,6 +149,7 @@
     font-size: $base-font;
     font-family: $opensans-regular;
     margin-right: 16px;
+    display: inline-block;
     &:last-of-type {
       margin-right: 0;
     }
@@ -564,6 +565,6 @@
     margin: 0;
   }
   a {
-    display: block;
+    display: inline-block;
   }
 }
