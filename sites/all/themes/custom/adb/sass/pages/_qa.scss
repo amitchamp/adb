@@ -2,9 +2,13 @@
  ** style for Q&A page only.
  */
 
+.qna-page {
+  margin-bottom: 70px;
+}
 .qna-header-wrapper {
   background-color: #e4e4e4;
   padding: 30px 12px;
+  margin-bottom: 40px;
 }
 
 .detail-pages-heading {
@@ -44,7 +48,10 @@
 }
 .type-description {
   font-size: ($base-font)+2;
-  margin-top: 20px;
+  margin-top: 10px;
+  p {
+    margin: 0;
+  }
 }
 
 
@@ -56,30 +63,73 @@
   padding: 25px 0;
   border-bottom: solid 1px $border-color;
 }
- .row-counter {
-   width: 42px;
-   height: 42px;
-   background-color: $text;
-   color: $white;
-   font-size: ($base-font)+10;
-   display: inline-block;
-   margin-right: 34px;
-   @include border-radius(50%, 50%);
-   text-align: center;
-   line-height: 42px;
-   vertical-align: top;
- }
- .title-body-wrapper {
-   display: inline-block;
-   width: 89%;
- }
- .qna-title {
-   color: $link;
-   font-size: ($base-font)+10;
-   margin-bottom: 50px;
- }
- .qna-summary {
-   p {
-     margin: 0;
-   }
- }
+.row-counter {
+  width: 42px;
+  height: 42px;
+  background-color: $text;
+  color: $white;
+  font-size: ($base-font)+10;
+  display: inline-block;
+  margin-right: 34px;
+  @include border-radius(50%, 50%);
+  text-align: center;
+  line-height: 42px;
+  vertical-align: top;
+}
+.title-body-wrapper {
+  display: inline-block;
+  width: 89%;
+}
+.qna-title {
+  color: $link;
+  font-size: ($base-font)+10;
+  margin-bottom: 50px;
+}
+.qna-summary {
+  p {
+    margin: 0;
+  }
+}
+
+/*
+ ** Q&A inner Pages
+ */
+
+.node-type-question-answer {
+  #content-column {
+    width: 67%;
+  }
+  .sidebar {
+    width: 23%;
+    padding-right: 0;
+    margin-right: 10%;
+  }
+}
+
+/*
+ ** Q&A sidebar section
+ */
+.qna-sidebar {
+  .search {
+    width: 100%;
+    @include border-radius(5px,5px);
+    border: solid 2px #e4e4e4;
+    font-size: $base-font;
+  }
+  ul {
+    background-color: $light-grey-background;
+    padding: 10px;
+    margin: 5px 0 0;
+    list-style: none;
+    li {
+      font-size: ($base-font)+2;
+      color: $link;
+      line-height: ($base-font)+10;
+      padding: 15px 0;
+      border-bottom: solid 1px $border-color;
+      &:last-of-type {
+        margin-bottom: none;
+      }
+    }
+  }
+}
