@@ -82,6 +82,44 @@ function adb_qna_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'hs_config_taxonomy-field_topic';
+  $strongarm->value = array(
+    'config_id' => 'taxonomy-field_topic',
+    'save_lineage' => '0',
+    'enforce_deepest' => '0',
+    'resizable' => '0',
+    'level_labels' => array(
+      'status' => 0,
+      'labels' => array(
+        0 => '',
+        1 => '',
+      ),
+    ),
+    'dropbox' => array(
+      'status' => 1,
+      'title' => 'All selections',
+      'limit' => '0',
+      'reset_hs' => '1',
+    ),
+    'editability' => array(
+      'status' => 0,
+      'item_types' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_levels' => array(
+        0 => 1,
+        1 => 1,
+      ),
+      'allow_new_levels' => 0,
+      'max_levels' => '2',
+    ),
+  );
+  $export['hs_config_taxonomy-field_topic'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_question_answer';
   $strongarm->value = array(
     0 => 'main-menu',
