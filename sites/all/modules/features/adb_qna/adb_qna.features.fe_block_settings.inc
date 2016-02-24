@@ -14,6 +14,7 @@ function adb_qna_default_fe_block_settings() {
 
   $export['adb_qna-adb_qna_header'] = array(
     'cache' => 1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'adb_qna_header',
     'module' => 'adb_qna',
@@ -47,6 +48,7 @@ taxonomy/term/*',
 
   $export['views-26bb7f36bbfa0f556d67c85d626bd03a'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => '26bb7f36bbfa0f556d67c85d626bd03a',
     'module' => 'views',
