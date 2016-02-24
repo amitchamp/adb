@@ -497,7 +497,8 @@ function adb_case_study_preprocess_views_view(&$vars) {
       $node = entity_metadata_wrapper('node', $nid);
       $download_file_url = $node->field_download_file->value();
       // Create and appand structure of HTML in banner.
-      $header_content = "<div class='banner-node'><div class='inner-banner-node-info'>";
+      $header_content = "<div class='banner-node'>"
+        . "<div class='inner-banner-node-info'>";
       $header_content .= $vars['header'];
       $header_content .= "</div><div class='social-share-download'>"
         . "<div class='wrapper-section'><div class='social-share'>"
