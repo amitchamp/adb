@@ -210,17 +210,7 @@ function adb_case_study_preprocess_node(&$variables) {
     }
 
     // Social share icon list.
-    $share_output = '';
-    if (variable_get('simplified_social_share_enable_horizontal_share') == 1) {
-      simplified_social_share_horizontal_script_code();
-      $share_output .= simplified_social_share_horizontal_sharing_div();
-    }
-
-    if (variable_get('simplified_social_share_enable_vertical_share') == 1) {
-      simplified_social_share_vertical_script_code();
-      $share_output .= simplified_social_share_vertical_sharing_div();
-    }
-    $variables['social_share'] = $share_output;
+    $variables['social_share'] = _adb_case_study_share_this();
 
     // Body content.
     $variables['body'] = $variables['body'][0]['value'];
@@ -481,21 +471,9 @@ function adb_case_study_preprocess_views_view(&$vars) {
     $nid = arg(1);
     // Get Current node id from url.
     if (isset($nid) && is_numeric($nid)) {
-      $share_title = decode_entities(drupal_get_title());
-      $path = isset($_GET['q']) ? $_GET['q'] : '<front>';
-      if ($path == variable_get('site_frontpage')) {
-        $path = "<front>";
-      }
-      $share_path = url($path, array('absolute' => TRUE));
-      $data_options = sharethis_get_options_array();
-      $share = theme('sharethis', array(
-        'data_options' => $data_options,
-        'm_path' => $share_path,
-        'm_title' => $share_title
-        )
-      );
       $node = entity_metadata_wrapper('node', $nid);
       $download_file_url = $node->field_download_file->value();
+      $share = _adb_case_study_share_this();
       // Create and appand structure of HTML in banner.
       $header_content = "<div class='banner-node'>"
         . "<div class='inner-banner-node-info'>";
@@ -525,4 +503,25 @@ function adb_case_study_preprocess_views_view(&$vars) {
       $vars['header'] = $header_content;
     }
   }
+}
+
+/**
+ *  Getting social share icon.
+ *  @return string
+ */
+function _adb_case_study_share_this() {
+  // Getting title of node.
+  $share_title = decode_entities(drupal_get_title());
+  $path = isset($_GET['q']) ? $_GET['q'] : '<front>';
+  if ($path == variable_get('site_frontpage')) {
+    $path = "<front>";
+  }
+  $share_path = url($path, array('absolute' => TRUE));
+  $data_options = sharethis_get_options_array();
+  return theme('sharethis', array(
+    'data_options' => $data_options,
+    'm_path' => $share_path,
+    'm_title' => $share_title
+    )
+  );
 }

@@ -28,6 +28,7 @@ features[variable][] = comment_preview_question_answer
 features[variable][] = comment_question_answer
 features[variable][] = comment_subject_field_question_answer
 features[variable][] = field_bundle_settings_node__question_answer
+features[variable][] = hs_config_taxonomy-field_topic
 features[variable][] = menu_options_question_answer
 features[variable][] = menu_parent_question_answer
 features[variable][] = node_options_question_answer
