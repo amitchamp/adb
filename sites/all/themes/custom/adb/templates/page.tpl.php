@@ -145,7 +145,10 @@
     <!-- !Secondary Content Region -->
     <?php print render($page['secondary_content']); ?>
 
-    <div id="columns" class="columns clearfix">
+    <!-- Inner pages header -->
+    <?php print render($page['banner']); ?>
+
+    <div id="columns" class="columns clearfix <?php print $main_content_sidebar_first_class; ?>">
       <main id="content-column" class="content-column" role="main">
         <div class="content-inner">
 
@@ -159,12 +162,6 @@
             <!-- !Main Content Header -->
             <?php if ($title || $primary_local_tasks || $secondary_local_tasks || $action_links = render($action_links)): ?>
               <header<?php print $content_header_attributes; ?>>
-
-                <?php if ($title): ?>
-                  <h1 id="page-title">
-                    <?php print $title; ?>
-                  </h1>
-                <?php endif; ?>
 
                 <?php if (($primary_local_tasks || $secondary_local_tasks || $action_links) && $is_admin): ?>
                   <div id="tasks">

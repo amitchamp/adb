@@ -134,12 +134,12 @@
 }
 .lrshare_linkedin {
   &:after {
-    content: '\f0d4';
+    content: '\f08c';
   }
 }
 .lrshare_facebook {
   &:after {
-    content: '\f08c';
+    content: '\f082';
   }
 }
 .lrshare_evenmore32,.lrshare-totalshare {
@@ -175,11 +175,32 @@
     margin-bottom: 30px;
     color: $black;
   }
+  ul {
+    margin: 30px 0;
+    padding-left: 0;
+    list-style: none;
+    li {
+      line-height: ($base-font)+10;
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        @include border-radius(50%);
+        background-color: $text;
+        margin: 0 5px 1px 0;
+        vertical-align: middle;
+      }
+    }
+  }
   img,iframe {
   	max-width: 100%;
   }
   img {
     height: auto;
+  }
+  iframe {
+     margin-bottom: 15px;
   }
 }
 
@@ -200,33 +221,30 @@
   margin-bottom: 50px;
   position: relative;
   .menu-categories-title {
-	@extend %hide;
+	  @extend %hide;
   }
   ul {
-	padding: 0 20px 0 120px;
-	margin: 0;
-	list-style: none;
+  	padding: 0 20px 0 120px;
+  	margin: 0;
+  	list-style: none;
   }
   li{
-	width: 47%;
-	display: inline-block;
-	vertical-align: top;
-	margin: 15px 1%;
+  	width: 47%;
+  	display: inline-block;
+  	vertical-align: top;
+  	margin: 15px 1%;
   }
   a {
-	color: $link;
-	font-size: ($base-font)+10;
-	&.active {
-	  color: $link;
-	}
+  	color: $link;
+  	font-size: ($base-font)+10;
   }
   .fa {
-	color: $grey;
-	font-size: ($base-font)+16;
-	position: absolute;
-	top: -11px;
-	left: 50%;
-	@include transform (translateX(-50%));
+  	color: $grey;
+  	font-size: ($base-font)+16;
+  	position: absolute;
+  	top: -11px;
+  	left: 50%;
+  	@include transform (translateX(-50%));
   }
 }
 
@@ -438,12 +456,14 @@
 }
 
 /*
-**casetudy inner Pages
+**casetudy inner Pages banner section
 */
+
 .casestudy-inner-page {
   .content-type-name {
     position: static;
     border-bottom: solid 1px $grey;
+    padding-top: 30px;
   }
   .case-study-title {
     @extend %inner-pages-heading;
@@ -452,32 +472,82 @@
   }
   .project-date {
     color: $dark-grey;
-    margin-top: 18px;
+    margin-top: 16px;
+    margin-bottom: 14px;
   }
   .case-study-tags {
-    margin-bottom: 0;
+    margin-bottom: 8px;
     li {
       background-color: transparent;
       border: none;
+      font-size: $base-font;
     }
   }
   .item-list {
+    display: inline-block;
     ul li {
   	  margin: 0 16px 8px 0;
     }
   }
-  .section-navigate {
-    margin-top: 70px;
+}
+
+/*
+**Solutions Section
+*/
+
+.facts-section {
+  max-width: 582px;
+  margin: 24px auto;
+  background-color: $light-grey-background;
+  padding: 20px;
+  .para-heading {
+    font-size: ($base-font)+6;
   }
 }
 
-.casestudy-left-nav {
-  @extend %inline-menu;
-  li {
-    float: none;
-    margin: 5px 0 15px;
+/*
+**Impact Section
+*/
+
+.views-field-field-impact .field-content {
+  background-color: $light-grey-background;
+  padding: 10px;
+  margin: 40px 0 60px;
+}
+.impact-list {
+  padding: 20px 30px;
+  border-bottom: solid 2px $white;
+  &:last-of-type {
+    border-bottom: none;
   }
-  a {
-    font-size: ($base-font)+2;
+
+}
+.impact-value-unit-wrapper {
+  font-size: $inner-pages-title;
+  line-height: ($inner-pages-title)+10;
+}
+.impact-description-wrapper {
+  font-size: ($base-font)+6;
+  p {
+    margin: 0;
+  }
+}
+.field-name-field-value,.field-name-field-unit {
+  display: inline-block;
+}
+
+
+/*
+**Impact Section
+*/
+
+.lessons-page {
+  p {
+    margin: 0 0 20px;
+  }
+  h3 {
+    font-size: ($base-font)+6;
+    line-height: ($base-font)+16;
+    margin: 0;
   }
 }

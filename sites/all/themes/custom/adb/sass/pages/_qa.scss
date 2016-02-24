@@ -25,14 +25,21 @@
   left: 0;
   width: 200px;
   background-color: $white;
-  padding: 5px 10px;
+  padding: 5px 8px;
   margin-top: 5px;
+  z-index: 1;
+  @include box-shadow(rgba(black,0.1) 1px 1px 3px);
   a {
-    border-bottom: solid 1px $grey;
+    border-bottom: solid 1px $light-grey-background;
     font-size: ($base-font)+2;
     line-height: ($base-font)+6;
-    padding: 5px 0;
-    display: inline-block;
+    padding: 6px 0;
+    display: block;
+  }
+  > div:last-of-type {
+    a {
+      border-bottom: none;
+    }
   }
 }
 .type-description {
@@ -46,7 +53,7 @@
  */
 
 .qa-list {
-  margin: 25px 0;
+  padding: 25px 0;
   border-bottom: solid 1px $border-color;
 }
  .row-counter {
