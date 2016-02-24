@@ -77,10 +77,9 @@ class AdbViewsSharethisHandler extends views_handler_area_text {
     $data_options = sharethis_get_options_array();
 
     return theme('sharethis', array(
-        'data_options' => $data_options, 
-        'm_path' => $share_path, 
-        'm_title' => $share_title
-      )
-    );
+      'data_options' => $data_options, 
+      'm_path' => $share_path, 
+      'm_title' => $share_title
+    ));
   }
 }
