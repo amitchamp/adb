@@ -136,3 +136,56 @@ function adb_form_required_marker($variables) {
   );
   return '<span' . drupal_attributes($attributes) . '></span>';
 }
+
+/**
+ * Renders the content of the print page using the theme api.
+ * Implements theme_preprocess_print().
+ */
+function adb_preprocess_print(&$vars, $hook) {
+  // Create variable for print pdf template.
+  if (isset($vars['node'])) {
+    $node = &$vars['node'];
+
+    switch ($node->type) {
+      case 'case_study':
+        // Get value for context field.
+        $case_study_sub_sections = '<h2>' . t('Case study') . '</h2>' . '<h3>' . t('Context') . '</h3>';
+        $better = field_get_items('node', $node, 'field_context');
+        $view_field = field_view_value('node', $node, 'field_context', $better[0], array());
+        $case_study_sub_sections .= render($view_field);
+
+        // Get value for challenges field.
+        $case_study_sub_sections .= '<h3>' . t('Challenges') . '</h3>';
+        $better = field_get_items('node', $node, 'field_challenges');
+        $view_field = field_view_value('node', $node, 'field_challenges', $better[0], array());
+        $case_study_sub_sections .= render($view_field);
+
+        // Get value for solutions field.
+        $case_study_sub_sections .= '<h3>' . t('Solutions') . '</h3>';
+        $better = field_get_items('node', $node, 'field_solutions');
+        $view_field = field_view_value('node', $node, 'field_solutions', $better[0], array());
+        $case_study_sub_sections .= render($view_field);
+
+        // Get value for impact field.
+        $case_study_sub_sections .= '<h3>' . t('Impact summary') . '</h3>';
+        $better = field_get_items('node', $node, 'field_impact_summary');
+        $view_field = field_view_value('node', $node, 'field_impact_summary', $better[0], array());
+        $case_study_sub_sections .= render($view_field);
+
+        // Get value for lessons field.
+        $case_study_sub_sections .= '<h3>' . t('Lessons') . '</h3>';
+        $better = field_get_items('node', $node, 'field_lessons');
+        $view_field = field_view_value('node', $node, 'field_lessons', $better[0], array());
+        $case_study_sub_sections .= render($view_field);
+
+        // Get value for additional resources field.
+        $case_study_sub_sections .= '<h3>' . t('Additional Resources') . '</h3>';
+        $better = field_get_items('node', $node, 'field_additional_resources');
+        $view_field = field_view_value('node', $node, 'field_additional_resources', $better[0], array());
+        $case_study_sub_sections .= render($view_field);
+
+        $vars['case_study_sub_sections'] = $case_study_sub_sections;
+        break;
+    }
+  }
+}
