@@ -463,7 +463,7 @@ function adb_case_study_topic_validate($form, &$form_state) {
 }
 
 /**
- * 
+ *
  *  @param type string
  */
 function adb_case_study_preprocess_views_view(&$vars) {
@@ -506,22 +506,21 @@ function adb_case_study_preprocess_views_view(&$vars) {
 }
 
 /**
- *  Getting social share icon.
- *  @return string
+ * Get social share markup.
+ *
+ * @param string $share_path
+ *   Path to be shared.
+ * @param string $share_title
+ *   Title that you want to display during share.
+ *
+ * @return string
+ *   Markup for social share icon.
  */
-function _adb_case_study_share_this() {
-  // Getting title of node.
-  $share_title = decode_entities(drupal_get_title());
-  $path = isset($_GET['q']) ? $_GET['q'] : '<front>';
-  if ($path == variable_get('site_frontpage')) {
-    $path = "<front>";
-  }
-  $share_path = url($path, array('absolute' => TRUE));
+function _adb_case_study_share_this($share_path, $share_title) {
   $data_options = sharethis_get_options_array();
   return theme('sharethis', array(
     'data_options' => $data_options,
     'm_path' => $share_path,
     'm_title' => $share_title
-    )
-  );
+  ));
 }
