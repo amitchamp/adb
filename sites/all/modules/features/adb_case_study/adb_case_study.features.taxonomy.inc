@@ -36,7 +36,7 @@ function adb_case_study_taxonomy_default_vocabularies() {
       'name' => 'Topics',
       'machine_name' => 'topics',
       'description' => 'List of topics',
-      'hierarchy' => 0,
+      'hierarchy' => 1,
       'module' => 'taxonomy',
       'weight' => 0,
       'rdf_mapping' => array(
