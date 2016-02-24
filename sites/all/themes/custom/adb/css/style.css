@@ -203,23 +203,22 @@ p {
 .sidebar-first-pages {
   -webkit-flex-direction: row-reverse;
   flex-direction: row-reverse;
-  /*justify-content: flex-end;*/
 }
-/* line 45, ../sass/layout/_layout.scss */
+/* line 44, ../sass/layout/_layout.scss */
 .sidebar-first-pages #content-column {
   width: 82.6%;
 }
-/* line 48, ../sass/layout/_layout.scss */
+/* line 47, ../sass/layout/_layout.scss */
 .sidebar-first-pages .sidebar {
   width: 17.3%;
   padding-right: 20px;
   margin-top: 42px;
 }
-/* line 53, ../sass/layout/_layout.scss */
+/* line 52, ../sass/layout/_layout.scss */
 .sidebar-first-pages .wrapper-section {
   margin: 0;
 }
-/* line 56, ../sass/layout/_layout.scss */
+/* line 55, ../sass/layout/_layout.scss */
 .sidebar-first-pages .section-navigate {
   margin-top: 50px;
 }

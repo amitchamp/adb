@@ -41,7 +41,6 @@ header {
   @extend %flex-row;
   @extend %wrap;
   @include flex-direction(row-reverse);
-  /*justify-content: flex-end;*/
   #content-column {
     width:82.6%;
   }
