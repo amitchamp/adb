@@ -115,9 +115,14 @@ function adb_qna_block_view($delta = '') {
  */
 function adb_qna_preprocess_node(&$variables) {
   if ($variables['type'] == 'question_answer') {
-    // @todo Change API for rendering sharing links once implementation is
-    // finalized.
-    $variables['social_share'] = simplified_social_share_horizontal_sharing_div();
+    $data_options = sharethis_get_options_array();
+    $variables['social_share'] = theme('sharethis', array(
+      'data_options' => $data_options,
+      'm_path' => url($variables['node_url'], array(
+        'absolute' => TRUE,
+      )),
+      'm_title' => $variables['title'],
+    ));
     $variables['print_node'] = l(t('Print'), 'print/node/' . $variables['nid']);
     // @todo Change download link once implementation is finalized.
     $variables['download_link'] = l(t('Download'), '<front>');
