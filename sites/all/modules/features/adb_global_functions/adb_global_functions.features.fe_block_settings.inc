@@ -14,6 +14,7 @@ function adb_global_functions_default_fe_block_settings() {
 
   $export['adb_global_functions-adb_footer'] = array(
     'cache' => 1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'adb_footer',
     'module' => 'adb_global_functions',
@@ -46,6 +47,7 @@ function adb_global_functions_default_fe_block_settings() {
 
   $export['adb_global_functions-adb_profile_access'] = array(
     'cache' => 1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'adb_profile_access',
     'module' => 'adb_global_functions',
@@ -78,6 +80,7 @@ function adb_global_functions_default_fe_block_settings() {
 
   $export['system-powered-by'] = array(
     'cache' => -1,
+    'css_class' => '',
     'custom' => 0,
     'delta' => 'powered-by',
     'module' => 'system',
