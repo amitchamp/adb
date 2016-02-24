@@ -65,7 +65,7 @@
 ** For the Section heading of the each section on the pages (lke case study)
 */
 /* line 83, ../sass/utilities/_placeholder.scss */
-.section-heading {
+.section-heading, .page-views .field-name-field-value {
   font-size: 20px;
   color: #333333;
   font-family: "OpenSans-Regular";
@@ -84,9 +84,18 @@
 }
 
 /*
-** Font awesome
+** For the Heading in the body of the inner pages
 */
 /* line 104, ../sass/utilities/_placeholder.scss */
+.main-heading, .page-views .field-name-field-value {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/*
+** Font awesome
+*/
+/* line 112, ../sass/utilities/_placeholder.scss */
 .case-study-tags li:before, .social-share .stButton .stLarge:after {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -99,7 +108,7 @@
 /*
 ** Secondary headings in the inner pages without any spacing and small font size (lessons and solutions page)
 */
-/* line 117, ../sass/utilities/_placeholder.scss */
+/* line 125, ../sass/utilities/_placeholder.scss */
 .facts-section h3, .lessons-page h3 {
   font-size: 20px;
   line-height: 30px;
@@ -204,11 +213,6 @@ p {
 /*
 **Main headings on all the pages
 */
-/* line 35, ../sass/layout/_layout.scss */
-.main-heading {
-  font-size: 28px;
-}
-
 /* line 40, ../sass/layout/_layout.scss */
 .sidebar-first-pages {
   -webkit-flex-direction: row-reverse;
@@ -1046,17 +1050,18 @@ header[role="banner"] a {
   margin: 0 16px 8px 0;
 }
 
+/* Main Heading in the body of all the inner pages */
 /*
 **Solutions Section
 */
-/* line 497, ../sass/pages/_caseStudy.scss */
+/* line 505, ../sass/pages/_caseStudy.scss */
 .facts-section {
   max-width: 582px;
   margin: 45px auto 50px;
   background-color: #f2f2f2;
   padding: 20px;
 }
-/* line 502, ../sass/pages/_caseStudy.scss */
+/* line 510, ../sass/pages/_caseStudy.scss */
 .facts-section ul {
   margin: 6px 0 0;
 }
@@ -1064,39 +1069,39 @@ header[role="banner"] a {
 /*
 **Impact Section
 */
-/* line 514, ../sass/pages/_caseStudy.scss */
+/* line 522, ../sass/pages/_caseStudy.scss */
 .views-field-field-impact .field-content {
   background-color: #f2f2f2;
   padding: 10px;
   margin: 40px 0 60px;
 }
 
-/* line 519, ../sass/pages/_caseStudy.scss */
+/* line 527, ../sass/pages/_caseStudy.scss */
 .impact-list {
   padding: 20px 30px;
   border-bottom: solid 2px #fff;
 }
-/* line 522, ../sass/pages/_caseStudy.scss */
+/* line 530, ../sass/pages/_caseStudy.scss */
 .impact-list:last-of-type {
   border-bottom: none;
 }
 
-/* line 527, ../sass/pages/_caseStudy.scss */
+/* line 535, ../sass/pages/_caseStudy.scss */
 .impact-value-unit-wrapper {
   font-size: 36px;
   line-height: 46px;
 }
 
-/* line 531, ../sass/pages/_caseStudy.scss */
+/* line 539, ../sass/pages/_caseStudy.scss */
 .impact-description-wrapper {
   font-size: 20px;
 }
-/* line 533, ../sass/pages/_caseStudy.scss */
+/* line 541, ../sass/pages/_caseStudy.scss */
 .impact-description-wrapper p {
   margin: 0;
 }
 
-/* line 537, ../sass/pages/_caseStudy.scss */
+/* line 545, ../sass/pages/_caseStudy.scss */
 .field-name-field-value, .field-name-field-unit {
   display: inline-block;
 }
@@ -1104,7 +1109,7 @@ header[role="banner"] a {
 /*
 **Lessons Section
 */
-/* line 547, ../sass/pages/_caseStudy.scss */
+/* line 555, ../sass/pages/_caseStudy.scss */
 .lessons-page p {
   margin: 0 0 20px;
 }
@@ -1112,16 +1117,16 @@ header[role="banner"] a {
 /*
 **Additional Resources Section
 */
-/* line 560, ../sass/pages/_caseStudy.scss */
+/* line 568, ../sass/pages/_caseStudy.scss */
 .additional-resources h3 {
   margin-top: 35px;
   margin-bottom: 10px;
 }
-/* line 564, ../sass/pages/_caseStudy.scss */
+/* line 572, ../sass/pages/_caseStudy.scss */
 .additional-resources ul {
   margin: 0;
 }
-/* line 567, ../sass/pages/_caseStudy.scss */
+/* line 575, ../sass/pages/_caseStudy.scss */
 .additional-resources a {
   display: inline-block;
 }
@@ -1133,26 +1138,32 @@ header[role="banner"] a {
  ** style for Q&A page only.
  */
 /* line 5, ../sass/pages/_qa.scss */
+.qna-page {
+  margin-bottom: 70px;
+}
+
+/* line 8, ../sass/pages/_qa.scss */
 .qna-header-wrapper {
   background-color: #e4e4e4;
   padding: 30px 12px;
+  margin-bottom: 40px;
 }
 
-/* line 13, ../sass/pages/_qa.scss */
+/* line 17, ../sass/pages/_qa.scss */
 .cards-wrapper {
   display: inline-block;
   margin-left: 40px;
   position: relative;
 }
 
-/* line 18, ../sass/pages/_qa.scss */
+/* line 22, ../sass/pages/_qa.scss */
 .cards-toggler {
   color: #2A5DB0;
   cursor: pointer;
   font-size: 16px;
 }
 
-/* line 23, ../sass/pages/_qa.scss */
+/* line 27, ../sass/pages/_qa.scss */
 .cards-toggle-wrapper {
   position: absolute;
   left: 0;
@@ -1165,7 +1176,7 @@ header[role="banner"] a {
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 3px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 3px;
 }
-/* line 32, ../sass/pages/_qa.scss */
+/* line 36, ../sass/pages/_qa.scss */
 .cards-toggle-wrapper a {
   border-bottom: solid 1px #f2f2f2;
   font-size: 16px;
@@ -1173,27 +1184,31 @@ header[role="banner"] a {
   padding: 6px 0;
   display: block;
 }
-/* line 40, ../sass/pages/_qa.scss */
+/* line 44, ../sass/pages/_qa.scss */
 .cards-toggle-wrapper > div:last-of-type a {
   border-bottom: none;
 }
 
-/* line 45, ../sass/pages/_qa.scss */
+/* line 49, ../sass/pages/_qa.scss */
 .type-description {
   font-size: 16px;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+/* line 52, ../sass/pages/_qa.scss */
+.type-description p {
+  margin: 0;
 }
 
 /*
  ** Q&A main content section
  */
-/* line 55, ../sass/pages/_qa.scss */
+/* line 62, ../sass/pages/_qa.scss */
 .qa-list {
   padding: 25px 0;
   border-bottom: solid 1px #ccc;
 }
 
-/* line 59, ../sass/pages/_qa.scss */
+/* line 66, ../sass/pages/_qa.scss */
 .row-counter {
   width: 42px;
   height: 42px;
@@ -1210,22 +1225,68 @@ header[role="banner"] a {
   vertical-align: top;
 }
 
-/* line 72, ../sass/pages/_qa.scss */
+/* line 79, ../sass/pages/_qa.scss */
 .title-body-wrapper {
   display: inline-block;
   width: 89%;
 }
 
-/* line 76, ../sass/pages/_qa.scss */
+/* line 83, ../sass/pages/_qa.scss */
 .qna-title {
   color: #2A5DB0;
   font-size: 24px;
   margin-bottom: 50px;
 }
 
-/* line 82, ../sass/pages/_qa.scss */
+/* line 89, ../sass/pages/_qa.scss */
 .qna-summary p {
   margin: 0;
+}
+
+/*
+ ** Q&A inner Pages
+ */
+/* line 99, ../sass/pages/_qa.scss */
+.node-type-question-answer #content-column {
+  width: 67%;
+}
+/* line 102, ../sass/pages/_qa.scss */
+.node-type-question-answer .sidebar {
+  width: 23%;
+  padding-right: 0;
+  margin-right: 10%;
+}
+
+/*
+ ** Q&A sidebar section
+ */
+/* line 113, ../sass/pages/_qa.scss */
+.qna-sidebar .search {
+  width: 100%;
+  -moz-border-radius: 5px / 5px;
+  -webkit-border-radius: 5px 5px;
+  border-radius: 5px / 5px;
+  border: solid 2px #e4e4e4;
+  font-size: 14px;
+}
+/* line 119, ../sass/pages/_qa.scss */
+.qna-sidebar ul {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin: 5px 0 0;
+  list-style: none;
+}
+/* line 124, ../sass/pages/_qa.scss */
+.qna-sidebar ul li {
+  font-size: 16px;
+  color: #2A5DB0;
+  line-height: 24px;
+  padding: 15px 0;
+  border-bottom: solid 1px #ccc;
+}
+/* line 130, ../sass/pages/_qa.scss */
+.qna-sidebar ul li:last-of-type {
+  margin-bottom: none;
 }
 
 /*# sourceMappingURL=style.css.map */

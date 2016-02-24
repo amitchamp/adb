@@ -99,6 +99,14 @@
 }
 
 /*
+** For the Heading in the body of the inner pages
+*/
+%body-heading {
+  font-size: ($base-font)+14;
+  margin-bottom: 8px;
+}
+
+/*
 ** Font awesome
 */
 %fa {
