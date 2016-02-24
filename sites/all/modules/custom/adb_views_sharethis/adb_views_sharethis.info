@@ -1,0 +1,6 @@
+name = ADB views sharethis
+description = Add share link using sharethis views as field
+dependencies[] = views
+dependencies[] = sharethis
+core = 7.x
+files[] = includes/views/handlers/adb_views_sharethis_handler.inc
