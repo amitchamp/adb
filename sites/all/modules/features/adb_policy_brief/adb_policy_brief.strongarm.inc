@@ -118,5 +118,12 @@ function adb_policy_brief_strongarm() {
   $strongarm->value = 0;
   $export['node_submitted_policy_brief'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_policy_brief_pattern';
+  $strongarm->value = '[node:content-type]/[node:title]';
+  $export['pathauto_node_policy_brief_pattern'] = $strongarm;
+
   return $export;
 }

@@ -506,6 +506,45 @@ function adb_policy_brief_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-policy_brief-field_meet_contributor'.
+  $field_instances['node-policy_brief-field_meet_contributor'] = array(
+    'bundle' => 'policy_brief',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_meet_contributor',
+    'label' => 'Meet our knowledge contributor',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 48,
+    ),
+  );
+
   // Exported field_instance: 'node-policy_brief-field_policy_options'.
   $field_instances['node-policy_brief-field_policy_options'] = array(
     'bundle' => 'policy_brief',
@@ -678,6 +717,7 @@ function adb_policy_brief_field_default_field_instances() {
   t('Date');
   t('Description');
   t('Download file');
+  t('Meet our knowledge contributor');
   t('Policy options');
   t('Policy recommendations');
   t('Tags');
