@@ -113,6 +113,7 @@
     <?php endif; ?>
 
     <?php if(!empty($node->field_impact_summary[$node->language])) : ?>
+      <h3><?php print t('Impact') ?></h3>
       <?php print $node->field_impact_summary[$node->language][0]['value']; ?>
     <?php endif; ?>
 
