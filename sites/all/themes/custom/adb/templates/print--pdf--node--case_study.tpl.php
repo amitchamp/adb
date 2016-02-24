@@ -97,7 +97,33 @@
     <?php if (!isset($node->type)): ?>
       <h2 class="print-title"><?php print $print_title; ?></h2>
     <?php endif; ?>
+
     <div class="print-content"><?php print $content; ?></div>
+
+    <?php if(isset($case_study_context)) : ?>
+      <?php print $case_study_context; ?>
+    <?php endif; ?>
+
+    <?php if(isset($case_study_challenges)) : ?>
+      <?php print $case_study_challenges; ?>
+    <?php endif; ?>
+
+    <?php if(isset($case_study_solutions)) : ?>
+      <?php print $case_study_solutions; ?>
+    <?php endif; ?>
+
+    <?php if(!empty($node->field_impact_summary[$node->language])) : ?>
+      <?php print $node->field_impact_summary[$node->language][0]['value']; ?>
+    <?php endif; ?>
+
+    <?php if(isset($case_study_lessons)) : ?>
+      <?php print $case_study_lessons; ?>
+    <?php endif; ?>
+
+    <?php if(isset($case_study_additional_resources)) : ?>
+      <?php print $case_study_additional_resources; ?>
+    <?php endif; ?>
+
     <div class="print-footer"><?php print theme('print_footer'); ?></div>
     <hr class="print-hr" />
     <?php if ($sourceurl_enabled): ?>
