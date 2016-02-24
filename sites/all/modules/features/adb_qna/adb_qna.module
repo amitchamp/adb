@@ -119,9 +119,22 @@ function adb_qna_preprocess_node(&$variables) {
       'absolute' => TRUE,
     ));
     $variables['social_share'] = _adb_case_study_share_this($node_url, $variables['title']);
-    $variables['print_node'] = l(t('Print'), 'print/node/' . $variables['nid']);
-    // @todo Change download link once implementation is finalized.
-    $variables['download_link'] = l(t('Download'), '<front>');
+    $variables['print_node'] = l('<i class="fa fa-print"> ' . t('Print') . '</i>', 'print/node/' . $variables['nid'], array(
+      'attributes' => array(
+        'class' => array(
+          'print-link',
+        ),
+      ),
+      'html' => TRUE,
+    ));
+    $variables['download_link'] = l('<i class="fa fa-file-pdf-o"> ' . t('Download') . '</i>', 'printpdf' . $variables['node_url'], array(
+      'attributes' => array(
+        'class' => array(
+          'print-link',
+        ),
+      ),
+      'html' => TRUE,
+    ));
     // Display tags.
     $vocabulary_fields = array(
       'field_tags',
