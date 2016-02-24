@@ -436,10 +436,19 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['fieldset_2']['label'] = 'data-body';
   $handler->display->display_options['fields']['fieldset_2']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['fieldset_2']['children'] = array(
-    0 => 'field_impact',
-    1 => 'field_impact_summary',
+    0 => 'field_impact_sub_title',
+    1 => 'field_impact',
+    2 => 'field_impact_summary',
   );
   $handler->display->display_options['fields']['fieldset_2']['fieldset']['type'] = 'div';
+  /* Field: Content: Sub title */
+  $handler->display->display_options['fields']['field_impact_sub_title']['id'] = 'field_impact_sub_title';
+  $handler->display->display_options['fields']['field_impact_sub_title']['table'] = 'field_data_field_impact_sub_title';
+  $handler->display->display_options['fields']['field_impact_sub_title']['field'] = 'field_impact_sub_title';
+  $handler->display->display_options['fields']['field_impact_sub_title']['label'] = '';
+  $handler->display->display_options['fields']['field_impact_sub_title']['element_type'] = 'h1';
+  $handler->display->display_options['fields']['field_impact_sub_title']['element_class'] = 'section-heading main-heading';
+  $handler->display->display_options['fields']['field_impact_sub_title']['element_label_colon'] = FALSE;
   /* Field: Content: Impact */
   $handler->display->display_options['fields']['field_impact']['id'] = 'field_impact';
   $handler->display->display_options['fields']['field_impact']['table'] = 'field_data_field_impact';

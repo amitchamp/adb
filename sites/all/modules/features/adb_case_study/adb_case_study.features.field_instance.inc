@@ -1441,7 +1441,7 @@ function adb_case_study_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_impact_sub_title',
-    'label' => 'Title',
+    'label' => 'Sub title',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1960,6 +1960,7 @@ function adb_case_study_field_default_field_instances() {
   t('Project snapshot');
   t('Secondary cost');
   t('Solutions');
+  t('Sub title');
   t('Tags');
   t('Title');
   t('Topic');
