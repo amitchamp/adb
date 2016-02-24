@@ -7,7 +7,6 @@ dependencies[] = adb_case_study
 dependencies[] = adb_views_listjs
 dependencies[] = hs_taxonomy
 dependencies[] = options
-dependencies[] = sharethis
 dependencies[] = text
 dependencies[] = views
 features[ctools][] = strongarm:strongarm:1
