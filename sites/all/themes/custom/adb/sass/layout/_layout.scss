@@ -33,7 +33,7 @@ header {
 */
 
 .main-heading {
-  font-size: ($base-font)+14;
+  @extend %body-heading;
 }
 
 

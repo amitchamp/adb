@@ -490,6 +490,14 @@
   }
 }
 
+/* Main Heading in the body of all the inner pages */
+.page-views {
+  .field-name-field-value {
+    @extend %seconday-heading;
+    @extend %body-heading;
+  }
+}
+
 /*
 **Solutions Section
 */
