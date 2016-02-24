@@ -95,6 +95,7 @@ features[flexslider_optionset][] = adb_slider
 features[node][] = article
 features[node][] = page
 features[taxonomy][] = tags
+features[user_permission][] = access PDF version
 features[user_permission][] = search content
 features[variable][] = admin_theme
 features[variable][] = clean_url
