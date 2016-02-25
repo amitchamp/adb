@@ -82,29 +82,31 @@ function adb_policy_brief_preprocess_node(&$variables) {
     $contributor_exist = FALSE;
     $contributor_output = '';
     foreach ($variables['field_meet_contributor'] as $contributor) {
+      $contributor_output .= '<div class="contributor-wrapper">';
       if (isset($contributor['entity']->title) ||
-        isset($contributor['entity']->body[$lang_code][0]['value']) ||
-        isset($contributor['entity']->body[$lang_code][0]['value'])) {
+        isset($contributor['entity']->body[$und][0]['value']) ||
+        isset($contributor['entity']->body[$und][0]['value'])) {
         $contributor_exist = TRUE;
       }
-      if (isset($contributor['entity']->field_contributor_image[$lang_code][0]['uri'])) {
+      if (isset($contributor['entity']->field_contributor_image[$und][0]['uri'])) {
         $contributor_output .= '<div class="contributor-image">' . theme('image_style', array(
             'style_name' => 'contributor_profile',
-            'path' => $contributor['entity']->field_contributor_image[$lang_code][0]['uri']
-          )) . '</div>';
+            'path' => $contributor['entity']->field_contributor_image[$und][0]['uri']
+            )
+          ) . '</div>';
       }
       $contributor_output .= '<div class="about-contributor">';
       if (isset($contributor['entity']->title)) {
         // Getting name of knowledge
         $contributor_output .= '<h4 class="contributor-name">' . $contributor['entity']->title . '</h4>';
       }
-      if (isset($contributor['entity']->field_education[$lang_code][0]['value'])) {
-        $contributor_output .= '<div class="contributor-education">' . $contributor['entity']->field_education[$lang_code][0]['value'] . '</div>';
+      if (isset($contributor['entity']->field_education[$und][0]['value'])) {
+        $contributor_output .= '<div class="contributor-education">' . $contributor['entity']->field_education[$und][0]['value'] . '</div>';
       }
-      if (isset($contributor['entity']->body[$lang_code][0]['value'])) {
-        $contributor_output .= '<div class="contributor-about">' . $contributor['entity']->body[$lang_code][0]['value'] . '</div>';
+      if (isset($contributor['entity']->body[$und][0]['value'])) {
+        $contributor_output .= '<div class="contributor-about">' . $contributor['entity']->body[$und][0]['value'] . '</div>';
       }
-      $contributor_output .= '</div>';
+      $contributor_output .= '</div></div>';
     }
     $variables['have_contributor'] = $contributor_exist;
     $variables['contributor'] = $contributor_output;

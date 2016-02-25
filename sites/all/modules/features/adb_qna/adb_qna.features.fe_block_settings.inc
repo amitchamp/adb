@@ -48,7 +48,7 @@ taxonomy/term/*',
 
   $export['views-26bb7f36bbfa0f556d67c85d626bd03a'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'qna-sidebar',
     'custom' => 0,
     'delta' => '26bb7f36bbfa0f556d67c85d626bd03a',
     'module' => 'views',
