@@ -32,7 +32,6 @@ features[field_instance][] = node-policy_brief-field_additi_reso_policy
 features[field_instance][] = node-policy_brief-field_banner_image
 features[field_instance][] = node-policy_brief-field_countries
 features[field_instance][] = node-policy_brief-field_date
-features[field_instance][] = node-policy_brief-field_download_file
 features[field_instance][] = node-policy_brief-field_meet_contributor
 features[field_instance][] = node-policy_brief-field_policy_options
 features[field_instance][] = node-policy_brief-field_policy_recommendations

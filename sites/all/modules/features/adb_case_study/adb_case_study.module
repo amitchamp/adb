@@ -36,6 +36,48 @@ function adb_case_study_block_info() {
 }
 
 /**
+ * Implements hook_block_view().
+ */
+function adb_case_study_block_view($delta = '') {
+  module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
+  $block = array();
+  $nid = arg(1);
+  switch ($delta) {
+    case 'subsection_menu':
+      $block['subject'] = '';
+      // Function call for getting render content of list.
+      $block['content'] = array(
+        '#markup' => _adb_case_study_block_sub_sction_menu_content(),
+      );
+      break;
+    case 'section_navigation':
+      $block['subject'] = '';
+      // Function call for getting render content of list.
+      $block['content'] = array(
+        '#markup' => _adb_case_study_block_subsection_navigation(),
+      );
+      break;
+    case 'comment_form':
+      // Function call for getting render comment form.
+      if (isset($nid) && is_numeric($nid)) {
+        $block['content'] = array(
+          '#markup' => _adb_case_study_comment_form_block($nid),
+        );
+      }
+      break;
+    case 'rate_widget':
+      // Function call for getting render comment form..
+      if (isset($nid) && is_numeric($nid)) {
+        $block['content'] = array(
+          '#markup' => _adb_case_study_rate_widget_block($nid),
+        );
+      }
+      break;
+  }
+  return $block;
+}
+
+/**
  *  Custom function for creating field navigation of seb section in case study.
  *  List of section is defined and make navigation based on that.
  *  @return string
@@ -95,48 +137,6 @@ function _adb_case_study_block_subsection_navigation() {
 }
 
 /**
- * Implements hook_block_view().
- */
-function adb_case_study_block_view($delta = '') {
-  module_load_include('inc', 'adb_case_study', 'includes/adb_case_study.blocks');
-  $block = array();
-  $nid = arg(1);
-  switch ($delta) {
-    case 'subsection_menu':
-      $block['subject'] = '';
-      // Function call for getting render content of list.
-      $block['content'] = array(
-        '#markup' => _adb_case_study_block_sub_sction_menu_content(),
-      );
-      break;
-    case 'section_navigation':
-      $block['subject'] = '';
-      // Function call for getting render content of list.
-      $block['content'] = array(
-        '#markup' => _adb_case_study_block_subsection_navigation(),
-      );
-      break;
-    case 'comment_form':
-      // Function call for getting render comment form.
-      if (isset($nid) && is_numeric($nid)) {
-        $block['content'] = array(
-          '#markup' => _adb_case_study_comment_form_block($nid),
-        );
-      }
-      break;
-    case 'rate_widget':
-      // Function call for getting render comment form..
-      if (isset($nid) && is_numeric($nid)) {
-        $block['content'] = array(
-          '#markup' => _adb_case_study_rate_widget_block($nid),
-        );
-      }
-      break;
-  }
-  return $block;
-}
-
-/**
  *  For creating content type template file called node.tpl.we are creating
  * 	 variable for rendering different section of content in landing page.
  *  HOOK_preprocess_node we are using for one type of node content.
@@ -188,19 +188,14 @@ function adb_case_study_preprocess_node(&$variables) {
     }
 
     // Download Link for node page.
-    if (isset($variables['field_download_file'][0]['uri'])) {
+    $variables['download_link'] = l(t('<i class="fa fa-file-pdf-o"></i> Download'), '/printpdf/' . current_path(), array(
+      'attributes' => array(
+        'target' => '_blank',
+        'class' => 'download-link',
+      ),
+      'html' => TRUE,
+    ));
 
-      $variables['download_link'] = l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array(
-        'attributes' => array(
-          'target' => '_blank',
-          'class' => 'download-link',
-        ),
-        'html' => TRUE,
-      ));
-    }
-    else {
-      $variables['download_link'] = '';
-    }
 
     // Print Node page.
     if (isset($variables['nid'])) {
@@ -481,7 +476,6 @@ function adb_case_study_preprocess_views_view(&$vars) {
         'absolute' => TRUE,
       ));
       $node = entity_metadata_wrapper('node', $nid);
-      $download_file_url = $node->field_download_file->value();
       $share = _adb_case_study_share_this($url, decode_entities(drupal_get_title()));
       // Create and appand structure of HTML in banner.
       $header_content = "<div class='banner-node'>"
@@ -498,15 +492,13 @@ function adb_case_study_preprocess_views_view(&$vars) {
       ));
 
       // Get file download url.
-      if (isset($download_file_url['uri'])) {
-        $header_content .= l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($download_file_url['uri']), array(
-          'attributes' => array(
-            'target' => '_blank',
-            'class' => 'download-link',
-          ),
-          'html' => TRUE,
-        ));
-      }
+      $header_content .= l(t('<i class="fa fa-file-pdf-o"></i> Download'), '/printpdf/node/' . $nid, array(
+        'attributes' => array(
+          'target' => '_blank',
+          'class' => 'download-link',
+        ),
+        'html' => TRUE,
+      ));
       $header_content .= "</div></div></div></div>";
       // Set header value of views.
       $vars['header'] = $header_content;
