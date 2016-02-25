@@ -104,6 +104,7 @@
 %body-heading {
   font-size: ($base-font)+14;
   margin-bottom: 8px;
+  font-weight: 700;
 }
 
 /*
@@ -112,7 +113,7 @@
 %fa {
   display:inline-block;
   font:normal normal normal 14px/1 FontAwesome;
-  font-size:inherit;
+  font-size:inherit;  
   text-rendering:auto;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
