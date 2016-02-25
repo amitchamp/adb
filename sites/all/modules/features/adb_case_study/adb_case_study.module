@@ -83,9 +83,6 @@ function adb_case_study_block_view($delta = '') {
  *  @return string
  */
 function _adb_case_study_block_subsection_navigation() {
-  // Declare array indexing for navigaion.
-  $key_array_indexing = array();
-  $name_key_pair = array();
   // Get current path and nid.
   $current_path = explode('/', current_path());
   $current_url = $current_path[0];
@@ -357,6 +354,7 @@ function adb_case_study_preprocess_node(&$variables) {
     $contributor_exist = FALSE;
     $contributor_output = '';
     foreach ($variables['field_meet_contributor'] as $contributor) {
+      $contributor_output .= '<div class="contributor-wrapper">';
       if (isset($contributor['entity']->title) ||
         isset($contributor['entity']->body[$und][0]['value']) ||
         isset($contributor['entity']->body[$und][0]['value'])) {
@@ -380,7 +378,7 @@ function adb_case_study_preprocess_node(&$variables) {
       if (isset($contributor['entity']->body[$und][0]['value'])) {
         $contributor_output .= '<div class="contributor-about">' . $contributor['entity']->body[$und][0]['value'] . '</div>';
       }
-      $contributor_output .= '</div>';
+      $contributor_output .= '</div></div>';
     }
     $variables['have_contributor'] = $contributor_exist;
     $variables['contributor'] = $contributor_output;
