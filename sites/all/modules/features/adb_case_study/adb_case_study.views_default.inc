@@ -164,6 +164,7 @@ function adb_case_study_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Impact';
+  $handler->display->display_options['css_class'] = 'wrapper-section';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -421,12 +422,6 @@ function adb_case_study_views_default_views() {
     0 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
-  $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
-  $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
-  $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
-  $handler->display->display_options['fields']['field_download_file']['exclude'] = TRUE;
   /* Field: Global: Fieldset */
   $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
   $handler->display->display_options['fields']['fieldset_2']['table'] = 'views';
@@ -1045,6 +1040,8 @@ function adb_case_study_views_default_views() {
   $handler = $view->new_display('page', 'Case study-Lessons', 'lessons');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Lessons';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'wrapper-section lessons-page';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Global: Fieldset */
