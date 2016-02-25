@@ -10,7 +10,6 @@ include_once 'adb_policy_brief.features.inc';
  *  Implements hook_preprocess_node.
  */
 function adb_policy_brief_preprocess_node(&$variables) {
-
   // Need in creating link with base_url.
   global $baseUrl;
 
