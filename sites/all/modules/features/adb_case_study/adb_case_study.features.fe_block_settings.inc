@@ -24,7 +24,10 @@ context/*
 challenges/*
 solutions/*
 lessons/*
-resources/*',
+resources/*
+policy_resources/*
+recommendations/*
+policy_option/*',
     'roles' => array(),
     'themes' => array(
       'adb' => array(
@@ -62,7 +65,10 @@ context/*
 challenges/*
 solutions/*
 lessons/*
-resources/*',
+resources/*
+policy_resources/*
+recommendations/*
+policy_option/*',
     'roles' => array(),
     'themes' => array(
       'adb' => array(
@@ -138,7 +144,10 @@ context/*
 challenges/*
 solutions/*
 lessons/*
-resources/*',
+resources/*
+policy_resources/*
+recommendations/*
+policy_option/*',
     'roles' => array(),
     'themes' => array(
       'adb' => array(
