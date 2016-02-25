@@ -1,6 +1,5 @@
 <?php
 
-include_once DRUPAL_ROOT . '/kint/Kint.class.php';
 /**
  * @file
  * Code for the ADB Policy Brief feature.

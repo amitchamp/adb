@@ -1,6 +1,5 @@
 <?php
 
-include_once DRUPAL_ROOT . '/kint/Kint.class.php';
 /**
  * @file
  * ADB case study block callbacks.
