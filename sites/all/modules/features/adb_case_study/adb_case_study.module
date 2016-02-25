@@ -83,28 +83,59 @@ function adb_case_study_block_view($delta = '') {
  *  @return string
  */
 function _adb_case_study_block_subsection_navigation() {
+  // Declare array indexing for navigaion.
+  $key_array_indexing = array();
+  $name_key_pair = array();
+  // Get current path and nid.
   $current_path = explode('/', current_path());
   $current_url = $current_path[0];
-  // List of views where we have to redirect after navigation.
-  $key_array_indexing = array(
-    '1' => 'node',
-    '2' => 'context',
-    '3' => 'challenges',
-    '4' => 'solutions',
-    '5' => 'impact',
-    '6' => 'lessons',
-    '7' => 'resources',
-  );
 
-  // Name key pair for getting human readable name in navigation.
-  $name_key_pair = array(
-    'node' => t('Overview'),
-    'context' => t('Context'),
-    'challenges' => t('Challenges'),
-    'solutions' => t('Solutions'),
-    'impact' => t('Impact'),
-    'lessons' => t('Lessons'),
-    'resources' => t('Additional resources'));
+  // Get current node object.
+  $node_wrapper = entity_metadata_wrapper('node', $current_path[1]);
+  $node_type = $node_wrapper->type->value();
+  $lang_code = $node_wrapper->language->value();
+  switch ($node_type) {
+    case 'policy_brief':
+      // List of views where we have to redirect after navigation.
+      $key_array_indexing = array(
+        '1' => 'node',
+        '2' => 'policy_option',
+        '3' => 'recommendations',
+        '4' => 'policy_resources'
+      );
+
+      // Name key pair for getting human readable name in navigation.
+      $name_key_pair = array(
+        'node' => t('Overview'),
+        'policy_option' => $node_wrapper->field_policy_options->value()->field_value[$lang_code][0]['value'],
+        'recommendations' => $node_wrapper->field_policy_recommendations->value()->field_value[$lang_code][0]['value'],
+        'policy_resources' => $node_wrapper->field_additi_reso_policy->value()->field_value[$lang_code][0]['value']);
+
+      break;
+    case 'case_study':
+      // List of views where we have to redirect after navigation.
+      $key_array_indexing = array(
+        '1' => 'node',
+        '2' => 'context',
+        '3' => 'challenges',
+        '4' => 'solutions',
+        '5' => 'impact',
+        '6' => 'lessons',
+        '7' => 'resources',
+      );
+
+      // Name key pair for getting human readable name in navigation.
+      $name_key_pair = array(
+        'node' => t('Overview'),
+        'context' => $node_wrapper->field_context->value()->field_value[$lang_code][0]['value'],
+        'challenges' => $node_wrapper->field_challenges->value()->field_value[$lang_code][0]['value'],
+        'solutions' => $node_wrapper->field_solutions->value()->field_value[$lang_code][0]['value'],
+        'impact' => $node_wrapper->field_impact_sub_title->value(),
+        'lessons' => $node_wrapper->field_lessons->value()->field_value[$lang_code][0]['value'],
+        'resources' => $node_wrapper->field_additional_resources->value()->field_value[$lang_code][0]['value']);
+      break;
+  }
+
   $current_index = array_search($current_url, $key_array_indexing);
 
   // Find the index of the next/prev items.
