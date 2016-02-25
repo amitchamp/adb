@@ -110,8 +110,7 @@ hide($content['links']);
   <?php if ($title && !$page): ?>
     <header<?php print $header_attributes; ?>>
       <?php if ($title): ?>
-        <a href="<?php print $node_url; ?>" rel="bookmark"></a>
-        </h1>
+        <h1<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>" rel="bookmark"></a></h1>
       <?php endif; ?>
     </header>
   <?php endif; ?>

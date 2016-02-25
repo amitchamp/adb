@@ -107,14 +107,24 @@ hide($content['comments']);
 hide($content['links']);
 ?>
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <?php print render($title_prefix); ?>
+
   <?php if ($title && !$page): ?>
     <header<?php print $header_attributes; ?>>
       <?php if ($title): ?>
-        <a href="<?php print $node_url; ?>" rel="bookmark"></a>
+        <h1<?php print $title_attributes; ?>>
+          <a href="<?php print $node_url; ?>" rel="bookmark"><?php print $title; ?></a>
         </h1>
       <?php endif; ?>
     </header>
+  <?php elseif ($title && $page): ?>
+    <header<?php print $header_attributes; ?>>
+      <?php if ($title): ?>
+        <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
+      <?php endif; ?>
+    </header>
   <?php endif; ?>
+
   <div class='banner-node'>
     <?php if (!empty($node_field_tagging)): ?>
       <div class="tagging case-study-tags"><?php print $node_field_tagging; ?></div>
