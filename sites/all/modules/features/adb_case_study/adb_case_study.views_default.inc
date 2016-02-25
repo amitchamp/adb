@@ -439,7 +439,6 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['fields']['field_impact_sub_title']['table'] = 'field_data_field_impact_sub_title';
   $handler->display->display_options['fields']['field_impact_sub_title']['field'] = 'field_impact_sub_title';
   $handler->display->display_options['fields']['field_impact_sub_title']['label'] = '';
-  $handler->display->display_options['fields']['field_impact_sub_title']['element_type'] = 'h1';
   $handler->display->display_options['fields']['field_impact_sub_title']['element_class'] = 'section-heading main-heading';
   $handler->display->display_options['fields']['field_impact_sub_title']['element_label_colon'] = FALSE;
   /* Field: Content: Impact */
@@ -1160,12 +1159,6 @@ function adb_case_study_views_default_views() {
     0 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
-  $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
-  $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
-  $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
-  $handler->display->display_options['fields']['field_download_file']['exclude'] = TRUE;
   /* Field: Global: Fieldset */
   $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
   $handler->display->display_options['fields']['fieldset_2']['table'] = 'views';
@@ -1342,12 +1335,6 @@ function adb_case_study_views_default_views() {
     0 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
-  $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
-  $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
-  $handler->display->display_options['fields']['field_download_file']['label'] = 'Download';
-  $handler->display->display_options['fields']['field_download_file']['exclude'] = TRUE;
   /* Field: Global: Fieldset */
   $handler->display->display_options['fields']['fieldset_2']['id'] = 'fieldset_2';
   $handler->display->display_options['fields']['fieldset_2']['table'] = 'views';
