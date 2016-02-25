@@ -535,14 +535,21 @@
 .impact-value-unit-wrapper {
   font-size: $inner-pages-title;
   line-height: ($inner-pages-title)+10;
-}
-.impact-description-wrapper {
-  font-size: ($base-font)+6;
-  p {
+  .field-name-field-value {
+    display: inline-block;
+    font-size: $inner-pages-title;
+    line-height: ($inner-pages-title)+10;
     margin: 0;
+    font-weight: 400;
   }
 }
-.field-name-field-value,.field-name-field-unit {
+.impact-description-wrapper {
+  p {
+    font-size: ($base-font)+6;
+    margin: 4px 0 2px;
+  }
+}
+.field-name-field-unit {
   display: inline-block;
 }
 

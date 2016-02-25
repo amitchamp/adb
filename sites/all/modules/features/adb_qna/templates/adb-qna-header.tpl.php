@@ -16,10 +16,7 @@
   <div class="term-name-cards-wrapper">
     <h1 class="detail-pages-heading"><?php print $current_term_name; ?></h1>
     <div class="cards-wrapper">
-      <div class="cards-toggler"><?php print t('Change cards'); ?>
-        <i class="fa fa-angle-down"></i>
-        <i class="fa fa-angle-up"></i>
-      </div>
+      <div class="cards-toggler"><?php print t('Change cards'); ?><i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i></div>
       <div class="cards-toggle-wrapper" style="display: none;">
         <?php foreach ($siblings as $term): ?>
           <div class="card card-<?php print $term->tid; ?>"><?php print l($term->name, 'taxonomy/term/' . $term->tid); ?></div>
