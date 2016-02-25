@@ -112,7 +112,7 @@ function adb_case_study_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'date_format_day_month_year';
-  $strongarm->value = 'j F Y';
+  $strongarm->value = 'j M Y';
   $export['date_format_day_month_year'] = $strongarm;
 
   $strongarm = new stdClass();
