@@ -1333,48 +1333,6 @@ function adb_case_study_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-case_study-field_download_file'.
-  $field_instances['node-case_study-field_download_file'] = array(
-    'bundle' => 'case_study',
-    'deleted' => 0,
-    'description' => 'Upload file for download pdf',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_download_file',
-    'label' => 'Download file',
-    'required' => 0,
-    'settings' => array(
-      'description_field' => 0,
-      'file_directory' => '',
-      'file_extensions' => 'txt pdf doc docx xls',
-      'max_filesize' => '10 MB',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'file',
-      'settings' => array(
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'file_generic',
-      'weight' => 7,
-    ),
-  );
-
   // Exported field_instance: 'node-case_study-field_impact'.
   $field_instances['node-case_study-field_impact'] = array(
     'bundle' => 'case_study',
@@ -1946,7 +1904,6 @@ function adb_case_study_field_default_field_instances() {
   t('Define dates');
   t('Define project estimation');
   t('Description');
-  t('Download file');
   t('Education');
   t('Impact');
   t('Impact summary');
@@ -1965,7 +1922,6 @@ function adb_case_study_field_default_field_instances() {
   t('Title');
   t('Topic');
   t('Unit');
-  t('Upload file for download pdf');
   t('Value');
 
   return $field_instances;

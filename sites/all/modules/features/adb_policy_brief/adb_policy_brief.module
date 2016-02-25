@@ -4,7 +4,6 @@
  * @file
  * Code for the ADB Policy Brief feature.
  */
-
 include_once 'adb_policy_brief.features.inc';
 
 /**
@@ -46,19 +45,13 @@ function adb_policy_brief_preprocess_node(&$variables) {
     }
 
     // Download Link for node page.
-    if (isset($variables['field_download_file'][0]['uri'])) {
-
-      $variables['download_link'] = l(t('<i class="fa fa-file-pdf-o"></i> Download'), file_force_create_url($variables['field_download_file'][0]['uri']), array(
-        'attributes' => array(
-          'target' => '_blank',
-          'class' => 'download-link',
-        ),
-        'html' => TRUE,
-      ));
-    }
-    else {
-      $variables['download_link'] = '';
-    }
+    $variables['download_link'] = l(t('<i class="fa fa-file-pdf-o"></i> Download'), '/printpdf/' . current_path(), array(
+      'attributes' => array(
+        'target' => '_blank',
+        'class' => 'download-link',
+      ),
+      'html' => TRUE,
+    ));
 
     // Print Node page.
     if (isset($variables['nid'])) {
@@ -81,6 +74,10 @@ function adb_policy_brief_preprocess_node(&$variables) {
     if (isset($variables['node']->body[$lang_code][0]['summary'])) {
       $variables['summary'] = $variables['node']->body[$lang_code][0]['summary'];
     }
+
+    // Continue reading section.
+    // We are calling allready crating link_section content url for continue reading.
+    $variables['continue_reading'] = _adb_case_study_block_sub_sction_menu_content();
 
     // Meet our knowledge contributor.
     $contributor_exist = FALSE;
