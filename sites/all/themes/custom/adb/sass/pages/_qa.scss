@@ -28,6 +28,9 @@
   color: $link;
   cursor: pointer;
   font-size: ($base-font)+2;
+  .fa {
+    margin-left: 5px;
+  }
   .fa-angle-up {
     display: none;
   }
@@ -119,6 +122,22 @@
     width: 23%;
     padding-right: 0;
     margin-right: 10%;
+  }
+  .social-share-download {
+    border-top: solid 1px $grey;
+    padding: 4px;
+  }
+  .social-share {
+    margin-top: 2px;
+    .stButton {
+      margin: 0 5px;
+      .stLarge:after{
+        font-size: ($base-font)+6;
+      }
+    }
+  }
+  .download-print a {
+    font-size: ($base-font)-1;
   }
 }
 
