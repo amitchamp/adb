@@ -210,6 +210,9 @@
 
     </div><!-- /end #columns -->
 
+    <!-- !Comment Section Region -->
+    <?php print render($page['comments_section']); ?>
+
     <!-- !Tertiary Content Region -->
     <?php print render($page['tertiary_content']); ?>
 
