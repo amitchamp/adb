@@ -9,6 +9,7 @@
       function changeCardsToggle() {
         $('.cards-toggler').click(function() {
           $('.cards-toggle-wrapper').slideToggle();
+          $('.cards-toggler').toggleClass('open-card');
         });
       }
     }
