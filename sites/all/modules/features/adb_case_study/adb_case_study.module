@@ -83,6 +83,8 @@ function adb_case_study_block_view($delta = '') {
  *  @return string
  */
 function _adb_case_study_block_subsection_navigation() {
+  $current_path = explode('/', current_path());
+  $current_url = $current_path[0];
   // List of views where we have to redirect after navigation.
   $key_array_indexing = array(
     '1' => 'node',
@@ -103,8 +105,6 @@ function _adb_case_study_block_subsection_navigation() {
     'impact' => t('Impact'),
     'lessons' => t('Lessons'),
     'resources' => t('Additional resources'));
-  $current_path = explode('/', current_path());
-  $current_url = $current_path[0];
   $current_index = array_search($current_url, $key_array_indexing);
 
   // Find the index of the next/prev items.
