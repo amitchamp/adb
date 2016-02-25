@@ -39,22 +39,22 @@
   @extend %inline-menu;
   li {
     background-color: $white;
-	border: solid 1px $black;
-	display: inline-block;
-	float: none;
-	font-size: ($base-font)-2;
-	padding: 4px 5px;
-	margin: 0 16px 8px 0;	
-	&:before {
-	  @extend %fa;
-	  content: "\f02b";
-	  color: $black;
-	  margin-right: 4px;
-	}
-	&:first-child {
-    margin-right: 16px;
-    margin-bottom: 8px;
-	}
+  	border: solid 1px $black;
+  	display: inline-block;
+  	float: none;
+  	font-size: ($base-font)-2;
+  	padding: 4px 5px;
+  	margin: 0 16px 8px 0;	
+    &:before {
+      @extend %fa;
+      content: "\f02b";
+      color: $black;
+      margin-right: 4px;
+    }
+    &:first-child {
+      margin-right: 16px;
+      margin-bottom: 8px;
+    }
   }
   a {
     color: $black;
@@ -232,9 +232,9 @@
   	list-style: none;
   }
   li{
-  	width: 47%;
-  	display: inline-block;
-  	vertical-align: top;
+    width: 47%;
+    display: inline-block;
+    vertical-align: top;
     margin: 15px 1%;
     &:first-of-type {
       display: none;
