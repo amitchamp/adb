@@ -128,7 +128,7 @@
     padding: 4px;
   }
   .social-share {
-    margin-top: 2px;
+    margin-top: 4px;
     .stButton {
       margin: 0 5px;
       .stLarge:after{
@@ -150,12 +150,16 @@
     @include border-radius(5px,5px);
     border: solid 2px #e4e4e4;
     font-size: $base-font;
+    padding: 6px 7px 4px 25px;
+    background: url(#{$img-path}/search-icon.png) no-repeat 7px center;
   }
   ul {
     background-color: $light-grey-background;
     padding: 10px;
     margin: 5px 0 0;
     list-style: none;
+    max-height: 1025px;
+    overflow-y: auto;
     li {
       font-size: ($base-font)+2;
       color: $link;

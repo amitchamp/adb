@@ -53,6 +53,7 @@
 	}
 	&:first-child {
 	  margin-right: 16px;
+    margin-bottom: 8px;
 	}
   }
   a {
@@ -235,6 +236,9 @@
   	display: inline-block;
   	vertical-align: top;
   	margin: 15px 1%;
+    &:first-of-type {
+      display: none;
+    }
   }
   a {
   	color: $link;
@@ -365,14 +369,20 @@
 /*
 **Knowledge Contributor Section
 */
+.contributor-wrapper {
+  margin-bottom: 20px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
 .contributor-image {
   max-width: 102px;
   display: inline-block;
+  margin-right: 2%;
 }
 .about-contributor {
   width: 84%;
   display: inline-block;
-  margin-left: 2%;
   vertical-align: top;
 }
 .contributor-name {
