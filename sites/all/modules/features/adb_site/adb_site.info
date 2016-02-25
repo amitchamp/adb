@@ -41,7 +41,6 @@ dependencies[] = features
 dependencies[] = field_collection
 dependencies[] = field_group
 dependencies[] = file
-dependencies[] = file_force
 dependencies[] = filter
 dependencies[] = flexslider
 dependencies[] = flexslider_views
