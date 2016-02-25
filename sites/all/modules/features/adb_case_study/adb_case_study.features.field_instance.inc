@@ -101,7 +101,7 @@ function adb_case_study_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_value',
     'label' => 'Title',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -174,7 +174,7 @@ function adb_case_study_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_value',
     'label' => 'Title',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -246,7 +246,7 @@ function adb_case_study_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_value',
     'label' => 'Title',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -576,7 +576,7 @@ function adb_case_study_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_value',
     'label' => 'Title',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -753,7 +753,7 @@ function adb_case_study_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_value',
     'label' => 'Title',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -914,7 +914,7 @@ function adb_case_study_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_value',
     'label' => 'Title',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -1400,7 +1400,7 @@ function adb_case_study_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_impact_sub_title',
     'label' => 'Sub title',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
