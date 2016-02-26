@@ -99,7 +99,7 @@ function adb_site_ckeditor_profile_defaults() {
     [\'Source\'],
     [\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'PasteFromWord\',\'-\'],
     [\'Undo\',\'Redo\',\'Find\',\'Replace\',\'-\'],
-    [\'Image\',\'Table\',\'HorizontalRule\',\'OCUpload\',\'MediaEmbed\'],
+    [\'Image\',\'Table\',\'HorizontalRule\',\'OCUpload\',\'MediaEmbed\',\'CreateDiv\'],
     \'/\',
     [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'-\',\'RemoveFormat\'],
     [\'NumberedList\',\'BulletedList\',\'-\',\'Outdent\',\'Indent\',\'Blockquote\'],
