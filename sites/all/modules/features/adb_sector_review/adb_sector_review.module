@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ADB Sector Review feature.
+ */
+
+include_once 'adb_sector_review.features.inc';
