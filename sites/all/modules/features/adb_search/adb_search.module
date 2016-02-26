@@ -1,7 +1,80 @@
 <?php
+
 /**
  * @file
  * Code for the Search feature.
  */
 
 include_once 'adb_search.features.inc';
+
+/**
+ * Implements hook_preprocess_search_result().
+ */
+function adb_search_preprocess_search_result(&$variables) {
+  $items = array();
+  $variables['search_tags'] = array();
+  $node_wrapper = entity_metadata_wrapper($variables['result']['node']->entity_type, $variables['result']['node']->entity_id);
+
+  // Custom snippet.
+  // Make sure HTML tags are stripped.
+  $body_value = $node_wrapper->body->value();
+  if (!empty($body_value['safe_summary'])) {
+    $variables['custom_snippet'] = strip_tags($body_value['safe_summary']);
+  }
+  else {
+    $variables['custom_snippet'] = truncate_utf8(strip_tags($body_value['safe_value']), 200, TRUE, TRUE);
+  }
+
+  // Create markup for search tags.
+  // Items for `field_tags`.
+  if (!empty($tags = $node_wrapper->field_tags->value())) {
+    foreach ($tags as $term) {
+      $variables['search_tags'][] = $term;
+      $items[] = array(
+        'data' => format_string('!icon @name', array(
+          '!icon' => '<i class="fa fa-tag"></i>',
+          '@name' => $term->name,
+        )),
+        'class' => array(
+          'search-tag',
+        ),
+      );
+    }
+  }
+
+  // Items for `field_topic`.
+  if (!empty($tags = $node_wrapper->field_topic->value())) {
+    foreach ($tags as $term) {
+      $variables['search_tags'][] = $term;
+      $items[] = array(
+        'data' => format_string('!icon @name', array(
+          '!icon' => '<i class="fa fa-tag"></i>',
+          '@name' => $term->name,
+        )),
+        'class' => array(
+          'search-tag',
+        ),
+      );
+    }
+  }
+
+  // Items for `field_countries`.
+  if (!empty($tags = $node_wrapper->field_countries->value())) {
+    foreach ($tags as $term) {
+      $variables['search_tags'][] = $term;
+      $items[] = array(
+        'data' => format_string('!icon @name', array(
+          '!icon' => '<i class="fa fa-tag"></i>',
+          '@name' => $term->name,
+        )),
+        'class' => array(
+          'search-tag',
+        ),
+      );
+    }
+  }
+
+  $variables['search_tags_markup'] = theme('item_list', array(
+    'items' => $items,
+  ));
+}
