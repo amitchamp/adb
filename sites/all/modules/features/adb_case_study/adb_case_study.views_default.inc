@@ -261,7 +261,7 @@ function adb_case_study_views_default_views() {
     0 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-  /* Field: Broken/missing handler */
+  /* Field: Content: Download file */
   $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
@@ -624,7 +624,7 @@ function adb_case_study_views_default_views() {
     0 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-  /* Field: Broken/missing handler */
+  /* Field: Content: Download file */
   $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
@@ -796,7 +796,7 @@ function adb_case_study_views_default_views() {
     0 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-  /* Field: Broken/missing handler */
+  /* Field: Content: Download file */
   $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
@@ -976,7 +976,7 @@ function adb_case_study_views_default_views() {
     0 => 'field_download_file',
   );
   $handler->display->display_options['fields']['fieldset_1']['fieldset']['type'] = 'div';
-  /* Field: Broken/missing handler */
+  /* Field: Content: Download file */
   $handler->display->display_options['fields']['field_download_file']['id'] = 'field_download_file';
   $handler->display->display_options['fields']['field_download_file']['table'] = 'field_data_field_download_file';
   $handler->display->display_options['fields']['field_download_file']['field'] = 'field_download_file';
@@ -1040,7 +1040,7 @@ function adb_case_study_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Lessons';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'wrapper-section lessons-page';
+  $handler->display->display_options['css_class'] = 'wrapper-section content-detail-page';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Global: Fieldset */
