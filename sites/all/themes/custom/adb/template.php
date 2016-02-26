@@ -184,6 +184,30 @@ function adb_preprocess_print(&$vars, $hook) {
         $vars['case_study_lessons'] = $case_study_lessons;
         $vars['case_study_additional_resources'] = $case_study_additional_resources;
         break;
+
+      case 'policy_brief':
+          // Get value for policy options field.
+          $policy_brief_policy_options = '<h3>' . t('Policy options') . '</h3>';
+          $policy_options = field_get_items('node', $node, 'field_policy_options');
+          $view_field = field_view_value('node', $node, 'field_policy_options', $policy_options[0]);
+          $policy_brief_policy_options .= render($view_field);
+
+          // Get value for policy recommendations field.
+          $policy_brief_policy_recommendations = '<h3>' . t('Policy recommendations') . '</h3>';
+          $policy_recommendations = field_get_items('node', $node, 'field_policy_recommendations');
+          $view_field = field_view_value('node', $node, 'field_policy_recommendations', $policy_recommendations[0]);
+          $policy_brief_policy_recommendations .= render($view_field);
+
+          // Get value for additional resources field.
+          $policy_brief_additional_resource = '<h3>' . t('Additional resources') . '</h3>';
+          $additional_resource = field_get_items('node', $node, 'field_additi_reso_policy');
+          $view_field = field_view_value('node', $node, 'field_additi_reso_policy', $additional_resource[0]);
+          $policy_brief_additional_resource .= render($view_field);
+
+          $vars['policy_brief_policy_options'] = $policy_brief_policy_options;
+          $vars['policy_brief_policy_recommendations'] = $policy_brief_policy_recommendations;
+          $vars['policy_brief_additional_resource'] = $policy_brief_additional_resource;
+        break;
     }
   }
 }
