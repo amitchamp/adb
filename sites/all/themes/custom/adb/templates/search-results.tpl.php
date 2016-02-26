@@ -24,6 +24,7 @@
  */
 ?>
 <?php if ($search_results): ?>
+  <div class="search-result-count"><?php print $search_totals; ?></div>
   <ol class="search-results <?php print $module; ?>-results">
     <?php print $search_results; ?>
   </ol>
