@@ -169,7 +169,7 @@ hide($content['links']);
 
   <!--Navigation.-->
   <?php if ($section_navigation): ?>
-    <div class="wrapper-section section-navigate"><?php print $section_navigation; ?></div>
+    <div class="wrapper-section"><?php print $section_navigation; ?></div>
   <?php endif; ?>
 
   <!--End Of Main Content x-->
