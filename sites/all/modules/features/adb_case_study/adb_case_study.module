@@ -85,6 +85,12 @@ function adb_case_study_block_view($delta = '') {
 function _adb_case_study_block_subsection_navigation() {
   // Get current path and nid.
   $current_path = explode('/', current_path());
+  $print_path = array('print' => 'print', 'printpdf' => 'printpdf');
+
+  if (array_search($current_path[0], $print_path)) {
+    array_shift($current_path);
+  }
+  
   $current_url = $current_path[0];
 
   // Get current node object.
@@ -229,7 +235,7 @@ function adb_case_study_preprocess_node(&$variables) {
     if (isset($variables['nid'])) {
       $variables['print_node'] = l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $variables['nid'], array(
         'attributes' => array(
-          'class' => 'print-link',
+          'class' => array('print-link'),
         ),
         'html' => TRUE,
       ));
@@ -348,7 +354,7 @@ function adb_case_study_preprocess_node(&$variables) {
 
     // Continue reading section.
     // We are calling allready crating link_section content url for continue reading.
-    $variables['continue_reading'] = _adb_case_study_block_sub_sction_menu_content();
+    $variables['continue_reading'] = _adb_case_study_block_sub_sction_menu_content($variables['nid']);
 
     // Meet our knowledge contributor.
     $contributor_exist = FALSE;

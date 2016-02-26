@@ -58,7 +58,7 @@ function adb_policy_brief_preprocess_node(&$variables) {
     if (isset($variables['nid'])) {
       $variables['print_node'] = l(t('<i class="fa fa-print"></i> Print'), 'print/node/' . $variables['nid'], array(
         'attributes' => array(
-          'class' => 'print-link',
+          'class' => array('print-link'),
         ),
         'html' => TRUE,
       ));
@@ -78,7 +78,7 @@ function adb_policy_brief_preprocess_node(&$variables) {
 
     // Continue reading section.
     // We are calling allready crating link_section content url for continue reading.
-    $variables['continue_reading'] = _adb_case_study_block_sub_sction_menu_content();
+    $variables['continue_reading'] = _adb_case_study_block_sub_sction_menu_content($variables['nid']);
 
     // Meet our knowledge contributor.
     $contributor_exist = FALSE;

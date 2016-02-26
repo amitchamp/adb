@@ -27,11 +27,16 @@ function _adb_case_study_comment_form_block($nid) {
  *  We are getting curent node nid and link url for another view content.
  *  @return string
  */
-function _adb_case_study_block_sub_sction_menu_content() {
+function _adb_case_study_block_sub_sction_menu_content($nid = 0) {
 
-  // Get current path and get node ID.
-  $current_path = explode('/', current_path());
-  $current_node = $current_path[1];
+  if ($nid) {
+    $current_node = $nid;
+  }
+  else {
+    // Get current path and get node ID.
+    $current_path = explode('/', current_path());
+    $current_node = $current_path[1];
+  }
   $node_wrapper = entity_metadata_wrapper('node', $current_node);
   $node_type = $node_wrapper->type->value();
   $lang_code = $node_wrapper->language->value();
@@ -89,7 +94,7 @@ function _adb_case_study_block_sub_sction_menu_content() {
             'title' => $node_wrapper->field_additi_reso_policy->value()->field_value[$lang_code][0]['value'],
             'href' => 'policy_resources/' . $current_node
         ));
-
+        
         break;
     }
   }
