@@ -228,12 +228,13 @@ p {
   width: 17.3%;
   padding-right: 20px;
   margin-top: 42px;
+  padding-left: 12px;
 }
-/* line 52, ../sass/layout/_layout.scss */
+/* line 53, ../sass/layout/_layout.scss */
 .sidebar-first-pages .wrapper-section {
   margin: 0;
 }
-/* line 55, ../sass/layout/_layout.scss */
+/* line 56, ../sass/layout/_layout.scss */
 .sidebar-first-pages .section-navigate {
   margin-top: 50px;
 }
@@ -1344,11 +1345,15 @@ header[role="banner"] a {
 .node-type-question-answer .download-print a {
   font-size: 13px;
 }
+/* line 142, ../sass/pages/_qa.scss */
+.node-type-question-answer .qna-header-wrapper {
+  margin-bottom: 0;
+}
 
 /*
  ** Q&A sidebar section
  */
-/* line 148, ../sass/pages/_qa.scss */
+/* line 151, ../sass/pages/_qa.scss */
 .qna-sidebar .search {
   width: 100%;
   -moz-border-radius: 5px / 5px;
@@ -1359,7 +1364,7 @@ header[role="banner"] a {
   padding: 6px 7px 4px 25px;
   background: url(../images/search-icon.png) no-repeat 7px center;
 }
-/* line 156, ../sass/pages/_qa.scss */
+/* line 159, ../sass/pages/_qa.scss */
 .qna-sidebar ul {
   background-color: #f2f2f2;
   padding: 10px;
@@ -1368,7 +1373,7 @@ header[role="banner"] a {
   max-height: 1025px;
   overflow-y: auto;
 }
-/* line 163, ../sass/pages/_qa.scss */
+/* line 166, ../sass/pages/_qa.scss */
 .qna-sidebar ul li {
   font-size: 16px;
   color: #2A5DB0;
@@ -1376,9 +1381,33 @@ header[role="banner"] a {
   padding: 15px 0;
   border-bottom: solid 1px #ccc;
 }
-/* line 169, ../sass/pages/_qa.scss */
+/* line 172, ../sass/pages/_qa.scss */
 .qna-sidebar ul li:last-of-type {
   border-bottom: none;
+}
+
+/*
+ ** Q&A detail section
+ */
+/* line 183, ../sass/pages/_qa.scss */
+.qna-wrapper {
+  max-width: 680px;
+}
+
+/* line 187, ../sass/pages/_qa.scss */
+.node-question-answer .main-heading {
+  font-size: 24px;
+  margin-top: 40px;
+}
+/* line 191, ../sass/pages/_qa.scss */
+.node-question-answer .case-study-tags {
+  margin: 45px 0 15px;
+}
+/* line 193, ../sass/pages/_qa.scss */
+.node-question-answer .case-study-tags li {
+  border: none;
+  font-size: 14px;
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=style.css.map */
