@@ -78,3 +78,32 @@ function adb_search_preprocess_search_result(&$variables) {
     'items' => $items,
   ));
 }
+
+/**
+ * Implements hook_preprocess_search_results().
+ */
+function adb_search_preprocess_search_results(&$variables) {
+  // Show number of search results.
+  // Thanks to https://www.lullabot.com/articles/display-a-count-of-search-results-in-drupal-7
+  $items_per_page = variable_get('apachesolr_search_per_page', 10);
+
+  // Determine which page is being viewed.
+  // If $_REQUEST['page'] is not set, we are on page 1.
+  $current_page = (!empty($_REQUEST['page']) ? $_REQUEST['page'] : 0) + 1;
+
+  // Get the total number of results from the global pager.
+  $total = $GLOBALS['pager_total_items'][0];
+
+  // Determine which results are being shown ("Showing results x through y").
+  $start = (10 * $current_page) - 9;
+  // If on the last page, only go up to $total, not the total that COULD be
+  // shown on the page. This prevents things like "Displaying 11-20 of 17".
+  $end = (($items_per_page * $current_page) >= $total) ? $total : ($items_per_page * $current_page);
+
+  // If there is more than one page of results:
+  $variables['search_totals'] = t('Showing @start - @end of @total results', array(
+    '@start' => $start,
+    '@end' => $end,
+    '@total' => $total,
+  ));
+}
