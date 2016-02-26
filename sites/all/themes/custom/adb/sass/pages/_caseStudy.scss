@@ -384,10 +384,11 @@
   width: 84%;
   display: inline-block;
   vertical-align: top;
+  margin-top: 12px;
 }
 .contributor-name {
   font-size: ($base-font)+6;
-  margin: 0 0 5px;
+  margin: 0;
   color: $text;
   font-family: $opensans-regular;
 }
@@ -568,10 +569,13 @@
 
 
 /*
-**Lessons Section
+**Lessons Section and Policy Recommendation section
 */
 
-.lessons-page {
+.content-detail-page {
+  .field-name-field-value {
+    margin-bottom: 20px;
+  }
   p {
     margin: 0 0 20px;
   }

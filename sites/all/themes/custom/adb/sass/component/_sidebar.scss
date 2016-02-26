@@ -13,5 +13,9 @@
   }
   a {
     font-size: ($base-font)+2;
+    &.active {
+    	color: $link;
+    	font-weight: 700;
+    }
   }
 }

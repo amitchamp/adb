@@ -51,6 +51,10 @@ function adb_policy_brief_views_default_views() {
   $handler->display->display_options['fields']['field_policy_options']['settings'] = array(
     'view_mode' => 'full',
   );
+  /* Field: Global: Fieldset */
+  $handler->display->display_options['fields']['fieldset']['id'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset']['table'] = 'views';
+  $handler->display->display_options['fields']['fieldset']['field'] = 'fieldset';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -83,13 +87,48 @@ function adb_policy_brief_views_default_views() {
 
   /* Display: Policy Brief */
   $handler = $view->new_display('page', 'Policy Brief', 'policy_option');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Global: Fieldset */
+  $handler->display->display_options['fields']['fieldset']['id'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset']['table'] = 'views';
+  $handler->display->display_options['fields']['fieldset']['field'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset']['label'] = 'section-overview';
+  $handler->display->display_options['fields']['fieldset']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['fieldset']['children'] = array(
+    0 => 'field_policy_options',
+  );
+  $handler->display->display_options['fields']['fieldset']['fieldset']['type'] = 'div';
+  $handler->display->display_options['fields']['fieldset']['fieldset']['classes'] = 'overview-content';
+  /* Field: Content: Policy options */
+  $handler->display->display_options['fields']['field_policy_options']['id'] = 'field_policy_options';
+  $handler->display->display_options['fields']['field_policy_options']['table'] = 'field_data_field_policy_options';
+  $handler->display->display_options['fields']['field_policy_options']['field'] = 'field_policy_options';
+  $handler->display->display_options['fields']['field_policy_options']['label'] = '';
+  $handler->display->display_options['fields']['field_policy_options']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_policy_options']['type'] = 'field_collection_fields';
+  $handler->display->display_options['fields']['field_policy_options']['settings'] = array(
+    'view_mode' => 'full',
+  );
   $handler->display->display_options['path'] = 'policy_option/%';
 
   /* Display: Recommendations */
   $handler = $view->new_display('page', 'Recommendations', 'recommendations');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Recommendations';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'wrapper-section content-detail-page';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Global: Fieldset */
+  $handler->display->display_options['fields']['fieldset']['id'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset']['table'] = 'views';
+  $handler->display->display_options['fields']['fieldset']['field'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset']['label'] = 'section-overview';
+  $handler->display->display_options['fields']['fieldset']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['fieldset']['children'] = array(
+    0 => 'field_policy_recommendations',
+  );
+  $handler->display->display_options['fields']['fieldset']['fieldset']['type'] = 'div';
+  $handler->display->display_options['fields']['fieldset']['fieldset']['classes'] = 'overview-content';
   /* Field: Content: Policy recommendations */
   $handler->display->display_options['fields']['field_policy_recommendations']['id'] = 'field_policy_recommendations';
   $handler->display->display_options['fields']['field_policy_recommendations']['table'] = 'field_data_field_policy_recommendations';
@@ -106,7 +145,20 @@ function adb_policy_brief_views_default_views() {
   $handler = $view->new_display('page', 'Resources', 'policy_resources');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Resources';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'wrapper-section additional-resources';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Global: Fieldset */
+  $handler->display->display_options['fields']['fieldset']['id'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset']['table'] = 'views';
+  $handler->display->display_options['fields']['fieldset']['field'] = 'fieldset';
+  $handler->display->display_options['fields']['fieldset']['label'] = 'section-overview';
+  $handler->display->display_options['fields']['fieldset']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['fieldset']['children'] = array(
+    0 => 'field_additi_reso_policy',
+  );
+  $handler->display->display_options['fields']['fieldset']['fieldset']['type'] = 'div';
+  $handler->display->display_options['fields']['fieldset']['fieldset']['classes'] = 'overview-content';
   /* Field: Content: Additional resources */
   $handler->display->display_options['fields']['field_additi_reso_policy']['id'] = 'field_additi_reso_policy';
   $handler->display->display_options['fields']['field_additi_reso_policy']['table'] = 'field_data_field_additi_reso_policy';
