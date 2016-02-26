@@ -130,7 +130,7 @@ function adb_qna_preprocess_node(&$variables) {
     $variables['download_link'] = l('<i class="fa fa-file-pdf-o"></i> ' . t('Download'), 'printpdf' . $variables['node_url'], array(
       'attributes' => array(
         'class' => array(
-          'print-link',
+          'download-link',
         ),
       ),
       'html' => TRUE,
