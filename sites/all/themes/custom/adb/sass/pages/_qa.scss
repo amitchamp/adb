@@ -139,6 +139,9 @@
   .download-print a {
     font-size: ($base-font)-1;
   }
+  .qna-header-wrapper {
+    margin-bottom: 0;
+  }
 }
 
 /*
@@ -171,4 +174,26 @@
       }
     }
   }
+}
+
+/*
+ ** Q&A detail section
+ */
+
+.qna-wrapper {
+  max-width: 680px;
+}
+.node-question-answer {
+  .main-heading {
+    font-size: ($base-font)+10;
+    margin-top: 40px;
+  }
+  .case-study-tags {
+    margin: 45px 0 15px;
+    li {
+      border: none;
+      font-size: 14px;
+      background-color: transparent;
+    }
+  }  
 }

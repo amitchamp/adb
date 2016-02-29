@@ -106,7 +106,7 @@
 hide($content['comments']);
 hide($content['links']);
 ?>
-<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix qna-wrapper"<?php print $attributes; ?>>
   <?php print render($title_prefix); ?>
 
   <?php if ($title && !$page): ?>
@@ -120,7 +120,7 @@ hide($content['links']);
   <?php elseif ($title && $page): ?>
     <header<?php print $header_attributes; ?>>
       <?php if ($title): ?>
-        <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
+        <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
       <?php endif; ?>
     </header>
   <?php endif; ?>
@@ -139,7 +139,7 @@ hide($content['links']);
       </div>
     </div>
   </div>
-  <div class="main-content">
+  <div class="main-content overview-content">
     <?php print render($content['body']); ?>
   </div>
 
