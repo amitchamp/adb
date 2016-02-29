@@ -115,6 +115,7 @@ function adb_qna_block_view($delta = '') {
  */
 function adb_qna_preprocess_node(&$variables) {
   if ($variables['type'] == 'question_answer') {
+    $variables['navigational_links'] = '';
     $node_url = url($variables['node_url'], array(
       'absolute' => TRUE,
     ));
@@ -144,6 +145,49 @@ function adb_qna_preprocess_node(&$variables) {
     $formatted_list = adb_case_study_make_term_tagging($vocabulary_fields, $variables);
     if (!empty($formatted_list)) {
       $variables['node_field_tagging'] = $formatted_list;
+    }
+
+    // Navigational links.
+    // This query is similar to `views_available_questions` views query.
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+      ->entityCondition('bundle', $variables['type'])
+      ->propertyCondition('status', NODE_PUBLISHED)
+      ->propertyOrderBy('created', 'DESC')
+      ->fieldCondition('field_topic', 'tid', $variables['field_topic'][0]['tid']);
+    $result = $query->execute();
+
+    if (!empty($result['node'])) {
+      // Create navigational links based on the position of current node.
+      $keys = array_keys($result['node']);
+      $current_node_position = array_search($variables['nid'], $keys);
+
+      // Create previous link.
+      if (!empty($keys[$current_node_position - 1])) {
+        $wrapper = entity_metadata_wrapper('node', $keys[$current_node_position - 1]);
+
+        $variables['navigational_links'] .= l('<span class="nav-links"><i class="fa fa-angle-left"></i> ' . t('Previous') . '</span><span class="link-name">' . $wrapper->label() . '</span>', drupal_get_path_alias('node/' . $keys[$current_node_position - 1]), array(
+          'attributes' => array(
+            'class' => array(
+              'prev-link',
+            ),
+          ),
+          'html' => TRUE,
+        ));
+      }
+      // Create next link.
+      if (!empty($keys[$current_node_position + 1])) {
+        $wrapper = entity_metadata_wrapper('node', $keys[$current_node_position + 1]);
+
+        $variables['navigational_links'] .= l('<span class="nav-links">' . t('Next') . ' <i class="fa fa-angle-right"></i></span><span class="link-name">' . $wrapper->label() . '</span>', drupal_get_path_alias('node/' . $keys[$current_node_position + 1]), array(
+          'attributes' => array(
+            'class' => array(
+              'next-link',
+            ),
+          ),
+          'html' => TRUE,
+        ));
+      }
     }
   }
 }

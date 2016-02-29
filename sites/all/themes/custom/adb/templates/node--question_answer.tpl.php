@@ -143,6 +143,15 @@ hide($content['links']);
     <?php print render($content['body']); ?>
   </div>
 
+  <!--Navigation-->
+  <?php if (!empty($navigational_links)): ?>
+    <div class="wrapper-section">
+      <div class="section-navigate">
+        <div class="navigation-content"><?php print $navigational_links; ?></div>
+      </div>
+    </div>
+  <?php endif; ?>
+
   <!--End Of Main Content -->
   <?php print render($content['rate_rate_useful_content']); ?>
 
