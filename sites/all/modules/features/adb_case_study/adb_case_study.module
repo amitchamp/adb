@@ -90,7 +90,7 @@ function _adb_case_study_block_subsection_navigation() {
   if (array_search($current_path[0], $print_path)) {
     array_shift($current_path);
   }
-  
+
   $current_url = $current_path[0];
 
   // Get current node object.
@@ -149,7 +149,9 @@ function _adb_case_study_block_subsection_navigation() {
     if ($prev > 0) {
       $navigation .= l(t('<span class="nav-links"><i class="fa fa-angle-left"></i> Previous</span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$prev]])), $key_array_indexing[$prev] . '/' . $current_path[1], array(
         'attributes' => array(
-          'class' => 'prev-link',
+          'class' => array(
+            'prev-link',
+          ),
         ),
         'html' => TRUE,
       ));
@@ -158,7 +160,9 @@ function _adb_case_study_block_subsection_navigation() {
       $navigation .= l(t('<span class="nav-links">Next <i class="fa fa-angle-right"></i></span><span class="link-name">@name</span>', array('@name' => $name_key_pair[$key_array_indexing[$next]]
         )), $key_array_indexing[$next] . '/' . $current_path[1], array(
         'attributes' => array(
-          'class' => 'next-link',
+          'class' => array(
+            'next-link',
+          ),
         ),
         'html' => TRUE,
       ));
