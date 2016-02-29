@@ -40,6 +40,7 @@ features[field_instance][] = node-sector_review-field_description_body
 features[field_instance][] = node-sector_review-field_insight_description
 features[field_instance][] = node-sector_review-field_insight_detail
 features[field_instance][] = node-sector_review-field_insight_sub_title
+features[field_instance][] = node-sector_review-field_meet_contributor
 features[field_instance][] = node-sector_review-field_sector_analysis
 features[field_instance][] = node-sector_review-field_sector_sub_title
 features[field_instance][] = node-sector_review-field_tags

@@ -564,6 +564,45 @@ function adb_sector_review_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-sector_review-field_meet_contributor'.
+  $field_instances['node-sector_review-field_meet_contributor'] = array(
+    'bundle' => 'sector_review',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_meet_contributor',
+    'label' => 'Meet our knowledge contributor',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 15,
+    ),
+  );
+
   // Exported field_instance: 'node-sector_review-field_sector_analysis'.
   $field_instances['node-sector_review-field_sector_analysis'] = array(
     'bundle' => 'sector_review',
@@ -735,6 +774,7 @@ function adb_sector_review_field_default_field_instances() {
   t('Insight Description');
   t('Insight detail');
   t('Insight sub title');
+  t('Meet our knowledge contributor');
   t('Sector analysis');
   t('Sector sub title');
   t('Tags');
